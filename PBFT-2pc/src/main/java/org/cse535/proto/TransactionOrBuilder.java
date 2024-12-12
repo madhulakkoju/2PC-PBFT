@@ -23,6 +23,11 @@ public interface TransactionOrBuilder extends
   int getAmount();
 
   /**
+   * <code>int32 receiver2 = 8;</code>
+   */
+  int getReceiver2();
+
+  /**
    * <code>.google.protobuf.Timestamp timestamp = 4;</code>
    */
   boolean hasTimestamp();

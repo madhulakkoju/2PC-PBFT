@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     sender_ = 0;
     receiver_ = 0;
     amount_ = 0;
+    receiver2_ = 0;
     transactionHash_ = "";
     transactionNum_ = 0;
     isCrossShard_ = false;
@@ -92,6 +93,11 @@ private static final long serialVersionUID = 0L;
             isCrossShard_ = input.readBool();
             break;
           }
+          case 64: {
+
+            receiver2_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownFieldProto3(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -149,6 +155,15 @@ private static final long serialVersionUID = 0L;
    */
   public int getAmount() {
     return amount_;
+  }
+
+  public static final int RECEIVER2_FIELD_NUMBER = 8;
+  private int receiver2_;
+  /**
+   * <code>int32 receiver2 = 8;</code>
+   */
+  public int getReceiver2() {
+    return receiver2_;
   }
 
   public static final int TIMESTAMP_FIELD_NUMBER = 4;
@@ -259,6 +274,9 @@ private static final long serialVersionUID = 0L;
     if (isCrossShard_ != false) {
       output.writeBool(7, isCrossShard_);
     }
+    if (receiver2_ != 0) {
+      output.writeInt32(8, receiver2_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -295,6 +313,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, isCrossShard_);
     }
+    if (receiver2_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(8, receiver2_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -317,6 +339,8 @@ private static final long serialVersionUID = 0L;
         == other.getReceiver());
     result = result && (getAmount()
         == other.getAmount());
+    result = result && (getReceiver2()
+        == other.getReceiver2());
     result = result && (hasTimestamp() == other.hasTimestamp());
     if (hasTimestamp()) {
       result = result && getTimestamp()
@@ -345,6 +369,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getReceiver();
     hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
     hash = (53 * hash) + getAmount();
+    hash = (37 * hash) + RECEIVER2_FIELD_NUMBER;
+    hash = (53 * hash) + getReceiver2();
     if (hasTimestamp()) {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getTimestamp().hashCode();
@@ -495,6 +521,8 @@ private static final long serialVersionUID = 0L;
 
       amount_ = 0;
 
+      receiver2_ = 0;
+
       if (timestampBuilder_ == null) {
         timestamp_ = null;
       } else {
@@ -536,6 +564,7 @@ private static final long serialVersionUID = 0L;
       result.sender_ = sender_;
       result.receiver_ = receiver_;
       result.amount_ = amount_;
+      result.receiver2_ = receiver2_;
       if (timestampBuilder_ == null) {
         result.timestamp_ = timestamp_;
       } else {
@@ -600,6 +629,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAmount() != 0) {
         setAmount(other.getAmount());
+      }
+      if (other.getReceiver2() != 0) {
+        setReceiver2(other.getReceiver2());
       }
       if (other.hasTimestamp()) {
         mergeTimestamp(other.getTimestamp());
@@ -717,6 +749,32 @@ private static final long serialVersionUID = 0L;
     public Builder clearAmount() {
       
       amount_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int receiver2_ ;
+    /**
+     * <code>int32 receiver2 = 8;</code>
+     */
+    public int getReceiver2() {
+      return receiver2_;
+    }
+    /**
+     * <code>int32 receiver2 = 8;</code>
+     */
+    public Builder setReceiver2(int value) {
+      
+      receiver2_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 receiver2 = 8;</code>
+     */
+    public Builder clearReceiver2() {
+      
+      receiver2_ = 0;
       onChanged();
       return this;
     }

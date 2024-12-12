@@ -19,12 +19,12 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
-    comments = "Source: pbft-2pc.proto")
-public final class LinearPBFTGrpc {
+    comments = "Source: paxos-2pc.proto")
+public final class PaxosGrpc {
 
-  private LinearPBFTGrpc() {}
+  private PaxosGrpc() {}
 
-  public static final String SERVICE_NAME = "LinearPBFT";
+  public static final String SERVICE_NAME = "Paxos";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig,
@@ -38,20 +38,20 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig,
       org.cse535.proto.TxnResponse> getRequestMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig, org.cse535.proto.TxnResponse> getRequestMethod;
-    if ((getRequestMethod = LinearPBFTGrpc.getRequestMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getRequestMethod = LinearPBFTGrpc.getRequestMethod) == null) {
-          LinearPBFTGrpc.getRequestMethod = getRequestMethod = 
+    if ((getRequestMethod = PaxosGrpc.getRequestMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getRequestMethod = PaxosGrpc.getRequestMethod) == null) {
+          PaxosGrpc.getRequestMethod = getRequestMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.TransactionInputConfig, org.cse535.proto.TxnResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "Request"))
+                  "Paxos", "Request"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.TransactionInputConfig.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.TxnResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("Request"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("Request"))
                   .build();
           }
         }
@@ -70,57 +70,25 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig,
       org.cse535.proto.CrossTxnResponse> getCrossShardRequestMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig, org.cse535.proto.CrossTxnResponse> getCrossShardRequestMethod;
-    if ((getCrossShardRequestMethod = LinearPBFTGrpc.getCrossShardRequestMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getCrossShardRequestMethod = LinearPBFTGrpc.getCrossShardRequestMethod) == null) {
-          LinearPBFTGrpc.getCrossShardRequestMethod = getCrossShardRequestMethod = 
+    if ((getCrossShardRequestMethod = PaxosGrpc.getCrossShardRequestMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getCrossShardRequestMethod = PaxosGrpc.getCrossShardRequestMethod) == null) {
+          PaxosGrpc.getCrossShardRequestMethod = getCrossShardRequestMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.TransactionInputConfig, org.cse535.proto.CrossTxnResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "CrossShardRequest"))
+                  "Paxos", "CrossShardRequest"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.TransactionInputConfig.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.CrossTxnResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("CrossShardRequest"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("CrossShardRequest"))
                   .build();
           }
         }
      }
      return getCrossShardRequestMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
-      org.cse535.proto.PrepareResponse> getPrePrepareMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "PrePrepare",
-      requestType = org.cse535.proto.PrepareRequest.class,
-      responseType = org.cse535.proto.PrepareResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
-      org.cse535.proto.PrepareResponse> getPrePrepareMethod() {
-    io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse> getPrePrepareMethod;
-    if ((getPrePrepareMethod = LinearPBFTGrpc.getPrePrepareMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getPrePrepareMethod = LinearPBFTGrpc.getPrePrepareMethod) == null) {
-          LinearPBFTGrpc.getPrePrepareMethod = getPrePrepareMethod = 
-              io.grpc.MethodDescriptor.<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "PrePrepare"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.PrepareRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.PrepareResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("PrePrepare"))
-                  .build();
-          }
-        }
-     }
-     return getPrePrepareMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
@@ -134,20 +102,20 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
       org.cse535.proto.PrepareResponse> getPrepareMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse> getPrepareMethod;
-    if ((getPrepareMethod = LinearPBFTGrpc.getPrepareMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getPrepareMethod = LinearPBFTGrpc.getPrepareMethod) == null) {
-          LinearPBFTGrpc.getPrepareMethod = getPrepareMethod = 
+    if ((getPrepareMethod = PaxosGrpc.getPrepareMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getPrepareMethod = PaxosGrpc.getPrepareMethod) == null) {
+          PaxosGrpc.getPrepareMethod = getPrepareMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "Prepare"))
+                  "Paxos", "Prepare"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.PrepareRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.PrepareResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("Prepare"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("Prepare"))
                   .build();
           }
         }
@@ -166,20 +134,20 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest,
       org.cse535.proto.CommitResponse> getCommitMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest, org.cse535.proto.CommitResponse> getCommitMethod;
-    if ((getCommitMethod = LinearPBFTGrpc.getCommitMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getCommitMethod = LinearPBFTGrpc.getCommitMethod) == null) {
-          LinearPBFTGrpc.getCommitMethod = getCommitMethod = 
+    if ((getCommitMethod = PaxosGrpc.getCommitMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getCommitMethod = PaxosGrpc.getCommitMethod) == null) {
+          PaxosGrpc.getCommitMethod = getCommitMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.CommitRequest, org.cse535.proto.CommitResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "Commit"))
+                  "Paxos", "Commit"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.CommitRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.CommitResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("Commit"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("Commit"))
                   .build();
           }
         }
@@ -198,20 +166,20 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
       org.cse535.proto.PrepareResponse> getSyncMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse> getSyncMethod;
-    if ((getSyncMethod = LinearPBFTGrpc.getSyncMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getSyncMethod = LinearPBFTGrpc.getSyncMethod) == null) {
-          LinearPBFTGrpc.getSyncMethod = getSyncMethod = 
+    if ((getSyncMethod = PaxosGrpc.getSyncMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getSyncMethod = PaxosGrpc.getSyncMethod) == null) {
+          PaxosGrpc.getSyncMethod = getSyncMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "Sync"))
+                  "Paxos", "Sync"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.PrepareRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.PrepareResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("Sync"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("Sync"))
                   .build();
           }
         }
@@ -230,20 +198,20 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.ExecutionReply,
       com.google.protobuf.Empty> getExecReplyMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.ExecutionReply, com.google.protobuf.Empty> getExecReplyMethod;
-    if ((getExecReplyMethod = LinearPBFTGrpc.getExecReplyMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getExecReplyMethod = LinearPBFTGrpc.getExecReplyMethod) == null) {
-          LinearPBFTGrpc.getExecReplyMethod = getExecReplyMethod = 
+    if ((getExecReplyMethod = PaxosGrpc.getExecReplyMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getExecReplyMethod = PaxosGrpc.getExecReplyMethod) == null) {
+          PaxosGrpc.getExecReplyMethod = getExecReplyMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.ExecutionReply, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "ExecReply"))
+                  "Paxos", "ExecReply"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.ExecutionReply.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("ExecReply"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("ExecReply"))
                   .build();
           }
         }
@@ -262,20 +230,20 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       org.cse535.proto.ReShardingInitData> getReShardingInitiationMethod() {
     io.grpc.MethodDescriptor<com.google.protobuf.Empty, org.cse535.proto.ReShardingInitData> getReShardingInitiationMethod;
-    if ((getReShardingInitiationMethod = LinearPBFTGrpc.getReShardingInitiationMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getReShardingInitiationMethod = LinearPBFTGrpc.getReShardingInitiationMethod) == null) {
-          LinearPBFTGrpc.getReShardingInitiationMethod = getReShardingInitiationMethod = 
+    if ((getReShardingInitiationMethod = PaxosGrpc.getReShardingInitiationMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getReShardingInitiationMethod = PaxosGrpc.getReShardingInitiationMethod) == null) {
+          PaxosGrpc.getReShardingInitiationMethod = getReShardingInitiationMethod = 
               io.grpc.MethodDescriptor.<com.google.protobuf.Empty, org.cse535.proto.ReShardingInitData>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "ReShardingInitiation"))
+                  "Paxos", "ReShardingInitiation"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.ReShardingInitData.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("ReShardingInitiation"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("ReShardingInitiation"))
                   .build();
           }
         }
@@ -294,20 +262,20 @@ public final class LinearPBFTGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.ReShardingData,
       org.cse535.proto.CommandOutput> getReShardingProcessMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.ReShardingData, org.cse535.proto.CommandOutput> getReShardingProcessMethod;
-    if ((getReShardingProcessMethod = LinearPBFTGrpc.getReShardingProcessMethod) == null) {
-      synchronized (LinearPBFTGrpc.class) {
-        if ((getReShardingProcessMethod = LinearPBFTGrpc.getReShardingProcessMethod) == null) {
-          LinearPBFTGrpc.getReShardingProcessMethod = getReShardingProcessMethod = 
+    if ((getReShardingProcessMethod = PaxosGrpc.getReShardingProcessMethod) == null) {
+      synchronized (PaxosGrpc.class) {
+        if ((getReShardingProcessMethod = PaxosGrpc.getReShardingProcessMethod) == null) {
+          PaxosGrpc.getReShardingProcessMethod = getReShardingProcessMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.ReShardingData, org.cse535.proto.CommandOutput>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LinearPBFT", "ReShardingProcess"))
+                  "Paxos", "ReShardingProcess"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.ReShardingData.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.CommandOutput.getDefaultInstance()))
-                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("ReShardingProcess"))
+                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("ReShardingProcess"))
                   .build();
           }
         }
@@ -318,29 +286,29 @@ public final class LinearPBFTGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static LinearPBFTStub newStub(io.grpc.Channel channel) {
-    return new LinearPBFTStub(channel);
+  public static PaxosStub newStub(io.grpc.Channel channel) {
+    return new PaxosStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static LinearPBFTBlockingStub newBlockingStub(
+  public static PaxosBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new LinearPBFTBlockingStub(channel);
+    return new PaxosBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static LinearPBFTFutureStub newFutureStub(
+  public static PaxosFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new LinearPBFTFutureStub(channel);
+    return new PaxosFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class LinearPBFTImplBase implements io.grpc.BindableService {
+  public static abstract class PaxosImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -354,13 +322,6 @@ public final class LinearPBFTGrpc {
     public void crossShardRequest(org.cse535.proto.TransactionInputConfig request,
         io.grpc.stub.StreamObserver<org.cse535.proto.CrossTxnResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getCrossShardRequestMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void prePrepare(org.cse535.proto.PrepareRequest request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getPrePrepareMethod(), responseObserver);
     }
 
     /**
@@ -422,13 +383,6 @@ public final class LinearPBFTGrpc {
                 org.cse535.proto.CrossTxnResponse>(
                   this, METHODID_CROSS_SHARD_REQUEST)))
           .addMethod(
-            getPrePrepareMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                org.cse535.proto.PrepareRequest,
-                org.cse535.proto.PrepareResponse>(
-                  this, METHODID_PRE_PREPARE)))
-          .addMethod(
             getPrepareMethod(),
             asyncUnaryCall(
               new MethodHandlers<
@@ -476,20 +430,20 @@ public final class LinearPBFTGrpc {
 
   /**
    */
-  public static final class LinearPBFTStub extends io.grpc.stub.AbstractStub<LinearPBFTStub> {
-    private LinearPBFTStub(io.grpc.Channel channel) {
+  public static final class PaxosStub extends io.grpc.stub.AbstractStub<PaxosStub> {
+    private PaxosStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private LinearPBFTStub(io.grpc.Channel channel,
+    private PaxosStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected LinearPBFTStub build(io.grpc.Channel channel,
+    protected PaxosStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new LinearPBFTStub(channel, callOptions);
+      return new PaxosStub(channel, callOptions);
     }
 
     /**
@@ -506,14 +460,6 @@ public final class LinearPBFTGrpc {
         io.grpc.stub.StreamObserver<org.cse535.proto.CrossTxnResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getCrossShardRequestMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void prePrepare(org.cse535.proto.PrepareRequest request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getPrePrepareMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -567,20 +513,20 @@ public final class LinearPBFTGrpc {
 
   /**
    */
-  public static final class LinearPBFTBlockingStub extends io.grpc.stub.AbstractStub<LinearPBFTBlockingStub> {
-    private LinearPBFTBlockingStub(io.grpc.Channel channel) {
+  public static final class PaxosBlockingStub extends io.grpc.stub.AbstractStub<PaxosBlockingStub> {
+    private PaxosBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private LinearPBFTBlockingStub(io.grpc.Channel channel,
+    private PaxosBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected LinearPBFTBlockingStub build(io.grpc.Channel channel,
+    protected PaxosBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new LinearPBFTBlockingStub(channel, callOptions);
+      return new PaxosBlockingStub(channel, callOptions);
     }
 
     /**
@@ -595,13 +541,6 @@ public final class LinearPBFTGrpc {
     public org.cse535.proto.CrossTxnResponse crossShardRequest(org.cse535.proto.TransactionInputConfig request) {
       return blockingUnaryCall(
           getChannel(), getCrossShardRequestMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public org.cse535.proto.PrepareResponse prePrepare(org.cse535.proto.PrepareRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getPrePrepareMethod(), getCallOptions(), request);
     }
 
     /**
@@ -649,20 +588,20 @@ public final class LinearPBFTGrpc {
 
   /**
    */
-  public static final class LinearPBFTFutureStub extends io.grpc.stub.AbstractStub<LinearPBFTFutureStub> {
-    private LinearPBFTFutureStub(io.grpc.Channel channel) {
+  public static final class PaxosFutureStub extends io.grpc.stub.AbstractStub<PaxosFutureStub> {
+    private PaxosFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private LinearPBFTFutureStub(io.grpc.Channel channel,
+    private PaxosFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected LinearPBFTFutureStub build(io.grpc.Channel channel,
+    protected PaxosFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new LinearPBFTFutureStub(channel, callOptions);
+      return new PaxosFutureStub(channel, callOptions);
     }
 
     /**
@@ -679,14 +618,6 @@ public final class LinearPBFTGrpc {
         org.cse535.proto.TransactionInputConfig request) {
       return futureUnaryCall(
           getChannel().newCall(getCrossShardRequestMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.PrepareResponse> prePrepare(
-        org.cse535.proto.PrepareRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getPrePrepareMethod(), getCallOptions()), request);
     }
 
     /**
@@ -740,23 +671,22 @@ public final class LinearPBFTGrpc {
 
   private static final int METHODID_REQUEST = 0;
   private static final int METHODID_CROSS_SHARD_REQUEST = 1;
-  private static final int METHODID_PRE_PREPARE = 2;
-  private static final int METHODID_PREPARE = 3;
-  private static final int METHODID_COMMIT = 4;
-  private static final int METHODID_SYNC = 5;
-  private static final int METHODID_EXEC_REPLY = 6;
-  private static final int METHODID_RE_SHARDING_INITIATION = 7;
-  private static final int METHODID_RE_SHARDING_PROCESS = 8;
+  private static final int METHODID_PREPARE = 2;
+  private static final int METHODID_COMMIT = 3;
+  private static final int METHODID_SYNC = 4;
+  private static final int METHODID_EXEC_REPLY = 5;
+  private static final int METHODID_RE_SHARDING_INITIATION = 6;
+  private static final int METHODID_RE_SHARDING_PROCESS = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final LinearPBFTImplBase serviceImpl;
+    private final PaxosImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(LinearPBFTImplBase serviceImpl, int methodId) {
+    MethodHandlers(PaxosImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -772,10 +702,6 @@ public final class LinearPBFTGrpc {
         case METHODID_CROSS_SHARD_REQUEST:
           serviceImpl.crossShardRequest((org.cse535.proto.TransactionInputConfig) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.CrossTxnResponse>) responseObserver);
-          break;
-        case METHODID_PRE_PREPARE:
-          serviceImpl.prePrepare((org.cse535.proto.PrepareRequest) request,
-              (io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse>) responseObserver);
           break;
         case METHODID_PREPARE:
           serviceImpl.prepare((org.cse535.proto.PrepareRequest) request,
@@ -817,32 +743,32 @@ public final class LinearPBFTGrpc {
     }
   }
 
-  private static abstract class LinearPBFTBaseDescriptorSupplier
+  private static abstract class PaxosBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    LinearPBFTBaseDescriptorSupplier() {}
+    PaxosBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return org.cse535.proto.Pbft2Pc.getDescriptor();
+      return org.cse535.proto.Paxos2Pc.getDescriptor();
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("LinearPBFT");
+      return getFileDescriptor().findServiceByName("Paxos");
     }
   }
 
-  private static final class LinearPBFTFileDescriptorSupplier
-      extends LinearPBFTBaseDescriptorSupplier {
-    LinearPBFTFileDescriptorSupplier() {}
+  private static final class PaxosFileDescriptorSupplier
+      extends PaxosBaseDescriptorSupplier {
+    PaxosFileDescriptorSupplier() {}
   }
 
-  private static final class LinearPBFTMethodDescriptorSupplier
-      extends LinearPBFTBaseDescriptorSupplier
+  private static final class PaxosMethodDescriptorSupplier
+      extends PaxosBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    LinearPBFTMethodDescriptorSupplier(String methodName) {
+    PaxosMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -857,14 +783,13 @@ public final class LinearPBFTGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (LinearPBFTGrpc.class) {
+      synchronized (PaxosGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new LinearPBFTFileDescriptorSupplier())
+              .setSchemaDescriptor(new PaxosFileDescriptorSupplier())
               .addMethod(getRequestMethod())
               .addMethod(getCrossShardRequestMethod())
-              .addMethod(getPrePrepareMethod())
               .addMethod(getPrepareMethod())
               .addMethod(getCommitMethod())
               .addMethod(getSyncMethod())

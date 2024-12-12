@@ -1,0 +1,211 @@
+//syntax = "proto3";
+//option  java_package = "org.cse535.proto";
+//option java_multiple_files = true;
+//
+//import "google/protobuf/timestamp.proto";
+//import "google/protobuf/empty.proto";
+//
+//
+//
+//service Paxos {
+//  rpc Request(TransactionInputConfig) returns (TxnResponse) {}
+//  rpc CrossShardRequest(TransactionInputConfig) returns (CrossTxnResponse) {}
+//  rpc Prepare(PrepareRequest) returns (PrepareResponse) {}
+//  rpc Commit(CommitRequest) returns (CommitResponse) {}
+//  rpc Sync(PrepareRequest) returns (PrepareResponse) {}
+//  rpc ExecReply(ExecutionReply) returns (google.protobuf.Empty) {}
+//
+//
+//  rpc ReShardingInitiation(google.protobuf.Empty) returns ( ReShardingInitData ) {}
+//  rpc ReShardingProcess(ReShardingData) returns (CommandOutput) {}
+//
+//}
+//
+//
+//service ActivateServers{
+//  rpc activateServer(ActivateServerRequest) returns (ActivateServerResponse) {}
+//  rpc deactivateServer(DeactivateServerRequest) returns (DeactivateServerResponse) {}
+//
+//}
+//
+//service Commands{
+//  rpc printBalance(CommandInput) returns (CommandOutput) {}
+//  rpc printLog(CommandInput) returns (CommandOutput) {}
+//  rpc printDB(CommandInput) returns (CommandOutput) {}
+//  rpc Performance(CommandInput) returns (CommandOutput) {}
+//  rpc printDatastore(CommandInput) returns (CommandOutput) {}
+//}
+//
+//
+//
+//message TransactionInputConfig{
+//
+//  int32 setNumber = 1;
+//  Transaction transaction = 2;
+//  int32 view = 3;
+//  repeated string serverNames = 5;
+//
+//}
+//
+//message Transaction {
+//
+//  int32 sender = 1;
+//  int32 receiver = 2;
+//  int32 amount = 3;
+//  google.protobuf.Timestamp timestamp = 4;
+//
+//  string transactionHash = 5;
+//  int32 transactionNum = 6;
+//
+//  bool isCrossShard = 7;
+//}
+//
+//message TxnResponse{
+//  bool success = 1;
+//  string serverName = 2;
+//}
+//
+//message CrossTxnResponse{
+//  bool success = 1;
+//  string serverName = 2;
+//  int32 ballotNumber = 3;
+//
+//  int32 clusterId = 6;
+//
+//  int32 successPreparesCount = 4;
+//  string failureReason = 5;
+//}
+//
+//enum TransactionStatus{
+//  PENDING = 0;
+//  PREPARED = 1;
+//  ACCEPTED = 2;
+//  COMMITTED = 3;
+//  EXECUTED = 4;
+//  ABORTED = 5;
+//}
+//
+//
+//message PrepareRequest {
+//  int32 ballotNumber = 1;
+//  string processId = 2; // processId is Server Name
+//
+//  Transaction transaction = 3;
+//
+//  Transaction latestCommittedTransaction = 4;
+//  int32 latestCommittedBallotNumber = 5;
+//
+//  int32 clusterId = 6;
+//
+//}
+//
+//message PrepareResponse {
+//  int32 ballotNumber = 1;
+//  string processId = 2;
+//
+//  bool success = 3;
+//
+//  Transaction lastAcceptedUncommittedTransaction = 4;
+//  int32 lastAcceptedUncommittedBallotNumber = 5;
+//
+//  Transaction lastCommittedTransaction = 6;
+//  int32 lastCommittedBallotNumber = 7;
+//
+//
+//  map<int32, Transaction> syncTransactionsMap = 8;
+//  map<int32, TransactionStatus> syncTransactionStatusMap = 9;
+//  map<int32, int32> syncBalancesMap = 10;
+//
+//  string acceptedServerName = 11; //Current server name
+//
+//
+//  bool needToSync = 12;
+//  int32 latestBallotNumber = 13;
+//
+//}
+//
+//
+//
+//message CommitRequest {
+//  int32 ballotNumber = 1;
+//  string processId = 2; // processId is Server Name
+//  Transaction transaction = 3;
+//  int32 clusterId = 8;
+//
+//  bool abort = 4;
+//}
+//
+//
+//message CommitResponse {
+//  int32 ballotNumber = 1;
+//  string processId = 2;
+//
+//  string acceptedServerName = 3; //Current server name
+//
+//  bool success = 4;
+//}
+//
+//
+//message ExecutionReply{
+//
+//  int32 transactionNum = 1;
+//  bool success = 2;
+//  string serverName = 3;
+//  int32 clusterId = 4;
+//  string failureReason = 5;
+//}
+//
+//
+//
+//
+//
+//
+//message ActivateServerRequest{
+//  string serverName = 1;
+//  int32 testCase = 2;
+//}
+//
+//message ActivateServerResponse{
+//  bool success = 1;
+//  string serverName = 2;
+//}
+//
+//message DeactivateServerRequest{
+//  string serverName = 1;
+//  int32 testCase = 2;
+//}
+//
+//message DeactivateServerResponse{
+//  bool success = 1;
+//  string serverName = 2;
+//}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//message CommandInput{
+//  string input = 1;
+//}
+//
+//message CommandOutput{
+//  string output = 1;
+//}
+//
+//
+//
+//message ReShardingInitData{
+//  int32 clusterId = 1;
+//  map<int32, int32> accountBalances = 2;
+//}
+//
+//message ReShardingData{
+//  int32 clusterId = 1;
+//  map<int32, int32> accountBalances = 2;
+//  map<int32, int32> newDataItemClusterConfig = 3;
+//}

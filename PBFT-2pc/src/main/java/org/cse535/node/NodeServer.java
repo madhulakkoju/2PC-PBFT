@@ -35,7 +35,7 @@ public class NodeServer {
     // GRPC Server Items
     public Server server;
     public HashMap<Integer, ManagedChannel> serversToChannel;
-    public HashMap<Integer, LinearPBFTGrpc.LinearPBFTBlockingStub> serversToPaxosStub;
+    public HashMap<Integer, PaxosGrpc.PaxosBlockingStub> serversToPaxosStub;
     public HashMap<Integer, ActivateServersGrpc.ActivateServersBlockingStub> serversToActivateServersStub;
     public HashMap<Integer, CommandsGrpc.CommandsBlockingStub> serversToCommandsStub;
 
@@ -55,7 +55,7 @@ public class NodeServer {
         initiateChannelsAndStubs();
 
         this.server = ServerBuilder.forPort(port)
-                .addService(new LinearPBFTService ())
+                .addService(new LinearPBFTService())
                 .addService(new ActivateServersService())
                 .addService(new CommandsService())
                 .build();
@@ -83,7 +83,7 @@ public class NodeServer {
             System.out.println("Channel created for server: " + serverNum);
 
             serversToChannel.put(serverNum, channel);
-            serversToPaxosStub.put(serverNum, LinearPBFTGrpc.newBlockingStub(channel));
+            serversToPaxosStub.put(serverNum, PaxosGrpc.newBlockingStub(channel));
             serversToActivateServersStub.put(serverNum, ActivateServersGrpc.newBlockingStub(channel));
             serversToCommandsStub.put(serverNum, CommandsGrpc.newBlockingStub(channel));
         });

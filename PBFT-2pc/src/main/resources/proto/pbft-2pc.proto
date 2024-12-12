@@ -3,20 +3,42 @@ option  java_package = "org.cse535.proto";
 option java_multiple_files = true;
 
 import "google/protobuf/timestamp.proto";
-
-
+import "google/protobuf/empty.proto";
 
 
 
 service LinearPBFT {
-
   rpc Request(TransactionInputConfig) returns (TxnResponse) {}
+  rpc CrossShardRequest(TransactionInputConfig) returns (CrossTxnResponse) {}
+
+  rpc PrePrepare(PrepareRequest) returns (PrepareResponse) {}
+  rpc Prepare(PrepareRequest) returns (PrepareResponse) {}
+  rpc Commit(CommitRequest) returns (CommitResponse) {}
+
+
+  rpc Sync(PrepareRequest) returns (PrepareResponse) {}
+  rpc ExecReply(ExecutionReply) returns (google.protobuf.Empty) {}
+
+
+  rpc ReShardingInitiation(google.protobuf.Empty) returns ( ReShardingInitData ) {}
+  rpc ReShardingProcess(ReShardingData) returns (CommandOutput) {}
 
 }
 
 
+service ActivateServers{
+  rpc activateServer(ActivateServerRequest) returns (ActivateServerResponse) {}
+  rpc deactivateServer(DeactivateServerRequest) returns (DeactivateServerResponse) {}
 
+}
 
+service Commands{
+  rpc printBalance(CommandInput) returns (CommandOutput) {}
+  rpc printLog(CommandInput) returns (CommandOutput) {}
+  rpc printDB(CommandInput) returns (CommandOutput) {}
+  rpc Performance(CommandInput) returns (CommandOutput) {}
+  rpc printDatastore(CommandInput) returns (CommandOutput) {}
+}
 
 
 
@@ -34,12 +56,40 @@ message Transaction {
   int32 sender = 1;
   int32 receiver = 2;
   int32 amount = 3;
+
+  int32 receiver2 = 8;
+
   google.protobuf.Timestamp timestamp = 4;
 
   string transactionHash = 5;
   int32 transactionNum = 6;
 
   bool isCrossShard = 7;
+}
+
+message TxnResponse{
+  bool success = 1;
+  string serverName = 2;
+}
+
+message CrossTxnResponse{
+  bool success = 1;
+  string serverName = 2;
+  int32 ballotNumber = 3;
+
+  int32 clusterId = 6;
+
+  int32 successPreparesCount = 4;
+  string failureReason = 5;
+}
+
+enum TransactionStatus{
+  PENDING = 0;
+  PREPARED = 1;
+  ACCEPTED = 2;
+  COMMITTED = 3;
+  EXECUTED = 4;
+  ABORTED = 5;
 }
 
 
@@ -81,16 +131,6 @@ message PrepareResponse {
 
 }
 
-enum TransactionStatus{
-  PENDING = 0;
-  PREPARED = 1;
-  ACCEPTED = 2;
-  COMMITTED = 3;
-  EXECUTED = 4;
-  ABORTED = 5;
-}
-
-
 
 
 message CommitRequest {
@@ -124,33 +164,6 @@ message ExecutionReply{
 
 
 
-message TxnResponse{
-  bool success = 1;
-  string serverName = 2;
-}
-
-
-
-
-
-
-
-
-
-
-service ActivateServers{
-  rpc activateServer(ActivateServerRequest) returns (ActivateServerResponse) {}
-  rpc deactivateServer(DeactivateServerRequest) returns (DeactivateServerResponse) {}
-
-}
-
-service Commands{
-  rpc printBalance(CommandInput) returns (CommandOutput) {}
-  rpc printLog(CommandInput) returns (CommandOutput) {}
-  rpc printDB(CommandInput) returns (CommandOutput) {}
-  rpc Performance(CommandInput) returns (CommandOutput) {}
-  rpc printDatastore(CommandInput) returns (CommandOutput) {}
-}
 
 
 
@@ -189,4 +202,17 @@ message CommandInput{
 
 message CommandOutput{
   string output = 1;
+}
+
+
+
+message ReShardingInitData{
+  int32 clusterId = 1;
+  map<int32, int32> accountBalances = 2;
+}
+
+message ReShardingData{
+  int32 clusterId = 1;
+  map<int32, int32> accountBalances = 2;
+  map<int32, int32> newDataItemClusterConfig = 3;
 }
