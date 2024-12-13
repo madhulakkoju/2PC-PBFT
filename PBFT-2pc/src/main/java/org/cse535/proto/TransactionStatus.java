@@ -9,56 +9,80 @@ package org.cse535.proto;
 public enum TransactionStatus
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>PENDING = 0;</code>
+   * <code>None = 0;</code>
    */
-  PENDING(0),
+  None(0),
   /**
-   * <code>PREPARED = 1;</code>
+   * <code>REQUESTED = 1;</code>
    */
-  PREPARED(1),
+  REQUESTED(1),
   /**
-   * <code>ACCEPTED = 2;</code>
+   * <code>PrePREPARED = 2;</code>
    */
-  ACCEPTED(2),
+  PrePREPARED(2),
   /**
-   * <code>COMMITTED = 3;</code>
+   * <code>PREPARED = 3;</code>
    */
-  COMMITTED(3),
+  PREPARED(3),
   /**
-   * <code>EXECUTED = 4;</code>
+   * <code>COMMITTED = 4;</code>
    */
-  EXECUTED(4),
+  COMMITTED(4),
   /**
-   * <code>ABORTED = 5;</code>
+   * <code>EXECUTED = 5;</code>
    */
-  ABORTED(5),
+  EXECUTED(5),
+  /**
+   * <code>ABORTED = 6;</code>
+   */
+  ABORTED(6),
+  /**
+   * <code>PENDING = 7;</code>
+   */
+  PENDING(7),
+  /**
+   * <code>ACCEPTED = 8;</code>
+   */
+  ACCEPTED(8),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PENDING = 0;</code>
+   * <code>None = 0;</code>
    */
-  public static final int PENDING_VALUE = 0;
+  public static final int None_VALUE = 0;
   /**
-   * <code>PREPARED = 1;</code>
+   * <code>REQUESTED = 1;</code>
    */
-  public static final int PREPARED_VALUE = 1;
+  public static final int REQUESTED_VALUE = 1;
   /**
-   * <code>ACCEPTED = 2;</code>
+   * <code>PrePREPARED = 2;</code>
    */
-  public static final int ACCEPTED_VALUE = 2;
+  public static final int PrePREPARED_VALUE = 2;
   /**
-   * <code>COMMITTED = 3;</code>
+   * <code>PREPARED = 3;</code>
    */
-  public static final int COMMITTED_VALUE = 3;
+  public static final int PREPARED_VALUE = 3;
   /**
-   * <code>EXECUTED = 4;</code>
+   * <code>COMMITTED = 4;</code>
    */
-  public static final int EXECUTED_VALUE = 4;
+  public static final int COMMITTED_VALUE = 4;
   /**
-   * <code>ABORTED = 5;</code>
+   * <code>EXECUTED = 5;</code>
    */
-  public static final int ABORTED_VALUE = 5;
+  public static final int EXECUTED_VALUE = 5;
+  /**
+   * <code>ABORTED = 6;</code>
+   */
+  public static final int ABORTED_VALUE = 6;
+  /**
+   * <code>PENDING = 7;</code>
+   */
+  public static final int PENDING_VALUE = 7;
+  /**
+   * <code>ACCEPTED = 8;</code>
+   */
+  public static final int ACCEPTED_VALUE = 8;
 
 
   public final int getNumber() {
@@ -79,12 +103,15 @@ public enum TransactionStatus
 
   public static TransactionStatus forNumber(int value) {
     switch (value) {
-      case 0: return PENDING;
-      case 1: return PREPARED;
-      case 2: return ACCEPTED;
-      case 3: return COMMITTED;
-      case 4: return EXECUTED;
-      case 5: return ABORTED;
+      case 0: return None;
+      case 1: return REQUESTED;
+      case 2: return PrePREPARED;
+      case 3: return PREPARED;
+      case 4: return COMMITTED;
+      case 5: return EXECUTED;
+      case 6: return ABORTED;
+      case 7: return PENDING;
+      case 8: return ACCEPTED;
       default: return null;
     }
   }

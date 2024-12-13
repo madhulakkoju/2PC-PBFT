@@ -11,7 +11,7 @@ service LinearPBFT {
   rpc Request(TransactionInputConfig) returns (TxnResponse) {}
   rpc CrossShardRequest(TransactionInputConfig) returns (CrossTxnResponse) {}
 
-  rpc PrePrepare(PrepareRequest) returns (PrepareResponse) {}
+  rpc PrePrepare(PrePrepareRequest) returns (PrePrepareResponse) {}
   rpc Prepare(PrepareRequest) returns (PrepareResponse) {}
   rpc Commit(CommitRequest) returns (CommitResponse) {}
 
@@ -84,12 +84,40 @@ message CrossTxnResponse{
 }
 
 enum TransactionStatus{
-  PENDING = 0;
-  PREPARED = 1;
-  ACCEPTED = 2;
-  COMMITTED = 3;
-  EXECUTED = 4;
-  ABORTED = 5;
+  None = 0;
+  REQUESTED = 1;
+  PrePREPARED = 2;
+  PREPARED = 3;
+  COMMITTED = 4;
+  EXECUTED = 5;
+  ABORTED = 6;
+  PENDING = 7;
+  ACCEPTED = 8;
+}
+
+
+
+
+message PrePrepareRequest {
+  int32 view = 1;
+  int32 sequenceNumber = 2;
+  Transaction transaction = 3;
+  string processId = 4;
+  google.protobuf.Timestamp timestamp = 5;
+  string digest = 6;
+
+  int32 clusterId = 7;
+}
+
+message PrePrepareResponse {
+  int32 view = 1;
+  int32 sequenceNumber = 2;
+  string processId = 3;
+  bool success = 4;
+
+  int32 clusterId = 5;
+
+
 }
 
 
@@ -161,9 +189,6 @@ message ExecutionReply{
   int32 clusterId = 4;
   string failureReason = 5;
 }
-
-
-
 
 
 

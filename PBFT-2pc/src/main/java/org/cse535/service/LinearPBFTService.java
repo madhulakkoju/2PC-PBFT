@@ -57,6 +57,28 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
     }
 
     @Override
+    public void prePrepare(PrePrepareRequest request, StreamObserver<PrePrepareResponse> responseObserver) {
+        Main.node.logger.log("Received pre-prepare request from " + request.getProcessId() + " with ballot number " + request.getSequenceNumber());
+        if( ! Main.node.isServerActive.get() ){
+            //Inactive server
+            PrePrepareResponse response = PrePrepareResponse.newBuilder()
+                    .setSuccess(false)
+                    .setSequenceNumber(request.getSequenceNumber())
+                    .setView(request.getView())
+                    .setProcessId(Main.node.serverName)
+                    .setClusterId(Main.node.clusterNumber)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+            return;
+        }
+
+        PrePrepareResponse resp = Main.node.handlePrePreparePhase(request);
+        responseObserver.onNext(resp);
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void prepare(PrepareRequest request, StreamObserver<PrepareResponse> responseObserver) {
         Main.node.logger.log("Received prepare request from " + request.getProcessId() + " with ballot number " + request.getBallotNumber());
         if( ! Main.node.isServerActive.get() ){

@@ -91,30 +91,30 @@ public final class LinearPBFTGrpc {
      return getCrossShardRequestMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
-      org.cse535.proto.PrepareResponse> getPrePrepareMethod;
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.PrePrepareRequest,
+      org.cse535.proto.PrePrepareResponse> getPrePrepareMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "PrePrepare",
-      requestType = org.cse535.proto.PrepareRequest.class,
-      responseType = org.cse535.proto.PrepareResponse.class,
+      requestType = org.cse535.proto.PrePrepareRequest.class,
+      responseType = org.cse535.proto.PrePrepareResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
-      org.cse535.proto.PrepareResponse> getPrePrepareMethod() {
-    io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse> getPrePrepareMethod;
+  public static io.grpc.MethodDescriptor<org.cse535.proto.PrePrepareRequest,
+      org.cse535.proto.PrePrepareResponse> getPrePrepareMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.PrePrepareRequest, org.cse535.proto.PrePrepareResponse> getPrePrepareMethod;
     if ((getPrePrepareMethod = LinearPBFTGrpc.getPrePrepareMethod) == null) {
       synchronized (LinearPBFTGrpc.class) {
         if ((getPrePrepareMethod = LinearPBFTGrpc.getPrePrepareMethod) == null) {
           LinearPBFTGrpc.getPrePrepareMethod = getPrePrepareMethod = 
-              io.grpc.MethodDescriptor.<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse>newBuilder()
+              io.grpc.MethodDescriptor.<org.cse535.proto.PrePrepareRequest, org.cse535.proto.PrePrepareResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "LinearPBFT", "PrePrepare"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.PrepareRequest.getDefaultInstance()))
+                  org.cse535.proto.PrePrepareRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.PrepareResponse.getDefaultInstance()))
+                  org.cse535.proto.PrePrepareResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("PrePrepare"))
                   .build();
           }
@@ -358,8 +358,8 @@ public final class LinearPBFTGrpc {
 
     /**
      */
-    public void prePrepare(org.cse535.proto.PrepareRequest request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse> responseObserver) {
+    public void prePrepare(org.cse535.proto.PrePrepareRequest request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.PrePrepareResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getPrePrepareMethod(), responseObserver);
     }
 
@@ -425,8 +425,8 @@ public final class LinearPBFTGrpc {
             getPrePrepareMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.cse535.proto.PrepareRequest,
-                org.cse535.proto.PrepareResponse>(
+                org.cse535.proto.PrePrepareRequest,
+                org.cse535.proto.PrePrepareResponse>(
                   this, METHODID_PRE_PREPARE)))
           .addMethod(
             getPrepareMethod(),
@@ -510,8 +510,8 @@ public final class LinearPBFTGrpc {
 
     /**
      */
-    public void prePrepare(org.cse535.proto.PrepareRequest request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse> responseObserver) {
+    public void prePrepare(org.cse535.proto.PrePrepareRequest request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.PrePrepareResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getPrePrepareMethod(), getCallOptions()), request, responseObserver);
     }
@@ -599,7 +599,7 @@ public final class LinearPBFTGrpc {
 
     /**
      */
-    public org.cse535.proto.PrepareResponse prePrepare(org.cse535.proto.PrepareRequest request) {
+    public org.cse535.proto.PrePrepareResponse prePrepare(org.cse535.proto.PrePrepareRequest request) {
       return blockingUnaryCall(
           getChannel(), getPrePrepareMethod(), getCallOptions(), request);
     }
@@ -683,8 +683,8 @@ public final class LinearPBFTGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.PrepareResponse> prePrepare(
-        org.cse535.proto.PrepareRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.PrePrepareResponse> prePrepare(
+        org.cse535.proto.PrePrepareRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getPrePrepareMethod(), getCallOptions()), request);
     }
@@ -774,8 +774,8 @@ public final class LinearPBFTGrpc {
               (io.grpc.stub.StreamObserver<org.cse535.proto.CrossTxnResponse>) responseObserver);
           break;
         case METHODID_PRE_PREPARE:
-          serviceImpl.prePrepare((org.cse535.proto.PrepareRequest) request,
-              (io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse>) responseObserver);
+          serviceImpl.prePrepare((org.cse535.proto.PrePrepareRequest) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.PrePrepareResponse>) responseObserver);
           break;
         case METHODID_PREPARE:
           serviceImpl.prepare((org.cse535.proto.PrepareRequest) request,

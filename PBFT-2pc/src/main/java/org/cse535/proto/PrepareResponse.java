@@ -404,7 +404,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT32,
                 0,
                 com.google.protobuf.WireFormat.FieldType.ENUM,
-                org.cse535.proto.TransactionStatus.PENDING.getNumber());
+                org.cse535.proto.TransactionStatus.None.getNumber());
   }
   private com.google.protobuf.MapField<
       java.lang.Integer, java.lang.Integer> syncTransactionStatusMap_;

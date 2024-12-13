@@ -364,6 +364,19 @@ public class Node extends NodeServer {
         //this.database.updateBalances(syncPrepareResponse.getSyncBalancesMapMap());
     }
 
+    public PrePrepareResponse handlePrePreparePhase(PrePrepareRequest request) {
+        PrePrepareResponse.Builder prePrepareResponse = PrePrepareResponse.newBuilder();
+
+        prePrepareResponse.setProcessId(this.serverName);
+        prePrepareResponse.setSuccess(false);
+        prePrepareResponse.setSequenceNumber(request.getSequenceNumber());
+        prePrepareResponse.setClusterId(this.clusterNumber);
+
+        this.logger.log("PrePrepare Request Accepted from " + request.getProcessId() );
+
+        return prePrepareResponse.build();
+    }
+
     public PrepareResponse handlePreparePhase(PrepareRequest request) {
         PrepareResponse.Builder prepareResponse = PrepareResponse.newBuilder();
         prepareResponse.setProcessId(this.serverName);
@@ -517,5 +530,6 @@ public class Node extends NodeServer {
     public String PrintDataStore(){
         return this.serverName + " : " + String.join(" -> ", this.database.dataStore.get());
     }
+
 
 }

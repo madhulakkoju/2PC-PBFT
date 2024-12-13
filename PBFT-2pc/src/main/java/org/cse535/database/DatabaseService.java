@@ -11,17 +11,18 @@ import java.sql.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Lock;
 
 public class DatabaseService {
 
+
+
     public Integer serverNumber;
 
     public PriorityBlockingQueue<TransactionInputConfig> incomingTransactionsQueue;
-
-
 
     public HashSet<Integer> processedTransactionsSet;
 
@@ -38,14 +39,97 @@ public class DatabaseService {
     public int lastCommittedBallotNumber;
     public Transaction lastCommittedTransaction;
 
-
-
-
     public AtomicReference<ArrayList<String>> dataStore;
 
-
-
     public NodeServer node;
+
+
+
+
+
+
+    //TransactionNum : SeqNum
+    public HashMap<Integer, Integer> transactionNumSeqNumMap = new HashMap<>();
+
+    // SeqNum : TransactionStatus
+    public HashMap<Integer, TransactionStatus> transactionStatusMap = new HashMap<>();
+
+    // SeqNum : Transaction
+    public HashMap<Integer, Transaction> transactionMap = new HashMap<>();
+
+    // SeqNum : ViewNum
+    public HashMap<Integer, Integer> seqNumViewMap = new HashMap<>();
+
+    // SeqNum : PrePrepareRequest
+    public HashMap<Integer, PrePrepareRequest> prePrepareRequestMap = new HashMap<>();
+    // SeqNum : PrePrepareResponse
+    public HashMap<Integer, List<PrePrepareResponse>> prePrepareResponseMap = new HashMap<>();
+
+    // SeqNum : PrepareRequest
+    public HashMap<Integer, PrepareRequest> prepareRequestMap = new HashMap<>();
+    // SeqNum : PrepareResponse
+    public HashMap<Integer, List<PrepareResponse>> prepareResponseMap = new HashMap<>();
+
+    //SeqNum : CommitRequest
+    public HashMap<Integer, CommitRequest> commitRequestMap = new HashMap<>();
+    //SeqNum : CommitResponse
+    public HashMap<Integer, List<CommitResponse>> commitResponseMap = new HashMap<>();
+
+    // SeqNum : ExecutionReply
+    public HashMap<Integer, ExecutionReply> executionReplyMap = new HashMap<>();
+
+
+    // Client: Balance
+    public ConcurrentHashMap<String, Integer> accountsMap = new ConcurrentHashMap<>();
+
+
+    //Already triggered Views - to restrict multiple triggers for same view
+    public HashSet<Integer> viewTriggers = new HashSet<>();
+    public ConcurrentHashMap<Integer, Boolean> viewsTriggered = new ConcurrentHashMap<>();
+
+
+
+
+    public AtomicInteger currentSeqNum = new AtomicInteger(0);
+    public AtomicInteger currentViewNum = new AtomicInteger(0);
+
+
+    public PriorityBlockingQueue<TransactionInputConfig> incomingTnxQueue = new PriorityBlockingQueue<>(100, new Comparator<TransactionInputConfig>() {
+        @Override
+        public int compare(TransactionInputConfig o1, TransactionInputConfig o2) {
+            return o1.getTransaction().getTransactionNum() - o2.getTransaction().getTransactionNum();
+        }
+    });
+
+    public AtomicBoolean isLeader = new AtomicBoolean(false);
+    public AtomicBoolean isServerActive = new AtomicBoolean(true);
+    public AtomicBoolean isServerByzantine = new AtomicBoolean(false);
+
+
+
+    public AtomicInteger lastExecutedSeqNum = new AtomicInteger(0);
+    public AtomicInteger maxAddedSeqNum = new AtomicInteger(0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public DatabaseService( Integer serverNum, NodeServer node) {
@@ -410,9 +494,6 @@ public class DatabaseService {
 
 
 
-    //BallotNumber, Transaction
-    public HashMap<Integer, Transaction> transactionMap;
-
     public synchronized void addTransaction( int ballotNumber, Transaction transaction ) {
 
         //Transaction tnx = getTransaction(ballotNumber);
@@ -477,11 +558,6 @@ public class DatabaseService {
 
 
 
-
-
-
-    //BallotNumber, TransactionStatus
-    public HashMap<Integer, TransactionStatus> transactionStatusMap;
 
     public synchronized void addTransactionStatus( int ballotNumber, TransactionStatus status ) {
 
