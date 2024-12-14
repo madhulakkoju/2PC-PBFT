@@ -639,6 +639,7 @@ public class DatabaseService {
         Main.node.logger.log("Executing transaction: " + seqNum);
         Transaction transaction = transactionMap.get(seqNum);
 
+
         boolean success = executeTransaction(transaction);
 
 
@@ -649,20 +650,14 @@ public class DatabaseService {
 
         Main.node.logger.log("Sending Reply to Client executed: " + seqNum + " Transaction: " + transaction.getTransactionNum() + "\n"+ transaction.toString());
 
+        String failureReason = "";
         if(!success){
             Main.node.logger.log("Transaction failed: " + seqNum);
             this.transactionStatusMap.put(seqNum, TransactionStatus.ABORTED);
+            failureReason = "Execute Failed";
         }
 
-//        Main.node.clientStub.executionReply(
-//                ExecutionReplyRequest.newBuilder()
-//                        .setView(this.seqNumViewMap.get(seqNum))
-//                        .setTransactionId(transaction.getTransactionNum())
-//                        .setSequenceNumber(seqNum)
-//                        .setSuccess(success)
-//                        .setProcessId(Main.node.serverName)
-//                        .build()
-//        );
+        Main.node.sendExecutionReplyToClient(transaction, success, failureReason , success ? "EXECUTED" : "COMMITTED");
 
         Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
 

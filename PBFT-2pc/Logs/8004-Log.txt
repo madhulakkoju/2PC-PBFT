@@ -9,7 +9,18 @@ Accepted ---- Prepare request accepted: 1 Digest:
 Received Commit request from S1 with Seq number 1
 Initiating executions : 0 : 1
 Initiating execution for seqNum: 1
-Status : PREPARED
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 1
+sender: 100
+receiver: 501
+amount: 8
+transactionNum: 1
+
+Sent Reply to Client executed: 1
+Initiating execution for seqNum: 2
+Status : Not Found
 Received pre-prepare request from S1 with ballot number 2
 PrePrepare Request received from S1
 PrePrepare request received: 2 Transaction ID: 6 Digest: 
@@ -17,9 +28,20 @@ Accepted ---- PrePrepare request accepted: 2 Transaction ID: 6 Digest:
 Received prepare request from S1 with Sequence number 2
 Accepted ---- Prepare request accepted: 2 Digest: 
 Received Commit request from S1 with Seq number 2
-Initiating executions : 0 : 2
-Initiating execution for seqNum: 1
-Status : PREPARED
+Initiating executions : 1 : 2
+Initiating execution for seqNum: 2
+Status : COMMITTED
+Executing transaction: 2
+Transaction executed: 2
+Sending Reply to Client executed: 2 Transaction: 6
+sender: 101
+receiver: 301
+amount: 9
+transactionNum: 6
+
+Sent Reply to Client executed: 2
+Initiating execution for seqNum: 3
+Status : Not Found
 Received pre-prepare request from S1 with ballot number 3
 PrePrepare Request received from S1
 PrePrepare request received: 3 Transaction ID: 7 Digest: 
@@ -27,9 +49,20 @@ Accepted ---- PrePrepare request accepted: 3 Transaction ID: 7 Digest:
 Received prepare request from S1 with Sequence number 3
 Accepted ---- Prepare request accepted: 3 Digest: 
 Received Commit request from S1 with Seq number 3
-Initiating executions : 0 : 3
-Initiating execution for seqNum: 1
-Status : PREPARED
+Initiating executions : 2 : 3
+Initiating execution for seqNum: 3
+Status : COMMITTED
+Executing transaction: 3
+Transaction executed: 3
+Sending Reply to Client executed: 3 Transaction: 7
+sender: 299
+receiver: 1
+amount: 4
+transactionNum: 7
+
+Sent Reply to Client executed: 3
+Initiating execution for seqNum: 4
+Status : Not Found
 Received pre-prepare request from S1 with ballot number 4
 PrePrepare Request received from S1
 PrePrepare request received: 4 Transaction ID: 9 Digest: 
@@ -37,64 +70,724 @@ Accepted ---- PrePrepare request accepted: 4 Transaction ID: 9 Digest:
 Received prepare request from S1 with Sequence number 4
 Accepted ---- Prepare request accepted: 4 Digest: 
 Received Commit request from S1 with Seq number 4
-Initiating executions : 0 : 4
-Initiating execution for seqNum: 1
-Status : PREPARED
+Initiating executions : 3 : 4
+Initiating execution for seqNum: 4
+Status : COMMITTED
+Executing transaction: 4
+Transaction executed: 4
+Sending Reply to Client executed: 4 Transaction: 9
+sender: 791
+receiver: 997
+amount: 3
+transactionNum: 9
+
+Sent Reply to Client executed: 4
+Initiating execution for seqNum: 5
+Status : Not Found
 Received pre-prepare request from S1 with ballot number 5
 Received prepare request from S1 with Sequence number 5
 Received Commit request from S1 with Seq number 5
 Received pre-prepare request from S1 with ballot number 6
-PrePrepare Request received from S1
-PrePrepare request received: 6 Transaction ID: 1 Digest: 
-Accepted ---- PrePrepare request accepted: 6 Transaction ID: 1 Digest: 
-Received prepare request from S1 with Sequence number 6
-Accepted ---- Prepare request accepted: 6 Digest: 
-Received Commit request from S1 with Seq number 6
-Initiating executions : 0 : 6
-Initiating execution for seqNum: 1
-Status : PREPARED
 Received pre-prepare request from S1 with ballot number 7
-PrePrepare Request received from S1
-PrePrepare request received: 7 Transaction ID: 6 Digest: 
-Accepted ---- PrePrepare request accepted: 7 Transaction ID: 6 Digest: 
-Received prepare request from S1 with Sequence number 7
-Accepted ---- Prepare request accepted: 7 Digest: 
-Received Commit request from S1 with Seq number 7
-Initiating executions : 0 : 7
-Initiating execution for seqNum: 1
-Status : PREPARED
 Received pre-prepare request from S1 with ballot number 8
-PrePrepare Request received from S1
-PrePrepare request received: 8 Transaction ID: 7 Digest: 
-Accepted ---- PrePrepare request accepted: 8 Transaction ID: 7 Digest: 
-Received prepare request from S1 with Sequence number 8
-Accepted ---- Prepare request accepted: 8 Digest: 
-Received Commit request from S1 with Seq number 8
-Initiating executions : 0 : 8
-Initiating execution for seqNum: 1
-Status : PREPARED
 Received pre-prepare request from S1 with ballot number 9
-PrePrepare Request received from S1
-PrePrepare request received: 9 Transaction ID: 9 Digest: 
-Accepted ---- PrePrepare request accepted: 9 Transaction ID: 9 Digest: 
-Received prepare request from S1 with Sequence number 9
-Accepted ---- Prepare request accepted: 9 Digest: 
-Received Commit request from S1 with Seq number 9
-Initiating executions : 0 : 9
-Initiating execution for seqNum: 1
-Status : PREPARED
 Received pre-prepare request from S1 with ballot number 10
-Received prepare request from S1 with Sequence number 10
-Received Commit request from S1 with Seq number 10
 Received pre-prepare request from S1 with ballot number 11
 Received pre-prepare request from S1 with ballot number 12
 Received pre-prepare request from S1 with ballot number 13
+Received pre-prepare request from S1 with ballot number 14
+Received pre-prepare request from S1 with ballot number 15
+Received pre-prepare request from S1 with ballot number 16
+Received pre-prepare request from S1 with ballot number 17
+Received pre-prepare request from S1 with ballot number 18
+Received pre-prepare request from S1 with ballot number 19
+Received pre-prepare request from S1 with ballot number 20
 PrePrepare Request received from S1
-PrePrepare request received: 13 Transaction ID: 20 Digest: 
-Accepted ---- PrePrepare request accepted: 13 Transaction ID: 20 Digest: 
-Received prepare request from S1 with Sequence number 13
-Accepted ---- Prepare request accepted: 13 Digest: 
-Received Commit request from S1 with Seq number 13
-Initiating executions : 0 : 13
-Initiating execution for seqNum: 1
-Status : PREPARED
+PrePrepare request received: 20 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 20 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 20
+Accepted ---- Prepare request accepted: 20 Digest: 
+Received Commit request from S1 with Seq number 20
+Initiating executions : 4 : 20
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 21
+PrePrepare Request received from S1
+PrePrepare request received: 21 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 21 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 21
+Accepted ---- Prepare request accepted: 21 Digest: 
+Received Commit request from S1 with Seq number 21
+Initiating executions : 4 : 21
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 22
+PrePrepare Request received from S1
+PrePrepare request received: 22 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 22 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 22
+Accepted ---- Prepare request accepted: 22 Digest: 
+Received Commit request from S1 with Seq number 22
+Initiating executions : 4 : 22
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 23
+PrePrepare Request received from S1
+PrePrepare request received: 23 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 23 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 23
+Accepted ---- Prepare request accepted: 23 Digest: 
+Received Commit request from S1 with Seq number 23
+Initiating executions : 4 : 23
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 24
+PrePrepare Request received from S1
+PrePrepare request received: 24 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 24 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 24
+Accepted ---- Prepare request accepted: 24 Digest: 
+Received Commit request from S1 with Seq number 24
+Initiating executions : 4 : 24
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 25
+PrePrepare Request received from S1
+PrePrepare request received: 25 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 25 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 25
+Accepted ---- Prepare request accepted: 25 Digest: 
+Received Commit request from S1 with Seq number 25
+Initiating executions : 4 : 25
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 26
+PrePrepare Request received from S1
+PrePrepare request received: 26 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 26 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 26
+Accepted ---- Prepare request accepted: 26 Digest: 
+Received Commit request from S1 with Seq number 26
+Initiating executions : 4 : 26
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 27
+PrePrepare Request received from S1
+PrePrepare request received: 27 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 27 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 27
+Accepted ---- Prepare request accepted: 27 Digest: 
+Received Commit request from S1 with Seq number 27
+Initiating executions : 4 : 27
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 28
+PrePrepare Request received from S1
+PrePrepare request received: 28 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 28 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 28
+Accepted ---- Prepare request accepted: 28 Digest: 
+Received Commit request from S1 with Seq number 28
+Initiating executions : 4 : 28
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 29
+PrePrepare Request received from S1
+PrePrepare request received: 29 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 29 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 29
+Accepted ---- Prepare request accepted: 29 Digest: 
+Received Commit request from S1 with Seq number 29
+Initiating executions : 4 : 29
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 30
+PrePrepare Request received from S1
+PrePrepare request received: 30 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 30 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 30
+Accepted ---- Prepare request accepted: 30 Digest: 
+Received Commit request from S1 with Seq number 30
+Initiating executions : 4 : 30
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 31
+PrePrepare Request received from S1
+PrePrepare request received: 31 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 31 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 31
+Accepted ---- Prepare request accepted: 31 Digest: 
+Received Commit request from S1 with Seq number 31
+Initiating executions : 4 : 31
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 32
+PrePrepare Request received from S1
+PrePrepare request received: 32 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 32 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 32
+Accepted ---- Prepare request accepted: 32 Digest: 
+Received Commit request from S1 with Seq number 32
+Initiating executions : 4 : 32
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 33
+PrePrepare Request received from S1
+PrePrepare request received: 33 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 33 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 33
+Accepted ---- Prepare request accepted: 33 Digest: 
+Received Commit request from S1 with Seq number 33
+Initiating executions : 4 : 33
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 34
+PrePrepare Request received from S1
+PrePrepare request received: 34 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 34 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 34
+Accepted ---- Prepare request accepted: 34 Digest: 
+Received Commit request from S1 with Seq number 34
+Initiating executions : 4 : 34
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 35
+PrePrepare Request received from S1
+PrePrepare request received: 35 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 35 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 35
+Accepted ---- Prepare request accepted: 35 Digest: 
+Received Commit request from S1 with Seq number 35
+Initiating executions : 4 : 35
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 36
+PrePrepare Request received from S1
+PrePrepare request received: 36 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 36 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 36
+Accepted ---- Prepare request accepted: 36 Digest: 
+Received Commit request from S1 with Seq number 36
+Initiating executions : 4 : 36
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 37
+PrePrepare Request received from S1
+PrePrepare request received: 37 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 37 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 37
+Accepted ---- Prepare request accepted: 37 Digest: 
+Received Commit request from S1 with Seq number 37
+Initiating executions : 4 : 37
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 38
+PrePrepare Request received from S1
+PrePrepare request received: 38 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 38 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 38
+Accepted ---- Prepare request accepted: 38 Digest: 
+Received Commit request from S1 with Seq number 38
+Initiating executions : 4 : 38
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 39
+PrePrepare Request received from S1
+PrePrepare request received: 39 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 39 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 39
+Accepted ---- Prepare request accepted: 39 Digest: 
+Received Commit request from S1 with Seq number 39
+Initiating executions : 4 : 39
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 40
+PrePrepare Request received from S1
+PrePrepare request received: 40 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 40 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 40
+Accepted ---- Prepare request accepted: 40 Digest: 
+Received Commit request from S1 with Seq number 40
+Initiating executions : 4 : 40
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 41
+PrePrepare Request received from S1
+PrePrepare request received: 41 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 41 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 41
+Accepted ---- Prepare request accepted: 41 Digest: 
+Received Commit request from S1 with Seq number 41
+Initiating executions : 4 : 41
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 42
+PrePrepare Request received from S1
+PrePrepare request received: 42 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 42 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 42
+Accepted ---- Prepare request accepted: 42 Digest: 
+Received Commit request from S1 with Seq number 42
+Initiating executions : 4 : 42
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 43
+PrePrepare Request received from S1
+PrePrepare request received: 43 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 43 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 43
+Accepted ---- Prepare request accepted: 43 Digest: 
+Received Commit request from S1 with Seq number 43
+Initiating executions : 4 : 43
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 44
+PrePrepare Request received from S1
+PrePrepare request received: 44 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 44 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 44
+Accepted ---- Prepare request accepted: 44 Digest: 
+Received Commit request from S1 with Seq number 44
+Initiating executions : 4 : 44
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 45
+PrePrepare Request received from S1
+PrePrepare request received: 45 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 45 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 45
+Accepted ---- Prepare request accepted: 45 Digest: 
+Received Commit request from S1 with Seq number 45
+Initiating executions : 4 : 45
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 46
+PrePrepare Request received from S1
+PrePrepare request received: 46 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 46 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 46
+Accepted ---- Prepare request accepted: 46 Digest: 
+Received Commit request from S1 with Seq number 46
+Initiating executions : 4 : 46
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 47
+PrePrepare Request received from S1
+PrePrepare request received: 47 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 47 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 47
+Accepted ---- Prepare request accepted: 47 Digest: 
+Received Commit request from S1 with Seq number 47
+Initiating executions : 4 : 47
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 48
+PrePrepare Request received from S1
+PrePrepare request received: 48 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 48 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 48
+Accepted ---- Prepare request accepted: 48 Digest: 
+Received Commit request from S1 with Seq number 48
+Initiating executions : 4 : 48
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 49
+PrePrepare Request received from S1
+PrePrepare request received: 49 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 49 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 49
+Accepted ---- Prepare request accepted: 49 Digest: 
+Received Commit request from S1 with Seq number 49
+Initiating executions : 4 : 49
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 50
+PrePrepare Request received from S1
+PrePrepare request received: 50 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 50 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 50
+Accepted ---- Prepare request accepted: 50 Digest: 
+Received Commit request from S1 with Seq number 50
+Initiating executions : 4 : 50
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 51
+PrePrepare Request received from S1
+PrePrepare request received: 51 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 51 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 51
+Accepted ---- Prepare request accepted: 51 Digest: 
+Received Commit request from S1 with Seq number 51
+Initiating executions : 4 : 51
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 52
+PrePrepare Request received from S1
+PrePrepare request received: 52 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 52 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 52
+Accepted ---- Prepare request accepted: 52 Digest: 
+Received Commit request from S1 with Seq number 52
+Initiating executions : 4 : 52
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 53
+PrePrepare Request received from S1
+PrePrepare request received: 53 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 53 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 53
+Accepted ---- Prepare request accepted: 53 Digest: 
+Received Commit request from S1 with Seq number 53
+Initiating executions : 4 : 53
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 54
+PrePrepare Request received from S1
+PrePrepare request received: 54 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 54 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 54
+Accepted ---- Prepare request accepted: 54 Digest: 
+Received Commit request from S1 with Seq number 54
+Initiating executions : 4 : 54
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 55
+PrePrepare Request received from S1
+PrePrepare request received: 55 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 55 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 55
+Accepted ---- Prepare request accepted: 55 Digest: 
+Received Commit request from S1 with Seq number 55
+Initiating executions : 4 : 55
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 56
+PrePrepare Request received from S1
+PrePrepare request received: 56 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 56 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 56
+Accepted ---- Prepare request accepted: 56 Digest: 
+Received Commit request from S1 with Seq number 56
+Initiating executions : 4 : 56
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 57
+PrePrepare Request received from S1
+PrePrepare request received: 57 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 57 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 57
+Accepted ---- Prepare request accepted: 57 Digest: 
+Received Commit request from S1 with Seq number 57
+Initiating executions : 4 : 57
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 58
+PrePrepare Request received from S1
+PrePrepare request received: 58 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 58 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 58
+Accepted ---- Prepare request accepted: 58 Digest: 
+Received Commit request from S1 with Seq number 58
+Initiating executions : 4 : 58
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 59
+PrePrepare Request received from S1
+PrePrepare request received: 59 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 59 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 59
+Accepted ---- Prepare request accepted: 59 Digest: 
+Received Commit request from S1 with Seq number 59
+Initiating executions : 4 : 59
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 60
+PrePrepare Request received from S1
+PrePrepare request received: 60 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 60 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 60
+Accepted ---- Prepare request accepted: 60 Digest: 
+Received Commit request from S1 with Seq number 60
+Initiating executions : 4 : 60
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 61
+PrePrepare Request received from S1
+PrePrepare request received: 61 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 61 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 61
+Accepted ---- Prepare request accepted: 61 Digest: 
+Received Commit request from S1 with Seq number 61
+Initiating executions : 4 : 61
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 62
+PrePrepare Request received from S1
+PrePrepare request received: 62 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 62 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 62
+Accepted ---- Prepare request accepted: 62 Digest: 
+Received Commit request from S1 with Seq number 62
+Initiating executions : 4 : 62
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 63
+PrePrepare Request received from S1
+PrePrepare request received: 63 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 63 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 63
+Accepted ---- Prepare request accepted: 63 Digest: 
+Received Commit request from S1 with Seq number 63
+Initiating executions : 4 : 63
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 64
+PrePrepare Request received from S1
+PrePrepare request received: 64 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 64 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 64
+Accepted ---- Prepare request accepted: 64 Digest: 
+Received Commit request from S1 with Seq number 64
+Initiating executions : 4 : 64
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 65
+PrePrepare Request received from S1
+PrePrepare request received: 65 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 65 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 65
+Accepted ---- Prepare request accepted: 65 Digest: 
+Received Commit request from S1 with Seq number 65
+Initiating executions : 4 : 65
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 66
+PrePrepare Request received from S1
+PrePrepare request received: 66 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 66 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 66
+Accepted ---- Prepare request accepted: 66 Digest: 
+Received Commit request from S1 with Seq number 66
+Initiating executions : 4 : 66
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 67
+PrePrepare Request received from S1
+PrePrepare request received: 67 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 67 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 67
+Accepted ---- Prepare request accepted: 67 Digest: 
+Received Commit request from S1 with Seq number 67
+Initiating executions : 4 : 67
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 68
+PrePrepare Request received from S1
+PrePrepare request received: 68 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 68 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 68
+Accepted ---- Prepare request accepted: 68 Digest: 
+Received Commit request from S1 with Seq number 68
+Initiating executions : 4 : 68
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 69
+PrePrepare Request received from S1
+PrePrepare request received: 69 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 69 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 69
+Accepted ---- Prepare request accepted: 69 Digest: 
+Received Commit request from S1 with Seq number 69
+Initiating executions : 4 : 69
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 70
+PrePrepare Request received from S1
+PrePrepare request received: 70 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 70 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 70
+Accepted ---- Prepare request accepted: 70 Digest: 
+Received Commit request from S1 with Seq number 70
+Initiating executions : 4 : 70
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 71
+PrePrepare Request received from S1
+PrePrepare request received: 71 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 71 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 71
+Accepted ---- Prepare request accepted: 71 Digest: 
+Received Commit request from S1 with Seq number 71
+Initiating executions : 4 : 71
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 72
+PrePrepare Request received from S1
+PrePrepare request received: 72 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 72 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 72
+Accepted ---- Prepare request accepted: 72 Digest: 
+Received Commit request from S1 with Seq number 72
+Initiating executions : 4 : 72
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 73
+PrePrepare Request received from S1
+PrePrepare request received: 73 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 73 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 73
+Accepted ---- Prepare request accepted: 73 Digest: 
+Received Commit request from S1 with Seq number 73
+Initiating executions : 4 : 73
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 74
+PrePrepare Request received from S1
+PrePrepare request received: 74 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 74 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 74
+Accepted ---- Prepare request accepted: 74 Digest: 
+Received Commit request from S1 with Seq number 74
+Initiating executions : 4 : 74
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 75
+PrePrepare Request received from S1
+PrePrepare request received: 75 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 75 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 75
+Accepted ---- Prepare request accepted: 75 Digest: 
+Received Commit request from S1 with Seq number 75
+Initiating executions : 4 : 75
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 76
+PrePrepare Request received from S1
+PrePrepare request received: 76 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 76 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 76
+Accepted ---- Prepare request accepted: 76 Digest: 
+Received Commit request from S1 with Seq number 76
+Initiating executions : 4 : 76
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 77
+PrePrepare Request received from S1
+PrePrepare request received: 77 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 77 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 77
+Accepted ---- Prepare request accepted: 77 Digest: 
+Received Commit request from S1 with Seq number 77
+Initiating executions : 4 : 77
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 78
+PrePrepare Request received from S1
+PrePrepare request received: 78 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 78 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 78
+Accepted ---- Prepare request accepted: 78 Digest: 
+Received Commit request from S1 with Seq number 78
+Initiating executions : 4 : 78
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 79
+PrePrepare Request received from S1
+PrePrepare request received: 79 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 79 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 79
+Accepted ---- Prepare request accepted: 79 Digest: 
+Received Commit request from S1 with Seq number 79
+Initiating executions : 4 : 79
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 80
+PrePrepare Request received from S1
+PrePrepare request received: 80 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 80 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 80
+Accepted ---- Prepare request accepted: 80 Digest: 
+Received Commit request from S1 with Seq number 80
+Initiating executions : 4 : 80
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 81
+PrePrepare Request received from S1
+PrePrepare request received: 81 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 81 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 81
+Accepted ---- Prepare request accepted: 81 Digest: 
+Received Commit request from S1 with Seq number 81
+Initiating executions : 4 : 81
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 82
+PrePrepare Request received from S1
+PrePrepare request received: 82 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 82 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 82
+Accepted ---- Prepare request accepted: 82 Digest: 
+Received Commit request from S1 with Seq number 82
+Initiating executions : 4 : 82
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 83
+PrePrepare Request received from S1
+PrePrepare request received: 83 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 83 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 83
+Accepted ---- Prepare request accepted: 83 Digest: 
+Received Commit request from S1 with Seq number 83
+Initiating executions : 4 : 83
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 84
+PrePrepare Request received from S1
+PrePrepare request received: 84 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 84 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 84
+Accepted ---- Prepare request accepted: 84 Digest: 
+Received Commit request from S1 with Seq number 84
+Initiating executions : 4 : 84
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 85
+PrePrepare Request received from S1
+PrePrepare request received: 85 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 85 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 85
+Accepted ---- Prepare request accepted: 85 Digest: 
+Received Commit request from S1 with Seq number 85
+Initiating executions : 4 : 85
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 86
+PrePrepare Request received from S1
+PrePrepare request received: 86 Transaction ID: 20 Digest: 
+Accepted ---- PrePrepare request accepted: 86 Transaction ID: 20 Digest: 
+Received prepare request from S1 with Sequence number 86
+Accepted ---- Prepare request accepted: 86 Digest: 
+Received Commit request from S1 with Seq number 86
+Initiating executions : 4 : 86
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 87
+PrePrepare Request received from S1
+PrePrepare request received: 87 Transaction ID: 15 Digest: 
+Accepted ---- PrePrepare request accepted: 87 Transaction ID: 15 Digest: 
+Received prepare request from S1 with Sequence number 87
+Accepted ---- Prepare request accepted: 87 Digest: 
+Received Commit request from S1 with Seq number 87
+Initiating executions : 4 : 87
+Initiating execution for seqNum: 5
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 88
+PrePrepare Request received from S1
+PrePrepare request received: 88 Transaction ID: 17 Digest: 
+Accepted ---- PrePrepare request accepted: 88 Transaction ID: 17 Digest: 
+Received prepare request from S1 with Sequence number 88
+Accepted ---- Prepare request accepted: 88 Digest: 
+Received Commit request from S1 with Seq number 88
+Initiating executions : 4 : 88
+Initiating execution for seqNum: 5
+Status : Not Found

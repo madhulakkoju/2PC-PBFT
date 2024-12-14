@@ -40,6 +40,8 @@ public class NodeServer {
     public HashMap<Integer, ActivateServersGrpc.ActivateServersBlockingStub> serversToActivateServersStub;
     public HashMap<Integer, CommandsGrpc.CommandsBlockingStub> serversToCommandsStub;
 
+    public LinearPBFTGrpc.LinearPBFTBlockingStub clientStub;
+
     public NodeServer(Integer serverNum, int port) {
         this.port = port;
         this.serverNumber = serverNum;
@@ -89,6 +91,8 @@ public class NodeServer {
             serversToActivateServersStub.put(serverNum, ActivateServersGrpc.newBlockingStub(channel));
             serversToCommandsStub.put(serverNum, CommandsGrpc.newBlockingStub(channel));
         });
+
+        clientStub = serversToPaxosStub.get(0);
 
 
     }

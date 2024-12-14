@@ -34,8 +34,7 @@ public class GlobalConfigs {
 
 
     public static HashMap<Integer, Integer> DataItemToClusterMap ;
-
-
+    public static long TransactionTimeout = 3000;
 
 
     public static void LoadConfigs( ){

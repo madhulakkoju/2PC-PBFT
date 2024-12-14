@@ -63,10 +63,11 @@ public class ViewServer extends NodeServer {
     HashMap<Integer, Boolean> activeServersStatusMap = new HashMap<>();
 
 
-    public HashMap<Integer, String> transactionStatuses = new HashMap<>();
+    public HashMap<Integer, HashMap<Integer, String>> transactionStatuses = new HashMap<>();
 
     public HashSet<Integer> participatingDataItems = new HashSet<>();
 
+    public Timer timer = new Timer();
 
 
     public ViewServer(String serverName, int port) {
@@ -170,7 +171,13 @@ public class ViewServer extends NodeServer {
 
         this.commandLogger.log("\n\n-----------------------------------Transaction Statuses:-----------------------------------\n");
 
-        this.transactionStatuses.forEach((tnxNum, status) -> {
+        this.transactionStatuses.forEach((tnxNum, statuses) -> {
+
+            StringBuilder status = new StringBuilder();
+            for(Map.Entry<Integer, String> entry : statuses.entrySet()){
+                status.append("S").append(entry.getKey()).append(" : ").append(entry.getValue()).append("; ");
+            }
+
             this.commandLogger.log(" " + String.format("%3d", tnxNum) + " :: Transaction " + Utils.toDataStoreString(transactions.get(tnxNum)) + " : " + status);
         });
     }
@@ -255,10 +262,45 @@ public class ViewServer extends NodeServer {
 
     public void sendTransactionToServer(TransactionInputConfig transactionInputConfig, String server){
 
+
+        if(!transactionStatuses.containsKey(transactionInputConfig.getTransaction().getTransactionNum())){
+            // First Try
+            transactionStatuses.put(transactionInputConfig.getTransaction().getTransactionNum(), new HashMap<>());
+        }
+
         participatingDataItems.add(transactionInputConfig.getTransaction().getSender());
         participatingDataItems.add(transactionInputConfig.getTransaction().getReceiver());
         serversToPaxosStub.get( Integer.parseInt(server.replaceAll("S","")) ).request(transactionInputConfig);
 
+
+        TimerTask retry = new TimerTask() {
+            @Override
+            public void run() {
+                if(viewServer.transactionStatuses.get(transactionInputConfig.getTransaction().getTransactionNum()).size() >= GlobalConfigs.f+1){
+                    int successCount = 0;
+                    for(Map.Entry<Integer, String> entry : viewServer.transactionStatuses.get(transactionInputConfig.getTransaction().getTransactionNum()).entrySet()){
+                        if(entry.getValue().toLowerCase().contains("commit") || entry.getValue().toLowerCase().contains("exec")){
+                            successCount++;
+                        }
+                    }
+
+                    if(successCount >= GlobalConfigs.f+1){
+                        viewServer.logger.log("Transaction: " + transactionInputConfig.getTransaction().getTransactionNum() + " Completed - Received responses from f+1 servers");
+                        return;
+                    }
+                }
+                else if (viewServer.transactionStatuses.get(transactionInputConfig.getTransaction().getTransactionNum()).size() == 1 &&
+                        viewServer.transactionStatuses.get(transactionInputConfig.getTransaction().getTransactionNum()).containsKey(Integer.parseInt(server.replaceAll("S",""))) &&
+                        viewServer.transactionStatuses.get(transactionInputConfig.getTransaction().getTransactionNum()).get(Integer.parseInt(server.replaceAll("S","")))
+                                .toLowerCase().contains("balance") ){
+                    return;
+                }
+                
+                viewServer.logger.log("Transaction: " + transactionInputConfig.getTransaction().getTransactionNum() + " Timed Out -> RETRY");
+                viewServer.sendTransactionToServer(transactionInputConfig, server);
+            }
+        };
+        timer.schedule(retry, GlobalConfigs.TransactionTimeout);
     }
 
     public void sendCrossShardTransaction(TransactionInputConfig transactionInputConfig, String senderServer, String receiverServer){
@@ -437,15 +479,18 @@ public class ViewServer extends NodeServer {
                 }
             }
 
-            System.out.println("All Transactions Sent for final Test set. \nPress Enter to run all commands ");
-            System.console().readLine();
-            Thread.sleep(30);
-            viewServer.sendCommandToServers( Command.PrintDB );
-            viewServer.sendCommandToServers( Command.PrintLog );
-            viewServer.sendCommandToServers( Command.PrintDataStore );
-            viewServer.sendCommandToServers( Command.PrintBalance );
-            viewServer.sendCommandToServers( Command.Performance );
-
+            System.out.println("All Transactions Sent for final Test set. ");
+            while(true) {
+                System.out.println("Press Enter to run all commands ");
+                String inp= System.console().readLine();
+                if(inp.contains("stop")) break;
+                Thread.sleep(30);
+                viewServer.sendCommandToServers(Command.PrintDB);
+                viewServer.sendCommandToServers(Command.PrintLog);
+                viewServer.sendCommandToServers(Command.PrintDataStore);
+                viewServer.sendCommandToServers(Command.PrintBalance);
+                viewServer.sendCommandToServers(Command.Performance);
+            }
 
 System.out.println("Press Enter to Initiate ReSharding");
             System.console().readLine();

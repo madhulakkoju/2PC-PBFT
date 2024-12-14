@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
     processId_ = "";
     transactionId_ = 0;
     success_ = false;
+    status_ = "";
     clusterId_ = 0;
     failureReason_ = "";
   }
@@ -97,6 +98,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             failureReason_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            status_ = s;
             break;
           }
           default: {
@@ -222,6 +229,40 @@ private static final long serialVersionUID = 0L;
     return success_;
   }
 
+  public static final int STATUS_FIELD_NUMBER = 9;
+  private volatile java.lang.Object status_;
+  /**
+   * <code>string status = 9;</code>
+   */
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string status = 9;</code>
+   */
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int CLUSTERID_FIELD_NUMBER = 7;
   private int clusterId_;
   /**
@@ -303,6 +344,9 @@ private static final long serialVersionUID = 0L;
     if (!getFailureReasonBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, failureReason_);
     }
+    if (!getStatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, status_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -342,6 +386,9 @@ private static final long serialVersionUID = 0L;
     if (!getFailureReasonBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, failureReason_);
     }
+    if (!getStatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, status_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -373,6 +420,8 @@ private static final long serialVersionUID = 0L;
     }
     result = result && (getSuccess()
         == other.getSuccess());
+    result = result && getStatus()
+        .equals(other.getStatus());
     result = result && (getClusterId()
         == other.getClusterId());
     result = result && getFailureReason()
@@ -403,6 +452,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSuccess());
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     hash = (37 * hash) + CLUSTERID_FIELD_NUMBER;
     hash = (53 * hash) + getClusterId();
     hash = (37 * hash) + FAILUREREASON_FIELD_NUMBER;
@@ -556,6 +607,8 @@ private static final long serialVersionUID = 0L;
       }
       success_ = false;
 
+      status_ = "";
+
       clusterId_ = 0;
 
       failureReason_ = "";
@@ -596,6 +649,7 @@ private static final long serialVersionUID = 0L;
         result.timestamp_ = timestampBuilder_.build();
       }
       result.success_ = success_;
+      result.status_ = status_;
       result.clusterId_ = clusterId_;
       result.failureReason_ = failureReason_;
       onBuilt();
@@ -664,6 +718,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getSuccess() != false) {
         setSuccess(other.getSuccess());
+      }
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
+        onChanged();
       }
       if (other.getClusterId() != 0) {
         setClusterId(other.getClusterId());
@@ -987,6 +1045,75 @@ private static final long serialVersionUID = 0L;
     public Builder clearSuccess() {
       
       success_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object status_ = "";
+    /**
+     * <code>string status = 9;</code>
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string status = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string status = 9;</code>
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 9;</code>
+     */
+    public Builder clearStatus() {
+      
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 9;</code>
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
       onChanged();
       return this;
     }

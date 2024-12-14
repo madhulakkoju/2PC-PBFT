@@ -38,7 +38,7 @@ public class IntraPrepareThread extends Thread{
             this.successPrepares.incrementAndGet();
         }
 
-        if(this.node.database.prepareResponseMap.get(this.request.getSequenceNumber()) == null){
+        if(!this.node.database.prepareResponseMap.containsKey(this.request.getSequenceNumber())){
             this.node.database.prepareResponseMap.put(this.request.getSequenceNumber(), new ArrayList<>());
         }
 

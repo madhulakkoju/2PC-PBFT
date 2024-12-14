@@ -9,7 +9,18 @@ Accepted ---- Prepare request accepted: 1 Digest:
 Received Commit request from S9 with Seq number 1
 Initiating executions : 0 : 1
 Initiating execution for seqNum: 1
-Status : PREPARED
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 3
+sender: 2800
+receiver: 2150
+amount: 7
+transactionNum: 3
+
+Sent Reply to Client executed: 1
+Initiating execution for seqNum: 2
+Status : Not Found
 Received pre-prepare request from S9 with ballot number 2
 PrePrepare Request received from S9
 PrePrepare request received: 2 Transaction ID: 8 Digest: 
@@ -17,79 +28,51 @@ Accepted ---- PrePrepare request accepted: 2 Transaction ID: 8 Digest:
 Received prepare request from S9 with Sequence number 2
 Accepted ---- Prepare request accepted: 2 Digest: 
 Received Commit request from S9 with Seq number 2
-Initiating executions : 0 : 2
-Initiating execution for seqNum: 1
-Status : PREPARED
+Initiating executions : 1 : 2
+Initiating execution for seqNum: 2
+Status : COMMITTED
+Executing transaction: 2
+Transaction executed: 2
+Sending Reply to Client executed: 2 Transaction: 8
+sender: 2995
+receiver: 2990
+amount: 5
+transactionNum: 8
+
+Sent Reply to Client executed: 2
+Initiating execution for seqNum: 3
+Status : Not Found
 Received pre-prepare request from S9 with ballot number 3
 PrePrepare Request received from S9
-PrePrepare request received: 3 Transaction ID: 11 Digest: 
-Accepted ---- PrePrepare request accepted: 3 Transaction ID: 11 Digest: 
+PrePrepare request received: 3 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 12 Digest: 
 Received prepare request from S9 with Sequence number 3
 Accepted ---- Prepare request accepted: 3 Digest: 
 Received Commit request from S9 with Seq number 3
-Initiating executions : 0 : 3
-Initiating execution for seqNum: 1
-Status : PREPARED
+Initiating executions : 2 : 3
+Initiating execution for seqNum: 3
+Status : COMMITTED
+Executing transaction: 3
+Transaction executed: 3
+Sending Reply to Client executed: 3 Transaction: 12
+sender: 2770
+receiver: 2799
+amount: 1
+transactionNum: 12
+
+Sent Reply to Client executed: 3
+Initiating execution for seqNum: 4
+Status : Not Found
 Received pre-prepare request from S9 with ballot number 4
-PrePrepare Request received from S9
-PrePrepare request received: 4 Transaction ID: 12 Digest: 
-Accepted ---- PrePrepare request accepted: 4 Transaction ID: 12 Digest: 
 Received prepare request from S9 with Sequence number 4
-Accepted ---- Prepare request accepted: 4 Digest: 
 Received Commit request from S9 with Seq number 4
-Initiating executions : 0 : 4
-Initiating execution for seqNum: 1
-Status : PREPARED
 Received pre-prepare request from S9 with ballot number 5
 PrePrepare Request received from S9
-PrePrepare request received: 5 Transaction ID: 3 Digest: 
-Accepted ---- PrePrepare request accepted: 5 Transaction ID: 3 Digest: 
+PrePrepare request received: 5 Transaction ID: 22 Digest: 
+Accepted ---- PrePrepare request accepted: 5 Transaction ID: 22 Digest: 
 Received prepare request from S9 with Sequence number 5
 Accepted ---- Prepare request accepted: 5 Digest: 
 Received Commit request from S9 with Seq number 5
-Initiating executions : 0 : 5
-Initiating execution for seqNum: 1
-Status : PREPARED
-Received pre-prepare request from S9 with ballot number 6
-PrePrepare Request received from S9
-PrePrepare request received: 6 Transaction ID: 8 Digest: 
-Accepted ---- PrePrepare request accepted: 6 Transaction ID: 8 Digest: 
-Received prepare request from S9 with Sequence number 6
-Accepted ---- Prepare request accepted: 6 Digest: 
-Received Commit request from S9 with Seq number 6
-Initiating executions : 0 : 6
-Initiating execution for seqNum: 1
-Status : PREPARED
-Received pre-prepare request from S9 with ballot number 7
-PrePrepare Request received from S9
-PrePrepare request received: 7 Transaction ID: 11 Digest: 
-Accepted ---- PrePrepare request accepted: 7 Transaction ID: 11 Digest: 
-Received prepare request from S9 with Sequence number 7
-Accepted ---- Prepare request accepted: 7 Digest: 
-Received Commit request from S9 with Seq number 7
-Initiating executions : 0 : 7
-Initiating execution for seqNum: 1
-Status : PREPARED
-Received pre-prepare request from S9 with ballot number 8
-PrePrepare Request received from S9
-PrePrepare request received: 8 Transaction ID: 12 Digest: 
-Accepted ---- PrePrepare request accepted: 8 Transaction ID: 12 Digest: 
-Received prepare request from S9 with Sequence number 8
-Accepted ---- Prepare request accepted: 8 Digest: 
-Received Commit request from S9 with Seq number 8
-Initiating executions : 0 : 8
-Initiating execution for seqNum: 1
-Status : PREPARED
-Received pre-prepare request from S9 with ballot number 9
-Received prepare request from S9 with Sequence number 9
-Received Commit request from S9 with Seq number 9
-Received pre-prepare request from S9 with ballot number 10
-PrePrepare Request received from S9
-PrePrepare request received: 10 Transaction ID: 22 Digest: 
-Accepted ---- PrePrepare request accepted: 10 Transaction ID: 22 Digest: 
-Received prepare request from S9 with Sequence number 10
-Accepted ---- Prepare request accepted: 10 Digest: 
-Received Commit request from S9 with Seq number 10
-Initiating executions : 0 : 10
-Initiating execution for seqNum: 1
-Status : PREPARED
+Initiating executions : 3 : 5
+Initiating execution for seqNum: 4
+Status : Not Found

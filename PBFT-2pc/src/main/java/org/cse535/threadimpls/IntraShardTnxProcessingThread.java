@@ -42,7 +42,8 @@ public class IntraShardTnxProcessingThread extends Thread {
                     this.node.database.isDataItemLocked(this.tnx.getReceiver())) {
                 failureReason = "Data Items Locked";
                 success = false;
-            } else {
+            }
+            else {
                 System.out.println("Processing transaction " + this.tnx.getTransactionNum() + " "
                         + this.tnx.getSender() + " -> "
                         + this.tnx.getReceiver() + " = "
@@ -108,19 +109,6 @@ public class IntraShardTnxProcessingThread extends Thread {
                         this.node.logger.log("Pre Prepare Failed for SeqNum: " + currentSeqNum + " View: " +
                                 this.node.database.currentViewNum.get() + " Transaction ID: " +
                                 tnx.getTransactionNum());
-
-
-                        //SYNC and retry PrePrepare
-
-
-
-
-
-
-
-
-
-
                     }
 
                     if (prePrepareSuccess) {
@@ -181,6 +169,8 @@ public class IntraShardTnxProcessingThread extends Thread {
                                     this.node.database.currentViewNum.get() + " Transaction ID: " +
                                     tnx.getTransactionNum());
 
+                            this.node.sendExecutionReplyToClient(tnx, true, failureReason, "COMMITED");
+
                             CommitRequest commitRequest = CommitRequest.newBuilder()
                                     .setSequenceNumber(currentSeqNum)
                                     .setView(this.node.database.currentViewNum.get())
@@ -203,13 +193,20 @@ public class IntraShardTnxProcessingThread extends Thread {
                                 i++;
                             }
 
+                            //this.node.handleCommit(commitRequest);
+                            // Execute Transactions
+
+                            this.node.database.transactionStatusMap.put(currentSeqNum, TransactionStatus.COMMITTED);
+                            this.node.database.initiateExecutions();
+
                             //Wait for all servers to respond
                             for (int j = 0; j < i; j++) {
                                 intraCommitThreads[j].join();
                             }
 
-                            // Execute Transactions
-                            this.node.database.initiateExecutions();
+
+
+
 
                         }
                         else {
@@ -224,11 +221,15 @@ public class IntraShardTnxProcessingThread extends Thread {
                     }
 
                 }
+                else{
+                    failureReason = "Insufficient Balance";
+                    success = false;
+                }
 
             }
 
-            if (!tnx.getIsCrossShard())
-                this.node.sendExecutionReplyToClient(tnx, success, failureReason);
+            if (!tnx.getIsCrossShard() && !success )
+                this.node.sendExecutionReplyToClient(tnx, success, failureReason, "ABORTED");
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

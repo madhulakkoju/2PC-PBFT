@@ -451,7 +451,6 @@ public class Node extends NodeServer {
 
         this.database.setMaxAddedSeqNum(request.getSequenceNumber());
 
-
         return prepareResponse.build();
     }
 
@@ -528,6 +527,8 @@ public class Node extends NodeServer {
 //
 //        }
 
+        this.database.transactionStatusMap.put(request.getSequenceNumber(), TransactionStatus.COMMITTED);
+
         this.database.initiateExecutions();
 
         this.database.addToDataStore(request);
@@ -546,11 +547,11 @@ public class Node extends NodeServer {
 
 
 
-    public void sendExecutionReplyToClient(Transaction transaction, boolean success, String failureReason) {
+    public void sendExecutionReplyToClient(Transaction transaction, boolean success, String failureReason, String status) {
         // Send reply to Client
         ExecutionReply.Builder executionReply = ExecutionReply.newBuilder();
         executionReply.setTransactionId(transaction.getTransactionNum());
-
+        executionReply.setStatus(status);
         executionReply.setSuccess(success);
         executionReply.setProcessId(this.serverName);
         executionReply.setClusterId(this.clusterNumber);

@@ -128,8 +128,10 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
     @Override
     public void execReply(ExecutionReply request, StreamObserver<Empty> responseObserver) {
         if(ViewServer.viewServer != null){
-            ViewServer.viewServer.transactionStatuses.put(request.getTransactionId(),
-                    request.getSuccess() ? "COMMITTED" : "ABORTED-"+request.getFailureReason());
+            ViewServer.viewServer.transactionStatuses.get(request.getTransactionId())
+                    .put(
+                            Integer.valueOf(request.getProcessId().replace("S","")),
+                    request.getSuccess() ? request.getStatus() : "ABORTED-"+request.getFailureReason());
             ViewServer.viewServer.endTime = System.currentTimeMillis();
         }
 

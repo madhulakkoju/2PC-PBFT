@@ -186,6 +186,8 @@ message ExecutionReply{
   google.protobuf.Timestamp timestamp = 4;
   bool success = 6;
 
+  string status = 9;
+
   int32 clusterId = 7;
   string failureReason = 8;
 

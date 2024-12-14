@@ -51,6 +51,16 @@ public interface ExecutionReplyOrBuilder extends
   boolean getSuccess();
 
   /**
+   * <code>string status = 9;</code>
+   */
+  java.lang.String getStatus();
+  /**
+   * <code>string status = 9;</code>
+   */
+  com.google.protobuf.ByteString
+      getStatusBytes();
+
+  /**
    * <code>int32 clusterId = 7;</code>
    */
   int getClusterId();

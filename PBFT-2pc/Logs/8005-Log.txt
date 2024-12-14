@@ -3,39 +3,61 @@ Transaction Worker Thread Started
 Processing Transaction: 2
 Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 2
 Prepare response from 6 : true
-Prepare response from 7 : true
 Prepare response from 8 : true
+Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 1 View: 0 Transaction ID: 2
 Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 2
-Prepare response from 8 : true
 Prepare response from 7 : true
+Prepare response from 8 : true
 Prepare response from 6 : true
 Prepare Success for SeqNum: 1 View: 0 Transaction ID: 2
 Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 2
-Commit response from 6 : false
-Commit response from 8 : false
-Commit response from 7 : false
 Initiating executions : 0 : 1
 Initiating execution for seqNum: 1
-Status : PREPARED
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 2
+sender: 1001
+receiver: 1650
+amount: 2
+transactionNum: 2
+
+Sent Reply to Client executed: 1
+Initiating execution for seqNum: 2
+Status : Not Found
+Commit response from 7 : false
+Commit response from 8 : false
+Commit response from 6 : false
 Processing Transaction: 4
 Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 4
-Prepare response from 8 : true
-Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 7 : true
+Prepare response from 8 : true
 Pre Prepare Success for SeqNum: 2 View: 0 Transaction ID: 4
 Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 4
 Prepare response from 7 : true
-Prepare response from 8 : true
 Prepare response from 6 : true
+Prepare response from 8 : true
 Prepare Success for SeqNum: 2 View: 0 Transaction ID: 4
 Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 4
-Commit response from 6 : false
-Commit response from 7 : false
+Initiating executions : 1 : 2
+Initiating execution for seqNum: 2
+Status : COMMITTED
+Executing transaction: 2
+Transaction executed: 2
+Sending Reply to Client executed: 2 Transaction: 4
+sender: 1201
+receiver: 1111
+amount: 5
+transactionNum: 4
+
+Sent Reply to Client executed: 2
+Initiating execution for seqNum: 3
+Status : Not Found
 Commit response from 8 : false
-Initiating executions : 0 : 2
-Initiating execution for seqNum: 1
-Status : PREPARED
+Commit response from 7 : false
+Commit response from 6 : false
 Processing Transaction: 5
 Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 5
 Prepare response from 6 : true
@@ -48,155 +70,137 @@ Prepare response from 7 : true
 Prepare response from 6 : true
 Prepare Success for SeqNum: 3 View: 0 Transaction ID: 5
 Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 5
-Commit response from 7 : false
+Initiating executions : 2 : 3
+Initiating execution for seqNum: 3
+Status : COMMITTED
+Executing transaction: 3
+Transaction executed: 3
+Sending Reply to Client executed: 3 Transaction: 5
+sender: 1201
+receiver: 1299
+amount: 3
+transactionNum: 5
+
+Sent Reply to Client executed: 3
+Initiating execution for seqNum: 4
+Status : Not Found
 Commit response from 8 : false
+Commit response from 7 : false
 Commit response from 6 : false
-Initiating executions : 0 : 3
-Initiating execution for seqNum: 1
-Status : PREPARED
 Processing Transaction: 10
 Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 10
 Prepare response from 6 : true
-Prepare response from 7 : true
 Prepare response from 8 : true
+Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 4 View: 0 Transaction ID: 10
 Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 10
-Prepare response from 7 : true
 Prepare response from 8 : true
+Prepare response from 7 : true
 Prepare response from 6 : true
 Prepare Success for SeqNum: 4 View: 0 Transaction ID: 10
 Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 10
-Commit response from 6 : false
-Commit response from 7 : false
+Initiating executions : 3 : 4
+Initiating execution for seqNum: 4
+Status : COMMITTED
+Executing transaction: 4
+Transaction executed: 4
+Sending Reply to Client executed: 4 Transaction: 10
+sender: 1895
+receiver: 1890
+amount: 5
+transactionNum: 10
+
+Sent Reply to Client executed: 4
+Initiating execution for seqNum: 5
+Status : Not Found
 Commit response from 8 : false
-Initiating executions : 0 : 4
-Initiating execution for seqNum: 1
-Status : PREPARED
-Processing Transaction: 14
-Processing Transaction: 2
-Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 2
-Prepare response from 8 : true
-Prepare response from 6 : true
-Prepare response from 7 : true
-Pre Prepare Success for SeqNum: 5 View: 0 Transaction ID: 2
-Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 2
-Prepare response from 6 : true
-Prepare response from 7 : true
-Prepare response from 8 : true
-Prepare Success for SeqNum: 5 View: 0 Transaction ID: 2
-Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 2
-Commit response from 7 : false
-Commit response from 8 : false
-Commit response from 6 : false
-Initiating executions : 0 : 5
-Initiating execution for seqNum: 1
-Status : PREPARED
-Processing Transaction: 4
-Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 4
-Prepare response from 6 : true
-Prepare response from 8 : true
-Prepare response from 7 : true
-Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 4
-Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 4
-Prepare response from 8 : true
-Prepare response from 6 : true
-Prepare response from 7 : true
-Prepare Success for SeqNum: 6 View: 0 Transaction ID: 4
-Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 4
 Commit response from 7 : false
 Commit response from 6 : false
-Commit response from 8 : false
-Initiating executions : 0 : 6
-Initiating execution for seqNum: 1
-Status : PREPARED
-Processing Transaction: 5
-Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 5
-Prepare response from 6 : true
-Prepare response from 8 : true
-Prepare response from 7 : true
-Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 5
-Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 5
-Prepare response from 8 : true
-Prepare response from 7 : true
-Prepare response from 6 : true
-Prepare Success for SeqNum: 7 View: 0 Transaction ID: 5
-Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 5
-Commit response from 7 : false
-Commit response from 8 : false
-Commit response from 6 : false
-Initiating executions : 0 : 7
-Initiating execution for seqNum: 1
-Status : PREPARED
-Processing Transaction: 10
-Initiating Pre Prepare for SeqNum: 8 View: 0 Transaction ID: 10
-Prepare response from 7 : true
-Prepare response from 8 : true
-Prepare response from 6 : true
-Pre Prepare Success for SeqNum: 8 View: 0 Transaction ID: 10
-Initiating Prepare for SeqNum: 8 View: 0 Transaction ID: 10
-Prepare response from 8 : true
-Prepare response from 6 : true
-Prepare response from 7 : true
-Prepare Success for SeqNum: 8 View: 0 Transaction ID: 10
-Initiating Commit for SeqNum: 8 View: 0 Transaction ID: 10
-Commit response from 7 : false
-Commit response from 8 : false
-Commit response from 6 : false
-Initiating executions : 0 : 8
-Initiating execution for seqNum: 1
-Status : PREPARED
 Processing Transaction: 14
 Processing Transaction: 16
-Initiating Pre Prepare for SeqNum: 9 View: 0 Transaction ID: 16
-Prepare response from 8 : true
-Prepare response from 7 : true
-Prepare response from 6 : true
-Pre Prepare Success for SeqNum: 9 View: 0 Transaction ID: 16
-Initiating Prepare for SeqNum: 9 View: 0 Transaction ID: 16
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 16
 Prepare response from 7 : true
 Prepare response from 6 : true
 Prepare response from 8 : true
-Prepare Success for SeqNum: 9 View: 0 Transaction ID: 16
-Initiating Commit for SeqNum: 9 View: 0 Transaction ID: 16
+Pre Prepare Success for SeqNum: 5 View: 0 Transaction ID: 16
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 16
+Prepare response from 8 : true
+Prepare response from 6 : true
+Prepare response from 7 : true
+Prepare Success for SeqNum: 5 View: 0 Transaction ID: 16
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 16
+Initiating executions : 4 : 5
+Initiating execution for seqNum: 5
+Status : COMMITTED
+Executing transaction: 5
+Transaction executed: 5
+Sending Reply to Client executed: 5 Transaction: 16
+sender: 1495
+receiver: 1490
+amount: 3
+transactionNum: 16
+
+Sent Reply to Client executed: 5
+Initiating execution for seqNum: 6
+Status : Not Found
 Commit response from 8 : false
-Commit response from 7 : false
 Commit response from 6 : false
-Initiating executions : 0 : 9
-Initiating execution for seqNum: 1
-Status : PREPARED
+Commit response from 7 : false
 Processing Transaction: 18
-Initiating Pre Prepare for SeqNum: 10 View: 0 Transaction ID: 18
+Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 18
+Prepare response from 7 : true
+Prepare response from 6 : true
+Prepare response from 8 : true
+Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 18
+Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 18
 Prepare response from 6 : true
 Prepare response from 7 : true
 Prepare response from 8 : true
-Pre Prepare Success for SeqNum: 10 View: 0 Transaction ID: 18
-Initiating Prepare for SeqNum: 10 View: 0 Transaction ID: 18
-Prepare response from 8 : true
-Prepare response from 7 : true
-Prepare response from 6 : true
-Prepare Success for SeqNum: 10 View: 0 Transaction ID: 18
-Initiating Commit for SeqNum: 10 View: 0 Transaction ID: 18
-Commit response from 8 : false
-Commit response from 7 : false
+Prepare Success for SeqNum: 6 View: 0 Transaction ID: 18
+Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 18
+Initiating executions : 5 : 6
+Initiating execution for seqNum: 6
+Status : COMMITTED
+Executing transaction: 6
+Transaction executed: 6
+Sending Reply to Client executed: 6 Transaction: 18
+sender: 1690
+receiver: 1695
+amount: 6
+transactionNum: 18
+
 Commit response from 6 : false
-Initiating executions : 0 : 10
-Initiating execution for seqNum: 1
-Status : PREPARED
+Commit response from 8 : false
+Sent Reply to Client executed: 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Commit response from 7 : false
 Processing Transaction: 21
-Initiating Pre Prepare for SeqNum: 11 View: 0 Transaction ID: 21
+Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 21
+Prepare response from 6 : true
 Prepare response from 8 : true
 Prepare response from 7 : true
-Prepare response from 6 : true
-Pre Prepare Success for SeqNum: 11 View: 0 Transaction ID: 21
-Initiating Prepare for SeqNum: 11 View: 0 Transaction ID: 21
-Prepare response from 7 : true
+Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 21
+Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 21
 Prepare response from 8 : true
 Prepare response from 6 : true
-Prepare Success for SeqNum: 11 View: 0 Transaction ID: 21
-Initiating Commit for SeqNum: 11 View: 0 Transaction ID: 21
+Prepare response from 7 : true
+Prepare Success for SeqNum: 7 View: 0 Transaction ID: 21
+Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 21
+Initiating executions : 6 : 7
+Initiating execution for seqNum: 7
+Status : COMMITTED
+Executing transaction: 7
+Transaction executed: 7
+Sending Reply to Client executed: 7 Transaction: 21
+sender: 1415
+receiver: 1189
+amount: 5
+transactionNum: 21
+
 Commit response from 6 : false
 Commit response from 8 : false
 Commit response from 7 : false
-Initiating executions : 0 : 11
-Initiating execution for seqNum: 1
-Status : PREPARED
+Sent Reply to Client executed: 7
+Initiating execution for seqNum: 8
+Status : Not Found
