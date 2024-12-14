@@ -315,6 +315,38 @@ public final class LinearPBFTGrpc {
      return getReShardingProcessMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.Transaction,
+      com.google.protobuf.Empty> getRelayRequestMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "relayRequest",
+      requestType = org.cse535.proto.Transaction.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.Transaction,
+      com.google.protobuf.Empty> getRelayRequestMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.Transaction, com.google.protobuf.Empty> getRelayRequestMethod;
+    if ((getRelayRequestMethod = LinearPBFTGrpc.getRelayRequestMethod) == null) {
+      synchronized (LinearPBFTGrpc.class) {
+        if ((getRelayRequestMethod = LinearPBFTGrpc.getRelayRequestMethod) == null) {
+          LinearPBFTGrpc.getRelayRequestMethod = getRelayRequestMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.Transaction, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "LinearPBFT", "relayRequest"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.Transaction.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("relayRequest"))
+                  .build();
+          }
+        }
+     }
+     return getRelayRequestMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -405,6 +437,13 @@ public final class LinearPBFTGrpc {
       asyncUnimplementedUnaryCall(getReShardingProcessMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void relayRequest(org.cse535.proto.Transaction request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getRelayRequestMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -470,6 +509,13 @@ public final class LinearPBFTGrpc {
                 org.cse535.proto.ReShardingData,
                 org.cse535.proto.CommandOutput>(
                   this, METHODID_RE_SHARDING_PROCESS)))
+          .addMethod(
+            getRelayRequestMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.Transaction,
+                com.google.protobuf.Empty>(
+                  this, METHODID_RELAY_REQUEST)))
           .build();
     }
   }
@@ -563,6 +609,14 @@ public final class LinearPBFTGrpc {
       asyncUnaryCall(
           getChannel().newCall(getReShardingProcessMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void relayRequest(org.cse535.proto.Transaction request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRelayRequestMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -644,6 +698,13 @@ public final class LinearPBFTGrpc {
     public org.cse535.proto.CommandOutput reShardingProcess(org.cse535.proto.ReShardingData request) {
       return blockingUnaryCall(
           getChannel(), getReShardingProcessMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty relayRequest(org.cse535.proto.Transaction request) {
+      return blockingUnaryCall(
+          getChannel(), getRelayRequestMethod(), getCallOptions(), request);
     }
   }
 
@@ -736,6 +797,14 @@ public final class LinearPBFTGrpc {
       return futureUnaryCall(
           getChannel().newCall(getReShardingProcessMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> relayRequest(
+        org.cse535.proto.Transaction request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRelayRequestMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REQUEST = 0;
@@ -747,6 +816,7 @@ public final class LinearPBFTGrpc {
   private static final int METHODID_EXEC_REPLY = 6;
   private static final int METHODID_RE_SHARDING_INITIATION = 7;
   private static final int METHODID_RE_SHARDING_PROCESS = 8;
+  private static final int METHODID_RELAY_REQUEST = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -800,6 +870,10 @@ public final class LinearPBFTGrpc {
         case METHODID_RE_SHARDING_PROCESS:
           serviceImpl.reShardingProcess((org.cse535.proto.ReShardingData) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
+          break;
+        case METHODID_RELAY_REQUEST:
+          serviceImpl.relayRequest((org.cse535.proto.Transaction) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -871,6 +945,7 @@ public final class LinearPBFTGrpc {
               .addMethod(getExecReplyMethod())
               .addMethod(getReShardingInitiationMethod())
               .addMethod(getReShardingProcessMethod())
+              .addMethod(getRelayRequestMethod())
               .build();
         }
       }

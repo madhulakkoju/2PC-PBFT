@@ -54,9 +54,10 @@ public class Node extends NodeServer {
 
                 Transaction transaction = transactionInput.getTransaction();
 
-                if(this.database.processedTransactionsSet.contains(transaction.getTransactionNum())){
+                if(this.database.transactionStatusMap.containsKey(transaction.getTransactionNum()) &&
+                        this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.EXECUTED){
+                    reSendExecutionReplyToClient(transaction);
                     this.database.incomingTransactionsQueue.remove();
-                    continue;
                 }
 
                 // Process the Transaction now.
@@ -65,6 +66,7 @@ public class Node extends NodeServer {
                     processCrossShardTransaction(transactionInput);
                 }
                 else {
+
                     processIntraShardTransaction(transaction, this.database.ballotNumber.incrementAndGet());
                 }
 
@@ -544,6 +546,23 @@ public class Node extends NodeServer {
 
 
 
+    public void reSendExecutionReplyToClient(Transaction transaction) {
+        // Send reply to Client
+
+        if(!this.database.transactionStatusMap.containsKey(transaction.getTransactionNum())){
+            return;
+        }
+        else if(this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.COMMITTED){
+            sendExecutionReplyToClient(transaction, true, "", "COMMITTED");
+            this.database.initiateExecutions();
+        }
+        else if(this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.ABORTED){
+            sendExecutionReplyToClient(transaction, false, "Transaction Failed", "ABORTED");
+        }
+        else if(this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.EXECUTED){
+            sendExecutionReplyToClient(transaction, true, "", "EXECUTED");
+        }
+    }
 
 
 

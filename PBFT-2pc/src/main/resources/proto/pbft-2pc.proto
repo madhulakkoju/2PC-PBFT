@@ -15,14 +15,13 @@ service LinearPBFT {
   rpc Prepare(PrepareRequest) returns (PrepareResponse) {}
   rpc Commit(CommitRequest) returns (CommitResponse) {}
 
-
   rpc Sync(PrepareRequest) returns (PrepareResponse) {}
   rpc ExecReply(ExecutionReply) returns (google.protobuf.Empty) {}
-
 
   rpc ReShardingInitiation(google.protobuf.Empty) returns ( ReShardingInitData ) {}
   rpc ReShardingProcess(ReShardingData) returns (CommandOutput) {}
 
+  rpc relayRequest(Transaction) returns (google.protobuf.Empty) {}
 }
 
 

@@ -40,7 +40,7 @@ public class IntraPrePrepareThread extends Thread{
             this.successPrepares.incrementAndGet();
         }
 
-        if(this.node.database.prePrepareResponseMap.get(this.request.getSequenceNumber()) == null){
+        if( this.node.database.prePrepareResponseMap.containsKey(this.request.getSequenceNumber()) || this.node.database.prePrepareResponseMap.get(this.request.getSequenceNumber()) == null){
             this.node.database.prePrepareResponseMap.put(this.request.getSequenceNumber(), new ArrayList<>());
         }
 

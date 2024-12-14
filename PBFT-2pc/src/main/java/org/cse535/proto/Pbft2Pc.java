@@ -258,7 +258,7 @@ public final class Pbft2Pc {
       "ransactionStatus\022\010\n\004None\020\000\022\r\n\tREQUESTED\020" +
       "\001\022\017\n\013PrePREPARED\020\002\022\014\n\010PREPARED\020\003\022\r\n\tCOMM" +
       "ITTED\020\004\022\014\n\010EXECUTED\020\005\022\013\n\007ABORTED\020\006\022\013\n\007PE" +
-      "NDING\020\007\022\014\n\010ACCEPTED\020\0102\375\003\n\nLinearPBFT\0222\n\007" +
+      "NDING\020\007\022\014\n\010ACCEPTED\020\0102\265\004\n\nLinearPBFT\0222\n\007" +
       "Request\022\027.TransactionInputConfig\032\014.TxnRe" +
       "sponse\"\000\022A\n\021CrossShardRequest\022\027.Transact" +
       "ionInputConfig\032\021.CrossTxnResponse\"\000\0227\n\nP" +
@@ -271,21 +271,22 @@ public final class Pbft2Pc {
       "mpty\"\000\022E\n\024ReShardingInitiation\022\026.google." +
       "protobuf.Empty\032\023.ReShardingInitData\"\000\0226\n" +
       "\021ReShardingProcess\022\017.ReShardingData\032\016.Co" +
-      "mmandOutput\"\0002\222\002\n\017ActivateServers\022C\n\016act" +
-      "ivateServer\022\026.ActivateServerRequest\032\027.Ac" +
-      "tivateServerResponse\"\000\022I\n\020deactivateServ" +
-      "er\022\030.DeactivateServerRequest\032\031.Deactivat" +
-      "eServerResponse\"\000\0228\n\rmakeByzantine\022\r.Com" +
-      "mandInput\032\026.google.protobuf.Empty\"\000\0225\n\nm" +
-      "akeHonest\022\r.CommandInput\032\026.google.protob" +
-      "uf.Empty\"\0002\367\001\n\010Commands\022/\n\014printBalance\022" +
-      "\r.CommandInput\032\016.CommandOutput\"\000\022+\n\010prin" +
-      "tLog\022\r.CommandInput\032\016.CommandOutput\"\000\022*\n" +
-      "\007printDB\022\r.CommandInput\032\016.CommandOutput\"" +
-      "\000\022.\n\013Performance\022\r.CommandInput\032\016.Comman" +
-      "dOutput\"\000\0221\n\016printDatastore\022\r.CommandInp" +
-      "ut\032\016.CommandOutput\"\000B\024\n\020org.cse535.proto" +
-      "P\001b\006proto3"
+      "mmandOutput\"\000\0226\n\014relayRequest\022\014.Transact" +
+      "ion\032\026.google.protobuf.Empty\"\0002\222\002\n\017Activa" +
+      "teServers\022C\n\016activateServer\022\026.ActivateSe" +
+      "rverRequest\032\027.ActivateServerResponse\"\000\022I" +
+      "\n\020deactivateServer\022\030.DeactivateServerReq" +
+      "uest\032\031.DeactivateServerResponse\"\000\0228\n\rmak" +
+      "eByzantine\022\r.CommandInput\032\026.google.proto" +
+      "buf.Empty\"\000\0225\n\nmakeHonest\022\r.CommandInput" +
+      "\032\026.google.protobuf.Empty\"\0002\367\001\n\010Commands\022" +
+      "/\n\014printBalance\022\r.CommandInput\032\016.Command" +
+      "Output\"\000\022+\n\010printLog\022\r.CommandInput\032\016.Co" +
+      "mmandOutput\"\000\022*\n\007printDB\022\r.CommandInput\032" +
+      "\016.CommandOutput\"\000\022.\n\013Performance\022\r.Comma" +
+      "ndInput\032\016.CommandOutput\"\000\0221\n\016printDatast" +
+      "ore\022\r.CommandInput\032\016.CommandOutput\"\000B\024\n\020" +
+      "org.cse535.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

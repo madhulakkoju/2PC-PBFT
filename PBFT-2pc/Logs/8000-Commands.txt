@@ -65,8 +65,8 @@ S12 : [< 1,S9>, (   0,    0,  0) ]
 
 -------------------------Performance---------------------------------
 Total Transactions: 3
-Latency: 903.00000000 ms
-Throughput: 3.32225914 tps
+Latency: 1158.00000000 ms
+Throughput: 2.59067358 tps
 ----------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
@@ -111,8 +111,8 @@ S12 : [< 1,S9>, (   0,    0,  0) ]
 
 -------------------------Performance---------------------------------
 Total Transactions: 4
-Latency: 303.00000000 ms
-Throughput: 13.20132013 tps
+Latency: 514.00000000 ms
+Throughput: 7.78210117 tps
 ----------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
@@ -161,8 +161,8 @@ S12 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ]
 
 -------------------------Performance---------------------------------
 Total Transactions: 4
-Latency: 257.00000000 ms
-Throughput: 15.56420233 tps
+Latency: 269.00000000 ms
+Throughput: 14.86988848 tps
 ----------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
@@ -213,8 +213,8 @@ S12 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, 
 
 -------------------------Performance---------------------------------
 Total Transactions: 3
-Latency: 118.00000000 ms
-Throughput: 25.42372881 tps
+Latency: 174.00000000 ms
+Throughput: 17.24137931 tps
 ----------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
@@ -274,8 +274,8 @@ S12 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, 
 
 -------------------------Performance---------------------------------
 Total Transactions: 5
-Latency: 15084.00000000 ms
-Throughput: 0.33147706 tps
+Latency: 340.00000000 ms
+Throughput: 14.70588235 tps
 ----------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------
@@ -285,9 +285,9 @@ Throughput: 0.33147706 tps
 
 Server \ Data Store
 S1 : 
-S2 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [<20,S1>, (   0,    0,  0) ] -> [<21,S1>, (   0,    0,  0) ] -> [<22,S1>, (   0,    0,  0) ]
-S3 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [<20,S1>, (   0,    0,  0) ] -> [<21,S1>, (   0,    0,  0) ] -> [<22,S1>, (   0,    0,  0) ]
-S4 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [<20,S1>, (   0,    0,  0) ] -> [<21,S1>, (   0,    0,  0) ] -> [<22,S1>, (   0,    0,  0) ]
+S2 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ]
+S3 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ]
+S4 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ]
 S5 : 
 S6 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
 S7 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
@@ -314,9 +314,9 @@ S12 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, 
   12 :: Transaction (2770, 2799,  1)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; S12 : EXECUTED; 
   13 :: Transaction ( 196,  197,  3)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
   14 :: Transaction (1295, 1990, 17)  : S5 : ABORTED-Insufficient Balance; 
-  15 :: Transaction ( 973,  707,  2)  : S1 : COMMITED; 
+  15 :: Transaction ( 973,  707,  2)  : S1 : ABORTED-Pre Prepare Failed; 
   16 :: Transaction (1495, 1490,  3)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
-  17 :: Transaction ( 333,  691,  4)  : S1 : COMMITED; 
+  17 :: Transaction ( 333,  691,  4)  : S1 : ABORTED-Pre Prepare Failed; 
   18 :: Transaction (1690, 1695,  6)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
   19 :: Transaction (2975, 2970,  9)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; 
   20 :: Transaction ( 888,  777,  5)  : S1 : COMMITED; 
@@ -324,20 +324,138 @@ S12 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, 
   22 :: Transaction (2222, 2333,  6)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; 
 ------------------------------PrintBalance---------------------------------
 
- 707 Balances: S1 : 10; S2 : 10; S3 : 10; S4 : 10; 
- 691 Balances: S1 : 10; S2 : 10; S3 : 10; S4 : 10; 
 1189 Balances: S5 : 15; S6 : 15; S7 : 15; S8 : 15; 
 1415 Balances: S5 :  5; S6 :  5; S7 :  5; S8 :  5; 
  888 Balances: S1 : 10; S2 : 10; S3 : 10; S4 : 10; 
  777 Balances: S1 : 10; S2 : 10; S3 : 10; S4 : 10; 
 2333 Balances: S9 : 16; S10 : 16; S11 : 16; S12 : 10; 
- 973 Balances: S1 : 10; S2 : 10; S3 : 10; S4 : 10; 
- 333 Balances: S1 : 10; S2 : 10; S3 : 10; S4 : 10; 
 2222 Balances: S9 :  4; S10 :  4; S11 :  4; S12 : 10; 
 ----------------------------------------------------------------------------
 
 -------------------------Performance---------------------------------
 Total Transactions: 3
-Latency: 2034.00000000 ms
-Throughput: 1.47492625 tps
+Latency: 162.00000000 ms
+Throughput: 18.51851852 tps
+----------------------------------------------------------------------------
+
+---------------------------------------- Print Data Store -----------------------------------
+
+Server \ Data Store
+S1 : 
+S2 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ] -> [< 6,S1>, (   0,    0,  0) ] -> [< 7,S1>, (   0,    0,  0) ]
+S3 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ] -> [< 6,S1>, (   0,    0,  0) ] -> [< 7,S1>, (   0,    0,  0) ]
+S4 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ] -> [< 6,S1>, (   0,    0,  0) ] -> [< 7,S1>, (   0,    0,  0) ]
+S5 : 
+S6 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
+S7 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
+S8 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
+S9 : 
+S10 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, (   0,    0,  0) ] -> [< 4,S9>, (   0,    0,  0) ] -> [< 5,S9>, (   0,    0,  0) ]
+S11 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, (   0,    0,  0) ] -> [< 4,S9>, (   0,    0,  0) ] -> [< 5,S9>, (   0,    0,  0) ]
+S12 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, (   0,    0,  0) ] -> [< 5,S9>, (   0,    0,  0) ]
+
+
+-----------------------------------Transaction Statuses:-----------------------------------
+
+   1 :: Transaction ( 100,  501,  8)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+   2 :: Transaction (1001, 1650,  2)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+   3 :: Transaction (2800, 2150,  7)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; S12 : EXECUTED; 
+   4 :: Transaction (1201, 1111,  5)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+   5 :: Transaction (1201, 1299,  3)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+   6 :: Transaction ( 101,  301,  9)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+   7 :: Transaction ( 299,    1,  4)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+   8 :: Transaction (2995, 2990,  5)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; S12 : EXECUTED; 
+   9 :: Transaction ( 791,  997,  3)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+  10 :: Transaction (1895, 1890,  5)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  11 :: Transaction (2995, 2994,  7)  : S9 : ABORTED-Insufficient Balance; 
+  12 :: Transaction (2770, 2799,  1)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; S12 : EXECUTED; 
+  13 :: Transaction ( 196,  197,  3)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  14 :: Transaction (1295, 1990, 17)  : S5 : ABORTED-Insufficient Balance; 
+  15 :: Transaction ( 973,  707,  2)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  16 :: Transaction (1495, 1490,  3)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  17 :: Transaction ( 333,  691,  4)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  18 :: Transaction (1690, 1695,  6)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  19 :: Transaction (2975, 2970,  9)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; 
+  20 :: Transaction ( 888,  777,  5)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  21 :: Transaction (1415, 1189,  5)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  22 :: Transaction (2222, 2333,  6)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; 
+------------------------------PrintBalance---------------------------------
+
+ 707 Balances: S1 : 12; S2 : 12; S3 : 12; S4 : 10; 
+ 691 Balances: S1 : 14; S2 : 14; S3 : 14; S4 : 10; 
+1189 Balances: S5 : 15; S6 : 15; S7 : 15; S8 : 15; 
+1415 Balances: S5 :  5; S6 :  5; S7 :  5; S8 :  5; 
+ 888 Balances: S1 :  5; S2 :  5; S3 :  5; S4 : 10; 
+ 777 Balances: S1 : 15; S2 : 15; S3 : 15; S4 : 10; 
+2333 Balances: S9 : 16; S10 : 16; S11 : 16; S12 : 10; 
+ 973 Balances: S1 :  8; S2 :  8; S3 :  8; S4 : 10; 
+ 333 Balances: S1 :  6; S2 :  6; S3 :  6; S4 : 10; 
+2222 Balances: S9 :  4; S10 :  4; S11 :  4; S12 : 10; 
+----------------------------------------------------------------------------
+
+-------------------------Performance---------------------------------
+Total Transactions: 3
+Latency: 2563.00000000 ms
+Throughput: 1.17050332 tps
+----------------------------------------------------------------------------
+
+---------------------------------------- Print Data Store -----------------------------------
+
+Server \ Data Store
+S1 : 
+S2 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ] -> [< 6,S1>, (   0,    0,  0) ] -> [< 7,S1>, (   0,    0,  0) ]
+S3 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 5,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ] -> [< 6,S1>, (   0,    0,  0) ] -> [< 7,S1>, (   0,    0,  0) ]
+S4 : [< 1,S1>, (   0,    0,  0) ] -> [< 2,S1>, (   0,    0,  0) ] -> [< 3,S1>, (   0,    0,  0) ] -> [< 4,S1>, (   0,    0,  0) ] -> [< 8,S1>, (   0,    0,  0) ] -> [< 6,S1>, (   0,    0,  0) ] -> [< 7,S1>, (   0,    0,  0) ]
+S5 : 
+S6 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
+S7 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
+S8 : [< 1,S5>, (   0,    0,  0) ] -> [< 2,S5>, (   0,    0,  0) ] -> [< 3,S5>, (   0,    0,  0) ] -> [< 4,S5>, (   0,    0,  0) ] -> [< 5,S5>, (   0,    0,  0) ] -> [< 6,S5>, (   0,    0,  0) ] -> [< 7,S5>, (   0,    0,  0) ]
+S9 : 
+S10 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, (   0,    0,  0) ] -> [< 4,S9>, (   0,    0,  0) ] -> [< 5,S9>, (   0,    0,  0) ]
+S11 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, (   0,    0,  0) ] -> [< 4,S9>, (   0,    0,  0) ] -> [< 5,S9>, (   0,    0,  0) ]
+S12 : [< 1,S9>, (   0,    0,  0) ] -> [< 2,S9>, (   0,    0,  0) ] -> [< 3,S9>, (   0,    0,  0) ] -> [< 5,S9>, (   0,    0,  0) ]
+
+
+-----------------------------------Transaction Statuses:-----------------------------------
+
+   1 :: Transaction ( 100,  501,  8)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+   2 :: Transaction (1001, 1650,  2)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+   3 :: Transaction (2800, 2150,  7)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; S12 : EXECUTED; 
+   4 :: Transaction (1201, 1111,  5)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+   5 :: Transaction (1201, 1299,  3)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+   6 :: Transaction ( 101,  301,  9)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+   7 :: Transaction ( 299,    1,  4)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+   8 :: Transaction (2995, 2990,  5)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; S12 : EXECUTED; 
+   9 :: Transaction ( 791,  997,  3)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; S4 : EXECUTED; 
+  10 :: Transaction (1895, 1890,  5)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  11 :: Transaction (2995, 2994,  7)  : S9 : ABORTED-Insufficient Balance; 
+  12 :: Transaction (2770, 2799,  1)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; S12 : EXECUTED; 
+  13 :: Transaction ( 196,  197,  3)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  14 :: Transaction (1295, 1990, 17)  : S5 : ABORTED-Insufficient Balance; 
+  15 :: Transaction ( 973,  707,  2)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  16 :: Transaction (1495, 1490,  3)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  17 :: Transaction ( 333,  691,  4)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  18 :: Transaction (1690, 1695,  6)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  19 :: Transaction (2975, 2970,  9)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; 
+  20 :: Transaction ( 888,  777,  5)  : S1 : EXECUTED; S2 : EXECUTED; S3 : EXECUTED; 
+  21 :: Transaction (1415, 1189,  5)  : S5 : EXECUTED; S6 : EXECUTED; S7 : EXECUTED; S8 : EXECUTED; 
+  22 :: Transaction (2222, 2333,  6)  : S9 : EXECUTED; S10 : EXECUTED; S11 : EXECUTED; 
+------------------------------PrintBalance---------------------------------
+
+ 707 Balances: S1 : 12; S2 : 12; S3 : 12; S4 : 10; 
+ 691 Balances: S1 : 14; S2 : 14; S3 : 14; S4 : 10; 
+1189 Balances: S5 : 15; S6 : 15; S7 : 15; S8 : 15; 
+1415 Balances: S5 :  5; S6 :  5; S7 :  5; S8 :  5; 
+ 888 Balances: S1 :  5; S2 :  5; S3 :  5; S4 : 10; 
+ 777 Balances: S1 : 15; S2 : 15; S3 : 15; S4 : 10; 
+2333 Balances: S9 : 16; S10 : 16; S11 : 16; S12 : 10; 
+ 973 Balances: S1 :  8; S2 :  8; S3 :  8; S4 : 10; 
+ 333 Balances: S1 :  6; S2 :  6; S3 :  6; S4 : 10; 
+2222 Balances: S9 :  4; S10 :  4; S11 :  4; S12 : 10; 
+----------------------------------------------------------------------------
+
+-------------------------Performance---------------------------------
+Total Transactions: 3
+Latency: 2563.00000000 ms
+Throughput: 1.17050332 tps
 ----------------------------------------------------------------------------

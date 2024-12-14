@@ -187,4 +187,21 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         return;
     }
 
+
+    @Override
+    public void relayRequest(Transaction request, StreamObserver<Empty> responseObserver) {
+
+        if( ! Main.node.isServerActive.get() ){
+            //Inactive server
+            responseObserver.onNext(Empty.newBuilder().build());
+            responseObserver.onCompleted();
+            return;
+        }
+
+        responseObserver.onNext(Empty.newBuilder().build());
+        responseObserver.onCompleted();
+
+        Main.node.reSendExecutionReplyToClient(request);
+
+    }
 }

@@ -46,139 +46,28 @@
 0 - UNLOCK : 0 : 0
 0 - UNLOCK : 0 : 0
 0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+15 - BEGIN TNX : ( 973,  707,  2) 
+15 - READ : 973
+15 - READ : 707
+15 - BEFORE TNX : ( 973,  707,  2) 
+15 - WRITE : 973 : 8
+15 - WRITE : 707 : 12
+15 - COMMIT : ( 973,  707,  2) 
+0 - UNLOCK : 0 : 0
+0 - UNLOCK : 0 : 0
+17 - BEGIN TNX : ( 333,  691,  4) 
+17 - READ : 333
+17 - READ : 691
+17 - BEFORE TNX : ( 333,  691,  4) 
+17 - WRITE : 333 : 6
+17 - WRITE : 691 : 14
+17 - COMMIT : ( 333,  691,  4) 
+20 - BEGIN TNX : ( 888,  777,  5) 
+20 - READ : 888
+20 - READ : 777
+20 - BEFORE TNX : ( 888,  777,  5) 
+20 - WRITE : 888 : 5
+20 - WRITE : 777 : 15
+20 - COMMIT : ( 888,  777,  5) 
 0 - UNLOCK : 0 : 0
 0 - UNLOCK : 0 : 0
