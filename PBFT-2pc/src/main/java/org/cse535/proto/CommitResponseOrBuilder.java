@@ -8,37 +8,24 @@ public interface CommitResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 ballotNumber = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  int getBallotNumber();
+  int getView();
 
   /**
-   * <code>string processId = 2;</code>
+   * <code>int32 sequenceNumber = 2;</code>
+   */
+  int getSequenceNumber();
+
+  /**
+   * <code>string processId = 3;</code>
    */
   java.lang.String getProcessId();
   /**
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   com.google.protobuf.ByteString
       getProcessIdBytes();
-
-  /**
-   * <pre>
-   *Current server name
-   * </pre>
-   *
-   * <code>string acceptedServerName = 3;</code>
-   */
-  java.lang.String getAcceptedServerName();
-  /**
-   * <pre>
-   *Current server name
-   * </pre>
-   *
-   * <code>string acceptedServerName = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getAcceptedServerNameBytes();
 
   /**
    * <code>bool success = 4;</code>

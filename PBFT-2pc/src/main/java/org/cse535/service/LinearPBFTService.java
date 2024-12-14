@@ -80,12 +80,14 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
     @Override
     public void prepare(PrepareRequest request, StreamObserver<PrepareResponse> responseObserver) {
-        Main.node.logger.log("Received prepare request from " + request.getProcessId() + " with ballot number " + request.getBallotNumber());
+        Main.node.logger.log("Received prepare request from " + request.getProcessId() + " with Sequence number " + request.getSequenceNumber());
         if( ! Main.node.isServerActive.get() ){
             //Inactive server
             PrepareResponse response = PrepareResponse.newBuilder()
                     .setSuccess(false)
-                    .setBallotNumber(request.getBallotNumber())
+                    .setSequenceNumber(request.getSequenceNumber())
+                    .setView(request.getView())
+                    .setClusterId(Main.node.clusterNumber)
                     .setProcessId(Main.node.serverName)
                     .build();
             responseObserver.onNext(response);
@@ -101,13 +103,14 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
     @Override
     public void commit(CommitRequest request, StreamObserver<CommitResponse> responseObserver) {
-        Main.node.logger.log("Received Commit request from " + request.getProcessId() + " with ballot number " + request.getBallotNumber());
+        Main.node.logger.log("Received Commit request from " + request.getProcessId() + " with Seq number " + request.getSequenceNumber());
 
         if( ! Main.node.isServerActive.get() ){
             //Inactive server
             CommitResponse response = CommitResponse.newBuilder()
                     .setSuccess(false)
-                    .setBallotNumber(request.getBallotNumber())
+                    .setSequenceNumber(request.getSequenceNumber())
+                    .setView(request.getView())
                     .setProcessId(Main.node.serverName)
                     .build();
 
@@ -125,7 +128,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
     @Override
     public void execReply(ExecutionReply request, StreamObserver<Empty> responseObserver) {
         if(ViewServer.viewServer != null){
-            ViewServer.viewServer.transactionStatuses.put(request.getTransactionNum(),
+            ViewServer.viewServer.transactionStatuses.put(request.getTransactionId(),
                     request.getSuccess() ? "COMMITTED" : "ABORTED-"+request.getFailureReason());
             ViewServer.viewServer.endTime = System.currentTimeMillis();
         }

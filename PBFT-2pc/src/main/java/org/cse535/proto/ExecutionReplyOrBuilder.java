@@ -8,36 +8,59 @@ public interface ExecutionReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 transactionNum = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  int getTransactionNum();
+  int getView();
 
   /**
-   * <code>bool success = 2;</code>
+   * <code>int32 sequenceNumber = 2;</code>
+   */
+  int getSequenceNumber();
+
+  /**
+   * <code>string processId = 3;</code>
+   */
+  java.lang.String getProcessId();
+  /**
+   * <code>string processId = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getProcessIdBytes();
+
+  /**
+   * <code>int32 transactionId = 5;</code>
+   */
+  int getTransactionId();
+
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  boolean hasTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  com.google.protobuf.Timestamp getTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
+
+  /**
+   * <code>bool success = 6;</code>
    */
   boolean getSuccess();
 
   /**
-   * <code>string serverName = 3;</code>
-   */
-  java.lang.String getServerName();
-  /**
-   * <code>string serverName = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getServerNameBytes();
-
-  /**
-   * <code>int32 clusterId = 4;</code>
+   * <code>int32 clusterId = 7;</code>
    */
   int getClusterId();
 
   /**
-   * <code>string failureReason = 5;</code>
+   * <code>string failureReason = 8;</code>
    */
   java.lang.String getFailureReason();
   /**
-   * <code>string failureReason = 5;</code>
+   * <code>string failureReason = 8;</code>
    */
   com.google.protobuf.ByteString
       getFailureReasonBytes();

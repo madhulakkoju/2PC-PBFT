@@ -1,5 +1,6 @@
 package org.cse535.database;
 
+import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.configs.Utils;
 import org.cse535.node.Node;
@@ -79,8 +80,8 @@ public class DatabaseService {
     public HashMap<Integer, ExecutionReply> executionReplyMap = new HashMap<>();
 
 
-    // Client: Balance
-    public ConcurrentHashMap<String, Integer> accountsMap = new ConcurrentHashMap<>();
+//    // Client: Balance
+//    public ConcurrentHashMap<String, Integer> accountsMap = new ConcurrentHashMap<>();
 
 
     //Already triggered Views - to restrict multiple triggers for same view
@@ -109,18 +110,6 @@ public class DatabaseService {
 
     public AtomicInteger lastExecutedSeqNum = new AtomicInteger(0);
     public AtomicInteger maxAddedSeqNum = new AtomicInteger(0);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -171,7 +160,7 @@ public class DatabaseService {
             Class.forName("org.sqlite.JDBC");
 
 
-            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\mlakkoju\\2pc-madhulakkoju\\paxos-2pc\\Databases\\Database-"+this.serverNumber+".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\mlakkoju\\2pcbyz-madhulakkoju\\PBFT-2pc\\Databases\\Database-"+this.serverNumber+".db");
             statement = connection.createStatement();
 
             //Account Table - to store balances
@@ -213,7 +202,7 @@ public class DatabaseService {
 
             //Transaction Status Table - to store status of transactions
 
-            statement.executeUpdate("DELETE FROM transactionstatus;");
+           statement.executeUpdate("DELETE FROM transactionstatus;");
 
             createTableSQL = "CREATE TABLE IF NOT EXISTS transactionstatus (" +
                     "ballot INTEGER PRIMARY KEY, " +
@@ -618,6 +607,69 @@ public class DatabaseService {
 
 
 
+    public void initiateExecutions(){
+
+        Main.node.logger.log("Initiating executions : "+ lastExecutedSeqNum.get() + " : " + maxAddedSeqNum.get());
+
+        while( lastExecutedSeqNum.get() <= maxAddedSeqNum.get() ){
+
+            int seqNum = lastExecutedSeqNum.get() + 1;
+
+            Main.node.logger.log("Initiating execution for seqNum: " + seqNum);
+            Main.node.logger.log("Status : " + (transactionStatusMap.containsKey(seqNum) ? transactionStatusMap.get(seqNum) : "Not Found"));
+
+            if( transactionStatusMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.COMMITTED ){
+                // Execute the transaction
+                executeTransaction(seqNum);
+                lastExecutedSeqNum.set(seqNum);
+            } else if (transactionMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED){
+                lastExecutedSeqNum.set(seqNum);
+            } else{
+                break;
+            }
+        }
+    }
+
+    public void executeTransaction( int seqNum ){
+
+        if(this.transactionStatusMap.containsKey(seqNum) && this.transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED){
+            return;
+        }
+
+        Main.node.logger.log("Executing transaction: " + seqNum);
+        Transaction transaction = transactionMap.get(seqNum);
+
+        boolean success = executeTransaction(transaction);
+
+
+
+        this.transactionStatusMap.put(seqNum, TransactionStatus.EXECUTED);
+
+        Main.node.logger.log("Transaction executed: " + seqNum);
+
+        Main.node.logger.log("Sending Reply to Client executed: " + seqNum + " Transaction: " + transaction.getTransactionNum() + "\n"+ transaction.toString());
+
+        if(!success){
+            Main.node.logger.log("Transaction failed: " + seqNum);
+            this.transactionStatusMap.put(seqNum, TransactionStatus.ABORTED);
+        }
+
+//        Main.node.clientStub.executionReply(
+//                ExecutionReplyRequest.newBuilder()
+//                        .setView(this.seqNumViewMap.get(seqNum))
+//                        .setTransactionId(transaction.getTransactionNum())
+//                        .setSequenceNumber(seqNum)
+//                        .setSuccess(success)
+//                        .setProcessId(Main.node.serverName)
+//                        .build()
+//        );
+
+        Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
+
+    }
+
+
+
 
 
 
@@ -637,6 +689,15 @@ public class DatabaseService {
 
         deleteAllBalances();
         insertBalances(data.getAccountBalancesMap());
+    }
+
+
+    public void setLastExecutedSeqNum(int seqNum){
+        lastExecutedSeqNum.set(seqNum);
+    }
+
+    public void setMaxAddedSeqNum(int seqNum){
+        maxAddedSeqNum.set( Math.max( seqNum , maxAddedSeqNum.get() ) );
     }
 
 

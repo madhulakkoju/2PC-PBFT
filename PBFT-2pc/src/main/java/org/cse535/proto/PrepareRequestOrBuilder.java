@@ -8,61 +8,63 @@ public interface PrepareRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 ballotNumber = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  int getBallotNumber();
+  int getView();
 
   /**
-   * <pre>
-   * processId is Server Name
-   * </pre>
-   *
-   * <code>string processId = 2;</code>
+   * <code>int32 sequenceNumber = 2;</code>
+   */
+  int getSequenceNumber();
+
+  /**
+   * <code>string processId = 3;</code>
    */
   java.lang.String getProcessId();
   /**
-   * <pre>
-   * processId is Server Name
-   * </pre>
-   *
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   com.google.protobuf.ByteString
       getProcessIdBytes();
 
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  boolean hasTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  com.google.protobuf.Timestamp getTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
+
+  /**
+   * <code>string digest = 5;</code>
+   */
+  java.lang.String getDigest();
+  /**
+   * <code>string digest = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getDigestBytes();
+
+  /**
+   * <code>.Transaction transaction = 6;</code>
    */
   boolean hasTransaction();
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.Transaction transaction = 6;</code>
    */
   org.cse535.proto.Transaction getTransaction();
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.Transaction transaction = 6;</code>
    */
   org.cse535.proto.TransactionOrBuilder getTransactionOrBuilder();
 
   /**
-   * <code>.Transaction latestCommittedTransaction = 4;</code>
-   */
-  boolean hasLatestCommittedTransaction();
-  /**
-   * <code>.Transaction latestCommittedTransaction = 4;</code>
-   */
-  org.cse535.proto.Transaction getLatestCommittedTransaction();
-  /**
-   * <code>.Transaction latestCommittedTransaction = 4;</code>
-   */
-  org.cse535.proto.TransactionOrBuilder getLatestCommittedTransactionOrBuilder();
-
-  /**
-   * <code>int32 latestCommittedBallotNumber = 5;</code>
-   */
-  int getLatestCommittedBallotNumber();
-
-  /**
-   * <code>int32 clusterId = 6;</code>
+   * <code>int32 clusterId = 7;</code>
    */
   int getClusterId();
 }

@@ -91,6 +91,70 @@ public final class ActivateServersGrpc {
      return getDeactivateServerMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      com.google.protobuf.Empty> getMakeByzantineMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "makeByzantine",
+      requestType = org.cse535.proto.CommandInput.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      com.google.protobuf.Empty> getMakeByzantineMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, com.google.protobuf.Empty> getMakeByzantineMethod;
+    if ((getMakeByzantineMethod = ActivateServersGrpc.getMakeByzantineMethod) == null) {
+      synchronized (ActivateServersGrpc.class) {
+        if ((getMakeByzantineMethod = ActivateServersGrpc.getMakeByzantineMethod) == null) {
+          ActivateServersGrpc.getMakeByzantineMethod = getMakeByzantineMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ActivateServers", "makeByzantine"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandInput.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new ActivateServersMethodDescriptorSupplier("makeByzantine"))
+                  .build();
+          }
+        }
+     }
+     return getMakeByzantineMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      com.google.protobuf.Empty> getMakeHonestMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "makeHonest",
+      requestType = org.cse535.proto.CommandInput.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      com.google.protobuf.Empty> getMakeHonestMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, com.google.protobuf.Empty> getMakeHonestMethod;
+    if ((getMakeHonestMethod = ActivateServersGrpc.getMakeHonestMethod) == null) {
+      synchronized (ActivateServersGrpc.class) {
+        if ((getMakeHonestMethod = ActivateServersGrpc.getMakeHonestMethod) == null) {
+          ActivateServersGrpc.getMakeHonestMethod = getMakeHonestMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ActivateServers", "makeHonest"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandInput.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new ActivateServersMethodDescriptorSupplier("makeHonest"))
+                  .build();
+          }
+        }
+     }
+     return getMakeHonestMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -132,6 +196,20 @@ public final class ActivateServersGrpc {
       asyncUnimplementedUnaryCall(getDeactivateServerMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void makeByzantine(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getMakeByzantineMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void makeHonest(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getMakeHonestMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -148,6 +226,20 @@ public final class ActivateServersGrpc {
                 org.cse535.proto.DeactivateServerRequest,
                 org.cse535.proto.DeactivateServerResponse>(
                   this, METHODID_DEACTIVATE_SERVER)))
+          .addMethod(
+            getMakeByzantineMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommandInput,
+                com.google.protobuf.Empty>(
+                  this, METHODID_MAKE_BYZANTINE)))
+          .addMethod(
+            getMakeHonestMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommandInput,
+                com.google.protobuf.Empty>(
+                  this, METHODID_MAKE_HONEST)))
           .build();
     }
   }
@@ -185,6 +277,22 @@ public final class ActivateServersGrpc {
       asyncUnaryCall(
           getChannel().newCall(getDeactivateServerMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void makeByzantine(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getMakeByzantineMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void makeHonest(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getMakeHonestMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -217,6 +325,20 @@ public final class ActivateServersGrpc {
     public org.cse535.proto.DeactivateServerResponse deactivateServer(org.cse535.proto.DeactivateServerRequest request) {
       return blockingUnaryCall(
           getChannel(), getDeactivateServerMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty makeByzantine(org.cse535.proto.CommandInput request) {
+      return blockingUnaryCall(
+          getChannel(), getMakeByzantineMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty makeHonest(org.cse535.proto.CommandInput request) {
+      return blockingUnaryCall(
+          getChannel(), getMakeHonestMethod(), getCallOptions(), request);
     }
   }
 
@@ -253,10 +375,28 @@ public final class ActivateServersGrpc {
       return futureUnaryCall(
           getChannel().newCall(getDeactivateServerMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> makeByzantine(
+        org.cse535.proto.CommandInput request) {
+      return futureUnaryCall(
+          getChannel().newCall(getMakeByzantineMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> makeHonest(
+        org.cse535.proto.CommandInput request) {
+      return futureUnaryCall(
+          getChannel().newCall(getMakeHonestMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ACTIVATE_SERVER = 0;
   private static final int METHODID_DEACTIVATE_SERVER = 1;
+  private static final int METHODID_MAKE_BYZANTINE = 2;
+  private static final int METHODID_MAKE_HONEST = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -282,6 +422,14 @@ public final class ActivateServersGrpc {
         case METHODID_DEACTIVATE_SERVER:
           serviceImpl.deactivateServer((org.cse535.proto.DeactivateServerRequest) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.DeactivateServerResponse>) responseObserver);
+          break;
+        case METHODID_MAKE_BYZANTINE:
+          serviceImpl.makeByzantine((org.cse535.proto.CommandInput) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_MAKE_HONEST:
+          serviceImpl.makeHonest((org.cse535.proto.CommandInput) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -346,6 +494,8 @@ public final class ActivateServersGrpc {
               .setSchemaDescriptor(new ActivateServersFileDescriptorSupplier())
               .addMethod(getActivateServerMethod())
               .addMethod(getDeactivateServerMethod())
+              .addMethod(getMakeByzantineMethod())
+              .addMethod(getMakeHonestMethod())
               .build();
         }
       }

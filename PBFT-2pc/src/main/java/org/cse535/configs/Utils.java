@@ -84,10 +84,10 @@ public class Utils {
         if(prepareRequest == null) return "";
 
         if(prepareRequest.getTransaction().getIsCrossShard()){
-            return "[<"+ String.format("%2d", prepareRequest.getBallotNumber()) + ","+ prepareRequest.getProcessId() +">, P, "+ toDataStoreString(prepareRequest.getTransaction()) +"]";
+            return "[<"+ String.format("%2d", prepareRequest.getSequenceNumber()) + ","+ prepareRequest.getProcessId() +">, P, "+ toDataStoreString(prepareRequest.getTransaction()) +"]";
         }
 
-        return "[<"+ String.format("%2d", prepareRequest.getBallotNumber()) + ","+ prepareRequest.getProcessId() +">,"+ toDataStoreString(prepareRequest.getTransaction()) +"]";
+        return "[<"+ String.format("%2d", prepareRequest.getSequenceNumber()) + ","+ prepareRequest.getProcessId() +">,"+ toDataStoreString(prepareRequest.getTransaction()) +"]";
     }
 
     public static String toDataStoreString(CommitRequest commitRequest) {
@@ -96,13 +96,13 @@ public class Utils {
         if(commitRequest.getTransaction().getIsCrossShard()){
 
             if(commitRequest.getAbort()){
-                return "[<"+ String.format("%2d", commitRequest.getBallotNumber()) + ","+ commitRequest.getProcessId() +">, A, "+ toDataStoreString(commitRequest.getTransaction()) +"]";
+                return "[<"+ String.format("%2d", commitRequest.getSequenceNumber()) + ","+ commitRequest.getProcessId() +">, A, "+ toDataStoreString(commitRequest.getTransaction()) +"]";
             }
 
-            return "[<"+ String.format("%2d", commitRequest.getBallotNumber()) + ","+ commitRequest.getProcessId() +">, C, "+ toDataStoreString(commitRequest.getTransaction()) +"]";
+            return "[<"+ String.format("%2d", commitRequest.getSequenceNumber()) + ","+ commitRequest.getProcessId() +">, C, "+ toDataStoreString(commitRequest.getTransaction()) +"]";
         }
 
-        return "[<"+ String.format("%2d", commitRequest.getBallotNumber()) + ","+ commitRequest.getProcessId() +">, "+ toDataStoreString(commitRequest.getTransaction()) +"]";
+        return "[<"+ String.format("%2d", commitRequest.getSequenceNumber()) + ","+ commitRequest.getProcessId() +">, "+ toDataStoreString(commitRequest.getTransaction()) +"]";
     }
 
 

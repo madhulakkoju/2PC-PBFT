@@ -8,48 +8,68 @@ public interface CommitRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 ballotNumber = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  int getBallotNumber();
+  int getView();
 
   /**
-   * <pre>
-   * processId is Server Name
-   * </pre>
-   *
-   * <code>string processId = 2;</code>
+   * <code>int32 sequenceNumber = 2;</code>
+   */
+  int getSequenceNumber();
+
+  /**
+   * <code>string processId = 3;</code>
    */
   java.lang.String getProcessId();
   /**
-   * <pre>
-   * processId is Server Name
-   * </pre>
-   *
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   com.google.protobuf.ByteString
       getProcessIdBytes();
 
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
    */
-  boolean hasTransaction();
+  boolean hasTimestamp();
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
    */
-  org.cse535.proto.Transaction getTransaction();
+  com.google.protobuf.Timestamp getTimestamp();
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
    */
-  org.cse535.proto.TransactionOrBuilder getTransactionOrBuilder();
+  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
 
   /**
-   * <code>int32 clusterId = 8;</code>
+   * <code>string digest = 5;</code>
+   */
+  java.lang.String getDigest();
+  /**
+   * <code>string digest = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getDigestBytes();
+
+  /**
+   * <code>int32 clusterId = 6;</code>
    */
   int getClusterId();
 
   /**
-   * <code>bool abort = 4;</code>
+   * <code>bool abort = 7;</code>
    */
   boolean getAbort();
+
+  /**
+   * <code>.Transaction transaction = 8;</code>
+   */
+  boolean hasTransaction();
+  /**
+   * <code>.Transaction transaction = 8;</code>
+   */
+  org.cse535.proto.Transaction getTransaction();
+  /**
+   * <code>.Transaction transaction = 8;</code>
+   */
+  org.cse535.proto.TransactionOrBuilder getTransactionOrBuilder();
 }

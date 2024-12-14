@@ -45,6 +45,21 @@ public final class Pbft2Pc {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PrePrepareResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PrePrepareResponse_SyncTransactionsMapEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PrePrepareResponse_SyncTransactionsMapEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PrePrepareResponse_SyncTransactionStatusMapEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PrePrepareResponse_SyncTransactionStatusMapEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PrePrepareResponse_SyncBalancesMapEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PrePrepareResponse_SyncBalancesMapEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PrepareRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -54,21 +69,6 @@ public final class Pbft2Pc {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PrepareResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PrepareResponse_SyncTransactionsMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PrepareResponse_SyncTransactionsMapEntry_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PrepareResponse_SyncTransactionStatusMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PrepareResponse_SyncTransactionStatusMapEntry_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PrepareResponse_SyncBalancesMapEntry_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PrepareResponse_SyncBalancesMapEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CommitRequest_descriptor;
   static final 
@@ -84,6 +84,26 @@ public final class Pbft2Pc {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ExecutionReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ViewChangeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ViewChangeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ViewChangeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ViewChangeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_NewViewRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_NewViewRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_NewViewResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_NewViewResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ActivateServerRequest_descriptor;
   static final 
@@ -167,91 +187,104 @@ public final class Pbft2Pc {
       "sequenceNumber\030\002 \001(\005\022!\n\013transaction\030\003 \001(" +
       "\0132\014.Transaction\022\021\n\tprocessId\030\004 \001(\t\022-\n\tti" +
       "mestamp\030\005 \001(\0132\032.google.protobuf.Timestam" +
-      "p\022\016\n\006digest\030\006 \001(\t\022\021\n\tclusterId\030\007 \001(\005\"q\n\022" +
-      "PrePrepareResponse\022\014\n\004view\030\001 \001(\005\022\026\n\016sequ" +
-      "enceNumber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022\017\n\007s" +
-      "uccess\030\004 \001(\010\022\021\n\tclusterId\030\005 \001(\005\"\306\001\n\016Prep" +
-      "areRequest\022\024\n\014ballotNumber\030\001 \001(\005\022\021\n\tproc" +
-      "essId\030\002 \001(\t\022!\n\013transaction\030\003 \001(\0132\014.Trans" +
-      "action\0220\n\032latestCommittedTransaction\030\004 \001" +
-      "(\0132\014.Transaction\022#\n\033latestCommittedBallo" +
-      "tNumber\030\005 \001(\005\022\021\n\tclusterId\030\006 \001(\005\"\202\006\n\017Pre" +
-      "pareResponse\022\024\n\014ballotNumber\030\001 \001(\005\022\021\n\tpr" +
-      "ocessId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\0228\n\"lastAc" +
-      "ceptedUncommittedTransaction\030\004 \001(\0132\014.Tra" +
-      "nsaction\022+\n#lastAcceptedUncommittedBallo" +
-      "tNumber\030\005 \001(\005\022.\n\030lastCommittedTransactio" +
-      "n\030\006 \001(\0132\014.Transaction\022!\n\031lastCommittedBa" +
-      "llotNumber\030\007 \001(\005\022F\n\023syncTransactionsMap\030" +
-      "\010 \003(\0132).PrepareResponse.SyncTransactions" +
-      "MapEntry\022P\n\030syncTransactionStatusMap\030\t \003" +
-      "(\0132..PrepareResponse.SyncTransactionStat" +
-      "usMapEntry\022>\n\017syncBalancesMap\030\n \003(\0132%.Pr" +
-      "epareResponse.SyncBalancesMapEntry\022\032\n\022ac" +
-      "ceptedServerName\030\013 \001(\t\022\022\n\nneedToSync\030\014 \001" +
-      "(\010\022\032\n\022latestBallotNumber\030\r \001(\005\032H\n\030SyncTr" +
-      "ansactionsMapEntry\022\013\n\003key\030\001 \001(\005\022\033\n\005value" +
-      "\030\002 \001(\0132\014.Transaction:\0028\001\032S\n\035SyncTransact" +
-      "ionStatusMapEntry\022\013\n\003key\030\001 \001(\005\022!\n\005value\030" +
-      "\002 \001(\0162\022.TransactionStatus:\0028\001\0326\n\024SyncBal" +
-      "ancesMapEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(" +
-      "\005:\0028\001\"}\n\rCommitRequest\022\024\n\014ballotNumber\030\001" +
-      " \001(\005\022\021\n\tprocessId\030\002 \001(\t\022!\n\013transaction\030\003" +
-      " \001(\0132\014.Transaction\022\021\n\tclusterId\030\010 \001(\005\022\r\n" +
-      "\005abort\030\004 \001(\010\"f\n\016CommitResponse\022\024\n\014ballot" +
-      "Number\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022\032\n\022accep" +
-      "tedServerName\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\"w\n\016" +
-      "ExecutionReply\022\026\n\016transactionNum\030\001 \001(\005\022\017" +
-      "\n\007success\030\002 \001(\010\022\022\n\nserverName\030\003 \001(\t\022\021\n\tc" +
-      "lusterId\030\004 \001(\005\022\025\n\rfailureReason\030\005 \001(\t\"=\n" +
-      "\025ActivateServerRequest\022\022\n\nserverName\030\001 \001" +
-      "(\t\022\020\n\010testCase\030\002 \001(\005\"=\n\026ActivateServerRe" +
-      "sponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002 " +
-      "\001(\t\"?\n\027DeactivateServerRequest\022\022\n\nserver" +
-      "Name\030\001 \001(\t\022\020\n\010testCase\030\002 \001(\005\"?\n\030Deactiva" +
-      "teServerResponse\022\017\n\007success\030\001 \001(\010\022\022\n\nser" +
-      "verName\030\002 \001(\t\"\035\n\014CommandInput\022\r\n\005input\030\001" +
-      " \001(\t\"\037\n\rCommandOutput\022\016\n\006output\030\001 \001(\t\"\242\001" +
-      "\n\022ReShardingInitData\022\021\n\tclusterId\030\001 \001(\005\022" +
-      "A\n\017accountBalances\030\002 \003(\0132(.ReShardingIni" +
-      "tData.AccountBalancesEntry\0326\n\024AccountBal" +
-      "ancesEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\002" +
-      "8\001\"\254\002\n\016ReShardingData\022\021\n\tclusterId\030\001 \001(\005" +
-      "\022=\n\017accountBalances\030\002 \003(\0132$.ReShardingDa" +
-      "ta.AccountBalancesEntry\022O\n\030newDataItemCl" +
-      "usterConfig\030\003 \003(\0132-.ReShardingData.NewDa" +
-      "taItemClusterConfigEntry\0326\n\024AccountBalan" +
-      "cesEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001" +
-      "\032?\n\035NewDataItemClusterConfigEntry\022\013\n\003key" +
-      "\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001*\220\001\n\021Transactio" +
-      "nStatus\022\010\n\004None\020\000\022\r\n\tREQUESTED\020\001\022\017\n\013PreP" +
-      "REPARED\020\002\022\014\n\010PREPARED\020\003\022\r\n\tCOMMITTED\020\004\022\014" +
-      "\n\010EXECUTED\020\005\022\013\n\007ABORTED\020\006\022\013\n\007PENDING\020\007\022\014" +
-      "\n\010ACCEPTED\020\0102\375\003\n\nLinearPBFT\0222\n\007Request\022\027" +
-      ".TransactionInputConfig\032\014.TxnResponse\"\000\022" +
-      "A\n\021CrossShardRequest\022\027.TransactionInputC" +
-      "onfig\032\021.CrossTxnResponse\"\000\0227\n\nPrePrepare" +
-      "\022\022.PrePrepareRequest\032\023.PrePrepareRespons" +
-      "e\"\000\022.\n\007Prepare\022\017.PrepareRequest\032\020.Prepar" +
-      "eResponse\"\000\022+\n\006Commit\022\016.CommitRequest\032\017." +
-      "CommitResponse\"\000\022+\n\004Sync\022\017.PrepareReques" +
-      "t\032\020.PrepareResponse\"\000\0226\n\tExecReply\022\017.Exe" +
-      "cutionReply\032\026.google.protobuf.Empty\"\000\022E\n" +
-      "\024ReShardingInitiation\022\026.google.protobuf." +
-      "Empty\032\023.ReShardingInitData\"\000\0226\n\021ReShardi" +
-      "ngProcess\022\017.ReShardingData\032\016.CommandOutp" +
-      "ut\"\0002\241\001\n\017ActivateServers\022C\n\016activateServ" +
-      "er\022\026.ActivateServerRequest\032\027.ActivateSer" +
-      "verResponse\"\000\022I\n\020deactivateServer\022\030.Deac" +
-      "tivateServerRequest\032\031.DeactivateServerRe" +
-      "sponse\"\0002\367\001\n\010Commands\022/\n\014printBalance\022\r." +
-      "CommandInput\032\016.CommandOutput\"\000\022+\n\010printL" +
-      "og\022\r.CommandInput\032\016.CommandOutput\"\000\022*\n\007p" +
-      "rintDB\022\r.CommandInput\032\016.CommandOutput\"\000\022" +
-      ".\n\013Performance\022\r.CommandInput\032\016.CommandO" +
-      "utput\"\000\0221\n\016printDatastore\022\r.CommandInput" +
-      "\032\016.CommandOutput\"\000B\024\n\020org.cse535.protoP\001" +
-      "b\006proto3"
+      "p\022\016\n\006digest\030\006 \001(\t\022\021\n\tclusterId\030\007 \001(\005\"\367\004\n" +
+      "\022PrePrepareResponse\022\014\n\004view\030\001 \001(\005\022\026\n\016seq" +
+      "uenceNumber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022\017\n\007" +
+      "success\030\004 \001(\010\022\021\n\tclusterId\030\005 \001(\005\022I\n\023sync" +
+      "TransactionsMap\030\010 \003(\0132,.PrePrepareRespon" +
+      "se.SyncTransactionsMapEntry\022S\n\030syncTrans" +
+      "actionStatusMap\030\t \003(\01321.PrePrepareRespon" +
+      "se.SyncTransactionStatusMapEntry\022A\n\017sync" +
+      "BalancesMap\030\n \003(\0132(.PrePrepareResponse.S" +
+      "yncBalancesMapEntry\022\032\n\022acceptedServerNam" +
+      "e\030\013 \001(\t\022\022\n\nneedToSync\030\014 \001(\010\022\032\n\022latestBal" +
+      "lotNumber\030\r \001(\005\032H\n\030SyncTransactionsMapEn" +
+      "try\022\013\n\003key\030\001 \001(\005\022\033\n\005value\030\002 \001(\0132\014.Transa" +
+      "ction:\0028\001\032S\n\035SyncTransactionStatusMapEnt" +
+      "ry\022\013\n\003key\030\001 \001(\005\022!\n\005value\030\002 \001(\0162\022.Transac" +
+      "tionStatus:\0028\001\0326\n\024SyncBalancesMapEntry\022\013" +
+      "\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\"\276\001\n\016Prepa" +
+      "reRequest\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceNumbe" +
+      "r\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022-\n\ttimestamp\030" +
+      "\004 \001(\0132\032.google.protobuf.Timestamp\022\016\n\006dig" +
+      "est\030\005 \001(\t\022!\n\013transaction\030\006 \001(\0132\014.Transac" +
+      "tion\022\021\n\tclusterId\030\007 \001(\005\"n\n\017PrepareRespon" +
+      "se\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005" +
+      "\022\021\n\tprocessId\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\022\021\n\t" +
+      "clusterId\030\005 \001(\005\"\314\001\n\rCommitRequest\022\014\n\004vie" +
+      "w\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021\n\tproce" +
+      "ssId\030\003 \001(\t\022-\n\ttimestamp\030\004 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022\016\n\006digest\030\005 \001(\t\022\021\n\tclu" +
+      "sterId\030\006 \001(\005\022\r\n\005abort\030\007 \001(\010\022!\n\013transacti" +
+      "on\030\010 \001(\0132\014.Transaction\"Z\n\016CommitResponse" +
+      "\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021" +
+      "\n\tprocessId\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\"\312\001\n\016E" +
+      "xecutionReply\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceN" +
+      "umber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022\025\n\rtransa" +
+      "ctionId\030\005 \001(\005\022-\n\ttimestamp\030\004 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\022\017\n\007success\030\006 \001(\010\022\021\n" +
+      "\tclusterId\030\007 \001(\005\022\025\n\rfailureReason\030\010 \001(\t\"" +
+      "c\n\021ViewChangeRequest\022\014\n\004view\030\001 \001(\005\022\021\n\tpr" +
+      "ocessId\030\002 \001(\t\022-\n\ttimestamp\030\003 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\"F\n\022ViewChangeRespon" +
+      "se\022\014\n\004view\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022\017\n\007s" +
+      "uccess\030\003 \001(\010\"\272\001\n\016NewViewRequest\022\014\n\004view\030" +
+      "\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022-\n\ttimestamp\030\003 " +
+      "\001(\0132\032.google.protobuf.Timestamp\022.\n\022viewC" +
+      "hangeMessages\030\004 \003(\0132\022.ViewChangeRequest\022" +
+      "(\n\017prepareMessages\030\005 \003(\0132\017.PrepareReques" +
+      "t\"C\n\017NewViewResponse\022\014\n\004view\030\001 \001(\005\022\021\n\tpr" +
+      "ocessId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"=\n\025Activa" +
+      "teServerRequest\022\022\n\nserverName\030\001 \001(\t\022\020\n\010t" +
+      "estCase\030\002 \001(\005\"=\n\026ActivateServerResponse\022" +
+      "\017\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"?\n\027" +
+      "DeactivateServerRequest\022\022\n\nserverName\030\001 " +
+      "\001(\t\022\020\n\010testCase\030\002 \001(\005\"?\n\030DeactivateServe" +
+      "rResponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserverName" +
+      "\030\002 \001(\t\"\035\n\014CommandInput\022\r\n\005input\030\001 \001(\t\"\037\n" +
+      "\rCommandOutput\022\016\n\006output\030\001 \001(\t\"\242\001\n\022ReSha" +
+      "rdingInitData\022\021\n\tclusterId\030\001 \001(\005\022A\n\017acco" +
+      "untBalances\030\002 \003(\0132(.ReShardingInitData.A" +
+      "ccountBalancesEntry\0326\n\024AccountBalancesEn" +
+      "try\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\"\254\002\n\016" +
+      "ReShardingData\022\021\n\tclusterId\030\001 \001(\005\022=\n\017acc" +
+      "ountBalances\030\002 \003(\0132$.ReShardingData.Acco" +
+      "untBalancesEntry\022O\n\030newDataItemClusterCo" +
+      "nfig\030\003 \003(\0132-.ReShardingData.NewDataItemC" +
+      "lusterConfigEntry\0326\n\024AccountBalancesEntr" +
+      "y\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\032?\n\035New" +
+      "DataItemClusterConfigEntry\022\013\n\003key\030\001 \001(\005\022" +
+      "\r\n\005value\030\002 \001(\005:\0028\001*\220\001\n\021TransactionStatus" +
+      "\022\010\n\004None\020\000\022\r\n\tREQUESTED\020\001\022\017\n\013PrePREPARED" +
+      "\020\002\022\014\n\010PREPARED\020\003\022\r\n\tCOMMITTED\020\004\022\014\n\010EXECU" +
+      "TED\020\005\022\013\n\007ABORTED\020\006\022\013\n\007PENDING\020\007\022\014\n\010ACCEP" +
+      "TED\020\0102\375\003\n\nLinearPBFT\0222\n\007Request\022\027.Transa" +
+      "ctionInputConfig\032\014.TxnResponse\"\000\022A\n\021Cros" +
+      "sShardRequest\022\027.TransactionInputConfig\032\021" +
+      ".CrossTxnResponse\"\000\0227\n\nPrePrepare\022\022.PreP" +
+      "repareRequest\032\023.PrePrepareResponse\"\000\022.\n\007" +
+      "Prepare\022\017.PrepareRequest\032\020.PrepareRespon" +
+      "se\"\000\022+\n\006Commit\022\016.CommitRequest\032\017.CommitR" +
+      "esponse\"\000\022+\n\004Sync\022\017.PrepareRequest\032\020.Pre" +
+      "pareResponse\"\000\0226\n\tExecReply\022\017.ExecutionR" +
+      "eply\032\026.google.protobuf.Empty\"\000\022E\n\024ReShar" +
+      "dingInitiation\022\026.google.protobuf.Empty\032\023" +
+      ".ReShardingInitData\"\000\0226\n\021ReShardingProce" +
+      "ss\022\017.ReShardingData\032\016.CommandOutput\"\0002\222\002" +
+      "\n\017ActivateServers\022C\n\016activateServer\022\026.Ac" +
+      "tivateServerRequest\032\027.ActivateServerResp" +
+      "onse\"\000\022I\n\020deactivateServer\022\030.DeactivateS" +
+      "erverRequest\032\031.DeactivateServerResponse\"" +
+      "\000\0228\n\rmakeByzantine\022\r.CommandInput\032\026.goog" +
+      "le.protobuf.Empty\"\000\0225\n\nmakeHonest\022\r.Comm" +
+      "andInput\032\026.google.protobuf.Empty\"\0002\367\001\n\010C" +
+      "ommands\022/\n\014printBalance\022\r.CommandInput\032\016" +
+      ".CommandOutput\"\000\022+\n\010printLog\022\r.CommandIn" +
+      "put\032\016.CommandOutput\"\000\022*\n\007printDB\022\r.Comma" +
+      "ndInput\032\016.CommandOutput\"\000\022.\n\013Performance" +
+      "\022\r.CommandInput\032\016.CommandOutput\"\000\0221\n\016pri" +
+      "ntDatastore\022\r.CommandInput\032\016.CommandOutp" +
+      "ut\"\000B\024\n\020org.cse535.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -302,93 +335,117 @@ public final class Pbft2Pc {
     internal_static_PrePrepareResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrePrepareResponse_descriptor,
-        new java.lang.String[] { "View", "SequenceNumber", "ProcessId", "Success", "ClusterId", });
+        new java.lang.String[] { "View", "SequenceNumber", "ProcessId", "Success", "ClusterId", "SyncTransactionsMap", "SyncTransactionStatusMap", "SyncBalancesMap", "AcceptedServerName", "NeedToSync", "LatestBallotNumber", });
+    internal_static_PrePrepareResponse_SyncTransactionsMapEntry_descriptor =
+      internal_static_PrePrepareResponse_descriptor.getNestedTypes().get(0);
+    internal_static_PrePrepareResponse_SyncTransactionsMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PrePrepareResponse_SyncTransactionsMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_PrePrepareResponse_SyncTransactionStatusMapEntry_descriptor =
+      internal_static_PrePrepareResponse_descriptor.getNestedTypes().get(1);
+    internal_static_PrePrepareResponse_SyncTransactionStatusMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PrePrepareResponse_SyncTransactionStatusMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_PrePrepareResponse_SyncBalancesMapEntry_descriptor =
+      internal_static_PrePrepareResponse_descriptor.getNestedTypes().get(2);
+    internal_static_PrePrepareResponse_SyncBalancesMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PrePrepareResponse_SyncBalancesMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_PrepareRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_PrepareRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrepareRequest_descriptor,
-        new java.lang.String[] { "BallotNumber", "ProcessId", "Transaction", "LatestCommittedTransaction", "LatestCommittedBallotNumber", "ClusterId", });
+        new java.lang.String[] { "View", "SequenceNumber", "ProcessId", "Timestamp", "Digest", "Transaction", "ClusterId", });
     internal_static_PrepareResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_PrepareResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrepareResponse_descriptor,
-        new java.lang.String[] { "BallotNumber", "ProcessId", "Success", "LastAcceptedUncommittedTransaction", "LastAcceptedUncommittedBallotNumber", "LastCommittedTransaction", "LastCommittedBallotNumber", "SyncTransactionsMap", "SyncTransactionStatusMap", "SyncBalancesMap", "AcceptedServerName", "NeedToSync", "LatestBallotNumber", });
-    internal_static_PrepareResponse_SyncTransactionsMapEntry_descriptor =
-      internal_static_PrepareResponse_descriptor.getNestedTypes().get(0);
-    internal_static_PrepareResponse_SyncTransactionsMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PrepareResponse_SyncTransactionsMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_PrepareResponse_SyncTransactionStatusMapEntry_descriptor =
-      internal_static_PrepareResponse_descriptor.getNestedTypes().get(1);
-    internal_static_PrepareResponse_SyncTransactionStatusMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PrepareResponse_SyncTransactionStatusMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_PrepareResponse_SyncBalancesMapEntry_descriptor =
-      internal_static_PrepareResponse_descriptor.getNestedTypes().get(2);
-    internal_static_PrepareResponse_SyncBalancesMapEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PrepareResponse_SyncBalancesMapEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "View", "SequenceNumber", "ProcessId", "Success", "ClusterId", });
     internal_static_CommitRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_CommitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommitRequest_descriptor,
-        new java.lang.String[] { "BallotNumber", "ProcessId", "Transaction", "ClusterId", "Abort", });
+        new java.lang.String[] { "View", "SequenceNumber", "ProcessId", "Timestamp", "Digest", "ClusterId", "Abort", "Transaction", });
     internal_static_CommitResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_CommitResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommitResponse_descriptor,
-        new java.lang.String[] { "BallotNumber", "ProcessId", "AcceptedServerName", "Success", });
+        new java.lang.String[] { "View", "SequenceNumber", "ProcessId", "Success", });
     internal_static_ExecutionReply_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_ExecutionReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ExecutionReply_descriptor,
-        new java.lang.String[] { "TransactionNum", "Success", "ServerName", "ClusterId", "FailureReason", });
-    internal_static_ActivateServerRequest_descriptor =
+        new java.lang.String[] { "View", "SequenceNumber", "ProcessId", "TransactionId", "Timestamp", "Success", "ClusterId", "FailureReason", });
+    internal_static_ViewChangeRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
+    internal_static_ViewChangeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ViewChangeRequest_descriptor,
+        new java.lang.String[] { "View", "ProcessId", "Timestamp", });
+    internal_static_ViewChangeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_ViewChangeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ViewChangeResponse_descriptor,
+        new java.lang.String[] { "View", "ProcessId", "Success", });
+    internal_static_NewViewRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_NewViewRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_NewViewRequest_descriptor,
+        new java.lang.String[] { "View", "ProcessId", "Timestamp", "ViewChangeMessages", "PrepareMessages", });
+    internal_static_NewViewResponse_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_NewViewResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_NewViewResponse_descriptor,
+        new java.lang.String[] { "View", "ProcessId", "Success", });
+    internal_static_ActivateServerRequest_descriptor =
+      getDescriptor().getMessageTypes().get(15);
     internal_static_ActivateServerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActivateServerRequest_descriptor,
         new java.lang.String[] { "ServerName", "TestCase", });
     internal_static_ActivateServerResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_ActivateServerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActivateServerResponse_descriptor,
         new java.lang.String[] { "Success", "ServerName", });
     internal_static_DeactivateServerRequest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_DeactivateServerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeactivateServerRequest_descriptor,
         new java.lang.String[] { "ServerName", "TestCase", });
     internal_static_DeactivateServerResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_DeactivateServerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeactivateServerResponse_descriptor,
         new java.lang.String[] { "Success", "ServerName", });
     internal_static_CommandInput_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_CommandInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommandInput_descriptor,
         new java.lang.String[] { "Input", });
     internal_static_CommandOutput_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_CommandOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommandOutput_descriptor,
         new java.lang.String[] { "Output", });
     internal_static_ReShardingInitData_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_ReShardingInitData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReShardingInitData_descriptor,
@@ -400,7 +457,7 @@ public final class Pbft2Pc {
         internal_static_ReShardingInitData_AccountBalancesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_ReShardingData_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_ReShardingData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReShardingData_descriptor,

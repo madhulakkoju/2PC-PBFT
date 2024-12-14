@@ -1,0 +1,212 @@
+ 
+Transaction Worker Thread Started
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare response from 4 : true
+Prepare response from 2 : true
+Prepare response from 3 : true
+Pre Prepare Success for SeqNum: 1 View: 0 Transaction ID: 1
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare response from 3 : true
+Prepare response from 4 : true
+Prepare response from 2 : true
+Prepare Success for SeqNum: 1 View: 0 Transaction ID: 1
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Commit response from 4 : false
+Commit response from 3 : false
+Commit response from 2 : false
+Initiating executions : 0 : 1
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 6
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 6
+Prepare response from 3 : true
+Prepare response from 4 : true
+Prepare response from 2 : true
+Pre Prepare Success for SeqNum: 2 View: 0 Transaction ID: 6
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 6
+Prepare response from 3 : true
+Prepare response from 2 : true
+Prepare response from 4 : true
+Prepare Success for SeqNum: 2 View: 0 Transaction ID: 6
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 6
+Commit response from 2 : false
+Commit response from 3 : false
+Commit response from 4 : false
+Initiating executions : 0 : 2
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 7
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 7
+Prepare response from 4 : true
+Prepare response from 3 : true
+Prepare response from 2 : true
+Pre Prepare Success for SeqNum: 3 View: 0 Transaction ID: 7
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 7
+Prepare response from 2 : true
+Prepare response from 3 : true
+Prepare response from 4 : true
+Prepare Success for SeqNum: 3 View: 0 Transaction ID: 7
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 7
+Commit response from 2 : false
+Commit response from 4 : false
+Commit response from 3 : false
+Initiating executions : 0 : 3
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 9
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 9
+Prepare response from 3 : true
+Prepare response from 4 : true
+Prepare response from 2 : true
+Pre Prepare Success for SeqNum: 4 View: 0 Transaction ID: 9
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 9
+Prepare response from 2 : true
+Prepare response from 3 : true
+Prepare response from 4 : true
+Prepare Success for SeqNum: 4 View: 0 Transaction ID: 9
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 9
+Commit response from 3 : false
+Commit response from 4 : false
+Commit response from 2 : false
+Initiating executions : 0 : 4
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 13
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 13
+Prepare response from 3 : true
+Prepare response from 4 : false
+Prepare response from 2 : true
+Pre Prepare Success for SeqNum: 5 View: 0 Transaction ID: 13
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 13
+Prepare response from 4 : false
+Prepare response from 3 : true
+Prepare response from 2 : true
+Prepare Success for SeqNum: 5 View: 0 Transaction ID: 13
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 13
+Commit response from 4 : false
+Commit response from 3 : false
+Commit response from 2 : false
+Initiating executions : 0 : 5
+Initiating execution for seqNum: 1
+Status : PREPARED
+Error processing transaction 13 UNAVAILABLE: io exception
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 1
+Prepare response from 4 : true
+Prepare response from 3 : true
+Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 1
+Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 1
+Prepare response from 2 : true
+Prepare response from 3 : true
+Prepare response from 4 : true
+Prepare Success for SeqNum: 6 View: 0 Transaction ID: 1
+Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 1
+Commit response from 4 : false
+Commit response from 2 : false
+Commit response from 3 : false
+Initiating executions : 0 : 6
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 6
+Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 6
+Prepare response from 4 : true
+Prepare response from 2 : true
+Prepare response from 3 : true
+Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 6
+Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 6
+Prepare response from 2 : true
+Prepare response from 4 : true
+Prepare response from 3 : true
+Prepare Success for SeqNum: 7 View: 0 Transaction ID: 6
+Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 6
+Commit response from 4 : false
+Commit response from 3 : false
+Commit response from 2 : false
+Initiating executions : 0 : 7
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 7
+Initiating Pre Prepare for SeqNum: 8 View: 0 Transaction ID: 7
+Prepare response from 2 : true
+Prepare response from 3 : true
+Prepare response from 4 : true
+Pre Prepare Success for SeqNum: 8 View: 0 Transaction ID: 7
+Initiating Prepare for SeqNum: 8 View: 0 Transaction ID: 7
+Prepare response from 4 : true
+Prepare response from 2 : true
+Prepare response from 3 : true
+Prepare Success for SeqNum: 8 View: 0 Transaction ID: 7
+Initiating Commit for SeqNum: 8 View: 0 Transaction ID: 7
+Commit response from 4 : false
+Commit response from 2 : false
+Commit response from 3 : false
+Initiating executions : 0 : 8
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 9
+Initiating Pre Prepare for SeqNum: 9 View: 0 Transaction ID: 9
+Prepare response from 2 : true
+Prepare response from 3 : true
+Prepare response from 4 : true
+Pre Prepare Success for SeqNum: 9 View: 0 Transaction ID: 9
+Initiating Prepare for SeqNum: 9 View: 0 Transaction ID: 9
+Prepare response from 3 : true
+Prepare response from 2 : true
+Prepare response from 4 : true
+Prepare Success for SeqNum: 9 View: 0 Transaction ID: 9
+Initiating Commit for SeqNum: 9 View: 0 Transaction ID: 9
+Commit response from 3 : false
+Commit response from 4 : false
+Commit response from 2 : false
+Initiating executions : 0 : 9
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 13
+Initiating Pre Prepare for SeqNum: 10 View: 0 Transaction ID: 13
+Prepare response from 4 : false
+Prepare response from 2 : true
+Prepare response from 3 : true
+Pre Prepare Success for SeqNum: 10 View: 0 Transaction ID: 13
+Initiating Prepare for SeqNum: 10 View: 0 Transaction ID: 13
+Prepare response from 4 : false
+Prepare response from 2 : true
+Prepare response from 3 : true
+Prepare Success for SeqNum: 10 View: 0 Transaction ID: 13
+Initiating Commit for SeqNum: 10 View: 0 Transaction ID: 13
+Commit response from 3 : false
+Commit response from 2 : false
+Commit response from 4 : false
+Initiating executions : 0 : 10
+Initiating execution for seqNum: 1
+Status : PREPARED
+Processing Transaction: 15
+Initiating Pre Prepare for SeqNum: 11 View: 0 Transaction ID: 15
+Prepare response from 2 : false
+Prepare response from 3 : false
+Prepare response from 4 : false
+Pre Prepare Failed for SeqNum: 11 View: 0 Transaction ID: 15
+Processing Transaction: 17
+Initiating Pre Prepare for SeqNum: 12 View: 0 Transaction ID: 17
+Prepare response from 2 : false
+Prepare response from 3 : false
+Prepare response from 4 : false
+Pre Prepare Failed for SeqNum: 12 View: 0 Transaction ID: 17
+Processing Transaction: 20
+Initiating Pre Prepare for SeqNum: 13 View: 0 Transaction ID: 20
+Prepare response from 2 : true
+Prepare response from 4 : true
+Prepare response from 3 : true
+Pre Prepare Success for SeqNum: 13 View: 0 Transaction ID: 20
+Initiating Prepare for SeqNum: 13 View: 0 Transaction ID: 20
+Prepare response from 3 : true
+Prepare response from 4 : true
+Prepare response from 2 : true
+Prepare Success for SeqNum: 13 View: 0 Transaction ID: 20
+Initiating Commit for SeqNum: 13 View: 0 Transaction ID: 20
+Commit response from 3 : false
+Commit response from 2 : false
+Commit response from 4 : false
+Initiating executions : 0 : 13
+Initiating execution for seqNum: 1
+Status : PREPARED

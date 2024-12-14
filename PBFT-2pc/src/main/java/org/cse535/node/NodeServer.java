@@ -25,6 +25,7 @@ public class NodeServer {
     public LogUtils walLogger;
 
     public AtomicBoolean isServerActive;
+    public AtomicBoolean isServerByzantine;
 
     public Integer serverNumber;
     public String serverName;
@@ -35,7 +36,7 @@ public class NodeServer {
     // GRPC Server Items
     public Server server;
     public HashMap<Integer, ManagedChannel> serversToChannel;
-    public HashMap<Integer, PaxosGrpc.PaxosBlockingStub> serversToPaxosStub;
+    public HashMap<Integer, LinearPBFTGrpc.LinearPBFTBlockingStub> serversToPaxosStub;
     public HashMap<Integer, ActivateServersGrpc.ActivateServersBlockingStub> serversToActivateServersStub;
     public HashMap<Integer, CommandsGrpc.CommandsBlockingStub> serversToCommandsStub;
 
@@ -72,6 +73,7 @@ public class NodeServer {
         serversToCommandsStub = new HashMap<>();
 
         isServerActive = new AtomicBoolean(true);
+        isServerByzantine = new AtomicBoolean(false);
 
         database = new DatabaseService(this.serverNumber, this);
 
@@ -83,7 +85,7 @@ public class NodeServer {
             System.out.println("Channel created for server: " + serverNum);
 
             serversToChannel.put(serverNum, channel);
-            serversToPaxosStub.put(serverNum, PaxosGrpc.newBlockingStub(channel));
+            serversToPaxosStub.put(serverNum, LinearPBFTGrpc.newBlockingStub(channel) );
             serversToActivateServersStub.put(serverNum, ActivateServersGrpc.newBlockingStub(channel));
             serversToCommandsStub.put(serverNum, CommandsGrpc.newBlockingStub(channel));
         });

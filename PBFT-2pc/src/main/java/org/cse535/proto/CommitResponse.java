@@ -16,9 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CommitResponse() {
-    ballotNumber_ = 0;
+    view_ = 0;
+    sequenceNumber_ = 0;
     processId_ = "";
-    acceptedServerName_ = "";
     success_ = false;
   }
 
@@ -48,19 +48,18 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            ballotNumber_ = input.readInt32();
+            view_ = input.readInt32();
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
 
-            processId_ = s;
+            sequenceNumber_ = input.readInt32();
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            acceptedServerName_ = s;
+            processId_ = s;
             break;
           }
           case 32: {
@@ -100,19 +99,28 @@ private static final long serialVersionUID = 0L;
             org.cse535.proto.CommitResponse.class, org.cse535.proto.CommitResponse.Builder.class);
   }
 
-  public static final int BALLOTNUMBER_FIELD_NUMBER = 1;
-  private int ballotNumber_;
+  public static final int VIEW_FIELD_NUMBER = 1;
+  private int view_;
   /**
-   * <code>int32 ballotNumber = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  public int getBallotNumber() {
-    return ballotNumber_;
+  public int getView() {
+    return view_;
   }
 
-  public static final int PROCESSID_FIELD_NUMBER = 2;
+  public static final int SEQUENCENUMBER_FIELD_NUMBER = 2;
+  private int sequenceNumber_;
+  /**
+   * <code>int32 sequenceNumber = 2;</code>
+   */
+  public int getSequenceNumber() {
+    return sequenceNumber_;
+  }
+
+  public static final int PROCESSID_FIELD_NUMBER = 3;
   private volatile java.lang.Object processId_;
   /**
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   public java.lang.String getProcessId() {
     java.lang.Object ref = processId_;
@@ -127,7 +135,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   public com.google.protobuf.ByteString
       getProcessIdBytes() {
@@ -137,48 +145,6 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       processId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ACCEPTEDSERVERNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object acceptedServerName_;
-  /**
-   * <pre>
-   *Current server name
-   * </pre>
-   *
-   * <code>string acceptedServerName = 3;</code>
-   */
-  public java.lang.String getAcceptedServerName() {
-    java.lang.Object ref = acceptedServerName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      acceptedServerName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *Current server name
-   * </pre>
-   *
-   * <code>string acceptedServerName = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getAcceptedServerNameBytes() {
-    java.lang.Object ref = acceptedServerName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      acceptedServerName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -208,14 +174,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (ballotNumber_ != 0) {
-      output.writeInt32(1, ballotNumber_);
+    if (view_ != 0) {
+      output.writeInt32(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      output.writeInt32(2, sequenceNumber_);
     }
     if (!getProcessIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, processId_);
-    }
-    if (!getAcceptedServerNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, acceptedServerName_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, processId_);
     }
     if (success_ != false) {
       output.writeBool(4, success_);
@@ -229,15 +195,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (ballotNumber_ != 0) {
+    if (view_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, ballotNumber_);
+        .computeInt32Size(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, sequenceNumber_);
     }
     if (!getProcessIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, processId_);
-    }
-    if (!getAcceptedServerNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, acceptedServerName_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, processId_);
     }
     if (success_ != false) {
       size += com.google.protobuf.CodedOutputStream
@@ -259,12 +226,12 @@ private static final long serialVersionUID = 0L;
     org.cse535.proto.CommitResponse other = (org.cse535.proto.CommitResponse) obj;
 
     boolean result = true;
-    result = result && (getBallotNumber()
-        == other.getBallotNumber());
+    result = result && (getView()
+        == other.getView());
+    result = result && (getSequenceNumber()
+        == other.getSequenceNumber());
     result = result && getProcessId()
         .equals(other.getProcessId());
-    result = result && getAcceptedServerName()
-        .equals(other.getAcceptedServerName());
     result = result && (getSuccess()
         == other.getSuccess());
     result = result && unknownFields.equals(other.unknownFields);
@@ -278,12 +245,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + BALLOTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getBallotNumber();
+    hash = (37 * hash) + VIEW_FIELD_NUMBER;
+    hash = (53 * hash) + getView();
+    hash = (37 * hash) + SEQUENCENUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getSequenceNumber();
     hash = (37 * hash) + PROCESSID_FIELD_NUMBER;
     hash = (53 * hash) + getProcessId().hashCode();
-    hash = (37 * hash) + ACCEPTEDSERVERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getAcceptedServerName().hashCode();
     hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSuccess());
@@ -420,11 +387,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      ballotNumber_ = 0;
+      view_ = 0;
+
+      sequenceNumber_ = 0;
 
       processId_ = "";
-
-      acceptedServerName_ = "";
 
       success_ = false;
 
@@ -454,9 +421,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.cse535.proto.CommitResponse buildPartial() {
       org.cse535.proto.CommitResponse result = new org.cse535.proto.CommitResponse(this);
-      result.ballotNumber_ = ballotNumber_;
+      result.view_ = view_;
+      result.sequenceNumber_ = sequenceNumber_;
       result.processId_ = processId_;
-      result.acceptedServerName_ = acceptedServerName_;
       result.success_ = success_;
       onBuilt();
       return result;
@@ -506,15 +473,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.cse535.proto.CommitResponse other) {
       if (other == org.cse535.proto.CommitResponse.getDefaultInstance()) return this;
-      if (other.getBallotNumber() != 0) {
-        setBallotNumber(other.getBallotNumber());
+      if (other.getView() != 0) {
+        setView(other.getView());
+      }
+      if (other.getSequenceNumber() != 0) {
+        setSequenceNumber(other.getSequenceNumber());
       }
       if (!other.getProcessId().isEmpty()) {
         processId_ = other.processId_;
-        onChanged();
-      }
-      if (!other.getAcceptedServerName().isEmpty()) {
-        acceptedServerName_ = other.acceptedServerName_;
         onChanged();
       }
       if (other.getSuccess() != false) {
@@ -549,35 +515,61 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int ballotNumber_ ;
+    private int view_ ;
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public int getBallotNumber() {
-      return ballotNumber_;
+    public int getView() {
+      return view_;
     }
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder setBallotNumber(int value) {
+    public Builder setView(int value) {
       
-      ballotNumber_ = value;
+      view_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder clearBallotNumber() {
+    public Builder clearView() {
       
-      ballotNumber_ = 0;
+      view_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int sequenceNumber_ ;
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public int getSequenceNumber() {
+      return sequenceNumber_;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder setSequenceNumber(int value) {
+      
+      sequenceNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder clearSequenceNumber() {
+      
+      sequenceNumber_ = 0;
       onChanged();
       return this;
     }
 
     private java.lang.Object processId_ = "";
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public java.lang.String getProcessId() {
       java.lang.Object ref = processId_;
@@ -592,7 +584,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public com.google.protobuf.ByteString
         getProcessIdBytes() {
@@ -608,7 +600,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder setProcessId(
         java.lang.String value) {
@@ -621,7 +613,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder clearProcessId() {
       
@@ -630,7 +622,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder setProcessIdBytes(
         com.google.protobuf.ByteString value) {
@@ -640,95 +632,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       processId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object acceptedServerName_ = "";
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 3;</code>
-     */
-    public java.lang.String getAcceptedServerName() {
-      java.lang.Object ref = acceptedServerName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        acceptedServerName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAcceptedServerNameBytes() {
-      java.lang.Object ref = acceptedServerName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        acceptedServerName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 3;</code>
-     */
-    public Builder setAcceptedServerName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      acceptedServerName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 3;</code>
-     */
-    public Builder clearAcceptedServerName() {
-      
-      acceptedServerName_ = getDefaultInstance().getAcceptedServerName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 3;</code>
-     */
-    public Builder setAcceptedServerNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      acceptedServerName_ = value;
       onChanged();
       return this;
     }

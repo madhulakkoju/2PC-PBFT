@@ -16,9 +16,10 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private PrepareRequest() {
-    ballotNumber_ = 0;
+    view_ = 0;
+    sequenceNumber_ = 0;
     processId_ = "";
-    latestCommittedBallotNumber_ = 0;
+    digest_ = "";
     clusterId_ = 0;
   }
 
@@ -48,16 +49,40 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            ballotNumber_ = input.readInt32();
+            view_ = input.readInt32();
             break;
           }
-          case 18: {
+          case 16: {
+
+            sequenceNumber_ = input.readInt32();
+            break;
+          }
+          case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
             processId_ = s;
             break;
           }
-          case 26: {
+          case 34: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (timestamp_ != null) {
+              subBuilder = timestamp_.toBuilder();
+            }
+            timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(timestamp_);
+              timestamp_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            digest_ = s;
+            break;
+          }
+          case 50: {
             org.cse535.proto.Transaction.Builder subBuilder = null;
             if (transaction_ != null) {
               subBuilder = transaction_.toBuilder();
@@ -70,25 +95,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 34: {
-            org.cse535.proto.Transaction.Builder subBuilder = null;
-            if (latestCommittedTransaction_ != null) {
-              subBuilder = latestCommittedTransaction_.toBuilder();
-            }
-            latestCommittedTransaction_ = input.readMessage(org.cse535.proto.Transaction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(latestCommittedTransaction_);
-              latestCommittedTransaction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            latestCommittedBallotNumber_ = input.readInt32();
-            break;
-          }
-          case 48: {
+          case 56: {
 
             clusterId_ = input.readInt32();
             break;
@@ -125,23 +132,28 @@ private static final long serialVersionUID = 0L;
             org.cse535.proto.PrepareRequest.class, org.cse535.proto.PrepareRequest.Builder.class);
   }
 
-  public static final int BALLOTNUMBER_FIELD_NUMBER = 1;
-  private int ballotNumber_;
+  public static final int VIEW_FIELD_NUMBER = 1;
+  private int view_;
   /**
-   * <code>int32 ballotNumber = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  public int getBallotNumber() {
-    return ballotNumber_;
+  public int getView() {
+    return view_;
   }
 
-  public static final int PROCESSID_FIELD_NUMBER = 2;
+  public static final int SEQUENCENUMBER_FIELD_NUMBER = 2;
+  private int sequenceNumber_;
+  /**
+   * <code>int32 sequenceNumber = 2;</code>
+   */
+  public int getSequenceNumber() {
+    return sequenceNumber_;
+  }
+
+  public static final int PROCESSID_FIELD_NUMBER = 3;
   private volatile java.lang.Object processId_;
   /**
-   * <pre>
-   * processId is Server Name
-   * </pre>
-   *
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   public java.lang.String getProcessId() {
     java.lang.Object ref = processId_;
@@ -156,11 +168,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <pre>
-   * processId is Server Name
-   * </pre>
-   *
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   public com.google.protobuf.ByteString
       getProcessIdBytes() {
@@ -176,61 +184,86 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TRANSACTION_FIELD_NUMBER = 3;
+  public static final int TIMESTAMP_FIELD_NUMBER = 4;
+  private com.google.protobuf.Timestamp timestamp_;
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  public boolean hasTimestamp() {
+    return timestamp_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  public com.google.protobuf.Timestamp getTimestamp() {
+    return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
+    return getTimestamp();
+  }
+
+  public static final int DIGEST_FIELD_NUMBER = 5;
+  private volatile java.lang.Object digest_;
+  /**
+   * <code>string digest = 5;</code>
+   */
+  public java.lang.String getDigest() {
+    java.lang.Object ref = digest_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      digest_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string digest = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDigestBytes() {
+    java.lang.Object ref = digest_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      digest_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TRANSACTION_FIELD_NUMBER = 6;
   private org.cse535.proto.Transaction transaction_;
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.Transaction transaction = 6;</code>
    */
   public boolean hasTransaction() {
     return transaction_ != null;
   }
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.Transaction transaction = 6;</code>
    */
   public org.cse535.proto.Transaction getTransaction() {
     return transaction_ == null ? org.cse535.proto.Transaction.getDefaultInstance() : transaction_;
   }
   /**
-   * <code>.Transaction transaction = 3;</code>
+   * <code>.Transaction transaction = 6;</code>
    */
   public org.cse535.proto.TransactionOrBuilder getTransactionOrBuilder() {
     return getTransaction();
   }
 
-  public static final int LATESTCOMMITTEDTRANSACTION_FIELD_NUMBER = 4;
-  private org.cse535.proto.Transaction latestCommittedTransaction_;
-  /**
-   * <code>.Transaction latestCommittedTransaction = 4;</code>
-   */
-  public boolean hasLatestCommittedTransaction() {
-    return latestCommittedTransaction_ != null;
-  }
-  /**
-   * <code>.Transaction latestCommittedTransaction = 4;</code>
-   */
-  public org.cse535.proto.Transaction getLatestCommittedTransaction() {
-    return latestCommittedTransaction_ == null ? org.cse535.proto.Transaction.getDefaultInstance() : latestCommittedTransaction_;
-  }
-  /**
-   * <code>.Transaction latestCommittedTransaction = 4;</code>
-   */
-  public org.cse535.proto.TransactionOrBuilder getLatestCommittedTransactionOrBuilder() {
-    return getLatestCommittedTransaction();
-  }
-
-  public static final int LATESTCOMMITTEDBALLOTNUMBER_FIELD_NUMBER = 5;
-  private int latestCommittedBallotNumber_;
-  /**
-   * <code>int32 latestCommittedBallotNumber = 5;</code>
-   */
-  public int getLatestCommittedBallotNumber() {
-    return latestCommittedBallotNumber_;
-  }
-
-  public static final int CLUSTERID_FIELD_NUMBER = 6;
+  public static final int CLUSTERID_FIELD_NUMBER = 7;
   private int clusterId_;
   /**
-   * <code>int32 clusterId = 6;</code>
+   * <code>int32 clusterId = 7;</code>
    */
   public int getClusterId() {
     return clusterId_;
@@ -250,23 +283,26 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (ballotNumber_ != 0) {
-      output.writeInt32(1, ballotNumber_);
+    if (view_ != 0) {
+      output.writeInt32(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      output.writeInt32(2, sequenceNumber_);
     }
     if (!getProcessIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, processId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, processId_);
+    }
+    if (timestamp_ != null) {
+      output.writeMessage(4, getTimestamp());
+    }
+    if (!getDigestBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, digest_);
     }
     if (transaction_ != null) {
-      output.writeMessage(3, getTransaction());
-    }
-    if (latestCommittedTransaction_ != null) {
-      output.writeMessage(4, getLatestCommittedTransaction());
-    }
-    if (latestCommittedBallotNumber_ != 0) {
-      output.writeInt32(5, latestCommittedBallotNumber_);
+      output.writeMessage(6, getTransaction());
     }
     if (clusterId_ != 0) {
-      output.writeInt32(6, clusterId_);
+      output.writeInt32(7, clusterId_);
     }
     unknownFields.writeTo(output);
   }
@@ -277,28 +313,31 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (ballotNumber_ != 0) {
+    if (view_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, ballotNumber_);
+        .computeInt32Size(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, sequenceNumber_);
     }
     if (!getProcessIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, processId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, processId_);
+    }
+    if (timestamp_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getTimestamp());
+    }
+    if (!getDigestBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, digest_);
     }
     if (transaction_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getTransaction());
-    }
-    if (latestCommittedTransaction_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getLatestCommittedTransaction());
-    }
-    if (latestCommittedBallotNumber_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, latestCommittedBallotNumber_);
+        .computeMessageSize(6, getTransaction());
     }
     if (clusterId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, clusterId_);
+        .computeInt32Size(7, clusterId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -316,22 +355,24 @@ private static final long serialVersionUID = 0L;
     org.cse535.proto.PrepareRequest other = (org.cse535.proto.PrepareRequest) obj;
 
     boolean result = true;
-    result = result && (getBallotNumber()
-        == other.getBallotNumber());
+    result = result && (getView()
+        == other.getView());
+    result = result && (getSequenceNumber()
+        == other.getSequenceNumber());
     result = result && getProcessId()
         .equals(other.getProcessId());
+    result = result && (hasTimestamp() == other.hasTimestamp());
+    if (hasTimestamp()) {
+      result = result && getTimestamp()
+          .equals(other.getTimestamp());
+    }
+    result = result && getDigest()
+        .equals(other.getDigest());
     result = result && (hasTransaction() == other.hasTransaction());
     if (hasTransaction()) {
       result = result && getTransaction()
           .equals(other.getTransaction());
     }
-    result = result && (hasLatestCommittedTransaction() == other.hasLatestCommittedTransaction());
-    if (hasLatestCommittedTransaction()) {
-      result = result && getLatestCommittedTransaction()
-          .equals(other.getLatestCommittedTransaction());
-    }
-    result = result && (getLatestCommittedBallotNumber()
-        == other.getLatestCommittedBallotNumber());
     result = result && (getClusterId()
         == other.getClusterId());
     result = result && unknownFields.equals(other.unknownFields);
@@ -345,20 +386,22 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + BALLOTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getBallotNumber();
+    hash = (37 * hash) + VIEW_FIELD_NUMBER;
+    hash = (53 * hash) + getView();
+    hash = (37 * hash) + SEQUENCENUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getSequenceNumber();
     hash = (37 * hash) + PROCESSID_FIELD_NUMBER;
     hash = (53 * hash) + getProcessId().hashCode();
+    if (hasTimestamp()) {
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
+    }
+    hash = (37 * hash) + DIGEST_FIELD_NUMBER;
+    hash = (53 * hash) + getDigest().hashCode();
     if (hasTransaction()) {
       hash = (37 * hash) + TRANSACTION_FIELD_NUMBER;
       hash = (53 * hash) + getTransaction().hashCode();
     }
-    if (hasLatestCommittedTransaction()) {
-      hash = (37 * hash) + LATESTCOMMITTEDTRANSACTION_FIELD_NUMBER;
-      hash = (53 * hash) + getLatestCommittedTransaction().hashCode();
-    }
-    hash = (37 * hash) + LATESTCOMMITTEDBALLOTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getLatestCommittedBallotNumber();
     hash = (37 * hash) + CLUSTERID_FIELD_NUMBER;
     hash = (53 * hash) + getClusterId();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -494,9 +537,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      ballotNumber_ = 0;
+      view_ = 0;
+
+      sequenceNumber_ = 0;
 
       processId_ = "";
+
+      if (timestampBuilder_ == null) {
+        timestamp_ = null;
+      } else {
+        timestamp_ = null;
+        timestampBuilder_ = null;
+      }
+      digest_ = "";
 
       if (transactionBuilder_ == null) {
         transaction_ = null;
@@ -504,14 +557,6 @@ private static final long serialVersionUID = 0L;
         transaction_ = null;
         transactionBuilder_ = null;
       }
-      if (latestCommittedTransactionBuilder_ == null) {
-        latestCommittedTransaction_ = null;
-      } else {
-        latestCommittedTransaction_ = null;
-        latestCommittedTransactionBuilder_ = null;
-      }
-      latestCommittedBallotNumber_ = 0;
-
       clusterId_ = 0;
 
       return this;
@@ -540,19 +585,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.cse535.proto.PrepareRequest buildPartial() {
       org.cse535.proto.PrepareRequest result = new org.cse535.proto.PrepareRequest(this);
-      result.ballotNumber_ = ballotNumber_;
+      result.view_ = view_;
+      result.sequenceNumber_ = sequenceNumber_;
       result.processId_ = processId_;
+      if (timestampBuilder_ == null) {
+        result.timestamp_ = timestamp_;
+      } else {
+        result.timestamp_ = timestampBuilder_.build();
+      }
+      result.digest_ = digest_;
       if (transactionBuilder_ == null) {
         result.transaction_ = transaction_;
       } else {
         result.transaction_ = transactionBuilder_.build();
       }
-      if (latestCommittedTransactionBuilder_ == null) {
-        result.latestCommittedTransaction_ = latestCommittedTransaction_;
-      } else {
-        result.latestCommittedTransaction_ = latestCommittedTransactionBuilder_.build();
-      }
-      result.latestCommittedBallotNumber_ = latestCommittedBallotNumber_;
       result.clusterId_ = clusterId_;
       onBuilt();
       return result;
@@ -602,21 +648,25 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.cse535.proto.PrepareRequest other) {
       if (other == org.cse535.proto.PrepareRequest.getDefaultInstance()) return this;
-      if (other.getBallotNumber() != 0) {
-        setBallotNumber(other.getBallotNumber());
+      if (other.getView() != 0) {
+        setView(other.getView());
+      }
+      if (other.getSequenceNumber() != 0) {
+        setSequenceNumber(other.getSequenceNumber());
       }
       if (!other.getProcessId().isEmpty()) {
         processId_ = other.processId_;
         onChanged();
       }
+      if (other.hasTimestamp()) {
+        mergeTimestamp(other.getTimestamp());
+      }
+      if (!other.getDigest().isEmpty()) {
+        digest_ = other.digest_;
+        onChanged();
+      }
       if (other.hasTransaction()) {
         mergeTransaction(other.getTransaction());
-      }
-      if (other.hasLatestCommittedTransaction()) {
-        mergeLatestCommittedTransaction(other.getLatestCommittedTransaction());
-      }
-      if (other.getLatestCommittedBallotNumber() != 0) {
-        setLatestCommittedBallotNumber(other.getLatestCommittedBallotNumber());
       }
       if (other.getClusterId() != 0) {
         setClusterId(other.getClusterId());
@@ -650,39 +700,61 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int ballotNumber_ ;
+    private int view_ ;
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public int getBallotNumber() {
-      return ballotNumber_;
+    public int getView() {
+      return view_;
     }
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder setBallotNumber(int value) {
+    public Builder setView(int value) {
       
-      ballotNumber_ = value;
+      view_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder clearBallotNumber() {
+    public Builder clearView() {
       
-      ballotNumber_ = 0;
+      view_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int sequenceNumber_ ;
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public int getSequenceNumber() {
+      return sequenceNumber_;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder setSequenceNumber(int value) {
+      
+      sequenceNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder clearSequenceNumber() {
+      
+      sequenceNumber_ = 0;
       onChanged();
       return this;
     }
 
     private java.lang.Object processId_ = "";
     /**
-     * <pre>
-     * processId is Server Name
-     * </pre>
-     *
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public java.lang.String getProcessId() {
       java.lang.Object ref = processId_;
@@ -697,11 +769,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * processId is Server Name
-     * </pre>
-     *
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public com.google.protobuf.ByteString
         getProcessIdBytes() {
@@ -717,11 +785,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <pre>
-     * processId is Server Name
-     * </pre>
-     *
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder setProcessId(
         java.lang.String value) {
@@ -734,11 +798,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * processId is Server Name
-     * </pre>
-     *
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder clearProcessId() {
       
@@ -747,11 +807,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * processId is Server Name
-     * </pre>
-     *
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder setProcessIdBytes(
         com.google.protobuf.ByteString value) {
@@ -765,17 +821,203 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private com.google.protobuf.Timestamp timestamp_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public boolean hasTimestamp() {
+      return timestampBuilder_ != null || timestamp_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public com.google.protobuf.Timestamp getTimestamp() {
+      if (timestampBuilder_ == null) {
+        return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+      } else {
+        return timestampBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder setTimestamp(com.google.protobuf.Timestamp value) {
+      if (timestampBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        timestamp_ = value;
+        onChanged();
+      } else {
+        timestampBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder setTimestamp(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (timestampBuilder_ == null) {
+        timestamp_ = builderForValue.build();
+        onChanged();
+      } else {
+        timestampBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
+      if (timestampBuilder_ == null) {
+        if (timestamp_ != null) {
+          timestamp_ =
+            com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+        } else {
+          timestamp_ = value;
+        }
+        onChanged();
+      } else {
+        timestampBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder clearTimestamp() {
+      if (timestampBuilder_ == null) {
+        timestamp_ = null;
+        onChanged();
+      } else {
+        timestamp_ = null;
+        timestampBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
+      
+      onChanged();
+      return getTimestampFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
+      if (timestampBuilder_ != null) {
+        return timestampBuilder_.getMessageOrBuilder();
+      } else {
+        return timestamp_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getTimestampFieldBuilder() {
+      if (timestampBuilder_ == null) {
+        timestampBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getTimestamp(),
+                getParentForChildren(),
+                isClean());
+        timestamp_ = null;
+      }
+      return timestampBuilder_;
+    }
+
+    private java.lang.Object digest_ = "";
+    /**
+     * <code>string digest = 5;</code>
+     */
+    public java.lang.String getDigest() {
+      java.lang.Object ref = digest_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        digest_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string digest = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDigestBytes() {
+      java.lang.Object ref = digest_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        digest_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string digest = 5;</code>
+     */
+    public Builder setDigest(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      digest_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string digest = 5;</code>
+     */
+    public Builder clearDigest() {
+      
+      digest_ = getDefaultInstance().getDigest();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string digest = 5;</code>
+     */
+    public Builder setDigestBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      digest_ = value;
+      onChanged();
+      return this;
+    }
+
     private org.cse535.proto.Transaction transaction_ = null;
     private com.google.protobuf.SingleFieldBuilderV3<
         org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> transactionBuilder_;
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public boolean hasTransaction() {
       return transactionBuilder_ != null || transaction_ != null;
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public org.cse535.proto.Transaction getTransaction() {
       if (transactionBuilder_ == null) {
@@ -785,7 +1027,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public Builder setTransaction(org.cse535.proto.Transaction value) {
       if (transactionBuilder_ == null) {
@@ -801,7 +1043,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public Builder setTransaction(
         org.cse535.proto.Transaction.Builder builderForValue) {
@@ -815,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public Builder mergeTransaction(org.cse535.proto.Transaction value) {
       if (transactionBuilder_ == null) {
@@ -833,7 +1075,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public Builder clearTransaction() {
       if (transactionBuilder_ == null) {
@@ -847,7 +1089,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public org.cse535.proto.Transaction.Builder getTransactionBuilder() {
       
@@ -855,7 +1097,7 @@ private static final long serialVersionUID = 0L;
       return getTransactionFieldBuilder().getBuilder();
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     public org.cse535.proto.TransactionOrBuilder getTransactionOrBuilder() {
       if (transactionBuilder_ != null) {
@@ -866,7 +1108,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.Transaction transaction = 3;</code>
+     * <code>.Transaction transaction = 6;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> 
@@ -882,158 +1124,15 @@ private static final long serialVersionUID = 0L;
       return transactionBuilder_;
     }
 
-    private org.cse535.proto.Transaction latestCommittedTransaction_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> latestCommittedTransactionBuilder_;
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public boolean hasLatestCommittedTransaction() {
-      return latestCommittedTransactionBuilder_ != null || latestCommittedTransaction_ != null;
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public org.cse535.proto.Transaction getLatestCommittedTransaction() {
-      if (latestCommittedTransactionBuilder_ == null) {
-        return latestCommittedTransaction_ == null ? org.cse535.proto.Transaction.getDefaultInstance() : latestCommittedTransaction_;
-      } else {
-        return latestCommittedTransactionBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public Builder setLatestCommittedTransaction(org.cse535.proto.Transaction value) {
-      if (latestCommittedTransactionBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        latestCommittedTransaction_ = value;
-        onChanged();
-      } else {
-        latestCommittedTransactionBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public Builder setLatestCommittedTransaction(
-        org.cse535.proto.Transaction.Builder builderForValue) {
-      if (latestCommittedTransactionBuilder_ == null) {
-        latestCommittedTransaction_ = builderForValue.build();
-        onChanged();
-      } else {
-        latestCommittedTransactionBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public Builder mergeLatestCommittedTransaction(org.cse535.proto.Transaction value) {
-      if (latestCommittedTransactionBuilder_ == null) {
-        if (latestCommittedTransaction_ != null) {
-          latestCommittedTransaction_ =
-            org.cse535.proto.Transaction.newBuilder(latestCommittedTransaction_).mergeFrom(value).buildPartial();
-        } else {
-          latestCommittedTransaction_ = value;
-        }
-        onChanged();
-      } else {
-        latestCommittedTransactionBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public Builder clearLatestCommittedTransaction() {
-      if (latestCommittedTransactionBuilder_ == null) {
-        latestCommittedTransaction_ = null;
-        onChanged();
-      } else {
-        latestCommittedTransaction_ = null;
-        latestCommittedTransactionBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public org.cse535.proto.Transaction.Builder getLatestCommittedTransactionBuilder() {
-      
-      onChanged();
-      return getLatestCommittedTransactionFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    public org.cse535.proto.TransactionOrBuilder getLatestCommittedTransactionOrBuilder() {
-      if (latestCommittedTransactionBuilder_ != null) {
-        return latestCommittedTransactionBuilder_.getMessageOrBuilder();
-      } else {
-        return latestCommittedTransaction_ == null ?
-            org.cse535.proto.Transaction.getDefaultInstance() : latestCommittedTransaction_;
-      }
-    }
-    /**
-     * <code>.Transaction latestCommittedTransaction = 4;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> 
-        getLatestCommittedTransactionFieldBuilder() {
-      if (latestCommittedTransactionBuilder_ == null) {
-        latestCommittedTransactionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder>(
-                getLatestCommittedTransaction(),
-                getParentForChildren(),
-                isClean());
-        latestCommittedTransaction_ = null;
-      }
-      return latestCommittedTransactionBuilder_;
-    }
-
-    private int latestCommittedBallotNumber_ ;
-    /**
-     * <code>int32 latestCommittedBallotNumber = 5;</code>
-     */
-    public int getLatestCommittedBallotNumber() {
-      return latestCommittedBallotNumber_;
-    }
-    /**
-     * <code>int32 latestCommittedBallotNumber = 5;</code>
-     */
-    public Builder setLatestCommittedBallotNumber(int value) {
-      
-      latestCommittedBallotNumber_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 latestCommittedBallotNumber = 5;</code>
-     */
-    public Builder clearLatestCommittedBallotNumber() {
-      
-      latestCommittedBallotNumber_ = 0;
-      onChanged();
-      return this;
-    }
-
     private int clusterId_ ;
     /**
-     * <code>int32 clusterId = 6;</code>
+     * <code>int32 clusterId = 7;</code>
      */
     public int getClusterId() {
       return clusterId_;
     }
     /**
-     * <code>int32 clusterId = 6;</code>
+     * <code>int32 clusterId = 7;</code>
      */
     public Builder setClusterId(int value) {
       
@@ -1042,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 clusterId = 6;</code>
+     * <code>int32 clusterId = 7;</code>
      */
     public Builder clearClusterId() {
       

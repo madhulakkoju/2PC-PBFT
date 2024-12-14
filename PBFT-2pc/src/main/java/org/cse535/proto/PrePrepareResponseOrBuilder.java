@@ -36,4 +36,156 @@ public interface PrePrepareResponseOrBuilder extends
    * <code>int32 clusterId = 5;</code>
    */
   int getClusterId();
+
+  /**
+   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
+   */
+  int getSyncTransactionsMapCount();
+  /**
+   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
+   */
+  boolean containsSyncTransactionsMap(
+      int key);
+  /**
+   * Use {@link #getSyncTransactionsMapMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, org.cse535.proto.Transaction>
+  getSyncTransactionsMap();
+  /**
+   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
+   */
+  java.util.Map<java.lang.Integer, org.cse535.proto.Transaction>
+  getSyncTransactionsMapMap();
+  /**
+   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
+   */
+
+  org.cse535.proto.Transaction getSyncTransactionsMapOrDefault(
+      int key,
+      org.cse535.proto.Transaction defaultValue);
+  /**
+   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
+   */
+
+  org.cse535.proto.Transaction getSyncTransactionsMapOrThrow(
+      int key);
+
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+  int getSyncTransactionStatusMapCount();
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+  boolean containsSyncTransactionStatusMap(
+      int key);
+  /**
+   * Use {@link #getSyncTransactionStatusMapMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
+  getSyncTransactionStatusMap();
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+  java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
+  getSyncTransactionStatusMapMap();
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+  org.cse535.proto.TransactionStatus getSyncTransactionStatusMapOrDefault(
+      int key,
+      org.cse535.proto.TransactionStatus defaultValue);
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+  org.cse535.proto.TransactionStatus getSyncTransactionStatusMapOrThrow(
+      int key);
+  /**
+   * Use {@link #getSyncTransactionStatusMapValueMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, java.lang.Integer>
+  getSyncTransactionStatusMapValue();
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+  java.util.Map<java.lang.Integer, java.lang.Integer>
+  getSyncTransactionStatusMapValueMap();
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+
+  int getSyncTransactionStatusMapValueOrDefault(
+      int key,
+      int defaultValue);
+  /**
+   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
+   */
+
+  int getSyncTransactionStatusMapValueOrThrow(
+      int key);
+
+  /**
+   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
+   */
+  int getSyncBalancesMapCount();
+  /**
+   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
+   */
+  boolean containsSyncBalancesMap(
+      int key);
+  /**
+   * Use {@link #getSyncBalancesMapMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, java.lang.Integer>
+  getSyncBalancesMap();
+  /**
+   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
+   */
+  java.util.Map<java.lang.Integer, java.lang.Integer>
+  getSyncBalancesMapMap();
+  /**
+   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
+   */
+
+  int getSyncBalancesMapOrDefault(
+      int key,
+      int defaultValue);
+  /**
+   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
+   */
+
+  int getSyncBalancesMapOrThrow(
+      int key);
+
+  /**
+   * <pre>
+   *Current server name
+   * </pre>
+   *
+   * <code>string acceptedServerName = 11;</code>
+   */
+  java.lang.String getAcceptedServerName();
+  /**
+   * <pre>
+   *Current server name
+   * </pre>
+   *
+   * <code>string acceptedServerName = 11;</code>
+   */
+  com.google.protobuf.ByteString
+      getAcceptedServerNameBytes();
+
+  /**
+   * <code>bool needToSync = 12;</code>
+   */
+  boolean getNeedToSync();
+
+  /**
+   * <code>int32 latestBallotNumber = 13;</code>
+   */
+  int getLatestBallotNumber();
 }

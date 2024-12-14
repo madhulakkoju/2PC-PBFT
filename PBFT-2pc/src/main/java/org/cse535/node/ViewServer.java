@@ -27,13 +27,16 @@ public class ViewServer extends NodeServer {
         public TransactionInputConfig transactionInputConfig;
         public HashMap<Integer, String> clusterContactServermapping;
 
-        public TnxLine(TransactionInputConfig transactionInputConfig, List<String> contactServers){
+        public List<String> maliciousServers;
+
+        public TnxLine(TransactionInputConfig transactionInputConfig, List<String> contactServers, List<String> maliciousServers) {
             this.transactionInputConfig = transactionInputConfig;
             clusterContactServermapping = new HashMap<>();
 
             for(String server : contactServers){
                 clusterContactServermapping.put( Utils.FindMyCluster( server ), server);
             }
+            this.maliciousServers = maliciousServers;
         }
 
     }
@@ -84,34 +87,6 @@ public class ViewServer extends NodeServer {
         }
 
 
-//        String[] parts = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-//
-//
-//        // Parse the values, trimming whitespace
-//        int testCaseCount = Integer.parseInt(parts[0].replaceAll("[^0-9]", "").trim());  // Trimmed to remove any whitespace
-//
-//        String[] tnx = parts[1].replaceAll("\"", "").replace("(","").replace(")","").trim()
-//                .split(",");  // Clean and trim
-//
-//        String listString = parts[2].replaceAll("[\\[\\]\"]", "").trim();  // Clean and trim
-//
-//        List<String> activeServers = Arrays.asList(listString.split(","));
-//
-//        String[] maliciousServers = parts[3].replaceAll("[\\[\\]]", "").replaceAll("\"","").trim().split(",");  // Clean and trim
-//
-//        Transaction transaction = Transaction.newBuilder()
-//                .setSender(tnx[0])
-//                .setReceiver(tnx[1])
-//                .setAmount(Integer.parseInt(tnx[2].replace(" ","")))
-//                .setTransactionNum(tnxCount)
-//                .build();
-
-
-
-
-
-        //String line = "2,\"(F, B, 3)\",\"[S1, S2, S3, S4, S5, S6, S7]\",\"[S4, S6]\"";
-
 // Split by commas, respecting quoted commas.
         String[] parts = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 
@@ -147,12 +122,20 @@ public class ViewServer extends NodeServer {
                 contactServersList.add( maliciousServers[i].trim());
         }
 
+        List<String> maliciousServersList = new ArrayList<>();
+        maliciousServers = parts[4].replaceAll("[\\[\\]\"]", "").trim().split(",");
+
+        for(int i =0;i<maliciousServers.length;i++){
+            if(!maliciousServers[i].trim().isEmpty())
+                maliciousServersList.add( maliciousServers[i].trim());
+        }
+
         // Now you can create your transaction
         Transaction transaction = Transaction.newBuilder()
                 .setSender(Integer.parseInt(sender))
                 .setReceiver(Integer.parseInt(receiver))
                 .setAmount(amount)
-                .setTransactionNum(tnxCount) // Assuming you want to set this as the transaction number
+                .setTransactionNum(tnxCount)
                 .setIsCrossShard( Utils.IsTransactionCrossCluster(Integer.parseInt(sender), Integer.parseInt(receiver)) )
                 .build();
 
@@ -160,7 +143,8 @@ public class ViewServer extends NodeServer {
                 .setSetNumber(testCaseCount)
                 .setTransaction(transaction)
                 .addAllServerNames(activeServersList)
-                .build(), contactServersList);
+                .build(), contactServersList,
+                maliciousServersList);
     }
 
 
@@ -316,7 +300,7 @@ public class ViewServer extends NodeServer {
             viewServer.activeServersStatusMap.put(serverNum, true);
         }
 
-        String path = "src/main/resources/Test Cases - Lab3.csv";
+        String path = "src/main/resources/Lab4_Testset_1.csv";
 
         File file = new File(path);
         String line;
@@ -407,6 +391,14 @@ public class ViewServer extends NodeServer {
                             DeactivateServerRequest request = DeactivateServerRequest.newBuilder().setServerName("S"+ server).setTestCase(transactionInputConfig.getSetNumber()).build();
                             viewServer.serversToActivateServersStub.get(server).deactivateServer(request);
                         }
+
+                        if(tnxLine.maliciousServers.contains("S"+server)){
+                            viewServer.serversToActivateServersStub.get(server).makeByzantine( CommandInput.newBuilder().build());
+                        }
+                        else{
+                            viewServer.serversToActivateServersStub.get(server).makeHonest( CommandInput.newBuilder().build());
+                        }
+
                     }
 
 

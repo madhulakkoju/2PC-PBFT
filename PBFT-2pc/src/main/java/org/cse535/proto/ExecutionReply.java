@@ -16,9 +16,11 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ExecutionReply() {
-    transactionNum_ = 0;
+    view_ = 0;
+    sequenceNumber_ = 0;
+    processId_ = "";
+    transactionId_ = 0;
     success_ = false;
-    serverName_ = "";
     clusterId_ = 0;
     failureReason_ = "";
   }
@@ -49,26 +51,49 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            transactionNum_ = input.readInt32();
+            view_ = input.readInt32();
             break;
           }
           case 16: {
 
-            success_ = input.readBool();
+            sequenceNumber_ = input.readInt32();
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            serverName_ = s;
+            processId_ = s;
             break;
           }
-          case 32: {
+          case 34: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (timestamp_ != null) {
+              subBuilder = timestamp_.toBuilder();
+            }
+            timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(timestamp_);
+              timestamp_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 40: {
+
+            transactionId_ = input.readInt32();
+            break;
+          }
+          case 48: {
+
+            success_ = input.readBool();
+            break;
+          }
+          case 56: {
 
             clusterId_ = input.readInt32();
             break;
           }
-          case 42: {
+          case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
             failureReason_ = s;
@@ -106,71 +131,110 @@ private static final long serialVersionUID = 0L;
             org.cse535.proto.ExecutionReply.class, org.cse535.proto.ExecutionReply.Builder.class);
   }
 
-  public static final int TRANSACTIONNUM_FIELD_NUMBER = 1;
-  private int transactionNum_;
+  public static final int VIEW_FIELD_NUMBER = 1;
+  private int view_;
   /**
-   * <code>int32 transactionNum = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  public int getTransactionNum() {
-    return transactionNum_;
+  public int getView() {
+    return view_;
   }
 
-  public static final int SUCCESS_FIELD_NUMBER = 2;
-  private boolean success_;
+  public static final int SEQUENCENUMBER_FIELD_NUMBER = 2;
+  private int sequenceNumber_;
   /**
-   * <code>bool success = 2;</code>
+   * <code>int32 sequenceNumber = 2;</code>
    */
-  public boolean getSuccess() {
-    return success_;
+  public int getSequenceNumber() {
+    return sequenceNumber_;
   }
 
-  public static final int SERVERNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object serverName_;
+  public static final int PROCESSID_FIELD_NUMBER = 3;
+  private volatile java.lang.Object processId_;
   /**
-   * <code>string serverName = 3;</code>
+   * <code>string processId = 3;</code>
    */
-  public java.lang.String getServerName() {
-    java.lang.Object ref = serverName_;
+  public java.lang.String getProcessId() {
+    java.lang.Object ref = processId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      serverName_ = s;
+      processId_ = s;
       return s;
     }
   }
   /**
-   * <code>string serverName = 3;</code>
+   * <code>string processId = 3;</code>
    */
   public com.google.protobuf.ByteString
-      getServerNameBytes() {
-    java.lang.Object ref = serverName_;
+      getProcessIdBytes() {
+    java.lang.Object ref = processId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      serverName_ = b;
+      processId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int CLUSTERID_FIELD_NUMBER = 4;
+  public static final int TRANSACTIONID_FIELD_NUMBER = 5;
+  private int transactionId_;
+  /**
+   * <code>int32 transactionId = 5;</code>
+   */
+  public int getTransactionId() {
+    return transactionId_;
+  }
+
+  public static final int TIMESTAMP_FIELD_NUMBER = 4;
+  private com.google.protobuf.Timestamp timestamp_;
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  public boolean hasTimestamp() {
+    return timestamp_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  public com.google.protobuf.Timestamp getTimestamp() {
+    return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
+    return getTimestamp();
+  }
+
+  public static final int SUCCESS_FIELD_NUMBER = 6;
+  private boolean success_;
+  /**
+   * <code>bool success = 6;</code>
+   */
+  public boolean getSuccess() {
+    return success_;
+  }
+
+  public static final int CLUSTERID_FIELD_NUMBER = 7;
   private int clusterId_;
   /**
-   * <code>int32 clusterId = 4;</code>
+   * <code>int32 clusterId = 7;</code>
    */
   public int getClusterId() {
     return clusterId_;
   }
 
-  public static final int FAILUREREASON_FIELD_NUMBER = 5;
+  public static final int FAILUREREASON_FIELD_NUMBER = 8;
   private volatile java.lang.Object failureReason_;
   /**
-   * <code>string failureReason = 5;</code>
+   * <code>string failureReason = 8;</code>
    */
   public java.lang.String getFailureReason() {
     java.lang.Object ref = failureReason_;
@@ -185,7 +249,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string failureReason = 5;</code>
+   * <code>string failureReason = 8;</code>
    */
   public com.google.protobuf.ByteString
       getFailureReasonBytes() {
@@ -215,20 +279,29 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (transactionNum_ != 0) {
-      output.writeInt32(1, transactionNum_);
+    if (view_ != 0) {
+      output.writeInt32(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      output.writeInt32(2, sequenceNumber_);
+    }
+    if (!getProcessIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, processId_);
+    }
+    if (timestamp_ != null) {
+      output.writeMessage(4, getTimestamp());
+    }
+    if (transactionId_ != 0) {
+      output.writeInt32(5, transactionId_);
     }
     if (success_ != false) {
-      output.writeBool(2, success_);
-    }
-    if (!getServerNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, serverName_);
+      output.writeBool(6, success_);
     }
     if (clusterId_ != 0) {
-      output.writeInt32(4, clusterId_);
+      output.writeInt32(7, clusterId_);
     }
     if (!getFailureReasonBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, failureReason_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, failureReason_);
     }
     unknownFields.writeTo(output);
   }
@@ -239,23 +312,35 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (transactionNum_ != 0) {
+    if (view_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, transactionNum_);
+        .computeInt32Size(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, sequenceNumber_);
+    }
+    if (!getProcessIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, processId_);
+    }
+    if (timestamp_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getTimestamp());
+    }
+    if (transactionId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, transactionId_);
     }
     if (success_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(2, success_);
-    }
-    if (!getServerNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, serverName_);
+        .computeBoolSize(6, success_);
     }
     if (clusterId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, clusterId_);
+        .computeInt32Size(7, clusterId_);
     }
     if (!getFailureReasonBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, failureReason_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, failureReason_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -273,12 +358,21 @@ private static final long serialVersionUID = 0L;
     org.cse535.proto.ExecutionReply other = (org.cse535.proto.ExecutionReply) obj;
 
     boolean result = true;
-    result = result && (getTransactionNum()
-        == other.getTransactionNum());
+    result = result && (getView()
+        == other.getView());
+    result = result && (getSequenceNumber()
+        == other.getSequenceNumber());
+    result = result && getProcessId()
+        .equals(other.getProcessId());
+    result = result && (getTransactionId()
+        == other.getTransactionId());
+    result = result && (hasTimestamp() == other.hasTimestamp());
+    if (hasTimestamp()) {
+      result = result && getTimestamp()
+          .equals(other.getTimestamp());
+    }
     result = result && (getSuccess()
         == other.getSuccess());
-    result = result && getServerName()
-        .equals(other.getServerName());
     result = result && (getClusterId()
         == other.getClusterId());
     result = result && getFailureReason()
@@ -294,13 +388,21 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TRANSACTIONNUM_FIELD_NUMBER;
-    hash = (53 * hash) + getTransactionNum();
+    hash = (37 * hash) + VIEW_FIELD_NUMBER;
+    hash = (53 * hash) + getView();
+    hash = (37 * hash) + SEQUENCENUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getSequenceNumber();
+    hash = (37 * hash) + PROCESSID_FIELD_NUMBER;
+    hash = (53 * hash) + getProcessId().hashCode();
+    hash = (37 * hash) + TRANSACTIONID_FIELD_NUMBER;
+    hash = (53 * hash) + getTransactionId();
+    if (hasTimestamp()) {
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
+    }
     hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSuccess());
-    hash = (37 * hash) + SERVERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getServerName().hashCode();
     hash = (37 * hash) + CLUSTERID_FIELD_NUMBER;
     hash = (53 * hash) + getClusterId();
     hash = (37 * hash) + FAILUREREASON_FIELD_NUMBER;
@@ -438,11 +540,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      transactionNum_ = 0;
+      view_ = 0;
 
+      sequenceNumber_ = 0;
+
+      processId_ = "";
+
+      transactionId_ = 0;
+
+      if (timestampBuilder_ == null) {
+        timestamp_ = null;
+      } else {
+        timestamp_ = null;
+        timestampBuilder_ = null;
+      }
       success_ = false;
-
-      serverName_ = "";
 
       clusterId_ = 0;
 
@@ -474,9 +586,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.cse535.proto.ExecutionReply buildPartial() {
       org.cse535.proto.ExecutionReply result = new org.cse535.proto.ExecutionReply(this);
-      result.transactionNum_ = transactionNum_;
+      result.view_ = view_;
+      result.sequenceNumber_ = sequenceNumber_;
+      result.processId_ = processId_;
+      result.transactionId_ = transactionId_;
+      if (timestampBuilder_ == null) {
+        result.timestamp_ = timestamp_;
+      } else {
+        result.timestamp_ = timestampBuilder_.build();
+      }
       result.success_ = success_;
-      result.serverName_ = serverName_;
       result.clusterId_ = clusterId_;
       result.failureReason_ = failureReason_;
       onBuilt();
@@ -527,15 +646,24 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.cse535.proto.ExecutionReply other) {
       if (other == org.cse535.proto.ExecutionReply.getDefaultInstance()) return this;
-      if (other.getTransactionNum() != 0) {
-        setTransactionNum(other.getTransactionNum());
+      if (other.getView() != 0) {
+        setView(other.getView());
+      }
+      if (other.getSequenceNumber() != 0) {
+        setSequenceNumber(other.getSequenceNumber());
+      }
+      if (!other.getProcessId().isEmpty()) {
+        processId_ = other.processId_;
+        onChanged();
+      }
+      if (other.getTransactionId() != 0) {
+        setTransactionId(other.getTransactionId());
+      }
+      if (other.hasTimestamp()) {
+        mergeTimestamp(other.getTimestamp());
       }
       if (other.getSuccess() != false) {
         setSuccess(other.getSuccess());
-      }
-      if (!other.getServerName().isEmpty()) {
-        serverName_ = other.serverName_;
-        onChanged();
       }
       if (other.getClusterId() != 0) {
         setClusterId(other.getClusterId());
@@ -573,41 +701,279 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int transactionNum_ ;
+    private int view_ ;
     /**
-     * <code>int32 transactionNum = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public int getTransactionNum() {
-      return transactionNum_;
+    public int getView() {
+      return view_;
     }
     /**
-     * <code>int32 transactionNum = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder setTransactionNum(int value) {
+    public Builder setView(int value) {
       
-      transactionNum_ = value;
+      view_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 transactionNum = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder clearTransactionNum() {
+    public Builder clearView() {
       
-      transactionNum_ = 0;
+      view_ = 0;
       onChanged();
       return this;
     }
 
+    private int sequenceNumber_ ;
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public int getSequenceNumber() {
+      return sequenceNumber_;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder setSequenceNumber(int value) {
+      
+      sequenceNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder clearSequenceNumber() {
+      
+      sequenceNumber_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object processId_ = "";
+    /**
+     * <code>string processId = 3;</code>
+     */
+    public java.lang.String getProcessId() {
+      java.lang.Object ref = processId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        processId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string processId = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getProcessIdBytes() {
+      java.lang.Object ref = processId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        processId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string processId = 3;</code>
+     */
+    public Builder setProcessId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      processId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string processId = 3;</code>
+     */
+    public Builder clearProcessId() {
+      
+      processId_ = getDefaultInstance().getProcessId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string processId = 3;</code>
+     */
+    public Builder setProcessIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      processId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int transactionId_ ;
+    /**
+     * <code>int32 transactionId = 5;</code>
+     */
+    public int getTransactionId() {
+      return transactionId_;
+    }
+    /**
+     * <code>int32 transactionId = 5;</code>
+     */
+    public Builder setTransactionId(int value) {
+      
+      transactionId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 transactionId = 5;</code>
+     */
+    public Builder clearTransactionId() {
+      
+      transactionId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp timestamp_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public boolean hasTimestamp() {
+      return timestampBuilder_ != null || timestamp_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public com.google.protobuf.Timestamp getTimestamp() {
+      if (timestampBuilder_ == null) {
+        return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+      } else {
+        return timestampBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder setTimestamp(com.google.protobuf.Timestamp value) {
+      if (timestampBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        timestamp_ = value;
+        onChanged();
+      } else {
+        timestampBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder setTimestamp(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (timestampBuilder_ == null) {
+        timestamp_ = builderForValue.build();
+        onChanged();
+      } else {
+        timestampBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
+      if (timestampBuilder_ == null) {
+        if (timestamp_ != null) {
+          timestamp_ =
+            com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+        } else {
+          timestamp_ = value;
+        }
+        onChanged();
+      } else {
+        timestampBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public Builder clearTimestamp() {
+      if (timestampBuilder_ == null) {
+        timestamp_ = null;
+        onChanged();
+      } else {
+        timestamp_ = null;
+        timestampBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
+      
+      onChanged();
+      return getTimestampFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
+      if (timestampBuilder_ != null) {
+        return timestampBuilder_.getMessageOrBuilder();
+      } else {
+        return timestamp_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getTimestampFieldBuilder() {
+      if (timestampBuilder_ == null) {
+        timestampBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getTimestamp(),
+                getParentForChildren(),
+                isClean());
+        timestamp_ = null;
+      }
+      return timestampBuilder_;
+    }
+
     private boolean success_ ;
     /**
-     * <code>bool success = 2;</code>
+     * <code>bool success = 6;</code>
      */
     public boolean getSuccess() {
       return success_;
     }
     /**
-     * <code>bool success = 2;</code>
+     * <code>bool success = 6;</code>
      */
     public Builder setSuccess(boolean value) {
       
@@ -616,7 +982,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool success = 2;</code>
+     * <code>bool success = 6;</code>
      */
     public Builder clearSuccess() {
       
@@ -625,84 +991,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object serverName_ = "";
-    /**
-     * <code>string serverName = 3;</code>
-     */
-    public java.lang.String getServerName() {
-      java.lang.Object ref = serverName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        serverName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string serverName = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getServerNameBytes() {
-      java.lang.Object ref = serverName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        serverName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string serverName = 3;</code>
-     */
-    public Builder setServerName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      serverName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string serverName = 3;</code>
-     */
-    public Builder clearServerName() {
-      
-      serverName_ = getDefaultInstance().getServerName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string serverName = 3;</code>
-     */
-    public Builder setServerNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      serverName_ = value;
-      onChanged();
-      return this;
-    }
-
     private int clusterId_ ;
     /**
-     * <code>int32 clusterId = 4;</code>
+     * <code>int32 clusterId = 7;</code>
      */
     public int getClusterId() {
       return clusterId_;
     }
     /**
-     * <code>int32 clusterId = 4;</code>
+     * <code>int32 clusterId = 7;</code>
      */
     public Builder setClusterId(int value) {
       
@@ -711,7 +1008,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 clusterId = 4;</code>
+     * <code>int32 clusterId = 7;</code>
      */
     public Builder clearClusterId() {
       
@@ -722,7 +1019,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object failureReason_ = "";
     /**
-     * <code>string failureReason = 5;</code>
+     * <code>string failureReason = 8;</code>
      */
     public java.lang.String getFailureReason() {
       java.lang.Object ref = failureReason_;
@@ -737,7 +1034,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string failureReason = 5;</code>
+     * <code>string failureReason = 8;</code>
      */
     public com.google.protobuf.ByteString
         getFailureReasonBytes() {
@@ -753,7 +1050,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string failureReason = 5;</code>
+     * <code>string failureReason = 8;</code>
      */
     public Builder setFailureReason(
         java.lang.String value) {
@@ -766,7 +1063,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string failureReason = 5;</code>
+     * <code>string failureReason = 8;</code>
      */
     public Builder clearFailureReason() {
       
@@ -775,7 +1072,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string failureReason = 5;</code>
+     * <code>string failureReason = 8;</code>
      */
     public Builder setFailureReasonBytes(
         com.google.protobuf.ByteString value) {

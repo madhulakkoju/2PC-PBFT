@@ -24,7 +24,7 @@ public class GlobalConfigs {
 
 
     public static int f = 1;
-    public static int ShardConsesusThreshold = f + 1;
+    public static int ShardConsesusThreshold = 2*f + 1;
 
 
     // Cluster Number: Max Data Item Number

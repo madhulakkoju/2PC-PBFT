@@ -1,5 +1,6 @@
 package org.cse535.service;
 
+import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import org.cse535.Main;
 import org.cse535.proto.*;
@@ -27,5 +28,23 @@ public class ActivateServersService extends ActivateServersGrpc.ActivateServersI
         Main.node.commandLogger.log("---------------------------------------------------------------------------------");
 
         Main.node.commandLogger.log("---------------------------------------------------------------------------------");
+    }
+
+
+    @Override
+    public void makeByzantine(CommandInput request, StreamObserver<Empty> responseObserver) {
+        Main.node.isServerByzantine.set(true);
+        System.out.println("Server is now Byzantine");
+        responseObserver.onNext(Empty.newBuilder().build());
+        responseObserver.onCompleted();
+    }
+
+
+    @Override
+    public void makeHonest(CommandInput request, StreamObserver<Empty> responseObserver) {
+        Main.node.isServerByzantine.set(false);
+        System.out.println("Server is now Honest");
+        responseObserver.onNext(Empty.newBuilder().build());
+        responseObserver.onCompleted();
     }
 }

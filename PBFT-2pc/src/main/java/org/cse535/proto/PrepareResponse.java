@@ -16,14 +16,11 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private PrepareResponse() {
-    ballotNumber_ = 0;
+    view_ = 0;
+    sequenceNumber_ = 0;
     processId_ = "";
     success_ = false;
-    lastAcceptedUncommittedBallotNumber_ = 0;
-    lastCommittedBallotNumber_ = 0;
-    acceptedServerName_ = "";
-    needToSync_ = false;
-    latestBallotNumber_ = 0;
+    clusterId_ = 0;
   }
 
   @java.lang.Override
@@ -52,109 +49,28 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            ballotNumber_ = input.readInt32();
+            view_ = input.readInt32();
             break;
           }
-          case 18: {
+          case 16: {
+
+            sequenceNumber_ = input.readInt32();
+            break;
+          }
+          case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
             processId_ = s;
             break;
           }
-          case 24: {
+          case 32: {
 
             success_ = input.readBool();
             break;
           }
-          case 34: {
-            org.cse535.proto.Transaction.Builder subBuilder = null;
-            if (lastAcceptedUncommittedTransaction_ != null) {
-              subBuilder = lastAcceptedUncommittedTransaction_.toBuilder();
-            }
-            lastAcceptedUncommittedTransaction_ = input.readMessage(org.cse535.proto.Transaction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastAcceptedUncommittedTransaction_);
-              lastAcceptedUncommittedTransaction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           case 40: {
 
-            lastAcceptedUncommittedBallotNumber_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            org.cse535.proto.Transaction.Builder subBuilder = null;
-            if (lastCommittedTransaction_ != null) {
-              subBuilder = lastCommittedTransaction_.toBuilder();
-            }
-            lastCommittedTransaction_ = input.readMessage(org.cse535.proto.Transaction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastCommittedTransaction_);
-              lastCommittedTransaction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-
-            lastCommittedBallotNumber_ = input.readInt32();
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-              syncTransactionsMap_ = com.google.protobuf.MapField.newMapField(
-                  SyncTransactionsMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000080;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, org.cse535.proto.Transaction>
-            syncTransactionsMap__ = input.readMessage(
-                SyncTransactionsMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            syncTransactionsMap_.getMutableMap().put(
-                syncTransactionsMap__.getKey(), syncTransactionsMap__.getValue());
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
-              syncTransactionStatusMap_ = com.google.protobuf.MapField.newMapField(
-                  SyncTransactionStatusMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000100;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-            syncTransactionStatusMap__ = input.readMessage(
-                SyncTransactionStatusMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            syncTransactionStatusMap_.getMutableMap().put(
-                syncTransactionStatusMap__.getKey(), syncTransactionStatusMap__.getValue());
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
-              syncBalancesMap_ = com.google.protobuf.MapField.newMapField(
-                  SyncBalancesMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000200;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-            syncBalancesMap__ = input.readMessage(
-                SyncBalancesMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            syncBalancesMap_.getMutableMap().put(
-                syncBalancesMap__.getKey(), syncBalancesMap__.getValue());
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            acceptedServerName_ = s;
-            break;
-          }
-          case 96: {
-
-            needToSync_ = input.readBool();
-            break;
-          }
-          case 104: {
-
-            latestBallotNumber_ = input.readInt32();
+            clusterId_ = input.readInt32();
             break;
           }
           default: {
@@ -181,22 +97,6 @@ private static final long serialVersionUID = 0L;
     return org.cse535.proto.Pbft2Pc.internal_static_PrepareResponse_descriptor;
   }
 
-  @SuppressWarnings({"rawtypes"})
-  @java.lang.Override
-  protected com.google.protobuf.MapField internalGetMapField(
-      int number) {
-    switch (number) {
-      case 8:
-        return internalGetSyncTransactionsMap();
-      case 9:
-        return internalGetSyncTransactionStatusMap();
-      case 10:
-        return internalGetSyncBalancesMap();
-      default:
-        throw new RuntimeException(
-            "Invalid map field number: " + number);
-    }
-  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -205,20 +105,28 @@ private static final long serialVersionUID = 0L;
             org.cse535.proto.PrepareResponse.class, org.cse535.proto.PrepareResponse.Builder.class);
   }
 
-  private int bitField0_;
-  public static final int BALLOTNUMBER_FIELD_NUMBER = 1;
-  private int ballotNumber_;
+  public static final int VIEW_FIELD_NUMBER = 1;
+  private int view_;
   /**
-   * <code>int32 ballotNumber = 1;</code>
+   * <code>int32 view = 1;</code>
    */
-  public int getBallotNumber() {
-    return ballotNumber_;
+  public int getView() {
+    return view_;
   }
 
-  public static final int PROCESSID_FIELD_NUMBER = 2;
+  public static final int SEQUENCENUMBER_FIELD_NUMBER = 2;
+  private int sequenceNumber_;
+  /**
+   * <code>int32 sequenceNumber = 2;</code>
+   */
+  public int getSequenceNumber() {
+    return sequenceNumber_;
+  }
+
+  public static final int PROCESSID_FIELD_NUMBER = 3;
   private volatile java.lang.Object processId_;
   /**
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   public java.lang.String getProcessId() {
     java.lang.Object ref = processId_;
@@ -233,7 +141,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string processId = 2;</code>
+   * <code>string processId = 3;</code>
    */
   public com.google.protobuf.ByteString
       getProcessIdBytes() {
@@ -249,420 +157,22 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SUCCESS_FIELD_NUMBER = 3;
+  public static final int SUCCESS_FIELD_NUMBER = 4;
   private boolean success_;
   /**
-   * <code>bool success = 3;</code>
+   * <code>bool success = 4;</code>
    */
   public boolean getSuccess() {
     return success_;
   }
 
-  public static final int LASTACCEPTEDUNCOMMITTEDTRANSACTION_FIELD_NUMBER = 4;
-  private org.cse535.proto.Transaction lastAcceptedUncommittedTransaction_;
+  public static final int CLUSTERID_FIELD_NUMBER = 5;
+  private int clusterId_;
   /**
-   * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
+   * <code>int32 clusterId = 5;</code>
    */
-  public boolean hasLastAcceptedUncommittedTransaction() {
-    return lastAcceptedUncommittedTransaction_ != null;
-  }
-  /**
-   * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-   */
-  public org.cse535.proto.Transaction getLastAcceptedUncommittedTransaction() {
-    return lastAcceptedUncommittedTransaction_ == null ? org.cse535.proto.Transaction.getDefaultInstance() : lastAcceptedUncommittedTransaction_;
-  }
-  /**
-   * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-   */
-  public org.cse535.proto.TransactionOrBuilder getLastAcceptedUncommittedTransactionOrBuilder() {
-    return getLastAcceptedUncommittedTransaction();
-  }
-
-  public static final int LASTACCEPTEDUNCOMMITTEDBALLOTNUMBER_FIELD_NUMBER = 5;
-  private int lastAcceptedUncommittedBallotNumber_;
-  /**
-   * <code>int32 lastAcceptedUncommittedBallotNumber = 5;</code>
-   */
-  public int getLastAcceptedUncommittedBallotNumber() {
-    return lastAcceptedUncommittedBallotNumber_;
-  }
-
-  public static final int LASTCOMMITTEDTRANSACTION_FIELD_NUMBER = 6;
-  private org.cse535.proto.Transaction lastCommittedTransaction_;
-  /**
-   * <code>.Transaction lastCommittedTransaction = 6;</code>
-   */
-  public boolean hasLastCommittedTransaction() {
-    return lastCommittedTransaction_ != null;
-  }
-  /**
-   * <code>.Transaction lastCommittedTransaction = 6;</code>
-   */
-  public org.cse535.proto.Transaction getLastCommittedTransaction() {
-    return lastCommittedTransaction_ == null ? org.cse535.proto.Transaction.getDefaultInstance() : lastCommittedTransaction_;
-  }
-  /**
-   * <code>.Transaction lastCommittedTransaction = 6;</code>
-   */
-  public org.cse535.proto.TransactionOrBuilder getLastCommittedTransactionOrBuilder() {
-    return getLastCommittedTransaction();
-  }
-
-  public static final int LASTCOMMITTEDBALLOTNUMBER_FIELD_NUMBER = 7;
-  private int lastCommittedBallotNumber_;
-  /**
-   * <code>int32 lastCommittedBallotNumber = 7;</code>
-   */
-  public int getLastCommittedBallotNumber() {
-    return lastCommittedBallotNumber_;
-  }
-
-  public static final int SYNCTRANSACTIONSMAP_FIELD_NUMBER = 8;
-  private static final class SyncTransactionsMapDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.Integer, org.cse535.proto.Transaction> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.Integer, org.cse535.proto.Transaction>newDefaultInstance(
-                org.cse535.proto.Pbft2Pc.internal_static_PrepareResponse_SyncTransactionsMapEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.INT32,
-                0,
-                com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                org.cse535.proto.Transaction.getDefaultInstance());
-  }
-  private com.google.protobuf.MapField<
-      java.lang.Integer, org.cse535.proto.Transaction> syncTransactionsMap_;
-  private com.google.protobuf.MapField<java.lang.Integer, org.cse535.proto.Transaction>
-  internalGetSyncTransactionsMap() {
-    if (syncTransactionsMap_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          SyncTransactionsMapDefaultEntryHolder.defaultEntry);
-    }
-    return syncTransactionsMap_;
-  }
-
-  public int getSyncTransactionsMapCount() {
-    return internalGetSyncTransactionsMap().getMap().size();
-  }
-  /**
-   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-   */
-
-  public boolean containsSyncTransactionsMap(
-      int key) {
-    
-    return internalGetSyncTransactionsMap().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getSyncTransactionsMapMap()} instead.
-   */
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> getSyncTransactionsMap() {
-    return getSyncTransactionsMapMap();
-  }
-  /**
-   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-   */
-
-  public java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> getSyncTransactionsMapMap() {
-    return internalGetSyncTransactionsMap().getMap();
-  }
-  /**
-   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-   */
-
-  public org.cse535.proto.Transaction getSyncTransactionsMapOrDefault(
-      int key,
-      org.cse535.proto.Transaction defaultValue) {
-    
-    java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> map =
-        internalGetSyncTransactionsMap().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-   */
-
-  public org.cse535.proto.Transaction getSyncTransactionsMapOrThrow(
-      int key) {
-    
-    java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> map =
-        internalGetSyncTransactionsMap().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
-  }
-
-  public static final int SYNCTRANSACTIONSTATUSMAP_FIELD_NUMBER = 9;
-  private static final class SyncTransactionStatusMapDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.Integer, java.lang.Integer> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.Integer, java.lang.Integer>newDefaultInstance(
-                org.cse535.proto.Pbft2Pc.internal_static_PrepareResponse_SyncTransactionStatusMapEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.INT32,
-                0,
-                com.google.protobuf.WireFormat.FieldType.ENUM,
-                org.cse535.proto.TransactionStatus.None.getNumber());
-  }
-  private com.google.protobuf.MapField<
-      java.lang.Integer, java.lang.Integer> syncTransactionStatusMap_;
-  private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-  internalGetSyncTransactionStatusMap() {
-    if (syncTransactionStatusMap_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          SyncTransactionStatusMapDefaultEntryHolder.defaultEntry);
-    }
-    return syncTransactionStatusMap_;
-  }
-  private static final
-  com.google.protobuf.Internal.MapAdapter.Converter<
-      java.lang.Integer, org.cse535.proto.TransactionStatus> syncTransactionStatusMapValueConverter =
-          com.google.protobuf.Internal.MapAdapter.newEnumConverter(
-              org.cse535.proto.TransactionStatus.internalGetValueMap(),
-              org.cse535.proto.TransactionStatus.UNRECOGNIZED);
-  private static final java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
-  internalGetAdaptedSyncTransactionStatusMapMap(
-      java.util.Map<java.lang.Integer, java.lang.Integer> map) {
-    return new com.google.protobuf.Internal.MapAdapter<
-        java.lang.Integer, org.cse535.proto.TransactionStatus, java.lang.Integer>(
-            map, syncTransactionStatusMapValueConverter);
-  }
-
-  public int getSyncTransactionStatusMapCount() {
-    return internalGetSyncTransactionStatusMap().getMap().size();
-  }
-  /**
-   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-   */
-
-  public boolean containsSyncTransactionStatusMap(
-      int key) {
-    
-    return internalGetSyncTransactionStatusMap().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getSyncTransactionStatusMapMap()} instead.
-   */
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
-  getSyncTransactionStatusMap() {
-    return getSyncTransactionStatusMapMap();
-  }
-  /**
-   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-   */
-
-  public java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
-  getSyncTransactionStatusMapMap() {
-    return internalGetAdaptedSyncTransactionStatusMapMap(
-        internalGetSyncTransactionStatusMap().getMap());}
-  /**
-   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-   */
-
-  public org.cse535.proto.TransactionStatus getSyncTransactionStatusMapOrDefault(
-      int key,
-      org.cse535.proto.TransactionStatus defaultValue) {
-    
-    java.util.Map<java.lang.Integer, java.lang.Integer> map =
-        internalGetSyncTransactionStatusMap().getMap();
-    return map.containsKey(key)
-           ? syncTransactionStatusMapValueConverter.doForward(map.get(key))
-           : defaultValue;
-  }
-  /**
-   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-   */
-
-  public org.cse535.proto.TransactionStatus getSyncTransactionStatusMapOrThrow(
-      int key) {
-    
-    java.util.Map<java.lang.Integer, java.lang.Integer> map =
-        internalGetSyncTransactionStatusMap().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return syncTransactionStatusMapValueConverter.doForward(map.get(key));
-  }
-  /**
-   * Use {@link #getSyncTransactionStatusMapValueMap()} instead.
-   */
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.Integer, java.lang.Integer>
-  getSyncTransactionStatusMapValue() {
-    return getSyncTransactionStatusMapValueMap();
-  }
-  /**
-   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-   */
-
-  public java.util.Map<java.lang.Integer, java.lang.Integer>
-  getSyncTransactionStatusMapValueMap() {
-    return internalGetSyncTransactionStatusMap().getMap();
-  }
-  /**
-   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-   */
-
-  public int getSyncTransactionStatusMapValueOrDefault(
-      int key,
-      int defaultValue) {
-    
-    java.util.Map<java.lang.Integer, java.lang.Integer> map =
-        internalGetSyncTransactionStatusMap().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-   */
-
-  public int getSyncTransactionStatusMapValueOrThrow(
-      int key) {
-    
-    java.util.Map<java.lang.Integer, java.lang.Integer> map =
-        internalGetSyncTransactionStatusMap().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
-  }
-
-  public static final int SYNCBALANCESMAP_FIELD_NUMBER = 10;
-  private static final class SyncBalancesMapDefaultEntryHolder {
-    static final com.google.protobuf.MapEntry<
-        java.lang.Integer, java.lang.Integer> defaultEntry =
-            com.google.protobuf.MapEntry
-            .<java.lang.Integer, java.lang.Integer>newDefaultInstance(
-                org.cse535.proto.Pbft2Pc.internal_static_PrepareResponse_SyncBalancesMapEntry_descriptor, 
-                com.google.protobuf.WireFormat.FieldType.INT32,
-                0,
-                com.google.protobuf.WireFormat.FieldType.INT32,
-                0);
-  }
-  private com.google.protobuf.MapField<
-      java.lang.Integer, java.lang.Integer> syncBalancesMap_;
-  private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-  internalGetSyncBalancesMap() {
-    if (syncBalancesMap_ == null) {
-      return com.google.protobuf.MapField.emptyMapField(
-          SyncBalancesMapDefaultEntryHolder.defaultEntry);
-    }
-    return syncBalancesMap_;
-  }
-
-  public int getSyncBalancesMapCount() {
-    return internalGetSyncBalancesMap().getMap().size();
-  }
-  /**
-   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-   */
-
-  public boolean containsSyncBalancesMap(
-      int key) {
-    
-    return internalGetSyncBalancesMap().getMap().containsKey(key);
-  }
-  /**
-   * Use {@link #getSyncBalancesMapMap()} instead.
-   */
-  @java.lang.Deprecated
-  public java.util.Map<java.lang.Integer, java.lang.Integer> getSyncBalancesMap() {
-    return getSyncBalancesMapMap();
-  }
-  /**
-   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-   */
-
-  public java.util.Map<java.lang.Integer, java.lang.Integer> getSyncBalancesMapMap() {
-    return internalGetSyncBalancesMap().getMap();
-  }
-  /**
-   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-   */
-
-  public int getSyncBalancesMapOrDefault(
-      int key,
-      int defaultValue) {
-    
-    java.util.Map<java.lang.Integer, java.lang.Integer> map =
-        internalGetSyncBalancesMap().getMap();
-    return map.containsKey(key) ? map.get(key) : defaultValue;
-  }
-  /**
-   * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-   */
-
-  public int getSyncBalancesMapOrThrow(
-      int key) {
-    
-    java.util.Map<java.lang.Integer, java.lang.Integer> map =
-        internalGetSyncBalancesMap().getMap();
-    if (!map.containsKey(key)) {
-      throw new java.lang.IllegalArgumentException();
-    }
-    return map.get(key);
-  }
-
-  public static final int ACCEPTEDSERVERNAME_FIELD_NUMBER = 11;
-  private volatile java.lang.Object acceptedServerName_;
-  /**
-   * <pre>
-   *Current server name
-   * </pre>
-   *
-   * <code>string acceptedServerName = 11;</code>
-   */
-  public java.lang.String getAcceptedServerName() {
-    java.lang.Object ref = acceptedServerName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      acceptedServerName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *Current server name
-   * </pre>
-   *
-   * <code>string acceptedServerName = 11;</code>
-   */
-  public com.google.protobuf.ByteString
-      getAcceptedServerNameBytes() {
-    java.lang.Object ref = acceptedServerName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      acceptedServerName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NEEDTOSYNC_FIELD_NUMBER = 12;
-  private boolean needToSync_;
-  /**
-   * <code>bool needToSync = 12;</code>
-   */
-  public boolean getNeedToSync() {
-    return needToSync_;
-  }
-
-  public static final int LATESTBALLOTNUMBER_FIELD_NUMBER = 13;
-  private int latestBallotNumber_;
-  /**
-   * <code>int32 latestBallotNumber = 13;</code>
-   */
-  public int getLatestBallotNumber() {
-    return latestBallotNumber_;
+  public int getClusterId() {
+    return clusterId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -679,53 +189,20 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (ballotNumber_ != 0) {
-      output.writeInt32(1, ballotNumber_);
+    if (view_ != 0) {
+      output.writeInt32(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      output.writeInt32(2, sequenceNumber_);
     }
     if (!getProcessIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, processId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, processId_);
     }
     if (success_ != false) {
-      output.writeBool(3, success_);
+      output.writeBool(4, success_);
     }
-    if (lastAcceptedUncommittedTransaction_ != null) {
-      output.writeMessage(4, getLastAcceptedUncommittedTransaction());
-    }
-    if (lastAcceptedUncommittedBallotNumber_ != 0) {
-      output.writeInt32(5, lastAcceptedUncommittedBallotNumber_);
-    }
-    if (lastCommittedTransaction_ != null) {
-      output.writeMessage(6, getLastCommittedTransaction());
-    }
-    if (lastCommittedBallotNumber_ != 0) {
-      output.writeInt32(7, lastCommittedBallotNumber_);
-    }
-    com.google.protobuf.GeneratedMessageV3
-      .serializeIntegerMapTo(
-        output,
-        internalGetSyncTransactionsMap(),
-        SyncTransactionsMapDefaultEntryHolder.defaultEntry,
-        8);
-    com.google.protobuf.GeneratedMessageV3
-      .serializeIntegerMapTo(
-        output,
-        internalGetSyncTransactionStatusMap(),
-        SyncTransactionStatusMapDefaultEntryHolder.defaultEntry,
-        9);
-    com.google.protobuf.GeneratedMessageV3
-      .serializeIntegerMapTo(
-        output,
-        internalGetSyncBalancesMap(),
-        SyncBalancesMapDefaultEntryHolder.defaultEntry,
-        10);
-    if (!getAcceptedServerNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, acceptedServerName_);
-    }
-    if (needToSync_ != false) {
-      output.writeBool(12, needToSync_);
-    }
-    if (latestBallotNumber_ != 0) {
-      output.writeInt32(13, latestBallotNumber_);
+    if (clusterId_ != 0) {
+      output.writeInt32(5, clusterId_);
     }
     unknownFields.writeTo(output);
   }
@@ -736,73 +213,24 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (ballotNumber_ != 0) {
+    if (view_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, ballotNumber_);
+        .computeInt32Size(1, view_);
+    }
+    if (sequenceNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, sequenceNumber_);
     }
     if (!getProcessIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, processId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, processId_);
     }
     if (success_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, success_);
+        .computeBoolSize(4, success_);
     }
-    if (lastAcceptedUncommittedTransaction_ != null) {
+    if (clusterId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getLastAcceptedUncommittedTransaction());
-    }
-    if (lastAcceptedUncommittedBallotNumber_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, lastAcceptedUncommittedBallotNumber_);
-    }
-    if (lastCommittedTransaction_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getLastCommittedTransaction());
-    }
-    if (lastCommittedBallotNumber_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(7, lastCommittedBallotNumber_);
-    }
-    for (java.util.Map.Entry<java.lang.Integer, org.cse535.proto.Transaction> entry
-         : internalGetSyncTransactionsMap().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.Integer, org.cse535.proto.Transaction>
-      syncTransactionsMap__ = SyncTransactionsMapDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, syncTransactionsMap__);
-    }
-    for (java.util.Map.Entry<java.lang.Integer, java.lang.Integer> entry
-         : internalGetSyncTransactionStatusMap().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-      syncTransactionStatusMap__ = SyncTransactionStatusMapDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, syncTransactionStatusMap__);
-    }
-    for (java.util.Map.Entry<java.lang.Integer, java.lang.Integer> entry
-         : internalGetSyncBalancesMap().getMap().entrySet()) {
-      com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-      syncBalancesMap__ = SyncBalancesMapDefaultEntryHolder.defaultEntry.newBuilderForType()
-          .setKey(entry.getKey())
-          .setValue(entry.getValue())
-          .build();
-      size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, syncBalancesMap__);
-    }
-    if (!getAcceptedServerNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, acceptedServerName_);
-    }
-    if (needToSync_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(12, needToSync_);
-    }
-    if (latestBallotNumber_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(13, latestBallotNumber_);
+        .computeInt32Size(5, clusterId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -820,38 +248,16 @@ private static final long serialVersionUID = 0L;
     org.cse535.proto.PrepareResponse other = (org.cse535.proto.PrepareResponse) obj;
 
     boolean result = true;
-    result = result && (getBallotNumber()
-        == other.getBallotNumber());
+    result = result && (getView()
+        == other.getView());
+    result = result && (getSequenceNumber()
+        == other.getSequenceNumber());
     result = result && getProcessId()
         .equals(other.getProcessId());
     result = result && (getSuccess()
         == other.getSuccess());
-    result = result && (hasLastAcceptedUncommittedTransaction() == other.hasLastAcceptedUncommittedTransaction());
-    if (hasLastAcceptedUncommittedTransaction()) {
-      result = result && getLastAcceptedUncommittedTransaction()
-          .equals(other.getLastAcceptedUncommittedTransaction());
-    }
-    result = result && (getLastAcceptedUncommittedBallotNumber()
-        == other.getLastAcceptedUncommittedBallotNumber());
-    result = result && (hasLastCommittedTransaction() == other.hasLastCommittedTransaction());
-    if (hasLastCommittedTransaction()) {
-      result = result && getLastCommittedTransaction()
-          .equals(other.getLastCommittedTransaction());
-    }
-    result = result && (getLastCommittedBallotNumber()
-        == other.getLastCommittedBallotNumber());
-    result = result && internalGetSyncTransactionsMap().equals(
-        other.internalGetSyncTransactionsMap());
-    result = result && internalGetSyncTransactionStatusMap().equals(
-        other.internalGetSyncTransactionStatusMap());
-    result = result && internalGetSyncBalancesMap().equals(
-        other.internalGetSyncBalancesMap());
-    result = result && getAcceptedServerName()
-        .equals(other.getAcceptedServerName());
-    result = result && (getNeedToSync()
-        == other.getNeedToSync());
-    result = result && (getLatestBallotNumber()
-        == other.getLatestBallotNumber());
+    result = result && (getClusterId()
+        == other.getClusterId());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -863,44 +269,17 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + BALLOTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getBallotNumber();
+    hash = (37 * hash) + VIEW_FIELD_NUMBER;
+    hash = (53 * hash) + getView();
+    hash = (37 * hash) + SEQUENCENUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getSequenceNumber();
     hash = (37 * hash) + PROCESSID_FIELD_NUMBER;
     hash = (53 * hash) + getProcessId().hashCode();
     hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSuccess());
-    if (hasLastAcceptedUncommittedTransaction()) {
-      hash = (37 * hash) + LASTACCEPTEDUNCOMMITTEDTRANSACTION_FIELD_NUMBER;
-      hash = (53 * hash) + getLastAcceptedUncommittedTransaction().hashCode();
-    }
-    hash = (37 * hash) + LASTACCEPTEDUNCOMMITTEDBALLOTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getLastAcceptedUncommittedBallotNumber();
-    if (hasLastCommittedTransaction()) {
-      hash = (37 * hash) + LASTCOMMITTEDTRANSACTION_FIELD_NUMBER;
-      hash = (53 * hash) + getLastCommittedTransaction().hashCode();
-    }
-    hash = (37 * hash) + LASTCOMMITTEDBALLOTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getLastCommittedBallotNumber();
-    if (!internalGetSyncTransactionsMap().getMap().isEmpty()) {
-      hash = (37 * hash) + SYNCTRANSACTIONSMAP_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetSyncTransactionsMap().hashCode();
-    }
-    if (!internalGetSyncTransactionStatusMap().getMap().isEmpty()) {
-      hash = (37 * hash) + SYNCTRANSACTIONSTATUSMAP_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetSyncTransactionStatusMap().hashCode();
-    }
-    if (!internalGetSyncBalancesMap().getMap().isEmpty()) {
-      hash = (37 * hash) + SYNCBALANCESMAP_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetSyncBalancesMap().hashCode();
-    }
-    hash = (37 * hash) + ACCEPTEDSERVERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getAcceptedServerName().hashCode();
-    hash = (37 * hash) + NEEDTOSYNC_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getNeedToSync());
-    hash = (37 * hash) + LATESTBALLOTNUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getLatestBallotNumber();
+    hash = (37 * hash) + CLUSTERID_FIELD_NUMBER;
+    hash = (53 * hash) + getClusterId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1008,36 +387,6 @@ private static final long serialVersionUID = 0L;
       return org.cse535.proto.Pbft2Pc.internal_static_PrepareResponse_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 8:
-          return internalGetSyncTransactionsMap();
-        case 9:
-          return internalGetSyncTransactionStatusMap();
-        case 10:
-          return internalGetSyncBalancesMap();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMutableMapField(
-        int number) {
-      switch (number) {
-        case 8:
-          return internalGetMutableSyncTransactionsMap();
-        case 9:
-          return internalGetMutableSyncTransactionStatusMap();
-        case 10:
-          return internalGetMutableSyncBalancesMap();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -1064,36 +413,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      ballotNumber_ = 0;
+      view_ = 0;
+
+      sequenceNumber_ = 0;
 
       processId_ = "";
 
       success_ = false;
 
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        lastAcceptedUncommittedTransaction_ = null;
-      } else {
-        lastAcceptedUncommittedTransaction_ = null;
-        lastAcceptedUncommittedTransactionBuilder_ = null;
-      }
-      lastAcceptedUncommittedBallotNumber_ = 0;
-
-      if (lastCommittedTransactionBuilder_ == null) {
-        lastCommittedTransaction_ = null;
-      } else {
-        lastCommittedTransaction_ = null;
-        lastCommittedTransactionBuilder_ = null;
-      }
-      lastCommittedBallotNumber_ = 0;
-
-      internalGetMutableSyncTransactionsMap().clear();
-      internalGetMutableSyncTransactionStatusMap().clear();
-      internalGetMutableSyncBalancesMap().clear();
-      acceptedServerName_ = "";
-
-      needToSync_ = false;
-
-      latestBallotNumber_ = 0;
+      clusterId_ = 0;
 
       return this;
     }
@@ -1121,33 +449,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.cse535.proto.PrepareResponse buildPartial() {
       org.cse535.proto.PrepareResponse result = new org.cse535.proto.PrepareResponse(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.ballotNumber_ = ballotNumber_;
+      result.view_ = view_;
+      result.sequenceNumber_ = sequenceNumber_;
       result.processId_ = processId_;
       result.success_ = success_;
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        result.lastAcceptedUncommittedTransaction_ = lastAcceptedUncommittedTransaction_;
-      } else {
-        result.lastAcceptedUncommittedTransaction_ = lastAcceptedUncommittedTransactionBuilder_.build();
-      }
-      result.lastAcceptedUncommittedBallotNumber_ = lastAcceptedUncommittedBallotNumber_;
-      if (lastCommittedTransactionBuilder_ == null) {
-        result.lastCommittedTransaction_ = lastCommittedTransaction_;
-      } else {
-        result.lastCommittedTransaction_ = lastCommittedTransactionBuilder_.build();
-      }
-      result.lastCommittedBallotNumber_ = lastCommittedBallotNumber_;
-      result.syncTransactionsMap_ = internalGetSyncTransactionsMap();
-      result.syncTransactionsMap_.makeImmutable();
-      result.syncTransactionStatusMap_ = internalGetSyncTransactionStatusMap();
-      result.syncTransactionStatusMap_.makeImmutable();
-      result.syncBalancesMap_ = internalGetSyncBalancesMap();
-      result.syncBalancesMap_.makeImmutable();
-      result.acceptedServerName_ = acceptedServerName_;
-      result.needToSync_ = needToSync_;
-      result.latestBallotNumber_ = latestBallotNumber_;
-      result.bitField0_ = to_bitField0_;
+      result.clusterId_ = clusterId_;
       onBuilt();
       return result;
     }
@@ -1196,8 +502,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.cse535.proto.PrepareResponse other) {
       if (other == org.cse535.proto.PrepareResponse.getDefaultInstance()) return this;
-      if (other.getBallotNumber() != 0) {
-        setBallotNumber(other.getBallotNumber());
+      if (other.getView() != 0) {
+        setView(other.getView());
+      }
+      if (other.getSequenceNumber() != 0) {
+        setSequenceNumber(other.getSequenceNumber());
       }
       if (!other.getProcessId().isEmpty()) {
         processId_ = other.processId_;
@@ -1206,33 +515,8 @@ private static final long serialVersionUID = 0L;
       if (other.getSuccess() != false) {
         setSuccess(other.getSuccess());
       }
-      if (other.hasLastAcceptedUncommittedTransaction()) {
-        mergeLastAcceptedUncommittedTransaction(other.getLastAcceptedUncommittedTransaction());
-      }
-      if (other.getLastAcceptedUncommittedBallotNumber() != 0) {
-        setLastAcceptedUncommittedBallotNumber(other.getLastAcceptedUncommittedBallotNumber());
-      }
-      if (other.hasLastCommittedTransaction()) {
-        mergeLastCommittedTransaction(other.getLastCommittedTransaction());
-      }
-      if (other.getLastCommittedBallotNumber() != 0) {
-        setLastCommittedBallotNumber(other.getLastCommittedBallotNumber());
-      }
-      internalGetMutableSyncTransactionsMap().mergeFrom(
-          other.internalGetSyncTransactionsMap());
-      internalGetMutableSyncTransactionStatusMap().mergeFrom(
-          other.internalGetSyncTransactionStatusMap());
-      internalGetMutableSyncBalancesMap().mergeFrom(
-          other.internalGetSyncBalancesMap());
-      if (!other.getAcceptedServerName().isEmpty()) {
-        acceptedServerName_ = other.acceptedServerName_;
-        onChanged();
-      }
-      if (other.getNeedToSync() != false) {
-        setNeedToSync(other.getNeedToSync());
-      }
-      if (other.getLatestBallotNumber() != 0) {
-        setLatestBallotNumber(other.getLatestBallotNumber());
+      if (other.getClusterId() != 0) {
+        setClusterId(other.getClusterId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1262,37 +546,62 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
-    private int ballotNumber_ ;
+    private int view_ ;
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public int getBallotNumber() {
-      return ballotNumber_;
+    public int getView() {
+      return view_;
     }
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder setBallotNumber(int value) {
+    public Builder setView(int value) {
       
-      ballotNumber_ = value;
+      view_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 ballotNumber = 1;</code>
+     * <code>int32 view = 1;</code>
      */
-    public Builder clearBallotNumber() {
+    public Builder clearView() {
       
-      ballotNumber_ = 0;
+      view_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int sequenceNumber_ ;
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public int getSequenceNumber() {
+      return sequenceNumber_;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder setSequenceNumber(int value) {
+      
+      sequenceNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 sequenceNumber = 2;</code>
+     */
+    public Builder clearSequenceNumber() {
+      
+      sequenceNumber_ = 0;
       onChanged();
       return this;
     }
 
     private java.lang.Object processId_ = "";
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public java.lang.String getProcessId() {
       java.lang.Object ref = processId_;
@@ -1307,7 +616,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public com.google.protobuf.ByteString
         getProcessIdBytes() {
@@ -1323,7 +632,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder setProcessId(
         java.lang.String value) {
@@ -1336,7 +645,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder clearProcessId() {
       
@@ -1345,7 +654,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string processId = 2;</code>
+     * <code>string processId = 3;</code>
      */
     public Builder setProcessIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1361,13 +670,13 @@ private static final long serialVersionUID = 0L;
 
     private boolean success_ ;
     /**
-     * <code>bool success = 3;</code>
+     * <code>bool success = 4;</code>
      */
     public boolean getSuccess() {
       return success_;
     }
     /**
-     * <code>bool success = 3;</code>
+     * <code>bool success = 4;</code>
      */
     public Builder setSuccess(boolean value) {
       
@@ -1376,7 +685,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool success = 3;</code>
+     * <code>bool success = 4;</code>
      */
     public Builder clearSuccess() {
       
@@ -1385,873 +694,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private org.cse535.proto.Transaction lastAcceptedUncommittedTransaction_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> lastAcceptedUncommittedTransactionBuilder_;
+    private int clusterId_ ;
     /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
+     * <code>int32 clusterId = 5;</code>
      */
-    public boolean hasLastAcceptedUncommittedTransaction() {
-      return lastAcceptedUncommittedTransactionBuilder_ != null || lastAcceptedUncommittedTransaction_ != null;
+    public int getClusterId() {
+      return clusterId_;
     }
     /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
+     * <code>int32 clusterId = 5;</code>
      */
-    public org.cse535.proto.Transaction getLastAcceptedUncommittedTransaction() {
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        return lastAcceptedUncommittedTransaction_ == null ? org.cse535.proto.Transaction.getDefaultInstance() : lastAcceptedUncommittedTransaction_;
-      } else {
-        return lastAcceptedUncommittedTransactionBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-     */
-    public Builder setLastAcceptedUncommittedTransaction(org.cse535.proto.Transaction value) {
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        lastAcceptedUncommittedTransaction_ = value;
-        onChanged();
-      } else {
-        lastAcceptedUncommittedTransactionBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-     */
-    public Builder setLastAcceptedUncommittedTransaction(
-        org.cse535.proto.Transaction.Builder builderForValue) {
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        lastAcceptedUncommittedTransaction_ = builderForValue.build();
-        onChanged();
-      } else {
-        lastAcceptedUncommittedTransactionBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-     */
-    public Builder mergeLastAcceptedUncommittedTransaction(org.cse535.proto.Transaction value) {
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        if (lastAcceptedUncommittedTransaction_ != null) {
-          lastAcceptedUncommittedTransaction_ =
-            org.cse535.proto.Transaction.newBuilder(lastAcceptedUncommittedTransaction_).mergeFrom(value).buildPartial();
-        } else {
-          lastAcceptedUncommittedTransaction_ = value;
-        }
-        onChanged();
-      } else {
-        lastAcceptedUncommittedTransactionBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-     */
-    public Builder clearLastAcceptedUncommittedTransaction() {
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        lastAcceptedUncommittedTransaction_ = null;
-        onChanged();
-      } else {
-        lastAcceptedUncommittedTransaction_ = null;
-        lastAcceptedUncommittedTransactionBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-     */
-    public org.cse535.proto.Transaction.Builder getLastAcceptedUncommittedTransactionBuilder() {
+    public Builder setClusterId(int value) {
       
-      onChanged();
-      return getLastAcceptedUncommittedTransactionFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-     */
-    public org.cse535.proto.TransactionOrBuilder getLastAcceptedUncommittedTransactionOrBuilder() {
-      if (lastAcceptedUncommittedTransactionBuilder_ != null) {
-        return lastAcceptedUncommittedTransactionBuilder_.getMessageOrBuilder();
-      } else {
-        return lastAcceptedUncommittedTransaction_ == null ?
-            org.cse535.proto.Transaction.getDefaultInstance() : lastAcceptedUncommittedTransaction_;
-      }
-    }
-    /**
-     * <code>.Transaction lastAcceptedUncommittedTransaction = 4;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> 
-        getLastAcceptedUncommittedTransactionFieldBuilder() {
-      if (lastAcceptedUncommittedTransactionBuilder_ == null) {
-        lastAcceptedUncommittedTransactionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder>(
-                getLastAcceptedUncommittedTransaction(),
-                getParentForChildren(),
-                isClean());
-        lastAcceptedUncommittedTransaction_ = null;
-      }
-      return lastAcceptedUncommittedTransactionBuilder_;
-    }
-
-    private int lastAcceptedUncommittedBallotNumber_ ;
-    /**
-     * <code>int32 lastAcceptedUncommittedBallotNumber = 5;</code>
-     */
-    public int getLastAcceptedUncommittedBallotNumber() {
-      return lastAcceptedUncommittedBallotNumber_;
-    }
-    /**
-     * <code>int32 lastAcceptedUncommittedBallotNumber = 5;</code>
-     */
-    public Builder setLastAcceptedUncommittedBallotNumber(int value) {
-      
-      lastAcceptedUncommittedBallotNumber_ = value;
+      clusterId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 lastAcceptedUncommittedBallotNumber = 5;</code>
+     * <code>int32 clusterId = 5;</code>
      */
-    public Builder clearLastAcceptedUncommittedBallotNumber() {
+    public Builder clearClusterId() {
       
-      lastAcceptedUncommittedBallotNumber_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private org.cse535.proto.Transaction lastCommittedTransaction_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> lastCommittedTransactionBuilder_;
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public boolean hasLastCommittedTransaction() {
-      return lastCommittedTransactionBuilder_ != null || lastCommittedTransaction_ != null;
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public org.cse535.proto.Transaction getLastCommittedTransaction() {
-      if (lastCommittedTransactionBuilder_ == null) {
-        return lastCommittedTransaction_ == null ? org.cse535.proto.Transaction.getDefaultInstance() : lastCommittedTransaction_;
-      } else {
-        return lastCommittedTransactionBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public Builder setLastCommittedTransaction(org.cse535.proto.Transaction value) {
-      if (lastCommittedTransactionBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        lastCommittedTransaction_ = value;
-        onChanged();
-      } else {
-        lastCommittedTransactionBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public Builder setLastCommittedTransaction(
-        org.cse535.proto.Transaction.Builder builderForValue) {
-      if (lastCommittedTransactionBuilder_ == null) {
-        lastCommittedTransaction_ = builderForValue.build();
-        onChanged();
-      } else {
-        lastCommittedTransactionBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public Builder mergeLastCommittedTransaction(org.cse535.proto.Transaction value) {
-      if (lastCommittedTransactionBuilder_ == null) {
-        if (lastCommittedTransaction_ != null) {
-          lastCommittedTransaction_ =
-            org.cse535.proto.Transaction.newBuilder(lastCommittedTransaction_).mergeFrom(value).buildPartial();
-        } else {
-          lastCommittedTransaction_ = value;
-        }
-        onChanged();
-      } else {
-        lastCommittedTransactionBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public Builder clearLastCommittedTransaction() {
-      if (lastCommittedTransactionBuilder_ == null) {
-        lastCommittedTransaction_ = null;
-        onChanged();
-      } else {
-        lastCommittedTransaction_ = null;
-        lastCommittedTransactionBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public org.cse535.proto.Transaction.Builder getLastCommittedTransactionBuilder() {
-      
-      onChanged();
-      return getLastCommittedTransactionFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    public org.cse535.proto.TransactionOrBuilder getLastCommittedTransactionOrBuilder() {
-      if (lastCommittedTransactionBuilder_ != null) {
-        return lastCommittedTransactionBuilder_.getMessageOrBuilder();
-      } else {
-        return lastCommittedTransaction_ == null ?
-            org.cse535.proto.Transaction.getDefaultInstance() : lastCommittedTransaction_;
-      }
-    }
-    /**
-     * <code>.Transaction lastCommittedTransaction = 6;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> 
-        getLastCommittedTransactionFieldBuilder() {
-      if (lastCommittedTransactionBuilder_ == null) {
-        lastCommittedTransactionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder>(
-                getLastCommittedTransaction(),
-                getParentForChildren(),
-                isClean());
-        lastCommittedTransaction_ = null;
-      }
-      return lastCommittedTransactionBuilder_;
-    }
-
-    private int lastCommittedBallotNumber_ ;
-    /**
-     * <code>int32 lastCommittedBallotNumber = 7;</code>
-     */
-    public int getLastCommittedBallotNumber() {
-      return lastCommittedBallotNumber_;
-    }
-    /**
-     * <code>int32 lastCommittedBallotNumber = 7;</code>
-     */
-    public Builder setLastCommittedBallotNumber(int value) {
-      
-      lastCommittedBallotNumber_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 lastCommittedBallotNumber = 7;</code>
-     */
-    public Builder clearLastCommittedBallotNumber() {
-      
-      lastCommittedBallotNumber_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private com.google.protobuf.MapField<
-        java.lang.Integer, org.cse535.proto.Transaction> syncTransactionsMap_;
-    private com.google.protobuf.MapField<java.lang.Integer, org.cse535.proto.Transaction>
-    internalGetSyncTransactionsMap() {
-      if (syncTransactionsMap_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SyncTransactionsMapDefaultEntryHolder.defaultEntry);
-      }
-      return syncTransactionsMap_;
-    }
-    private com.google.protobuf.MapField<java.lang.Integer, org.cse535.proto.Transaction>
-    internalGetMutableSyncTransactionsMap() {
-      onChanged();;
-      if (syncTransactionsMap_ == null) {
-        syncTransactionsMap_ = com.google.protobuf.MapField.newMapField(
-            SyncTransactionsMapDefaultEntryHolder.defaultEntry);
-      }
-      if (!syncTransactionsMap_.isMutable()) {
-        syncTransactionsMap_ = syncTransactionsMap_.copy();
-      }
-      return syncTransactionsMap_;
-    }
-
-    public int getSyncTransactionsMapCount() {
-      return internalGetSyncTransactionsMap().getMap().size();
-    }
-    /**
-     * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-     */
-
-    public boolean containsSyncTransactionsMap(
-        int key) {
-      
-      return internalGetSyncTransactionsMap().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSyncTransactionsMapMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> getSyncTransactionsMap() {
-      return getSyncTransactionsMapMap();
-    }
-    /**
-     * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-     */
-
-    public java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> getSyncTransactionsMapMap() {
-      return internalGetSyncTransactionsMap().getMap();
-    }
-    /**
-     * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-     */
-
-    public org.cse535.proto.Transaction getSyncTransactionsMapOrDefault(
-        int key,
-        org.cse535.proto.Transaction defaultValue) {
-      
-      java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> map =
-          internalGetSyncTransactionsMap().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-     */
-
-    public org.cse535.proto.Transaction getSyncTransactionsMapOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> map =
-          internalGetSyncTransactionsMap().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearSyncTransactionsMap() {
-      internalGetMutableSyncTransactionsMap().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-     */
-
-    public Builder removeSyncTransactionsMap(
-        int key) {
-      
-      internalGetMutableSyncTransactionsMap().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, org.cse535.proto.Transaction>
-    getMutableSyncTransactionsMap() {
-      return internalGetMutableSyncTransactionsMap().getMutableMap();
-    }
-    /**
-     * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-     */
-    public Builder putSyncTransactionsMap(
-        int key,
-        org.cse535.proto.Transaction value) {
-      
-      if (value == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableSyncTransactionsMap().getMutableMap()
-          .put(key, value);
-      return this;
-    }
-    /**
-     * <code>map&lt;int32, .Transaction&gt; syncTransactionsMap = 8;</code>
-     */
-
-    public Builder putAllSyncTransactionsMap(
-        java.util.Map<java.lang.Integer, org.cse535.proto.Transaction> values) {
-      internalGetMutableSyncTransactionsMap().getMutableMap()
-          .putAll(values);
-      return this;
-    }
-
-    private com.google.protobuf.MapField<
-        java.lang.Integer, java.lang.Integer> syncTransactionStatusMap_;
-    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-    internalGetSyncTransactionStatusMap() {
-      if (syncTransactionStatusMap_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SyncTransactionStatusMapDefaultEntryHolder.defaultEntry);
-      }
-      return syncTransactionStatusMap_;
-    }
-    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-    internalGetMutableSyncTransactionStatusMap() {
-      onChanged();;
-      if (syncTransactionStatusMap_ == null) {
-        syncTransactionStatusMap_ = com.google.protobuf.MapField.newMapField(
-            SyncTransactionStatusMapDefaultEntryHolder.defaultEntry);
-      }
-      if (!syncTransactionStatusMap_.isMutable()) {
-        syncTransactionStatusMap_ = syncTransactionStatusMap_.copy();
-      }
-      return syncTransactionStatusMap_;
-    }
-
-    public int getSyncTransactionStatusMapCount() {
-      return internalGetSyncTransactionStatusMap().getMap().size();
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public boolean containsSyncTransactionStatusMap(
-        int key) {
-      
-      return internalGetSyncTransactionStatusMap().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSyncTransactionStatusMapMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
-    getSyncTransactionStatusMap() {
-      return getSyncTransactionStatusMapMap();
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
-    getSyncTransactionStatusMapMap() {
-      return internalGetAdaptedSyncTransactionStatusMapMap(
-          internalGetSyncTransactionStatusMap().getMap());}
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public org.cse535.proto.TransactionStatus getSyncTransactionStatusMapOrDefault(
-        int key,
-        org.cse535.proto.TransactionStatus defaultValue) {
-      
-      java.util.Map<java.lang.Integer, java.lang.Integer> map =
-          internalGetSyncTransactionStatusMap().getMap();
-      return map.containsKey(key)
-             ? syncTransactionStatusMapValueConverter.doForward(map.get(key))
-             : defaultValue;
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public org.cse535.proto.TransactionStatus getSyncTransactionStatusMapOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, java.lang.Integer> map =
-          internalGetSyncTransactionStatusMap().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return syncTransactionStatusMapValueConverter.doForward(map.get(key));
-    }
-    /**
-     * Use {@link #getSyncTransactionStatusMapValueMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, java.lang.Integer>
-    getSyncTransactionStatusMapValue() {
-      return getSyncTransactionStatusMapValueMap();
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public java.util.Map<java.lang.Integer, java.lang.Integer>
-    getSyncTransactionStatusMapValueMap() {
-      return internalGetSyncTransactionStatusMap().getMap();
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public int getSyncTransactionStatusMapValueOrDefault(
-        int key,
-        int defaultValue) {
-      
-      java.util.Map<java.lang.Integer, java.lang.Integer> map =
-          internalGetSyncTransactionStatusMap().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public int getSyncTransactionStatusMapValueOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, java.lang.Integer> map =
-          internalGetSyncTransactionStatusMap().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearSyncTransactionStatusMap() {
-      internalGetMutableSyncTransactionStatusMap().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-
-    public Builder removeSyncTransactionStatusMap(
-        int key) {
-      
-      internalGetMutableSyncTransactionStatusMap().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus>
-    getMutableSyncTransactionStatusMap() {
-      return internalGetAdaptedSyncTransactionStatusMapMap(
-           internalGetMutableSyncTransactionStatusMap().getMutableMap());
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-    public Builder putSyncTransactionStatusMap(
-        int key,
-        org.cse535.proto.TransactionStatus value) {
-      
-      if (value == null) { throw new java.lang.NullPointerException(); }
-      internalGetMutableSyncTransactionStatusMap().getMutableMap()
-          .put(key, syncTransactionStatusMapValueConverter.doBackward(value));
-      return this;
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-    public Builder putAllSyncTransactionStatusMap(
-        java.util.Map<java.lang.Integer, org.cse535.proto.TransactionStatus> values) {
-      internalGetAdaptedSyncTransactionStatusMapMap(
-          internalGetMutableSyncTransactionStatusMap().getMutableMap())
-              .putAll(values);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, java.lang.Integer>
-    getMutableSyncTransactionStatusMapValue() {
-      return internalGetMutableSyncTransactionStatusMap().getMutableMap();
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-    public Builder putSyncTransactionStatusMapValue(
-        int key,
-        int value) {
-      
-      internalGetMutableSyncTransactionStatusMap().getMutableMap()
-          .put(key, value);
-      return this;
-    }
-    /**
-     * <code>map&lt;int32, .TransactionStatus&gt; syncTransactionStatusMap = 9;</code>
-     */
-    public Builder putAllSyncTransactionStatusMapValue(
-        java.util.Map<java.lang.Integer, java.lang.Integer> values) {
-      internalGetMutableSyncTransactionStatusMap().getMutableMap()
-          .putAll(values);
-      return this;
-    }
-
-    private com.google.protobuf.MapField<
-        java.lang.Integer, java.lang.Integer> syncBalancesMap_;
-    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-    internalGetSyncBalancesMap() {
-      if (syncBalancesMap_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            SyncBalancesMapDefaultEntryHolder.defaultEntry);
-      }
-      return syncBalancesMap_;
-    }
-    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-    internalGetMutableSyncBalancesMap() {
-      onChanged();;
-      if (syncBalancesMap_ == null) {
-        syncBalancesMap_ = com.google.protobuf.MapField.newMapField(
-            SyncBalancesMapDefaultEntryHolder.defaultEntry);
-      }
-      if (!syncBalancesMap_.isMutable()) {
-        syncBalancesMap_ = syncBalancesMap_.copy();
-      }
-      return syncBalancesMap_;
-    }
-
-    public int getSyncBalancesMapCount() {
-      return internalGetSyncBalancesMap().getMap().size();
-    }
-    /**
-     * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-     */
-
-    public boolean containsSyncBalancesMap(
-        int key) {
-      
-      return internalGetSyncBalancesMap().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getSyncBalancesMapMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, java.lang.Integer> getSyncBalancesMap() {
-      return getSyncBalancesMapMap();
-    }
-    /**
-     * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-     */
-
-    public java.util.Map<java.lang.Integer, java.lang.Integer> getSyncBalancesMapMap() {
-      return internalGetSyncBalancesMap().getMap();
-    }
-    /**
-     * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-     */
-
-    public int getSyncBalancesMapOrDefault(
-        int key,
-        int defaultValue) {
-      
-      java.util.Map<java.lang.Integer, java.lang.Integer> map =
-          internalGetSyncBalancesMap().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-     */
-
-    public int getSyncBalancesMapOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, java.lang.Integer> map =
-          internalGetSyncBalancesMap().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public Builder clearSyncBalancesMap() {
-      internalGetMutableSyncBalancesMap().getMutableMap()
-          .clear();
-      return this;
-    }
-    /**
-     * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-     */
-
-    public Builder removeSyncBalancesMap(
-        int key) {
-      
-      internalGetMutableSyncBalancesMap().getMutableMap()
-          .remove(key);
-      return this;
-    }
-    /**
-     * Use alternate mutation accessors instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, java.lang.Integer>
-    getMutableSyncBalancesMap() {
-      return internalGetMutableSyncBalancesMap().getMutableMap();
-    }
-    /**
-     * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-     */
-    public Builder putSyncBalancesMap(
-        int key,
-        int value) {
-      
-      
-      internalGetMutableSyncBalancesMap().getMutableMap()
-          .put(key, value);
-      return this;
-    }
-    /**
-     * <code>map&lt;int32, int32&gt; syncBalancesMap = 10;</code>
-     */
-
-    public Builder putAllSyncBalancesMap(
-        java.util.Map<java.lang.Integer, java.lang.Integer> values) {
-      internalGetMutableSyncBalancesMap().getMutableMap()
-          .putAll(values);
-      return this;
-    }
-
-    private java.lang.Object acceptedServerName_ = "";
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 11;</code>
-     */
-    public java.lang.String getAcceptedServerName() {
-      java.lang.Object ref = acceptedServerName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        acceptedServerName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 11;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAcceptedServerNameBytes() {
-      java.lang.Object ref = acceptedServerName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        acceptedServerName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 11;</code>
-     */
-    public Builder setAcceptedServerName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      acceptedServerName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 11;</code>
-     */
-    public Builder clearAcceptedServerName() {
-      
-      acceptedServerName_ = getDefaultInstance().getAcceptedServerName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *Current server name
-     * </pre>
-     *
-     * <code>string acceptedServerName = 11;</code>
-     */
-    public Builder setAcceptedServerNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      acceptedServerName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean needToSync_ ;
-    /**
-     * <code>bool needToSync = 12;</code>
-     */
-    public boolean getNeedToSync() {
-      return needToSync_;
-    }
-    /**
-     * <code>bool needToSync = 12;</code>
-     */
-    public Builder setNeedToSync(boolean value) {
-      
-      needToSync_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool needToSync = 12;</code>
-     */
-    public Builder clearNeedToSync() {
-      
-      needToSync_ = false;
-      onChanged();
-      return this;
-    }
-
-    private int latestBallotNumber_ ;
-    /**
-     * <code>int32 latestBallotNumber = 13;</code>
-     */
-    public int getLatestBallotNumber() {
-      return latestBallotNumber_;
-    }
-    /**
-     * <code>int32 latestBallotNumber = 13;</code>
-     */
-    public Builder setLatestBallotNumber(int value) {
-      
-      latestBallotNumber_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 latestBallotNumber = 13;</code>
-     */
-    public Builder clearLatestBallotNumber() {
-      
-      latestBallotNumber_ = 0;
+      clusterId_ = 0;
       onChanged();
       return this;
     }

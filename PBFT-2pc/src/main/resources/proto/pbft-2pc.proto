@@ -30,6 +30,9 @@ service ActivateServers{
   rpc activateServer(ActivateServerRequest) returns (ActivateServerResponse) {}
   rpc deactivateServer(DeactivateServerRequest) returns (DeactivateServerResponse) {}
 
+  rpc makeByzantine(CommandInput) returns(google.protobuf.Empty) {}
+  rpc makeHonest(CommandInput) returns(google.protobuf.Empty) {}
+
 }
 
 service Commands{
@@ -118,35 +121,6 @@ message PrePrepareResponse {
   int32 clusterId = 5;
 
 
-}
-
-
-message PrepareRequest {
-  int32 ballotNumber = 1;
-  string processId = 2; // processId is Server Name
-
-  Transaction transaction = 3;
-
-  Transaction latestCommittedTransaction = 4;
-  int32 latestCommittedBallotNumber = 5;
-
-  int32 clusterId = 6;
-
-}
-
-message PrepareResponse {
-  int32 ballotNumber = 1;
-  string processId = 2;
-
-  bool success = 3;
-
-  Transaction lastAcceptedUncommittedTransaction = 4;
-  int32 lastAcceptedUncommittedBallotNumber = 5;
-
-  Transaction lastCommittedTransaction = 6;
-  int32 lastCommittedBallotNumber = 7;
-
-
   map<int32, Transaction> syncTransactionsMap = 8;
   map<int32, TransactionStatus> syncTransactionStatusMap = 9;
   map<int32, int32> syncBalancesMap = 10;
@@ -161,35 +135,89 @@ message PrepareResponse {
 
 
 
-message CommitRequest {
-  int32 ballotNumber = 1;
-  string processId = 2; // processId is Server Name
-  Transaction transaction = 3;
-  int32 clusterId = 8;
+message PrepareRequest {
+  int32 view = 1;
+  int32 sequenceNumber = 2;
+  string processId = 3;
+  google.protobuf.Timestamp timestamp = 4;
+  string digest = 5;
+  Transaction transaction = 6;
+  int32 clusterId = 7;
+}
 
-  bool abort = 4;
+message PrepareResponse {
+  int32 view = 1;
+  int32 sequenceNumber = 2;
+  string processId = 3;
+  bool success = 4;
+
+  int32 clusterId = 5;
+
+}
+
+
+
+message CommitRequest {
+  int32 view = 1;
+  int32 sequenceNumber = 2;
+  string processId = 3;
+  google.protobuf.Timestamp timestamp = 4;
+  string digest = 5;
+  int32 clusterId = 6;
+  bool abort = 7;
+  Transaction transaction = 8;
 }
 
 
 message CommitResponse {
-  int32 ballotNumber = 1;
-  string processId = 2;
-
-  string acceptedServerName = 3; //Current server name
-
+  int32 view = 1;
+  int32 sequenceNumber = 2;
+  string processId = 3;
   bool success = 4;
 }
 
 
 message ExecutionReply{
 
-  int32 transactionNum = 1;
-  bool success = 2;
-  string serverName = 3;
-  int32 clusterId = 4;
-  string failureReason = 5;
+  int32 view = 1;
+  int32 sequenceNumber = 2;
+  string processId = 3;
+  int32 transactionId = 5;
+  google.protobuf.Timestamp timestamp = 4;
+  bool success = 6;
+
+  int32 clusterId = 7;
+  string failureReason = 8;
+
 }
 
+
+message ViewChangeRequest {
+  int32 view = 1;
+  string processId = 2;
+  google.protobuf.Timestamp timestamp = 3;
+}
+
+message ViewChangeResponse {
+  int32 view = 1;
+  string processId = 2;
+  bool success = 3;
+}
+
+message NewViewRequest {
+  int32 view = 1;
+  string processId = 2;
+  google.protobuf.Timestamp timestamp = 3;
+
+  repeated ViewChangeRequest viewChangeMessages = 4;
+  repeated PrepareRequest prepareMessages = 5;
+}
+
+message NewViewResponse {
+  int32 view = 1;
+  string processId = 2;
+  bool success = 3;
+}
 
 
 message ActivateServerRequest{
