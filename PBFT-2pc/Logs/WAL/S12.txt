@@ -2,9 +2,7 @@
 2 - WRITE TO WAL : 2999 : 16
 3 - WRITE TO WAL: 2150 :  new :: 1 : old :: 10
 3 - UNLOCK : 2150 : 3
-3 - UNLOCK : 1111 : 3
 3 - UNLOCK : 2150 : 3
-3 - UNLOCK : 1111 : 3
 6 - BEGIN TNX : (2593, 2297,  3) 
 6 - READ : 2593
 6 - READ : 2297
@@ -19,6 +17,4 @@
 15 - WRITE TO WAL : 2476 : 16
 16 - WRITE TO WAL: 2850 :  new :: 1 : old :: 10
 16 - UNLOCK : 2850 : 16
-16 - UNLOCK : 1234 : 16
 16 - UNLOCK : 2850 : 16
-16 - UNLOCK : 1234 : 16

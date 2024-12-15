@@ -52,6 +52,7 @@ public class IntraShardTnxProcessingThread extends Thread {
                     this.node.sendExecutionReplyToClient(tnx, false, "Transaction Aborted", "ABORTED");
                     return;
                 }
+                this.node.logger.log("Transaction already done: " + this.tnx.getTransactionNum());
             }
 
 
@@ -63,12 +64,14 @@ public class IntraShardTnxProcessingThread extends Thread {
             if (this.node.database.isDataItemLockedWithTnx(this.tnx.getSender(), this.tnx.getTransactionNum()) ||
                     this.node.database.isDataItemLockedWithTnx(this.tnx.getReceiver(), this.tnx.getTransactionNum())) {
                 isLocked = false;
+                this.node.logger.log("IST:"+Utils.toDataStoreString(this.tnx)+"Not-Locked");
             }
 
             //Wait until locks released if locked.
             if (isLocked && (this.node.database.isDataItemLocked(this.tnx.getSender()) ||
                     this.node.database.isDataItemLocked(this.tnx.getReceiver()))) {
                 failureReason = "Data Items Locked";
+                this.node.logger.log("IST:"+Utils.toDataStoreString(this.tnx)+"Items are Locked-> waiting");
                 Thread.sleep(100);
             }
 
@@ -77,9 +80,11 @@ public class IntraShardTnxProcessingThread extends Thread {
             if (isLocked && (this.node.database.isDataItemLocked(this.tnx.getSender()) ||
                     this.node.database.isDataItemLocked(this.tnx.getReceiver()))) {
                 failureReason = "Data Items Locked";
+                this.node.logger.log("IST:"+Utils.toDataStoreString(this.tnx)+"Still Locked");
                 success = false;
             }
             else {
+                this.node.logger.log("IST:"+Utils.toDataStoreString(this.tnx)+"Still Locked");
                 System.out.println("Processing transaction " + this.tnx.getTransactionNum() + " "
                         + this.tnx.getSender() + " -> "
                         + this.tnx.getReceiver() + " = "
@@ -207,8 +212,9 @@ public class IntraShardTnxProcessingThread extends Thread {
                                         this.node.database.currentViewNum.get() + " Transaction ID: " +
                                         tnx.getTransactionNum());
 
-                                this.node.sendExecutionReplyToClient(tnx, true, failureReason, "COMMITED");
-
+                                if(!tnx.getIsCrossShard()) {
+                                    this.node.sendExecutionReplyToClient(tnx, true, failureReason, "COMMITED");
+                                }
                                 CommitRequest commitRequest = CommitRequest.newBuilder()
                                         .setSequenceNumber(currentSeqNum)
                                         .setView(this.node.database.currentViewNum.get())
@@ -304,6 +310,7 @@ public class IntraShardTnxProcessingThread extends Thread {
                 else{
                     failureReason = "Insufficient Balance";
                     success = false;
+                    this.node.logger.log("IST:"+Utils.toDataStoreString(this.tnx)+" Insufficient Balance");
                     //this.node.database.transactionStatusMap.put( curre , TransactionStatus.ABORTED);
                 }
 

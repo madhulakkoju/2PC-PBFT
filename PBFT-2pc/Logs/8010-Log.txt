@@ -57,6 +57,12 @@ Initiating executions : 2 : 3
 Initiating execution for seqNum: 3
 Status : COMMITTED
 Executing transaction: 3
+Sent Execution Reply to Client: 6 : processId: "S10"
+transactionId: 6
+success: true
+clusterId: 3
+status: "EXECUTED"
+
 Sent Reply to Client executed: 3
 Initiating execution for seqNum: 4
 Status : Not Found
@@ -125,11 +131,11 @@ processId: "S10"
 success: true
 
 Resending Reply to Client  
-Received Cross Shard Commit request from S9 with Seq number 10
+Received Cross Shard Commit request from S9 with Seq number 11
 Commit Request Received from S9
 Commit Request Accepted from S9
-Sending Cross Shard Commit response to S9 with Seq number 10
-Response: sequenceNumber: 10
+Sending Cross Shard Commit response to S9 with Seq number 11
+Response: sequenceNumber: 11
 processId: "S10"
 success: true
 

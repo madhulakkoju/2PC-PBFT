@@ -4,305 +4,110 @@ Line: 1 : 1,"(299, 1999, 3)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12
 Printing Data Store
 -------------------------------------------------------------
 Line: 2 : 1,"(1001, 2999, 6)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 1 Completed - Received responses from f+1 servers
 -------------------------------------------------------------
 Line: 3 : 1,"(2150, 1111, 9)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 2 Completed - Received responses from f+1 servers
+Transaction: 1 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 4 : 2,"(296, 1997, 1)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
 Printing Data Store
-Transaction: 3 Completed - Received responses from f+1 servers
+Transaction: 2 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
+Transaction: 3 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 5 : 2,"(296, 1997, 8)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 4 Completed - Received responses from f+1 servers
+Transaction: 1 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 6 : 2,"(2593, 2297, 3)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 5 Timed Out -> RETRY
+Transaction: 4 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 7 : 3,"(793, 1993, 7)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 6 Completed - Received responses from f+1 servers
-Transaction: 5 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
 Printing Data Store
 Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
+Transaction: 6 Completed - Received responses from f+1 servers
+Transaction: 4 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 8 : 3,"(1998, 2998, 19)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
 Transaction: 5 Timed Out -> RETRY
-Transaction: 7 Completed - Received responses from f+1 servers
+Transaction: 4 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 9 : 4,"(1877, 2855, 5)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
+Transaction: 1 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
+Transaction: 5 Timed Out -> RETRY
+Transaction: 4 Timed Out -> RETRY
 Printing Data Store
+Transaction: 1 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
+Transaction: 4 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 10 : 4,"(1333, 2333, 3)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 9 Completed - Received responses from f+1 servers
+Transaction: 4 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 11 : 4,"(5, 98, 2)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
+Transaction: 1 Timed Out -> RETRY
+Transaction: 9 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 10 Completed - Received responses from f+1 servers
 -------------------------------------------------------------
 Line: 12 : 5,"(45, 1355, 5)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
 Printing Data Store
-Transaction: 11 Timed Out -> RETRY
+Transaction: 4 Timed Out -> RETRY
+Transaction: 10 Timed Out -> RETRY
+Transaction: 11 Completed - Received responses from f+1 servers
+Transaction: 1 Timed Out -> RETRY
+Transaction: 9 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 13 : 5,"(5, 98, 2)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 12 Completed - Received responses from f+1 servers
+Transaction: 4 Timed Out -> RETRY
+Transaction: 10 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
+Transaction: 9 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 14 : 6,"(298, 1789, 3)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 11 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
+Transaction: 12 Timed Out -> RETRY
+Transaction: 13 Completed - Received responses from f+1 servers
+Transaction: 4 Timed Out -> RETRY
 Printing Data Store
+Transaction: 10 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
+Transaction: 9 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
+Transaction: 12 Timed Out -> RETRY
+Transaction: 4 Timed Out -> RETRY
+Transaction: 10 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 15 : 6,"(1061, 2476, 6)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
+Transaction: 9 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
+Transaction: 12 Timed Out -> RETRY
 -------------------------------------------------------------
 Line: 16 : 6,"(2850, 1234, 9)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
+Transaction: 4 Timed Out -> RETRY
+Transaction: 10 Timed Out -> RETRY
 Transaction: 14 Timed Out -> RETRY
-Transaction: 15 Completed - Received responses from f+1 servers
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
+Transaction: 9 Timed Out -> RETRY
+Transaction: 7 Timed Out -> RETRY
 Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
+Printing Data Store
+Transaction: 12 Timed Out -> RETRY
+Transaction: 15 Timed Out -> RETRY
+Transaction: 4 Timed Out -> RETRY
+Transaction: 10 Timed Out -> RETRY
+Printing Data Store
 Transaction: 14 Timed Out -> RETRY
-Transaction: 16 Completed - Received responses from f+1 servers
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
+Transaction: 1 Timed Out -> RETRY
+Transaction: 9 Timed Out -> RETRY

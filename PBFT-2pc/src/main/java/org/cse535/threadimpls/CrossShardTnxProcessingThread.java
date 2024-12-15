@@ -191,7 +191,7 @@ public class CrossShardTnxProcessingThread extends Thread {
                                         this.node.database.currentViewNum.get() + " Transaction ID: " +
                                         tnx.getTransactionNum());
 
-                                this.node.sendExecutionReplyToClient(tnx, true, failureReason, "COMMITED");
+                                //this.node.sendExecutionReplyToClient(tnx, true, failureReason, "COMMITED");
 
                                 CommitRequest commitRequest = CommitRequest.newBuilder()
                                         .setSequenceNumber(currentSeqNum)
@@ -228,14 +228,6 @@ public class CrossShardTnxProcessingThread extends Thread {
                                 for (int j = 0; j < i; j++) {
                                     intraCommitThreads[j].join();
                                 }
-
-
-
-
-
-
-
-
 
 
 

@@ -65,7 +65,7 @@ public class ViewServer extends NodeServer {
 
     public HashMap<Integer, HashMap<Integer, String>> transactionStatuses = new HashMap<>();
 
-    public HashSet<Integer> participatingDataItems = new HashSet<>();
+    public TreeSet<Integer> participatingDataItems = new TreeSet<>();
 
     public Timer timer = new Timer();
 
@@ -170,17 +170,17 @@ public class ViewServer extends NodeServer {
             this.commandLogger.log( data);
         });
 
-        this.commandLogger.log("\n\n-----------------------------------Transaction Statuses:-----------------------------------\n");
-
-        this.transactionStatuses.forEach((tnxNum, statuses) -> {
-
-            StringBuilder status = new StringBuilder();
-            for(Map.Entry<Integer, String> entry : statuses.entrySet()){
-                status.append("S").append(entry.getKey()).append(" : ").append(entry.getValue()).append("; ");
-            }
-
-            this.commandLogger.log(" " + String.format("%3d", tnxNum) + " :: Transaction " + Utils.toDataStoreString(transactions.get(tnxNum)) + " : " + status);
-        });
+//        this.commandLogger.log("\n\n-----------------------------------Transaction Statuses:-----------------------------------\n");
+//
+//        this.transactionStatuses.forEach((tnxNum, statuses) -> {
+//
+//            StringBuilder status = new StringBuilder();
+//            for(Map.Entry<Integer, String> entry : statuses.entrySet()){
+//                status.append("S").append(entry.getKey()).append(" : ").append(entry.getValue()).append("; ");
+//            }
+//
+//            this.commandLogger.log(" " + String.format("%3d", tnxNum) + " :: Transaction " + Utils.toDataStoreString(transactions.get(tnxNum)) + " : " + status);
+//        });
     }
 
     public void PrintBalance(){
@@ -302,7 +302,7 @@ public class ViewServer extends NodeServer {
             }
         };
 
-        timer.schedule(retry, transactionInputConfig.getTransaction().getIsCrossShard() ? 2*GlobalConfigs.TransactionTimeout: GlobalConfigs.TransactionTimeout);
+        timer.schedule(retry, transactionInputConfig.getTransaction().getIsCrossShard() ? 3*GlobalConfigs.TransactionTimeout: GlobalConfigs.TransactionTimeout);
     }
 
 //    public void sendCrossShardTransaction(TransactionInputConfig transactionInputConfig, String senderServer){
@@ -423,7 +423,7 @@ public class ViewServer extends NodeServer {
                     System.out.print("Press Enter to continue to next Test set "+transactionInputConfig.getSetNumber() + " ");
                     System.console().readLine();
 
-                    viewServer.participatingDataItems.clear();
+                    //viewServer.participatingDataItems.clear();
                     viewServer.transactionsCount = 0;
 
                     for( Integer server : GlobalConfigs.ServerToPortMap.keySet()) {

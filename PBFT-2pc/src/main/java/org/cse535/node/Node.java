@@ -46,6 +46,8 @@ public class Node extends NodeServer {
                     continue;
                 }
 
+               // this.database.initiateExecutions();
+
                 // TransactionInputConfig transactionInput = this.database.incomingTransactionsQueue.take();
 
                 TransactionInputConfig transactionInput = this.database.incomingTransactionsQueue.peek();
@@ -116,7 +118,8 @@ public class Node extends NodeServer {
                     this.logger.log(("Cross Thread Started"));
                     CrossShardTnxProcessingThread crossShardTnxProcessingThread = new CrossShardTnxProcessingThread(this, transactionInput);
                     crossShardTnxProcessingThread.start();
-                    crossShardTnxProcessingThread.join();
+                    Thread.sleep(100);
+                    //crossShardTnxProcessingThread.join();
                 }
                 else{
                     this.logger.log(("Intra Thread Started"));
@@ -500,7 +503,7 @@ public class Node extends NodeServer {
         CommitResponse.Builder commitResponse = CommitResponse.newBuilder();
         commitResponse.setProcessId(this.serverName);
         commitResponse.setSequenceNumber(request.getSequenceNumber());
-        commitResponse.setSuccess(false);
+        commitResponse.setSuccess(true);
 
 
 //        if(request.getTransaction().getIsCrossShard()){
@@ -617,6 +620,10 @@ public class Node extends NodeServer {
     public void reSendExecutionReplyToClient(Transaction transaction) {
         // Send reply to Client
 
+        if(transaction == null){
+            return;
+        }
+
         int checkSeqNum = -1;
 
         if(this.database.transactionNumSeqNumMap.containsKey(transaction.getTransactionNum())){
@@ -627,17 +634,22 @@ public class Node extends NodeServer {
             return;
         }
 
+        //this.database.initiateExecutions();
 
-        else if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.COMMITTED){
+
+       if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.COMMITTED){
+           this.logger.log("Sending Execution Reply to Client: COMMITTED" + transaction.getTransactionNum());
             sendExecutionReplyToClient(transaction, true, "", "COMMITTED");
-            this.database.initiateExecutions();
         }
         else if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.ABORTED){
+            this.logger.log("Sending Execution Reply to Client: ABORTED" + transaction.getTransactionNum());
             sendExecutionReplyToClient(transaction, false, "Transaction Failed", "ABORTED");
         }
         else if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.EXECUTED){
+            this.logger.log("Sending Execution Reply to Client: EXECUTED" + transaction.getTransactionNum());
             sendExecutionReplyToClient(transaction, true, "", "EXECUTED");
         }
+        this.logger.log("Sent Execution Reply to Client: " + transaction.getTransactionNum());
     }
 
 
@@ -652,6 +664,7 @@ public class Node extends NodeServer {
         executionReply.setClusterId(this.clusterNumber);
         executionReply.setFailureReason(failureReason);
         this.serversToPaxosStub.get(0).execReply(executionReply.build());
+        this.logger.log("Sent Execution Reply to Client: " + transaction.getTransactionNum() + " : " + executionReply.build().toString());
     }
 
     public String PrintDataStore(){

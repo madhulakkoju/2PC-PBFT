@@ -371,12 +371,21 @@ public class DatabaseService {
 
 
     public synchronized boolean lockDataItem(int dataItem, int transactionNum) {
+
+        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+            return false;
+        }
+
         this.node.walLogger.log(transactionNum+" - LOCK : " + dataItem + " : " + transactionNum);
         lockedDataItemsWithTransactionNum.put(dataItem, transactionNum);
         return true;
     }
 
     public synchronized boolean unlockDataItem(int dataItem, int transactionNum) {
+
+        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+            return false;
+        }
         this.node.walLogger.log(transactionNum+" - UNLOCK : " + dataItem + " : " + transactionNum);
         lockedDataItemsWithTransactionNum.remove(dataItem);
 //        if(lockedDataItemsWithTransactionNum.containsKey(dataItem) && lockedDataItemsWithTransactionNum.get(dataItem) == transactionNum){
@@ -386,10 +395,16 @@ public class DatabaseService {
     }
 
     public boolean isDataItemLocked(int dataItem) {
+        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+            return false;
+        }
         return lockedDataItemsWithTransactionNum.containsKey(dataItem);
     }
 
     public synchronized boolean isDataItemLockedWithTnx(int dataItem, int transactionNum) {
+        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+            return false;
+        }
         return lockedDataItemsWithTransactionNum.containsKey(dataItem) && lockedDataItemsWithTransactionNum.get(dataItem) == transactionNum;
     }
 
@@ -662,8 +677,11 @@ public class DatabaseService {
             this.node.database.unlockDataItem(transaction.getSender(), transaction.getTransactionNum());
             this.node.database.unlockDataItem(transaction.getReceiver(), transaction.getTransactionNum());
 
-            Main.node.sendExecutionReplyToClient(transaction, success, failureReason , success ? "EXECUTED" : "COMMITTED");
-            Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
+            if(!transaction.getIsCrossShard()){
+                Main.node.sendExecutionReplyToClient(transaction, success, failureReason , success ? "EXECUTED" : "COMMITTED");
+                Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
+            }
+
         }
         else{
             this.node.logger.log("WAL: Cross Shard Transaction: " + Utils.toDataStoreString(transaction));
