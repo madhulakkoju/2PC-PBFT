@@ -31,6 +31,11 @@ public class IntraCommitThread extends Thread{
             return;
         }
 
+        if(request.getTransaction() == null){
+            this.node.logger.log("Transaction is null in commit request");
+            return;
+        }
+
         CommitResponse response = this.node.serversToPaxosStub.get(targetServer).commit(this.request);
 
         if(response.getSuccess()){

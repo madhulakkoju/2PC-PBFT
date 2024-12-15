@@ -11,20 +11,31 @@ Initiating executions : 0 : 1
 Initiating execution for seqNum: 1
 Status : COMMITTED
 Executing transaction: 1
-Transaction executed: 1
-Sending Reply to Client executed: 1 Transaction: 1
-sender: 100
-receiver: 501
-amount: 8
-transactionNum: 1
-
-Sent Reply to Client executed: 1
+WAL: Cross Shard Transaction: ( 299, 1999,  3) 
 Initiating execution for seqNum: 2
 Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 1
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 1
+Response: sequenceNumber: 1
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 1
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 1
+Response: sequenceNumber: 1
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 2
 PrePrepare Request received from S1
-PrePrepare request received: 2 Transaction ID: 6 Digest: 
-Accepted ---- PrePrepare request accepted: 2 Transaction ID: 6 Digest: 
+PrePrepare request received: 2 Transaction ID: 4 Digest: 
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: 
 Received prepare request from S1 with Sequence number 2
 Accepted ---- Prepare request accepted: 2 Digest: 
 Received Commit request from S1 with Seq number 2
@@ -32,20 +43,31 @@ Initiating executions : 1 : 2
 Initiating execution for seqNum: 2
 Status : COMMITTED
 Executing transaction: 2
-Transaction executed: 2
-Sending Reply to Client executed: 2 Transaction: 6
-sender: 101
-receiver: 301
-amount: 9
-transactionNum: 6
-
-Sent Reply to Client executed: 2
+WAL: Cross Shard Transaction: ( 296, 1997,  1) 
 Initiating execution for seqNum: 3
 Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 2
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 4
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 3
 PrePrepare Request received from S1
-PrePrepare request received: 3 Transaction ID: 7 Digest: 
-Accepted ---- PrePrepare request accepted: 3 Transaction ID: 7 Digest: 
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
 Received prepare request from S1 with Sequence number 3
 Accepted ---- Prepare request accepted: 3 Digest: 
 Received Commit request from S1 with Seq number 3
@@ -53,69 +75,2260 @@ Initiating executions : 2 : 3
 Initiating execution for seqNum: 3
 Status : COMMITTED
 Executing transaction: 3
-Transaction executed: 3
-Sending Reply to Client executed: 3 Transaction: 7
-sender: 299
-receiver: 1
-amount: 4
-transactionNum: 7
-
-Sent Reply to Client executed: 3
-Initiating execution for seqNum: 4
-Status : Not Found
-Received pre-prepare request from S1 with ballot number 4
-PrePrepare Request received from S1
-PrePrepare request received: 4 Transaction ID: 9 Digest: 
-Accepted ---- PrePrepare request accepted: 4 Transaction ID: 9 Digest: 
-Received prepare request from S1 with Sequence number 4
-Accepted ---- Prepare request accepted: 4 Digest: 
-Received Commit request from S1 with Seq number 4
-Initiating executions : 3 : 4
+WAL: Cross Shard Transaction: ( 296, 1997,  8) 
 Initiating execution for seqNum: 4
 Status : COMMITTED
 Executing transaction: 4
-Transaction executed: 4
-Sending Reply to Client executed: 4 Transaction: 9
-sender: 791
-receiver: 997
-amount: 3
-transactionNum: 9
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
 
-Sent Reply to Client executed: 4
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 3
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 4
+PrePrepare Request received from S1
+PrePrepare request received: 4 Transaction ID: 7 Digest: 
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: 
+Received prepare request from S1 with Sequence number 4
+Accepted ---- Prepare request accepted: 4 Digest: 
+Received Commit request from S1 with Seq number 4
+Initiating executions : 4 : 4
 Initiating execution for seqNum: 5
 Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 4
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 5
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 5
+Response: sequenceNumber: 5
+processId: "S4"
+success: true
+
+Received pre-prepare request from S1 with ballot number 4
+PrePrepare Request received from S1
+Resending Reply to Client  
+PrePrepare request received: 4 Transaction ID: 7 Digest: 
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: 
+Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 4
+Accepted ---- Prepare request accepted: 4 Digest: 
+Received Commit request from S1 with Seq number 4
+Initiating executions : 4 : 4
+Initiating execution for seqNum: 5
+Status : COMMITTED
+Executing transaction: 5
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 4
+PrePrepare Request received from S1
+PrePrepare request received: 4 Transaction ID: 7 Digest: 
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: 
+Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 4
+Accepted ---- Prepare request accepted: 4 Digest: 
+Received Commit request from S1 with Seq number 4
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 5
+PrePrepare Request received from S1
+PrePrepare request received: 5 Transaction ID: 11 Digest: 
+Accepted ---- PrePrepare request accepted: 5 Transaction ID: 11 Digest: 
 Received prepare request from S1 with Sequence number 5
+Accepted ---- Prepare request accepted: 5 Digest: 
 Received Commit request from S1 with Seq number 5
-Received pre-prepare request from S1 with ballot number 6
-Received pre-prepare request from S1 with ballot number 7
-Received pre-prepare request from S1 with ballot number 8
-PrePrepare Request received from S1
-PrePrepare request received: 8 Transaction ID: 20 Digest: 
-Accepted ---- PrePrepare request accepted: 8 Transaction ID: 20 Digest: 
-Received prepare request from S1 with Sequence number 8
-Accepted ---- Prepare request accepted: 8 Digest: 
-Received Commit request from S1 with Seq number 8
-Initiating executions : 4 : 8
-Initiating execution for seqNum: 5
+Initiating executions : 5 : 5
+Initiating execution for seqNum: 6
 Status : Not Found
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 5
+Initiating execution for seqNum: 6
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 5
+Initiating execution for seqNum: 6
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: 
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: 
+Received Commit request from S1 with Seq number 3
+Initiating executions : 5 : 5
+Initiating execution for seqNum: 6
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 6
 PrePrepare Request received from S1
-PrePrepare request received: 6 Transaction ID: 15 Digest: 
-Accepted ---- PrePrepare request accepted: 6 Transaction ID: 15 Digest: 
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
 Received prepare request from S1 with Sequence number 6
 Accepted ---- Prepare request accepted: 6 Digest: 
 Received Commit request from S1 with Seq number 6
-Initiating executions : 4 : 8
-Initiating execution for seqNum: 5
+Initiating executions : 5 : 6
+Initiating execution for seqNum: 6
+Status : COMMITTED
+Executing transaction: 6
+WAL: Cross Shard Transaction: (  45, 1355,  5) 
+Initiating execution for seqNum: 7
 Status : Not Found
-Received pre-prepare request from S1 with ballot number 7
+Received Cross Shard Commit request from S1 with Seq number 6
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 8
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 8
+Response: sequenceNumber: 8
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
 PrePrepare Request received from S1
-PrePrepare request received: 7 Transaction ID: 17 Digest: 
-Accepted ---- PrePrepare request accepted: 7 Transaction ID: 17 Digest: 
-Received prepare request from S1 with Sequence number 7
-Accepted ---- Prepare request accepted: 7 Digest: 
-Received Commit request from S1 with Seq number 7
-Initiating executions : 4 : 8
-Initiating execution for seqNum: 5
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
 Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: 
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: 
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: 
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash:  Request Hash:  Digest: 

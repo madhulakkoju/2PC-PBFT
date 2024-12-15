@@ -61,11 +61,7 @@ public class Utils {
         int senderCluster = FindClusterOfDataItem(transaction.getSender());
         int receiverCluster = FindClusterOfDataItem(transaction.getReceiver());
 
-        if(myCluster == senderCluster && myCluster == receiverCluster){
-            return true;
-        }
-
-        return false;
+        return myCluster == senderCluster || myCluster == receiverCluster;
     }
 
 

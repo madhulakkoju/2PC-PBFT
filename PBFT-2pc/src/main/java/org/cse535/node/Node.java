@@ -4,6 +4,7 @@ import org.cse535.configs.GlobalConfigs;
 import org.cse535.configs.Utils;
 import org.cse535.database.DatabaseService;
 import org.cse535.proto.*;
+import org.cse535.threadimpls.CrossShardTnxProcessingThread;
 import org.cse535.threadimpls.IntraPrepareThread;
 import org.cse535.threadimpls.IntraShardTnxProcessingThread;
 
@@ -55,21 +56,38 @@ public class Node extends NodeServer {
 
                 Transaction transaction = transactionInput.getTransaction();
 
-                if(this.database.transactionStatusMap.containsKey(transaction.getTransactionNum()) &&
-                        this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.EXECUTED){
-                    reSendExecutionReplyToClient(transaction);
-                    this.database.incomingTransactionsQueue.remove();
+                int checkSeqNum = -1;
+
+                if(this.database.transactionNumSeqNumMap.containsKey(transaction.getTransactionNum())){
+                    checkSeqNum = this.database.transactionNumSeqNumMap.get(transaction.getTransactionNum());
                 }
+
+                if( checkSeqNum != -1 && this.database.transactionStatusMap.containsKey(checkSeqNum)){
+
+                    if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.EXECUTED){
+                        reSendExecutionReplyToClient(transaction);
+                    }
+
+                }
+
+//
+//                if(this.database.transactionStatusMap.containsKey(transaction.getTransactionNum()) &&
+//                        this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.EXECUTED){
+//                    reSendExecutionReplyToClient(transaction);
+//
+//                }
 
                 // Process the Transaction now.
 
-                if(transaction.getIsCrossShard()){
-                    processCrossShardTransaction(transactionInput);
-                }
-                else {
+                processIntraShardTransaction(transactionInput);
 
-                    processIntraShardTransaction(transactionInput);
-                }
+//                if(transaction.getIsCrossShard()){
+//                    processCrossShardTransaction(transactionInput);
+//                }
+//                else {
+//
+//
+//                }
 
                 this.database.incomingTransactionsQueue.remove();
 
@@ -82,15 +100,34 @@ public class Node extends NodeServer {
 
     public boolean processIntraShardTransaction(TransactionInputConfig transactionInput) {
 
+        this.logger.log("Processing Transaction: " + transactionInput.getTransaction().getTransactionNum()
+                + " " + Utils.toDataStoreString(transactionInput.getTransaction()) + " => "
+                + Utils.CheckTransactionBelongToMyCluster(transactionInput.getTransaction(), this.serverNumber) );
+
         if(Utils.CheckTransactionBelongToMyCluster(transactionInput.getTransaction(), this.serverNumber)){
             this.logger.log("Processing Transaction: " + transactionInput.getTransaction().getTransactionNum());
 
             try {
 
-                IntraShardTnxProcessingThread intraShardTnxProcessingThread = new IntraShardTnxProcessingThread(this,
-                        transactionInput, new AtomicBoolean(false));
-                intraShardTnxProcessingThread.start();
-                intraShardTnxProcessingThread.join();
+                if(transactionInput.getTransaction().getIsCrossShard() &&
+                        Utils.FindClusterOfDataItem(transactionInput.getTransaction().getSender()) == this.clusterNumber ){
+
+
+                    this.logger.log(("Cross Thread Started"));
+                    CrossShardTnxProcessingThread crossShardTnxProcessingThread = new CrossShardTnxProcessingThread(this, transactionInput);
+                    crossShardTnxProcessingThread.start();
+                    crossShardTnxProcessingThread.join();
+                }
+                else{
+                    this.logger.log(("Intra Thread Started"));
+                    IntraShardTnxProcessingThread intraShardTnxProcessingThread = new IntraShardTnxProcessingThread(this,
+                            transactionInput, new AtomicBoolean(false));
+                    intraShardTnxProcessingThread.start();
+                    intraShardTnxProcessingThread.join();
+                }
+
+
+
 
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -546,23 +583,59 @@ public class Node extends NodeServer {
         return commitResponse.build();
     }
 
+    public CommitResponse handleCrossShardCommit(CommitRequest request) {
+        CommitResponse.Builder commitResponse = CommitResponse.newBuilder();
+        commitResponse.setProcessId(this.serverName);
+        commitResponse.setSequenceNumber(request.getSequenceNumber());
+        commitResponse.setSuccess(false);
 
+        if(request.getAbort()){
+            this.logger.log("Abort Request Received from " + request.getProcessId() );
+            this.database.addTransactionStatus(request.getSequenceNumber(), TransactionStatus.ABORTED);
+            this.database.transactionStatusMap.put(request.getSequenceNumber(), TransactionStatus.ABORTED);
+
+            this.database.rollbackWAL(request.getTransaction().getTransactionNum());
+            commitResponse.setSuccess(true);
+        }
+        else {
+            this.logger.log("Commit Request Received from " + request.getProcessId());
+            commitResponse.setSuccess(true);
+            this.database.addTransactionStatus(request.getSequenceNumber(), TransactionStatus.COMMITTED);
+            this.database.transactionStatusMap.put(request.getSequenceNumber(), TransactionStatus.COMMITTED);
+
+            this.logger.log("Commit Request Accepted from " + request.getProcessId());
+            this.database.commitWAL(request.getTransaction().getTransactionNum());
+        }
+
+        this.database.unlockDataItem(request.getTransaction().getSender(), request.getTransaction().getTransactionNum());
+        this.database.unlockDataItem(request.getTransaction().getReceiver(), request.getTransaction().getTransactionNum());
+
+        return commitResponse.build();
+    }
 
 
     public void reSendExecutionReplyToClient(Transaction transaction) {
         // Send reply to Client
 
-        if(!this.database.transactionStatusMap.containsKey(transaction.getTransactionNum())){
+        int checkSeqNum = -1;
+
+        if(this.database.transactionNumSeqNumMap.containsKey(transaction.getTransactionNum())){
+            checkSeqNum = this.database.transactionNumSeqNumMap.get(transaction.getTransactionNum());
+        }
+
+        if(checkSeqNum == -1){
             return;
         }
-        else if(this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.COMMITTED){
+
+
+        else if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.COMMITTED){
             sendExecutionReplyToClient(transaction, true, "", "COMMITTED");
             this.database.initiateExecutions();
         }
-        else if(this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.ABORTED){
+        else if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.ABORTED){
             sendExecutionReplyToClient(transaction, false, "Transaction Failed", "ABORTED");
         }
-        else if(this.database.transactionStatusMap.get(transaction.getTransactionNum()) == TransactionStatus.EXECUTED){
+        else if(this.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.EXECUTED){
             sendExecutionReplyToClient(transaction, true, "", "EXECUTED");
         }
     }
@@ -584,6 +657,7 @@ public class Node extends NodeServer {
     public String PrintDataStore(){
         return this.serverName + " : " + String.join(" -> ", this.database.dataStore.get());
     }
+
 
 
 }

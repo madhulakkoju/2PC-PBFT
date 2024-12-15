@@ -156,13 +156,40 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         }
 
         Main.node.database.crossShardPrepareResponses.get(request.getTransaction().getTransactionNum()).put(request.getClusterId(), request);
+
+        responseObserver.onNext(Empty.newBuilder().build());
+        responseObserver.onCompleted();
     }
 
     @Override
     public void crossShardCommit(CommitRequest request, StreamObserver<CommitResponse> responseObserver) {
 
+        Main.node.logger.log("Received Cross Shard Commit request from " + request.getProcessId() + " with Seq number " + request.getSequenceNumber());
 
+        if( ! Main.node.isServerActive.get() ){
+            //Inactive server
+            CommitResponse response = CommitResponse.newBuilder()
+                    .setSuccess(false)
+                    .setSequenceNumber(request.getSequenceNumber())
+                    .setView(request.getView())
+                    .setProcessId(Main.node.serverName)
+                    .build();
 
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+            return;
+        }
+
+        CommitResponse resp = Main.node.handleCrossShardCommit(request);
+
+        Main.node.logger.log("Sending Cross Shard Commit response to " + request.getProcessId() + " with Seq number " + request.getSequenceNumber());
+        Main.node.logger.log("Response: " + resp.toString());
+
+        responseObserver.onNext(resp);
+        responseObserver.onCompleted();
+
+        Main.node.logger.log("Resending Reply to Client  " );
+        Main.node.reSendExecutionReplyToClient(request.getTransaction());
     }
 
     @Override

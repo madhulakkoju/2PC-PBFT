@@ -37,7 +37,13 @@ public class GlobalConfigs {
     public static long TransactionTimeout = 3000;
 
 
+    public static HashMap<Integer, Integer> primaryServers = new HashMap<Integer, Integer>();
+
     public static void LoadConfigs( ){
+
+        primaryServers.put(1, 1);
+        primaryServers.put(2, 5);
+        primaryServers.put(3, 9);
 
         numClusters = GlobalConfigs.TotalServers / GlobalConfigs.numServersPerCluster;
         clusterShardMap = new HashMap<Integer, Integer>();

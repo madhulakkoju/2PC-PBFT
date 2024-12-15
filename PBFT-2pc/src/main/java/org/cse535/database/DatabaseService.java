@@ -240,6 +240,8 @@ public class DatabaseService {
 
     public boolean executeTransaction(Transaction transaction) {
 
+        if(transaction == null) return false;
+
         this.node.walLogger.log( transaction.getTransactionNum() + " - BEGIN TNX : " + Utils.toDataStoreString(transaction));
 
         int sender = transaction.getSender();
@@ -642,34 +644,31 @@ public class DatabaseService {
         Main.node.logger.log("Executing transaction: " + seqNum);
         Transaction transaction = transactionMap.get(seqNum);
 
-
-        boolean success = executeTransaction(transaction);
-
-
-
-        this.transactionStatusMap.put(seqNum, TransactionStatus.EXECUTED);
-
-        Main.node.logger.log("Transaction executed: " + seqNum);
-
-        Main.node.logger.log("Sending Reply to Client executed: " + seqNum + " Transaction: " + transaction.getTransactionNum() + "\n"+ transaction.toString());
-
-        String failureReason = "";
-        if(!success){
-            Main.node.logger.log("Transaction failed: " + seqNum);
-            this.transactionStatusMap.put(seqNum, TransactionStatus.ABORTED);
-            failureReason = "Execute Failed";
-        }
-
+        if(transaction == null) return;
 
         if(! transaction.getIsCrossShard()) {
+            boolean success = executeTransaction(transaction);
+            String failureReason = "";
+
+            if(!success){
+                Main.node.logger.log("Transaction failed: " + seqNum);
+                this.transactionStatusMap.put(seqNum, TransactionStatus.ABORTED);
+                failureReason = "Execute Failed";
+            }
+            else{
+                this.transactionStatusMap.put(seqNum, TransactionStatus.EXECUTED);
+            }
+
             this.node.database.unlockDataItem(transaction.getSender(), transaction.getTransactionNum());
             this.node.database.unlockDataItem(transaction.getReceiver(), transaction.getTransactionNum());
+
+            Main.node.sendExecutionReplyToClient(transaction, success, failureReason , success ? "EXECUTED" : "COMMITTED");
+            Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
         }
-
-        Main.node.sendExecutionReplyToClient(transaction, success, failureReason , success ? "EXECUTED" : "COMMITTED");
-
-        Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
-
+        else{
+            this.node.logger.log("WAL: Cross Shard Transaction: " + Utils.toDataStoreString(transaction));
+            this.writeToWAL(transaction);
+        }
 
     }
 

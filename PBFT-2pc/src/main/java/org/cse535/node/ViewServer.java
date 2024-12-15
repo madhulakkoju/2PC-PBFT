@@ -301,24 +301,25 @@ public class ViewServer extends NodeServer {
                 viewServer.sendTransactionToServer(transactionInputConfig, server);
             }
         };
-        timer.schedule(retry, GlobalConfigs.TransactionTimeout);
+
+        timer.schedule(retry, transactionInputConfig.getTransaction().getIsCrossShard() ? 2*GlobalConfigs.TransactionTimeout: GlobalConfigs.TransactionTimeout);
     }
 
-    public void sendCrossShardTransaction(TransactionInputConfig transactionInputConfig, String senderServer, String receiverServer){
-        participatingDataItems.add(transactionInputConfig.getTransaction().getSender());
-        participatingDataItems.add(transactionInputConfig.getTransaction().getReceiver());
-        try {
-//            CrossShardTnxProcessingThread thread = new CrossShardTnxProcessingThread(this, transactionInputConfig, senderServer, receiverServer);
-//            thread.start();
-
-            //need not wait for the thread to finish
-            //thread.join();
-
-        }
-        catch (Exception e){
-            this.logger.log("Error in Cross Shard Transaction Processing: "+ e.getMessage());
-        }
-    }
+//    public void sendCrossShardTransaction(TransactionInputConfig transactionInputConfig, String senderServer){
+//        participatingDataItems.add(transactionInputConfig.getTransaction().getSender());
+//        participatingDataItems.add(transactionInputConfig.getTransaction().getReceiver());
+//        try {
+////            CrossShardTnxProcessingThread thread = new CrossShardTnxProcessingThread(this, transactionInputConfig, senderServer, receiverServer);
+////            thread.start();
+//
+//            //need not wait for the thread to finish
+//            //thread.join();
+//
+//        }
+//        catch (Exception e){
+//            this.logger.log("Error in Cross Shard Transaction Processing: "+ e.getMessage());
+//        }
+//    }
 
 
 
@@ -343,8 +344,8 @@ public class ViewServer extends NodeServer {
             viewServer.activeServersStatusMap.put(serverNum, true);
         }
 
-        String path = "src/main/resources/Lab4_Testset_1.csv"; // Intra Shard Transactions
-        //String path = "src/main/resources/Lab4_Testset_2.csv"; // Cross Shard Transactions
+        //String path = "src/main/resources/Lab4_Testset_1.csv"; // Intra Shard Transactions
+        String path = "src/main/resources/Lab4_Testset_2.csv"; // Cross Shard Transactions
 
         File file = new File(path);
         String line;
@@ -465,20 +466,26 @@ public class ViewServer extends NodeServer {
 
                 // Check whether transaction is IntraShard or Cross Shard
                 viewServer.transactionsCount++;
-                if( !transactionInputConfig.getTransaction().getIsCrossShard() ){
-                    //Intra Shard.. can send to contact server from the shard.
-                    int cluster = Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getSender());
-                    viewServer.sendTransactionToServer(transactionInputConfig, tnxLine.clusterContactServermapping.get(cluster));
-                }
-                else{
-                    //Cross Shard.. need to send to both servers && wait for the Prepare Responses from both leaders
 
-                    viewServer.sendCrossShardTransaction(transactionInputConfig,
-                            tnxLine.clusterContactServermapping.get(Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getSender())),
-                            tnxLine.clusterContactServermapping.get(Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getReceiver())));
+                int cluster = Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getSender());
+                Thread.sleep(2*GlobalConfigs.TransactionTimeout);
+                viewServer.sendTransactionToServer(transactionInputConfig, tnxLine.clusterContactServermapping.get(cluster));
 
-                    //Thread.sleep(100);
-                }
+
+
+//                if( !transactionInputConfig.getTransaction().getIsCrossShard() ){
+//                    //Intra Shard.. can send to contact server from the shard.
+//
+//                }
+//                else{
+//                    //Cross Shard.. need to send to both servers && wait for the Prepare Responses from both leaders
+//
+//                    viewServer.sendCrossShardTransaction(transactionInputConfig,
+//                            tnxLine.clusterContactServermapping.get(Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getSender())),
+//                            tnxLine.clusterContactServermapping.get(Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getReceiver())));
+//
+//                    //Thread.sleep(100);
+//                }
             }
 
             System.out.println("All Transactions Sent for final Test set. ");

@@ -30,17 +30,25 @@ public class IntraShardTnxProcessingThread extends Thread {
     public void run() {
         try {
 
-            if(this.node.database.transactionStatusMap.containsKey(this.tnx.getTransactionNum())){
-                if(this.node.database.transactionStatusMap.get(this.tnx.getTransactionNum()) == TransactionStatus.COMMITTED){
+
+            int checkSeqNum = -1;
+
+            if(this.node.database.transactionNumSeqNumMap.containsKey(this.tnx.getTransactionNum())){
+                checkSeqNum = this.node.database.transactionNumSeqNumMap.get(this.tnx.getTransactionNum());
+            }
+
+
+            if( checkSeqNum != -1 && this.node.database.transactionStatusMap.containsKey(checkSeqNum)){
+                if(this.node.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.COMMITTED){
                     this.node.sendExecutionReplyToClient(tnx, true, "", "COMMITED");
                     this.node.database.initiateExecutions();
                     return;
                 }
-                else if(this.node.database.transactionStatusMap.get(this.tnx.getTransactionNum()) == TransactionStatus.EXECUTED){
+                else if(this.node.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.EXECUTED){
                     this.node.sendExecutionReplyToClient(tnx, true, "", "EXECUTED");
                     return;
                 }
-                else if(this.node.database.transactionStatusMap.get(this.tnx.getTransactionNum()) == TransactionStatus.ABORTED){
+                else if(this.node.database.transactionStatusMap.get(checkSeqNum) == TransactionStatus.ABORTED){
                     this.node.sendExecutionReplyToClient(tnx, false, "Transaction Aborted", "ABORTED");
                     return;
                 }
@@ -99,7 +107,7 @@ public class IntraShardTnxProcessingThread extends Thread {
 
                     this.node.database.transactionNumSeqNumMap.put(this.tnx.getTransactionNum(), currentSeqNum);
 
-                    this.node.database.maxAddedSeqNum.set(currentSeqNum);
+                    this.node.database.setMaxAddedSeqNum(currentSeqNum);
 
                     this.node.database.transactionMap.put(currentSeqNum, this.tnx);
                     this.node.database.seqNumViewMap.put(currentSeqNum, this.node.database.currentViewNum.get());
@@ -236,10 +244,13 @@ public class IntraShardTnxProcessingThread extends Thread {
 
                                 if(this.tnx.getIsCrossShard() ){
 
-                                    if(Utils.FindClusterOfDataItem(this.tnx.getSender()) == Utils.FindClusterOfDataItem(this.tnx.getReceiver())){
+                                    if(Utils.FindClusterOfDataItem(this.tnx.getSender()) == this.node.clusterNumber){
                                         this.isCrossShardSuccess.set(true);
                                     }
                                     else{
+                                        this.node.logger.log("IST: Sending Cross Shard Prepare for SeqNum: " + currentSeqNum + " View: " +
+                                                this.node.database.currentViewNum.get() + " Transaction ID: " +
+                                                tnx.getTransactionNum());
 
                                         CommitRequest crossShardCommitRequest = CommitRequest.newBuilder()
                                                 .setTransaction(this.tnx)
@@ -249,16 +260,17 @@ public class IntraShardTnxProcessingThread extends Thread {
                                                 .setSequenceNumber(currentSeqNum)
                                                 .build();
 
-                                        int coordinatorServerNumber = 1;
-                                        for(String servername : this.tnxInput.getPrimaryServersList()){
-                                            if(Utils.FindMyCluster(servername) == Utils.FindClusterOfDataItem(this.tnx.getSender())){
-                                                coordinatorServerNumber = Integer.parseInt(servername.replaceAll("S", ""));
-                                                break;
-                                            }
-                                        }
+                                        this.node.logger.log("IST: Sending Cross Shard Prepare for SeqNum: " + currentSeqNum +
+                                                " :: "+ crossShardCommitRequest);
+
+
+                                        int coordinatorServerNumber = GlobalConfigs.primaryServers.get(Utils.FindClusterOfDataItem(this.tnx.getSender()));
+
+                                        this.node.logger.log("IST: Coordinator Server Number: " + coordinatorServerNumber);
 
                                         //Send to coordinator
                                         this.node.serversToPaxosStub.get(coordinatorServerNumber).crossShardPrepare(crossShardCommitRequest);
+                                        this.node.logger.log("IST: Sent Cross Shard Prepare for SeqNum: " + currentSeqNum );
                                         return;
 
                                     }
@@ -292,7 +304,7 @@ public class IntraShardTnxProcessingThread extends Thread {
                 else{
                     failureReason = "Insufficient Balance";
                     success = false;
-                    this.node.database.transactionStatusMap.put(tnx.getTransactionNum(), TransactionStatus.ABORTED);
+                    //this.node.database.transactionStatusMap.put( curre , TransactionStatus.ABORTED);
                 }
 
             }
