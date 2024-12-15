@@ -6,8 +6,8 @@
 3 - WRITE : 2800 : 3
 3 - WRITE : 2150 : 17
 3 - COMMIT : (2800, 2150,  7) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+3 - UNLOCK : 2800 : 3
+3 - UNLOCK : 2150 : 3
 8 - BEGIN TNX : (2995, 2990,  5) 
 8 - READ : 2995
 8 - READ : 2990
@@ -15,8 +15,8 @@
 8 - WRITE : 2995 : 5
 8 - WRITE : 2990 : 15
 8 - COMMIT : (2995, 2990,  5) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+8 - UNLOCK : 2995 : 8
+8 - UNLOCK : 2990 : 8
 12 - BEGIN TNX : (2770, 2799,  1) 
 12 - READ : 2770
 12 - READ : 2799
@@ -24,7 +24,5 @@
 12 - WRITE : 2770 : 9
 12 - WRITE : 2799 : 11
 12 - COMMIT : (2770, 2799,  1) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+12 - UNLOCK : 2770 : 12
+12 - UNLOCK : 2799 : 12

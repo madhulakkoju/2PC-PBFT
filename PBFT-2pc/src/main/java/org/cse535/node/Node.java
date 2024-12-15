@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Node extends NodeServer {
@@ -67,7 +68,7 @@ public class Node extends NodeServer {
                 }
                 else {
 
-                    processIntraShardTransaction(transaction, this.database.ballotNumber.incrementAndGet());
+                    processIntraShardTransaction(transactionInput);
                 }
 
                 this.database.incomingTransactionsQueue.remove();
@@ -79,14 +80,15 @@ public class Node extends NodeServer {
         }
     }
 
-    public boolean processIntraShardTransaction(Transaction transaction, int ballotNumber) {
+    public boolean processIntraShardTransaction(TransactionInputConfig transactionInput) {
 
-        if(Utils.CheckTransactionBelongToMyCluster(transaction, this.serverNumber)){
-            this.logger.log("Processing Transaction: " + transaction.getTransactionNum());
+        if(Utils.CheckTransactionBelongToMyCluster(transactionInput.getTransaction(), this.serverNumber)){
+            this.logger.log("Processing Transaction: " + transactionInput.getTransaction().getTransactionNum());
 
             try {
 
-                IntraShardTnxProcessingThread intraShardTnxProcessingThread = new IntraShardTnxProcessingThread(this, transaction, ballotNumber);
+                IntraShardTnxProcessingThread intraShardTnxProcessingThread = new IntraShardTnxProcessingThread(this,
+                        transactionInput, new AtomicBoolean(false));
                 intraShardTnxProcessingThread.start();
                 intraShardTnxProcessingThread.join();
 
@@ -97,7 +99,7 @@ public class Node extends NodeServer {
             return true;
         }
         else {
-            this.logger.log("Transaction does not belong to my cluster: " + transaction.getTransactionNum());
+            this.logger.log("Transaction does not belong to my cluster: " + transactionInput.getTransaction().getTransactionNum());
         }
         return false;
     }
@@ -537,9 +539,10 @@ public class Node extends NodeServer {
 
         //Finally remove locks
 
-        this.database.unlockDataItem(request.getTransaction().getSender(), request.getTransaction().getTransactionNum());
-        this.database.unlockDataItem(request.getTransaction().getReceiver(), request.getTransaction().getTransactionNum());
-
+//        if(!request.getTransaction().getIsCrossShard()) {
+//            this.database.unlockDataItem(request.getTransaction().getSender(), request.getTransaction().getTransactionNum());
+//            this.database.unlockDataItem(request.getTransaction().getReceiver(), request.getTransaction().getTransactionNum());
+//        }
         return commitResponse.build();
     }
 

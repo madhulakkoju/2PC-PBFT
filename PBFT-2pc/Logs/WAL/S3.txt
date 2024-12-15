@@ -6,8 +6,8 @@
 1 - WRITE : 100 : 2
 1 - WRITE : 501 : 18
 1 - COMMIT : ( 100,  501,  8) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+1 - UNLOCK : 100 : 1
+1 - UNLOCK : 501 : 1
 6 - BEGIN TNX : ( 101,  301,  9) 
 6 - READ : 101
 6 - READ : 301
@@ -15,8 +15,8 @@
 6 - WRITE : 101 : 1
 6 - WRITE : 301 : 19
 6 - COMMIT : ( 101,  301,  9) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+6 - UNLOCK : 101 : 6
+6 - UNLOCK : 301 : 6
 7 - BEGIN TNX : ( 299,    1,  4) 
 7 - READ : 299
 7 - READ : 1
@@ -24,8 +24,8 @@
 7 - WRITE : 299 : 6
 7 - WRITE : 1 : 14
 7 - COMMIT : ( 299,    1,  4) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+7 - UNLOCK : 299 : 7
+7 - UNLOCK : 1 : 7
 9 - BEGIN TNX : ( 791,  997,  3) 
 9 - READ : 791
 9 - READ : 997
@@ -33,8 +33,8 @@
 9 - WRITE : 791 : 7
 9 - WRITE : 997 : 13
 9 - COMMIT : ( 791,  997,  3) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+9 - UNLOCK : 791 : 9
+9 - UNLOCK : 997 : 9
 13 - BEGIN TNX : ( 196,  197,  3) 
 13 - READ : 196
 13 - READ : 197
@@ -42,10 +42,8 @@
 13 - WRITE : 196 : 7
 13 - WRITE : 197 : 13
 13 - COMMIT : ( 196,  197,  3) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+13 - UNLOCK : 196 : 13
+13 - UNLOCK : 197 : 13
 15 - BEGIN TNX : ( 973,  707,  2) 
 15 - READ : 973
 15 - READ : 707
@@ -53,8 +51,8 @@
 15 - WRITE : 973 : 8
 15 - WRITE : 707 : 12
 15 - COMMIT : ( 973,  707,  2) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+15 - UNLOCK : 973 : 15
+15 - UNLOCK : 707 : 15
 17 - BEGIN TNX : ( 333,  691,  4) 
 17 - READ : 333
 17 - READ : 691
@@ -62,6 +60,8 @@
 17 - WRITE : 333 : 6
 17 - WRITE : 691 : 14
 17 - COMMIT : ( 333,  691,  4) 
+17 - UNLOCK : 333 : 17
+17 - UNLOCK : 691 : 17
 20 - BEGIN TNX : ( 888,  777,  5) 
 20 - READ : 888
 20 - READ : 777
@@ -69,5 +69,5 @@
 20 - WRITE : 888 : 5
 20 - WRITE : 777 : 15
 20 - COMMIT : ( 888,  777,  5) 
-0 - UNLOCK : 0 : 0
-0 - UNLOCK : 0 : 0
+20 - UNLOCK : 888 : 20
+20 - UNLOCK : 777 : 20

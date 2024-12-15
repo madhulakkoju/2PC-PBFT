@@ -89,8 +89,6 @@ Received prepare request from S1 with Sequence number 5
 Received Commit request from S1 with Seq number 5
 Received pre-prepare request from S1 with ballot number 6
 Received pre-prepare request from S1 with ballot number 7
-Received pre-prepare request from S1 with ballot number 6
-Received pre-prepare request from S1 with ballot number 7
 Received pre-prepare request from S1 with ballot number 8
 PrePrepare Request received from S1
 PrePrepare request received: 8 Transaction ID: 20 Digest: 

@@ -32,7 +32,7 @@ public class DatabaseService {
 
     public Lock lock;
 
-    public AtomicInteger ballotNumber;
+
 
     public int lastAcceptedUncommittedBallotNumber;
     public Transaction lastAcceptedUncommittedTransaction;
@@ -113,7 +113,8 @@ public class DatabaseService {
 
 
 
-
+    //TransactionNum : Map< cluster , seqnum >
+    public ConcurrentHashMap<Integer, HashMap<Integer, CommitRequest>>  crossShardPrepareResponses = new ConcurrentHashMap<>();
 
 
 
@@ -122,7 +123,6 @@ public class DatabaseService {
 
 
     public DatabaseService( Integer serverNum, NodeServer node) {
-        this.ballotNumber = new AtomicInteger(0);
         this.lastAcceptedUncommittedBallotNumber = -1;
         this.lastAcceptedUncommittedTransaction = null;
         this.lastCommittedTransaction = null;
@@ -227,10 +227,13 @@ public class DatabaseService {
     public synchronized boolean isValidTransaction(Transaction transaction) {
         int sender = transaction.getSender();
         int amount = transaction.getAmount();
-        int senderBalance = getBalance(sender);
 
-        if(senderBalance < amount){
-            return false;
+        if(Utils.FindClusterOfDataItem(sender) == this.node.clusterNumber){
+            int senderBalance = getBalance(sender);
+
+            if(senderBalance < amount){
+                return false;
+            }
         }
         return true;
     }
@@ -468,7 +471,7 @@ public class DatabaseService {
         }
     }
 
-    public synchronized void commitbackWAL(int transactionNum) {
+    public synchronized void commitWAL(int transactionNum) {
         writeAheadLog.remove(transactionNum);
     }
 
@@ -657,9 +660,16 @@ public class DatabaseService {
             failureReason = "Execute Failed";
         }
 
+
+        if(! transaction.getIsCrossShard()) {
+            this.node.database.unlockDataItem(transaction.getSender(), transaction.getTransactionNum());
+            this.node.database.unlockDataItem(transaction.getReceiver(), transaction.getTransactionNum());
+        }
+
         Main.node.sendExecutionReplyToClient(transaction, success, failureReason , success ? "EXECUTED" : "COMMITTED");
 
         Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
+
 
     }
 

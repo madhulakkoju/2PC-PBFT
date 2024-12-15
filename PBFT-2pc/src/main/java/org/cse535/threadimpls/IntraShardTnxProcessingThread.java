@@ -1,25 +1,28 @@
 package org.cse535.threadimpls;
 
 import org.cse535.configs.GlobalConfigs;
+import org.cse535.configs.Utils;
 import org.cse535.database.DatabaseService;
 import org.cse535.node.Node;
 import org.cse535.proto.*;
 
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class IntraShardTnxProcessingThread extends Thread {
 
     public Transaction tnx;
+    public TransactionInputConfig tnxInput;
     public Node node;
-    public int ballotNumber;
+    AtomicBoolean isCrossShardSuccess;
 
-    public IntraShardTnxProcessingThread(Node node, Transaction tnx, int ballotNumber) {
-        this.tnx = tnx;
+    public IntraShardTnxProcessingThread(Node node, TransactionInputConfig tnxInput, AtomicBoolean isCrossShardSuccess) {
+        this.tnxInput = tnxInput;
+        this.tnx = tnxInput.getTransaction();
         this.node = node;
-        this.ballotNumber = ballotNumber;
-        this.node.database.addTransaction(ballotNumber, tnx);
+        this.isCrossShardSuccess = isCrossShardSuccess;
     }
 
 
@@ -47,16 +50,24 @@ public class IntraShardTnxProcessingThread extends Thread {
             String failureReason = "";
             boolean success = false;
 
+            boolean isLocked = true;
+
+            if (this.node.database.isDataItemLockedWithTnx(this.tnx.getSender(), this.tnx.getTransactionNum()) ||
+                    this.node.database.isDataItemLockedWithTnx(this.tnx.getReceiver(), this.tnx.getTransactionNum())) {
+                isLocked = false;
+            }
+
             //Wait until locks released if locked.
-            if (this.node.database.isDataItemLocked(this.tnx.getSender()) ||
-                    this.node.database.isDataItemLocked(this.tnx.getReceiver())) {
+            if (isLocked && (this.node.database.isDataItemLocked(this.tnx.getSender()) ||
+                    this.node.database.isDataItemLocked(this.tnx.getReceiver()))) {
                 failureReason = "Data Items Locked";
                 Thread.sleep(100);
             }
 
+
             //If still locked, move on
-            if (this.node.database.isDataItemLocked(this.tnx.getSender()) ||
-                    this.node.database.isDataItemLocked(this.tnx.getReceiver())) {
+            if (isLocked && (this.node.database.isDataItemLocked(this.tnx.getSender()) ||
+                    this.node.database.isDataItemLocked(this.tnx.getReceiver()))) {
                 failureReason = "Data Items Locked";
                 success = false;
             }
@@ -83,6 +94,7 @@ public class IntraShardTnxProcessingThread extends Thread {
                     }
                     else{
                         currentSeqNum = this.node.database.currentSeqNum.incrementAndGet();
+                        this.node.database.addTransaction(currentSeqNum, tnx);
                     }
 
                     this.node.database.transactionNumSeqNumMap.put(this.tnx.getTransactionNum(), currentSeqNum);
@@ -222,6 +234,36 @@ public class IntraShardTnxProcessingThread extends Thread {
                                     intraCommitThreads[j].join();
                                 }
 
+                                if(this.tnx.getIsCrossShard() ){
+
+                                    if(Utils.FindClusterOfDataItem(this.tnx.getSender()) == Utils.FindClusterOfDataItem(this.tnx.getReceiver())){
+                                        this.isCrossShardSuccess.set(true);
+                                    }
+                                    else{
+
+                                        CommitRequest crossShardCommitRequest = CommitRequest.newBuilder()
+                                                .setTransaction(this.tnx)
+                                                .setAbort(false)
+                                                .setProcessId(this.node.serverName)
+                                                .setClusterId(this.node.clusterNumber)
+                                                .setSequenceNumber(currentSeqNum)
+                                                .build();
+
+                                        int coordinatorServerNumber = 1;
+                                        for(String servername : this.tnxInput.getPrimaryServersList()){
+                                            if(Utils.FindMyCluster(servername) == Utils.FindClusterOfDataItem(this.tnx.getSender())){
+                                                coordinatorServerNumber = Integer.parseInt(servername.replaceAll("S", ""));
+                                                break;
+                                            }
+                                        }
+
+                                        //Send to coordinator
+                                        this.node.serversToPaxosStub.get(coordinatorServerNumber).crossShardPrepare(crossShardCommitRequest);
+                                        return;
+
+                                    }
+
+                                }
 
 
 
@@ -258,15 +300,16 @@ public class IntraShardTnxProcessingThread extends Thread {
             if (!tnx.getIsCrossShard() && !success )
                 this.node.sendExecutionReplyToClient(tnx, success, failureReason, "ABORTED");
 
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e) {
             throw new RuntimeException(e);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
             this.node.logger.log("Error processing transaction " + this.tnx.getTransactionNum() + " " + e.getMessage());
-        } finally {
+        }
+        finally {
 
-            this.node.database.unlockDataItem(this.tnx.getSender(), this.tnx.getTransactionNum());
-            this.node.database.unlockDataItem(this.tnx.getReceiver(), this.tnx.getTransactionNum());
 
         }
 

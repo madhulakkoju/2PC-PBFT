@@ -15,6 +15,11 @@ service LinearPBFT {
   rpc Prepare(PrepareRequest) returns (PrepareResponse) {}
   rpc Commit(CommitRequest) returns (CommitResponse) {}
 
+  //follower shard send to Coordinator shard leader
+  rpc crossShardPrepare(CommitRequest) returns (google.protobuf.Empty) {}
+
+  rpc CrossShardCommit(CommitRequest) returns (CommitResponse) {}
+
   rpc Sync(PrepareRequest) returns (PrepareResponse) {}
   rpc ExecReply(ExecutionReply) returns (google.protobuf.Empty) {}
 
@@ -50,6 +55,7 @@ message TransactionInputConfig{
   Transaction transaction = 2;
   int32 view = 3;
   repeated string serverNames = 5;
+  repeated string primaryServers = 6;
 
 }
 

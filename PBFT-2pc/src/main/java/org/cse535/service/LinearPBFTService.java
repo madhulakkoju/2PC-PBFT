@@ -8,6 +8,8 @@ import org.cse535.configs.Utils;
 import org.cse535.node.ViewServer;
 import org.cse535.proto.*;
 
+import java.util.HashMap;
+
 public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
     @Override
@@ -140,8 +142,28 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
     }
 
 
+    @Override
+    public void crossShardPrepare(CommitRequest request, StreamObserver<Empty> responseObserver) {
+        if( ! Main.node.isServerActive.get() ){
+            //Inactive server
+            responseObserver.onNext(Empty.newBuilder().build());
+            responseObserver.onCompleted();
+            return;
+        }
+
+        if(!Main.node.database.crossShardPrepareResponses.containsKey(request.getTransaction().getTransactionNum())) {
+            Main.node.database.crossShardPrepareResponses.put(request.getTransaction().getTransactionNum(), new HashMap<>());
+        }
+
+        Main.node.database.crossShardPrepareResponses.get(request.getTransaction().getTransactionNum()).put(request.getClusterId(), request);
+    }
+
+    @Override
+    public void crossShardCommit(CommitRequest request, StreamObserver<CommitResponse> responseObserver) {
 
 
+
+    }
 
     @Override
     public void reShardingInitiation(Empty request, StreamObserver<ReShardingInitData> responseObserver) {

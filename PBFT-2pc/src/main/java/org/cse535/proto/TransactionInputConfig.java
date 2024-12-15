@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     setNumber_ = 0;
     view_ = 0;
     serverNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    primaryServers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -77,6 +78,15 @@ private static final long serialVersionUID = 0L;
             serverNames_.add(s);
             break;
           }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              primaryServers_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000010;
+            }
+            primaryServers_.add(s);
+            break;
+          }
           default: {
             if (!parseUnknownFieldProto3(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -94,6 +104,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
         serverNames_ = serverNames_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        primaryServers_ = primaryServers_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -181,6 +194,35 @@ private static final long serialVersionUID = 0L;
     return serverNames_.getByteString(index);
   }
 
+  public static final int PRIMARYSERVERS_FIELD_NUMBER = 6;
+  private com.google.protobuf.LazyStringList primaryServers_;
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  public com.google.protobuf.ProtocolStringList
+      getPrimaryServersList() {
+    return primaryServers_;
+  }
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  public int getPrimaryServersCount() {
+    return primaryServers_.size();
+  }
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  public java.lang.String getPrimaryServers(int index) {
+    return primaryServers_.get(index);
+  }
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPrimaryServersBytes(int index) {
+    return primaryServers_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -206,6 +248,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < serverNames_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, serverNames_.getRaw(i));
+    }
+    for (int i = 0; i < primaryServers_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, primaryServers_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -236,6 +281,14 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getServerNamesList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < primaryServers_.size(); i++) {
+        dataSize += computeStringSizeNoTag(primaryServers_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getPrimaryServersList().size();
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -263,6 +316,8 @@ private static final long serialVersionUID = 0L;
         == other.getView());
     result = result && getServerNamesList()
         .equals(other.getServerNamesList());
+    result = result && getPrimaryServersList()
+        .equals(other.getPrimaryServersList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -285,6 +340,10 @@ private static final long serialVersionUID = 0L;
     if (getServerNamesCount() > 0) {
       hash = (37 * hash) + SERVERNAMES_FIELD_NUMBER;
       hash = (53 * hash) + getServerNamesList().hashCode();
+    }
+    if (getPrimaryServersCount() > 0) {
+      hash = (37 * hash) + PRIMARYSERVERS_FIELD_NUMBER;
+      hash = (53 * hash) + getPrimaryServersList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -431,6 +490,8 @@ private static final long serialVersionUID = 0L;
 
       serverNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
+      primaryServers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -471,6 +532,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.serverNames_ = serverNames_;
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        primaryServers_ = primaryServers_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.primaryServers_ = primaryServers_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -536,6 +602,16 @@ private static final long serialVersionUID = 0L;
         } else {
           ensureServerNamesIsMutable();
           serverNames_.addAll(other.serverNames_);
+        }
+        onChanged();
+      }
+      if (!other.primaryServers_.isEmpty()) {
+        if (primaryServers_.isEmpty()) {
+          primaryServers_ = other.primaryServers_;
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          ensurePrimaryServersIsMutable();
+          primaryServers_.addAll(other.primaryServers_);
         }
         onChanged();
       }
@@ -828,6 +904,100 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       ensureServerNamesIsMutable();
       serverNames_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList primaryServers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensurePrimaryServersIsMutable() {
+      if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        primaryServers_ = new com.google.protobuf.LazyStringArrayList(primaryServers_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPrimaryServersList() {
+      return primaryServers_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public int getPrimaryServersCount() {
+      return primaryServers_.size();
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public java.lang.String getPrimaryServers(int index) {
+      return primaryServers_.get(index);
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPrimaryServersBytes(int index) {
+      return primaryServers_.getByteString(index);
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public Builder setPrimaryServers(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePrimaryServersIsMutable();
+      primaryServers_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public Builder addPrimaryServers(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePrimaryServersIsMutable();
+      primaryServers_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public Builder addAllPrimaryServers(
+        java.lang.Iterable<java.lang.String> values) {
+      ensurePrimaryServersIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, primaryServers_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public Builder clearPrimaryServers() {
+      primaryServers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string primaryServers = 6;</code>
+     */
+    public Builder addPrimaryServersBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensurePrimaryServersIsMutable();
+      primaryServers_.add(value);
       onChanged();
       return this;
     }

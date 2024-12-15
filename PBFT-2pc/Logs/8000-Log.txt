@@ -20,10 +20,6 @@ Line: 6 : 2,"(101, 301, 9)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]
 Line: 7 : 2,"(299, 1, 4)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
 -------------------------------------------------------------
 Line: 8 : 3,"(2995, 2990, 5)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
-Transaction: 4 Completed - Received responses from f+1 servers
-Transaction: 5 Completed - Received responses from f+1 servers
-Transaction: 6 Completed - Received responses from f+1 servers
-Transaction: 7 Completed - Received responses from f+1 servers
 Printing Data Store
 -------------------------------------------------------------
 Line: 9 : 3,"(791, 997, 3)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
@@ -33,18 +29,20 @@ Line: 10 : 3,"(1895, 1890, 5)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S
 Line: 11 : 3,"(2995, 2994, 7)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
 -------------------------------------------------------------
 Line: 12 : 4,"(2770, 2799, 1)","[S1, S2, S3, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
+Transaction: 4 Completed - Received responses from f+1 servers
+Transaction: 5 Completed - Received responses from f+1 servers
+Transaction: 6 Completed - Received responses from f+1 servers
+Transaction: 7 Completed - Received responses from f+1 servers
 Printing Data Store
-Transaction: 8 Completed - Received responses from f+1 servers
-Transaction: 9 Completed - Received responses from f+1 servers
-Transaction: 10 Completed - Received responses from f+1 servers
 -------------------------------------------------------------
 Line: 13 : 4,"(196, 197, 3)","[S1, S2, S3, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
 -------------------------------------------------------------
 Line: 14 : 4,"(1295, 1990, 17)","[S1, S2, S3, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
 -------------------------------------------------------------
 Line: 15 : 5,"(973, 707, 2)","[S1, S5, S6, S7, S8, S9, S10, S11]","[S1, S5, S9]","[S6, S11]"
-Transaction: 12 Completed - Received responses from f+1 servers
-Transaction: 13 Completed - Received responses from f+1 servers
+Transaction: 8 Completed - Received responses from f+1 servers
+Transaction: 9 Completed - Received responses from f+1 servers
+Transaction: 10 Completed - Received responses from f+1 servers
 Printing Data Store
 -------------------------------------------------------------
 Line: 16 : 5,"(1495, 1490, 3)","[S1, S5, S6, S7, S8, S9, S10, S11]","[S1, S5, S9]","[S6, S11]"
@@ -56,23 +54,22 @@ Line: 18 : 5,"(1690, 1695, 6)","[S1, S5, S6, S7, S8, S9, S10, S11]","[S1, S5, S9
 Line: 19 : 5,"(2975, 2970, 9)","[S1, S5, S6, S7, S8, S9, S10, S11]","[S1, S5, S9]","[S6, S11]"
 -------------------------------------------------------------
 Line: 20 : 6,"(888, 777, 5)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
+Transaction: 12 Completed - Received responses from f+1 servers
+Transaction: 13 Completed - Received responses from f+1 servers
 Printing Data Store
+-------------------------------------------------------------
+Line: 21 : 6,"(1415, 1189, 5)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
+-------------------------------------------------------------
+Line: 22 : 6,"(2222, 2333, 6)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
 Transaction: 15 Timed Out -> RETRY
 Transaction: 16 Completed - Received responses from f+1 servers
 Transaction: 17 Timed Out -> RETRY
 Transaction: 18 Completed - Received responses from f+1 servers
 Transaction: 19 Completed - Received responses from f+1 servers
--------------------------------------------------------------
-Line: 21 : 6,"(1415, 1189, 5)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
--------------------------------------------------------------
-Line: 22 : 6,"(2222, 2333, 6)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S6, S11]"
 Printing Data Store
-Transaction: 15 Timed Out -> RETRY
-Transaction: 17 Timed Out -> RETRY
 Transaction: 20 Completed - Received responses from f+1 servers
 Transaction: 21 Completed - Received responses from f+1 servers
 Transaction: 22 Completed - Received responses from f+1 servers
-Printing Data Store
 Transaction: 15 Completed - Received responses from f+1 servers
 Transaction: 17 Completed - Received responses from f+1 servers
 Printing Data Store

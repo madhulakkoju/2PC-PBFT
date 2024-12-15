@@ -48,4 +48,23 @@ public interface TransactionInputConfigOrBuilder extends
    */
   com.google.protobuf.ByteString
       getServerNamesBytes(int index);
+
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  java.util.List<java.lang.String>
+      getPrimaryServersList();
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  int getPrimaryServersCount();
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  java.lang.String getPrimaryServers(int index);
+  /**
+   * <code>repeated string primaryServers = 6;</code>
+   */
+  com.google.protobuf.ByteString
+      getPrimaryServersBytes(int index);
 }

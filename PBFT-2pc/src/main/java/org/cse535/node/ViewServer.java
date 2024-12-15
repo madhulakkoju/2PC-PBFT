@@ -144,6 +144,7 @@ public class ViewServer extends NodeServer {
                 .setSetNumber(testCaseCount)
                 .setTransaction(transaction)
                 .addAllServerNames(activeServersList)
+                .addAllPrimaryServers(contactServersList)
                 .build(), contactServersList,
                 maliciousServersList);
     }
@@ -307,8 +308,8 @@ public class ViewServer extends NodeServer {
         participatingDataItems.add(transactionInputConfig.getTransaction().getSender());
         participatingDataItems.add(transactionInputConfig.getTransaction().getReceiver());
         try {
-            CrossShardTnxProcessingThread thread = new CrossShardTnxProcessingThread(this, transactionInputConfig, senderServer, receiverServer);
-            thread.start();
+//            CrossShardTnxProcessingThread thread = new CrossShardTnxProcessingThread(this, transactionInputConfig, senderServer, receiverServer);
+//            thread.start();
 
             //need not wait for the thread to finish
             //thread.join();
@@ -342,7 +343,8 @@ public class ViewServer extends NodeServer {
             viewServer.activeServersStatusMap.put(serverNum, true);
         }
 
-        String path = "src/main/resources/Lab4_Testset_1.csv";
+        String path = "src/main/resources/Lab4_Testset_1.csv"; // Intra Shard Transactions
+        //String path = "src/main/resources/Lab4_Testset_2.csv"; // Cross Shard Transactions
 
         File file = new File(path);
         String line;

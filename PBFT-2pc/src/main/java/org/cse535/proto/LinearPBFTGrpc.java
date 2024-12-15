@@ -187,6 +187,70 @@ public final class LinearPBFTGrpc {
      return getCommitMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest,
+      com.google.protobuf.Empty> getCrossShardPrepareMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "crossShardPrepare",
+      requestType = org.cse535.proto.CommitRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest,
+      com.google.protobuf.Empty> getCrossShardPrepareMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest, com.google.protobuf.Empty> getCrossShardPrepareMethod;
+    if ((getCrossShardPrepareMethod = LinearPBFTGrpc.getCrossShardPrepareMethod) == null) {
+      synchronized (LinearPBFTGrpc.class) {
+        if ((getCrossShardPrepareMethod = LinearPBFTGrpc.getCrossShardPrepareMethod) == null) {
+          LinearPBFTGrpc.getCrossShardPrepareMethod = getCrossShardPrepareMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommitRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "LinearPBFT", "crossShardPrepare"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommitRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("crossShardPrepare"))
+                  .build();
+          }
+        }
+     }
+     return getCrossShardPrepareMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest,
+      org.cse535.proto.CommitResponse> getCrossShardCommitMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CrossShardCommit",
+      requestType = org.cse535.proto.CommitRequest.class,
+      responseType = org.cse535.proto.CommitResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest,
+      org.cse535.proto.CommitResponse> getCrossShardCommitMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest, org.cse535.proto.CommitResponse> getCrossShardCommitMethod;
+    if ((getCrossShardCommitMethod = LinearPBFTGrpc.getCrossShardCommitMethod) == null) {
+      synchronized (LinearPBFTGrpc.class) {
+        if ((getCrossShardCommitMethod = LinearPBFTGrpc.getCrossShardCommitMethod) == null) {
+          LinearPBFTGrpc.getCrossShardCommitMethod = getCrossShardCommitMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommitRequest, org.cse535.proto.CommitResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "LinearPBFT", "CrossShardCommit"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommitRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommitResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("CrossShardCommit"))
+                  .build();
+          }
+        }
+     }
+     return getCrossShardCommitMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
       org.cse535.proto.PrepareResponse> getSyncMethod;
 
@@ -410,6 +474,23 @@ public final class LinearPBFTGrpc {
     }
 
     /**
+     * <pre>
+     *follower shard send to Coordinator shard leader
+     * </pre>
+     */
+    public void crossShardPrepare(org.cse535.proto.CommitRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnimplementedUnaryCall(getCrossShardPrepareMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void crossShardCommit(org.cse535.proto.CommitRequest request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommitResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getCrossShardCommitMethod(), responseObserver);
+    }
+
+    /**
      */
     public void sync(org.cse535.proto.PrepareRequest request,
         io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse> responseObserver) {
@@ -481,6 +562,20 @@ public final class LinearPBFTGrpc {
                 org.cse535.proto.CommitRequest,
                 org.cse535.proto.CommitResponse>(
                   this, METHODID_COMMIT)))
+          .addMethod(
+            getCrossShardPrepareMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommitRequest,
+                com.google.protobuf.Empty>(
+                  this, METHODID_CROSS_SHARD_PREPARE)))
+          .addMethod(
+            getCrossShardCommitMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommitRequest,
+                org.cse535.proto.CommitResponse>(
+                  this, METHODID_CROSS_SHARD_COMMIT)))
           .addMethod(
             getSyncMethod(),
             asyncUnaryCall(
@@ -579,6 +674,25 @@ public final class LinearPBFTGrpc {
     }
 
     /**
+     * <pre>
+     *follower shard send to Coordinator shard leader
+     * </pre>
+     */
+    public void crossShardPrepare(org.cse535.proto.CommitRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCrossShardPrepareMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void crossShardCommit(org.cse535.proto.CommitRequest request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommitResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCrossShardCommitMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      */
     public void sync(org.cse535.proto.PrepareRequest request,
         io.grpc.stub.StreamObserver<org.cse535.proto.PrepareResponse> responseObserver) {
@@ -670,6 +784,23 @@ public final class LinearPBFTGrpc {
     public org.cse535.proto.CommitResponse commit(org.cse535.proto.CommitRequest request) {
       return blockingUnaryCall(
           getChannel(), getCommitMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *follower shard send to Coordinator shard leader
+     * </pre>
+     */
+    public com.google.protobuf.Empty crossShardPrepare(org.cse535.proto.CommitRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getCrossShardPrepareMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.cse535.proto.CommitResponse crossShardCommit(org.cse535.proto.CommitRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getCrossShardCommitMethod(), getCallOptions(), request);
     }
 
     /**
@@ -767,6 +898,25 @@ public final class LinearPBFTGrpc {
     }
 
     /**
+     * <pre>
+     *follower shard send to Coordinator shard leader
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> crossShardPrepare(
+        org.cse535.proto.CommitRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCrossShardPrepareMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommitResponse> crossShardCommit(
+        org.cse535.proto.CommitRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCrossShardCommitMethod(), getCallOptions()), request);
+    }
+
+    /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.PrepareResponse> sync(
         org.cse535.proto.PrepareRequest request) {
@@ -812,11 +962,13 @@ public final class LinearPBFTGrpc {
   private static final int METHODID_PRE_PREPARE = 2;
   private static final int METHODID_PREPARE = 3;
   private static final int METHODID_COMMIT = 4;
-  private static final int METHODID_SYNC = 5;
-  private static final int METHODID_EXEC_REPLY = 6;
-  private static final int METHODID_RE_SHARDING_INITIATION = 7;
-  private static final int METHODID_RE_SHARDING_PROCESS = 8;
-  private static final int METHODID_RELAY_REQUEST = 9;
+  private static final int METHODID_CROSS_SHARD_PREPARE = 5;
+  private static final int METHODID_CROSS_SHARD_COMMIT = 6;
+  private static final int METHODID_SYNC = 7;
+  private static final int METHODID_EXEC_REPLY = 8;
+  private static final int METHODID_RE_SHARDING_INITIATION = 9;
+  private static final int METHODID_RE_SHARDING_PROCESS = 10;
+  private static final int METHODID_RELAY_REQUEST = 11;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -853,6 +1005,14 @@ public final class LinearPBFTGrpc {
           break;
         case METHODID_COMMIT:
           serviceImpl.commit((org.cse535.proto.CommitRequest) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.CommitResponse>) responseObserver);
+          break;
+        case METHODID_CROSS_SHARD_PREPARE:
+          serviceImpl.crossShardPrepare((org.cse535.proto.CommitRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_CROSS_SHARD_COMMIT:
+          serviceImpl.crossShardCommit((org.cse535.proto.CommitRequest) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.CommitResponse>) responseObserver);
           break;
         case METHODID_SYNC:
@@ -941,6 +1101,8 @@ public final class LinearPBFTGrpc {
               .addMethod(getPrePrepareMethod())
               .addMethod(getPrepareMethod())
               .addMethod(getCommitMethod())
+              .addMethod(getCrossShardPrepareMethod())
+              .addMethod(getCrossShardCommitMethod())
               .addMethod(getSyncMethod())
               .addMethod(getExecReplyMethod())
               .addMethod(getReShardingInitiationMethod())
