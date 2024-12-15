@@ -169,128 +169,129 @@ public final class Pbft2Pc {
   static {
     java.lang.String[] descriptorData = {
       "\n\016pbft-2pc.proto\032\037google/protobuf/timest" +
-      "amp.proto\032\033google/protobuf/empty.proto\"\211" +
+      "amp.proto\032\033google/protobuf/empty.proto\"\254" +
       "\001\n\026TransactionInputConfig\022\021\n\tsetNumber\030\001" +
       " \001(\005\022!\n\013transaction\030\002 \001(\0132\014.Transaction\022" +
       "\014\n\004view\030\003 \001(\005\022\023\n\013serverNames\030\005 \003(\t\022\026\n\016pr" +
-      "imaryServers\030\006 \003(\t\"\310\001\n\013Transaction\022\016\n\006se" +
-      "nder\030\001 \001(\005\022\020\n\010receiver\030\002 \001(\005\022\016\n\006amount\030\003" +
-      " \001(\005\022\021\n\treceiver2\030\010 \001(\005\022-\n\ttimestamp\030\004 \001" +
-      "(\0132\032.google.protobuf.Timestamp\022\027\n\017transa" +
-      "ctionHash\030\005 \001(\t\022\026\n\016transactionNum\030\006 \001(\005\022" +
-      "\024\n\014isCrossShard\030\007 \001(\010\"2\n\013TxnResponse\022\017\n\007" +
-      "success\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"\225\001\n\020Cr" +
-      "ossTxnResponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserve" +
-      "rName\030\002 \001(\t\022\024\n\014ballotNumber\030\003 \001(\005\022\021\n\tclu" +
-      "sterId\030\006 \001(\005\022\034\n\024successPreparesCount\030\004 \001" +
-      "(\005\022\025\n\rfailureReason\030\005 \001(\t\"\301\001\n\021PrePrepare" +
-      "Request\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceNumber\030" +
-      "\002 \001(\005\022!\n\013transaction\030\003 \001(\0132\014.Transaction" +
-      "\022\021\n\tprocessId\030\004 \001(\t\022-\n\ttimestamp\030\005 \001(\0132\032" +
-      ".google.protobuf.Timestamp\022\016\n\006digest\030\006 \001" +
-      "(\t\022\021\n\tclusterId\030\007 \001(\005\"\367\004\n\022PrePrepareResp" +
-      "onse\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001" +
-      "(\005\022\021\n\tprocessId\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\022\021" +
-      "\n\tclusterId\030\005 \001(\005\022I\n\023syncTransactionsMap" +
-      "\030\010 \003(\0132,.PrePrepareResponse.SyncTransact" +
-      "ionsMapEntry\022S\n\030syncTransactionStatusMap" +
-      "\030\t \003(\01321.PrePrepareResponse.SyncTransact" +
-      "ionStatusMapEntry\022A\n\017syncBalancesMap\030\n \003" +
-      "(\0132(.PrePrepareResponse.SyncBalancesMapE" +
-      "ntry\022\032\n\022acceptedServerName\030\013 \001(\t\022\022\n\nneed" +
-      "ToSync\030\014 \001(\010\022\032\n\022latestBallotNumber\030\r \001(\005" +
-      "\032H\n\030SyncTransactionsMapEntry\022\013\n\003key\030\001 \001(" +
-      "\005\022\033\n\005value\030\002 \001(\0132\014.Transaction:\0028\001\032S\n\035Sy" +
-      "ncTransactionStatusMapEntry\022\013\n\003key\030\001 \001(\005" +
-      "\022!\n\005value\030\002 \001(\0162\022.TransactionStatus:\0028\001\032" +
-      "6\n\024SyncBalancesMapEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005" +
-      "value\030\002 \001(\005:\0028\001\"\276\001\n\016PrepareRequest\022\014\n\004vi" +
-      "ew\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021\n\tproc" +
-      "essId\030\003 \001(\t\022-\n\ttimestamp\030\004 \001(\0132\032.google." +
-      "protobuf.Timestamp\022\016\n\006digest\030\005 \001(\t\022!\n\013tr" +
-      "ansaction\030\006 \001(\0132\014.Transaction\022\021\n\tcluster" +
-      "Id\030\007 \001(\005\"n\n\017PrepareResponse\022\014\n\004view\030\001 \001(" +
-      "\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021\n\tprocessId\030\003" +
-      " \001(\t\022\017\n\007success\030\004 \001(\010\022\021\n\tclusterId\030\005 \001(\005" +
-      "\"\314\001\n\rCommitRequest\022\014\n\004view\030\001 \001(\005\022\026\n\016sequ" +
-      "enceNumber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022-\n\tt" +
-      "imestamp\030\004 \001(\0132\032.google.protobuf.Timesta" +
-      "mp\022\016\n\006digest\030\005 \001(\t\022\021\n\tclusterId\030\006 \001(\005\022\r\n" +
-      "\005abort\030\007 \001(\010\022!\n\013transaction\030\010 \001(\0132\014.Tran" +
-      "saction\"Z\n\016CommitResponse\022\014\n\004view\030\001 \001(\005\022" +
-      "\026\n\016sequenceNumber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001" +
-      "(\t\022\017\n\007success\030\004 \001(\010\"\332\001\n\016ExecutionReply\022\014" +
-      "\n\004view\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021\n\t" +
-      "processId\030\003 \001(\t\022\025\n\rtransactionId\030\005 \001(\005\022-" +
-      "\n\ttimestamp\030\004 \001(\0132\032.google.protobuf.Time" +
-      "stamp\022\017\n\007success\030\006 \001(\010\022\016\n\006status\030\t \001(\t\022\021" +
-      "\n\tclusterId\030\007 \001(\005\022\025\n\rfailureReason\030\010 \001(\t" +
-      "\"c\n\021ViewChangeRequest\022\014\n\004view\030\001 \001(\005\022\021\n\tp" +
-      "rocessId\030\002 \001(\t\022-\n\ttimestamp\030\003 \001(\0132\032.goog" +
-      "le.protobuf.Timestamp\"F\n\022ViewChangeRespo" +
-      "nse\022\014\n\004view\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022\017\n\007" +
-      "success\030\003 \001(\010\"\272\001\n\016NewViewRequest\022\014\n\004view" +
-      "\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022-\n\ttimestamp\030\003" +
-      " \001(\0132\032.google.protobuf.Timestamp\022.\n\022view" +
-      "ChangeMessages\030\004 \003(\0132\022.ViewChangeRequest" +
-      "\022(\n\017prepareMessages\030\005 \003(\0132\017.PrepareReque" +
-      "st\"C\n\017NewViewResponse\022\014\n\004view\030\001 \001(\005\022\021\n\tp" +
-      "rocessId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"=\n\025Activ" +
-      "ateServerRequest\022\022\n\nserverName\030\001 \001(\t\022\020\n\010" +
-      "testCase\030\002 \001(\005\"=\n\026ActivateServerResponse" +
-      "\022\017\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"?\n" +
-      "\027DeactivateServerRequest\022\022\n\nserverName\030\001" +
-      " \001(\t\022\020\n\010testCase\030\002 \001(\005\"?\n\030DeactivateServ" +
-      "erResponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserverNam" +
-      "e\030\002 \001(\t\"\035\n\014CommandInput\022\r\n\005input\030\001 \001(\t\"\037" +
-      "\n\rCommandOutput\022\016\n\006output\030\001 \001(\t\"\242\001\n\022ReSh" +
-      "ardingInitData\022\021\n\tclusterId\030\001 \001(\005\022A\n\017acc" +
-      "ountBalances\030\002 \003(\0132(.ReShardingInitData." +
-      "AccountBalancesEntry\0326\n\024AccountBalancesE" +
-      "ntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\"\254\002\n" +
-      "\016ReShardingData\022\021\n\tclusterId\030\001 \001(\005\022=\n\017ac" +
-      "countBalances\030\002 \003(\0132$.ReShardingData.Acc" +
-      "ountBalancesEntry\022O\n\030newDataItemClusterC" +
-      "onfig\030\003 \003(\0132-.ReShardingData.NewDataItem" +
-      "ClusterConfigEntry\0326\n\024AccountBalancesEnt" +
-      "ry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\032?\n\035Ne" +
-      "wDataItemClusterConfigEntry\022\013\n\003key\030\001 \001(\005" +
-      "\022\r\n\005value\030\002 \001(\005:\0028\001*\220\001\n\021TransactionStatu" +
-      "s\022\010\n\004None\020\000\022\r\n\tREQUESTED\020\001\022\017\n\013PrePREPARE" +
-      "D\020\002\022\014\n\010PREPARED\020\003\022\r\n\tCOMMITTED\020\004\022\014\n\010EXEC" +
-      "UTED\020\005\022\013\n\007ABORTED\020\006\022\013\n\007PENDING\020\007\022\014\n\010ACCE" +
-      "PTED\020\0102\253\005\n\nLinearPBFT\0222\n\007Request\022\027.Trans" +
-      "actionInputConfig\032\014.TxnResponse\"\000\022A\n\021Cro" +
-      "ssShardRequest\022\027.TransactionInputConfig\032" +
-      "\021.CrossTxnResponse\"\000\0227\n\nPrePrepare\022\022.Pre" +
-      "PrepareRequest\032\023.PrePrepareResponse\"\000\022.\n" +
-      "\007Prepare\022\017.PrepareRequest\032\020.PrepareRespo" +
-      "nse\"\000\022+\n\006Commit\022\016.CommitRequest\032\017.Commit" +
-      "Response\"\000\022=\n\021crossShardPrepare\022\016.Commit" +
-      "Request\032\026.google.protobuf.Empty\"\000\0225\n\020Cro" +
-      "ssShardCommit\022\016.CommitRequest\032\017.CommitRe" +
-      "sponse\"\000\022+\n\004Sync\022\017.PrepareRequest\032\020.Prep" +
-      "areResponse\"\000\0226\n\tExecReply\022\017.ExecutionRe" +
-      "ply\032\026.google.protobuf.Empty\"\000\022E\n\024ReShard" +
-      "ingInitiation\022\026.google.protobuf.Empty\032\023." +
-      "ReShardingInitData\"\000\0226\n\021ReShardingProces" +
-      "s\022\017.ReShardingData\032\016.CommandOutput\"\000\0226\n\014" +
-      "relayRequest\022\014.Transaction\032\026.google.prot" +
-      "obuf.Empty\"\0002\222\002\n\017ActivateServers\022C\n\016acti" +
-      "vateServer\022\026.ActivateServerRequest\032\027.Act" +
-      "ivateServerResponse\"\000\022I\n\020deactivateServe" +
-      "r\022\030.DeactivateServerRequest\032\031.Deactivate" +
-      "ServerResponse\"\000\0228\n\rmakeByzantine\022\r.Comm" +
-      "andInput\032\026.google.protobuf.Empty\"\000\0225\n\nma" +
-      "keHonest\022\r.CommandInput\032\026.google.protobu" +
-      "f.Empty\"\0002\367\001\n\010Commands\022/\n\014printBalance\022\r" +
-      ".CommandInput\032\016.CommandOutput\"\000\022+\n\010print" +
-      "Log\022\r.CommandInput\032\016.CommandOutput\"\000\022*\n\007" +
-      "printDB\022\r.CommandInput\032\016.CommandOutput\"\000" +
-      "\022.\n\013Performance\022\r.CommandInput\032\016.Command" +
-      "Output\"\000\0221\n\016printDatastore\022\r.CommandInpu" +
-      "t\032\016.CommandOutput\"\000B\024\n\020org.cse535.protoP" +
-      "\001b\006proto3"
+      "imaryServers\030\006 \003(\t\022\021\n\tprocessId\030\004 \001(\t\022\016\n" +
+      "\006digest\030\007 \001(\t\"\310\001\n\013Transaction\022\016\n\006sender\030" +
+      "\001 \001(\005\022\020\n\010receiver\030\002 \001(\005\022\016\n\006amount\030\003 \001(\005\022" +
+      "\021\n\treceiver2\030\010 \001(\005\022-\n\ttimestamp\030\004 \001(\0132\032." +
+      "google.protobuf.Timestamp\022\027\n\017transaction" +
+      "Hash\030\005 \001(\t\022\026\n\016transactionNum\030\006 \001(\005\022\024\n\014is" +
+      "CrossShard\030\007 \001(\010\"2\n\013TxnResponse\022\017\n\007succe" +
+      "ss\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"\225\001\n\020CrossTx" +
+      "nResponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserverName" +
+      "\030\002 \001(\t\022\024\n\014ballotNumber\030\003 \001(\005\022\021\n\tclusterI" +
+      "d\030\006 \001(\005\022\034\n\024successPreparesCount\030\004 \001(\005\022\025\n" +
+      "\rfailureReason\030\005 \001(\t\"\301\001\n\021PrePrepareReque" +
+      "st\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005" +
+      "\022!\n\013transaction\030\003 \001(\0132\014.Transaction\022\021\n\tp" +
+      "rocessId\030\004 \001(\t\022-\n\ttimestamp\030\005 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022\016\n\006digest\030\006 \001(\t\022\021\n" +
+      "\tclusterId\030\007 \001(\005\"\367\004\n\022PrePrepareResponse\022" +
+      "\014\n\004view\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021\n" +
+      "\tprocessId\030\003 \001(\t\022\017\n\007success\030\004 \001(\010\022\021\n\tclu" +
+      "sterId\030\005 \001(\005\022I\n\023syncTransactionsMap\030\010 \003(" +
+      "\0132,.PrePrepareResponse.SyncTransactionsM" +
+      "apEntry\022S\n\030syncTransactionStatusMap\030\t \003(" +
+      "\01321.PrePrepareResponse.SyncTransactionSt" +
+      "atusMapEntry\022A\n\017syncBalancesMap\030\n \003(\0132(." +
+      "PrePrepareResponse.SyncBalancesMapEntry\022" +
+      "\032\n\022acceptedServerName\030\013 \001(\t\022\022\n\nneedToSyn" +
+      "c\030\014 \001(\010\022\032\n\022latestBallotNumber\030\r \001(\005\032H\n\030S" +
+      "yncTransactionsMapEntry\022\013\n\003key\030\001 \001(\005\022\033\n\005" +
+      "value\030\002 \001(\0132\014.Transaction:\0028\001\032S\n\035SyncTra" +
+      "nsactionStatusMapEntry\022\013\n\003key\030\001 \001(\005\022!\n\005v" +
+      "alue\030\002 \001(\0162\022.TransactionStatus:\0028\001\0326\n\024Sy" +
+      "ncBalancesMapEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value" +
+      "\030\002 \001(\005:\0028\001\"\276\001\n\016PrepareRequest\022\014\n\004view\030\001 " +
+      "\001(\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021\n\tprocessId" +
+      "\030\003 \001(\t\022-\n\ttimestamp\030\004 \001(\0132\032.google.proto" +
+      "buf.Timestamp\022\016\n\006digest\030\005 \001(\t\022!\n\013transac" +
+      "tion\030\006 \001(\0132\014.Transaction\022\021\n\tclusterId\030\007 " +
+      "\001(\005\"n\n\017PrepareResponse\022\014\n\004view\030\001 \001(\005\022\026\n\016" +
+      "sequenceNumber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022" +
+      "\017\n\007success\030\004 \001(\010\022\021\n\tclusterId\030\005 \001(\005\"\314\001\n\r" +
+      "CommitRequest\022\014\n\004view\030\001 \001(\005\022\026\n\016sequenceN" +
+      "umber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022-\n\ttimest" +
+      "amp\030\004 \001(\0132\032.google.protobuf.Timestamp\022\016\n" +
+      "\006digest\030\005 \001(\t\022\021\n\tclusterId\030\006 \001(\005\022\r\n\005abor" +
+      "t\030\007 \001(\010\022!\n\013transaction\030\010 \001(\0132\014.Transacti" +
+      "on\"Z\n\016CommitResponse\022\014\n\004view\030\001 \001(\005\022\026\n\016se" +
+      "quenceNumber\030\002 \001(\005\022\021\n\tprocessId\030\003 \001(\t\022\017\n" +
+      "\007success\030\004 \001(\010\"\332\001\n\016ExecutionReply\022\014\n\004vie" +
+      "w\030\001 \001(\005\022\026\n\016sequenceNumber\030\002 \001(\005\022\021\n\tproce" +
+      "ssId\030\003 \001(\t\022\025\n\rtransactionId\030\005 \001(\005\022-\n\ttim" +
+      "estamp\030\004 \001(\0132\032.google.protobuf.Timestamp" +
+      "\022\017\n\007success\030\006 \001(\010\022\016\n\006status\030\t \001(\t\022\021\n\tclu" +
+      "sterId\030\007 \001(\005\022\025\n\rfailureReason\030\010 \001(\t\"c\n\021V" +
+      "iewChangeRequest\022\014\n\004view\030\001 \001(\005\022\021\n\tproces" +
+      "sId\030\002 \001(\t\022-\n\ttimestamp\030\003 \001(\0132\032.google.pr" +
+      "otobuf.Timestamp\"F\n\022ViewChangeResponse\022\014" +
+      "\n\004view\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022\017\n\007succe" +
+      "ss\030\003 \001(\010\"\272\001\n\016NewViewRequest\022\014\n\004view\030\001 \001(" +
+      "\005\022\021\n\tprocessId\030\002 \001(\t\022-\n\ttimestamp\030\003 \001(\0132" +
+      "\032.google.protobuf.Timestamp\022.\n\022viewChang" +
+      "eMessages\030\004 \003(\0132\022.ViewChangeRequest\022(\n\017p" +
+      "repareMessages\030\005 \003(\0132\017.PrepareRequest\"C\n" +
+      "\017NewViewResponse\022\014\n\004view\030\001 \001(\005\022\021\n\tproces" +
+      "sId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"=\n\025ActivateSe" +
+      "rverRequest\022\022\n\nserverName\030\001 \001(\t\022\020\n\010testC" +
+      "ase\030\002 \001(\005\"=\n\026ActivateServerResponse\022\017\n\007s" +
+      "uccess\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"?\n\027Deac" +
+      "tivateServerRequest\022\022\n\nserverName\030\001 \001(\t\022" +
+      "\020\n\010testCase\030\002 \001(\005\"?\n\030DeactivateServerRes" +
+      "ponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002 \001" +
+      "(\t\"\035\n\014CommandInput\022\r\n\005input\030\001 \001(\t\"\037\n\rCom" +
+      "mandOutput\022\016\n\006output\030\001 \001(\t\"\242\001\n\022ReShardin" +
+      "gInitData\022\021\n\tclusterId\030\001 \001(\005\022A\n\017accountB" +
+      "alances\030\002 \003(\0132(.ReShardingInitData.Accou" +
+      "ntBalancesEntry\0326\n\024AccountBalancesEntry\022" +
+      "\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\"\254\002\n\016ReSh" +
+      "ardingData\022\021\n\tclusterId\030\001 \001(\005\022=\n\017account" +
+      "Balances\030\002 \003(\0132$.ReShardingData.AccountB" +
+      "alancesEntry\022O\n\030newDataItemClusterConfig" +
+      "\030\003 \003(\0132-.ReShardingData.NewDataItemClust" +
+      "erConfigEntry\0326\n\024AccountBalancesEntry\022\013\n" +
+      "\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\032?\n\035NewData" +
+      "ItemClusterConfigEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005v" +
+      "alue\030\002 \001(\005:\0028\001*\220\001\n\021TransactionStatus\022\010\n\004" +
+      "None\020\000\022\r\n\tREQUESTED\020\001\022\017\n\013PrePREPARED\020\002\022\014" +
+      "\n\010PREPARED\020\003\022\r\n\tCOMMITTED\020\004\022\014\n\010EXECUTED\020" +
+      "\005\022\013\n\007ABORTED\020\006\022\013\n\007PENDING\020\007\022\014\n\010ACCEPTED\020" +
+      "\0102\253\005\n\nLinearPBFT\0222\n\007Request\022\027.Transactio" +
+      "nInputConfig\032\014.TxnResponse\"\000\022A\n\021CrossSha" +
+      "rdRequest\022\027.TransactionInputConfig\032\021.Cro" +
+      "ssTxnResponse\"\000\0227\n\nPrePrepare\022\022.PrePrepa" +
+      "reRequest\032\023.PrePrepareResponse\"\000\022.\n\007Prep" +
+      "are\022\017.PrepareRequest\032\020.PrepareResponse\"\000" +
+      "\022+\n\006Commit\022\016.CommitRequest\032\017.CommitRespo" +
+      "nse\"\000\022=\n\021crossShardPrepare\022\016.CommitReque" +
+      "st\032\026.google.protobuf.Empty\"\000\0225\n\020CrossSha" +
+      "rdCommit\022\016.CommitRequest\032\017.CommitRespons" +
+      "e\"\000\022+\n\004Sync\022\017.PrepareRequest\032\020.PrepareRe" +
+      "sponse\"\000\0226\n\tExecReply\022\017.ExecutionReply\032\026" +
+      ".google.protobuf.Empty\"\000\022E\n\024ReShardingIn" +
+      "itiation\022\026.google.protobuf.Empty\032\023.ReSha" +
+      "rdingInitData\"\000\0226\n\021ReShardingProcess\022\017.R" +
+      "eShardingData\032\016.CommandOutput\"\000\0226\n\014relay" +
+      "Request\022\014.Transaction\032\026.google.protobuf." +
+      "Empty\"\0002\222\002\n\017ActivateServers\022C\n\016activateS" +
+      "erver\022\026.ActivateServerRequest\032\027.Activate" +
+      "ServerResponse\"\000\022I\n\020deactivateServer\022\030.D" +
+      "eactivateServerRequest\032\031.DeactivateServe" +
+      "rResponse\"\000\0228\n\rmakeByzantine\022\r.CommandIn" +
+      "put\032\026.google.protobuf.Empty\"\000\0225\n\nmakeHon" +
+      "est\022\r.CommandInput\032\026.google.protobuf.Emp" +
+      "ty\"\0002\367\001\n\010Commands\022/\n\014printBalance\022\r.Comm" +
+      "andInput\032\016.CommandOutput\"\000\022+\n\010printLog\022\r" +
+      ".CommandInput\032\016.CommandOutput\"\000\022*\n\007print" +
+      "DB\022\r.CommandInput\032\016.CommandOutput\"\000\022.\n\013P" +
+      "erformance\022\r.CommandInput\032\016.CommandOutpu" +
+      "t\"\000\0221\n\016printDatastore\022\r.CommandInput\032\016.C" +
+      "ommandOutput\"\000B\024\n\020org.cse535.protoP\001b\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -311,7 +312,7 @@ public final class Pbft2Pc {
     internal_static_TransactionInputConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TransactionInputConfig_descriptor,
-        new java.lang.String[] { "SetNumber", "Transaction", "View", "ServerNames", "PrimaryServers", });
+        new java.lang.String[] { "SetNumber", "Transaction", "View", "ServerNames", "PrimaryServers", "ProcessId", "Digest", });
     internal_static_Transaction_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Transaction_fieldAccessorTable = new

@@ -67,4 +67,24 @@ public interface TransactionInputConfigOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPrimaryServersBytes(int index);
+
+  /**
+   * <code>string processId = 4;</code>
+   */
+  java.lang.String getProcessId();
+  /**
+   * <code>string processId = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getProcessIdBytes();
+
+  /**
+   * <code>string digest = 7;</code>
+   */
+  java.lang.String getDigest();
+  /**
+   * <code>string digest = 7;</code>
+   */
+  com.google.protobuf.ByteString
+      getDigestBytes();
 }

@@ -2,137 +2,95 @@
 -------------------------------------------------------------
 Line: 1 : 1,"(299, 1999, 3)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
 Printing Data Store
+Sending Transaction: Transaction ( 299 -> 1999 = 3 ) ; 
+setNumber: 1
+transaction {
+  sender: 299
+  receiver: 1999
+  amount: 3
+  transactionHash: "1"
+  transactionNum: 1
+  isCrossShard: true
+}
+processId: "VS"
+serverNames: "S1"
+serverNames: "S2"
+serverNames: "S3"
+serverNames: "S4"
+serverNames: "S5"
+serverNames: "S6"
+serverNames: "S7"
+serverNames: "S8"
+serverNames: "S9"
+serverNames: "S10"
+serverNames: "S11"
+serverNames: "S12"
+primaryServers: "S1"
+primaryServers: "S5"
+primaryServers: "S9"
+digest: "FKWUKZbdLgssbEzZ2n4hb+ssPQRNb41eCcnGTZQYhDE1pkBt5uNYcUCq3Jng79cX+H5pgsW1LLcoCLgnKZxBfF6yfPuPH714PZAE9uPeTZC8yN0hyXJg7oNUY2WKLQb94DSYKm7oCDmSCV9ZxAwhadguf1SPam8VTE+5ItPAOb539Y9Cn7H0nV0x0ozukl3c0kZFeOpcy92VCYt9GZm/QpcH7L0YTlkyxuWkSQD5cdR7/fE8AUZYltQf3YsPbqNRu+qPyXqbR/GDLWNdQR0SPAJColWU09qF6ipqXIysTiUNe8QOS6PXwR6cT/j23rDeWrjkPutUrjRhwGhpy3cEQA=="
+
 -------------------------------------------------------------
 Line: 2 : 1,"(1001, 2999, 6)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
+Sending Transaction: Transaction ( 1001 -> 2999 = 6 ) ; 
+setNumber: 1
+transaction {
+  sender: 1001
+  receiver: 2999
+  amount: 6
+  transactionHash: "2"
+  transactionNum: 2
+  isCrossShard: true
+}
+processId: "VS"
+serverNames: "S1"
+serverNames: "S2"
+serverNames: "S3"
+serverNames: "S4"
+serverNames: "S5"
+serverNames: "S6"
+serverNames: "S7"
+serverNames: "S8"
+serverNames: "S9"
+serverNames: "S10"
+serverNames: "S11"
+serverNames: "S12"
+primaryServers: "S1"
+primaryServers: "S5"
+primaryServers: "S9"
+digest: "CcOu7MtCLgzD+rhjQ4iuUwNwmC+uX0sJFKQyLSyc+ghqH85T+HBSH3k/0mEPOKQE00aBas2k6uLY0WNqb6sk1n0uVMs8cQpkXJkTG3hbIZpHBZKyWeX0eTHpB8FuMJqCRDg0La2/LgAfXZdVT2Ao8jt/7zxx5MQE+jGzqC1QbEJKXqgEm3Z3erTretD0ewW0OZ7xPcf8B0rrGSsoBBRLZAs9w50zhJD57O/ZvyprTigTRQgn+yzWB+Y6mYY8xb5RRVtFon9pYpTMXG3uyEvWOEgqYcliGfaWNyBCE/Pinx8bGGwAMueADnND/U0vcHkc27eiyoNpAVsbcsulXrL3vg=="
+
 -------------------------------------------------------------
 Line: 3 : 1,"(2150, 1111, 9)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 1 Timed Out -> RETRY
+Sending Transaction: Transaction ( 2150 -> 1111 = 9 ) ; 
+setNumber: 1
+transaction {
+  sender: 2150
+  receiver: 1111
+  amount: 9
+  transactionHash: "3"
+  transactionNum: 3
+  isCrossShard: true
+}
+processId: "VS"
+serverNames: "S1"
+serverNames: "S2"
+serverNames: "S3"
+serverNames: "S4"
+serverNames: "S5"
+serverNames: "S6"
+serverNames: "S7"
+serverNames: "S8"
+serverNames: "S9"
+serverNames: "S10"
+serverNames: "S11"
+serverNames: "S12"
+primaryServers: "S1"
+primaryServers: "S5"
+primaryServers: "S9"
+digest: "r5ZsUAOEzDjDXiqMbKTkwSE8V84izRn9x91tnS9IWEx6zXhpJIL5LxCK/ix6Mrgd32bZ/Bps0dqsu0GkRvX2wje2z7YBopcPNZqjCfsTZ67E2rM5DEzDWArPqeUygBplYgrjUKC64lioeNRXwWBsJ8a46wVxucXEOKjIFFd5y9SMRPZyFpfQ4FbLvq2ZIc/rZsf9FfnKVzxp2aoqDuX4zxFHoF+09JokR1bE3lrZmk56+8r1IfOPte/GIuFXac024bjMsvOUk1nQan0hylxExawgC3RD8Sk/Eu7ZxhEKc4X03lLrAIoQiyUkabJutNoYPCqaUJNrdup2ucVdQu1PEg=="
+
 -------------------------------------------------------------
 Line: 4 : 2,"(296, 1997, 1)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 2 Timed Out -> RETRY
 Printing Data Store
 Transaction: 1 Timed Out -> RETRY
-Transaction: 3 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 5 : 2,"(296, 1997, 8)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 1 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 6 : 2,"(2593, 2297, 3)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 4 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 7 : 3,"(793, 1993, 7)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Printing Data Store
-Transaction: 5 Timed Out -> RETRY
-Transaction: 6 Completed - Received responses from f+1 servers
-Transaction: 4 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 8 : 3,"(1998, 2998, 19)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 4 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 9 : 4,"(1877, 2855, 5)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Printing Data Store
-Transaction: 5 Timed Out -> RETRY
-Transaction: 7 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 7 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 10 : 4,"(1333, 2333, 3)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 1 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 11 : 4,"(5, 98, 2)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 7 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 9 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 12 : 5,"(45, 1355, 5)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Printing Data Store
-Transaction: 5 Timed Out -> RETRY
-Transaction: 10 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 7 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 9 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 13 : 5,"(5, 98, 2)","[S1, S2, S3, S4, S5, S6, S7, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 5 Timed Out -> RETRY
-Transaction: 10 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 7 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 9 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 14 : 6,"(298, 1789, 3)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 11 Timed Out -> RETRY
-Printing Data Store
-Transaction: 12 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 10 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 7 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 9 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 12 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 10 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 15 : 6,"(1061, 2476, 6)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 7 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 9 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
--------------------------------------------------------------
-Line: 16 : 6,"(2850, 1234, 9)","[S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]","[S1, S5, S9]","[S7, S10]"
-Transaction: 12 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 10 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 14 Timed Out -> RETRY
-Transaction: 7 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 9 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 1 Timed Out -> RETRY
-Printing Data Store
-Transaction: 13 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Transaction: 15 Timed Out -> RETRY
-Transaction: 12 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 5 Timed Out -> RETRY
-Transaction: 10 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY
-Printing Data Store
-Transaction: 14 Timed Out -> RETRY
-Transaction: 7 Timed Out -> RETRY
-Transaction: 13 Timed Out -> RETRY
-Transaction: 4 Timed Out -> RETRY
-Transaction: 9 Timed Out -> RETRY
-Transaction: 11 Timed Out -> RETRY

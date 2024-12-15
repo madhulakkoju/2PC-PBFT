@@ -1,6 +1,7 @@
 package org.cse535.threadimpls;
 
 import org.cse535.configs.GlobalConfigs;
+import org.cse535.configs.PBFTSignUtils;
 import org.cse535.configs.Utils;
 import org.cse535.loggers.LogUtils;
 import org.cse535.node.Node;
@@ -31,6 +32,22 @@ public class CrossShardTnxProcessingThread extends Thread {
         LogUtils logger = this.node.logger;
 
         try{
+            if(this.tnx == null){
+                this.node.logger.log("CST: Transaction is null");
+                return;
+            }
+
+            this.node.logger.log("CST=="+Utils.toDataStoreString(this.tnx) + " "+ "Processing Cross Shard Transaction");
+
+            //this.node.logger.log(this.transactionInputConfig.toString());
+
+//            if( PBFTSignUtils.verifySignature( this.tnx.getTransactionHash() , this.transactionInputConfig.getDigest(),
+//                    GlobalConfigs.serversToSignKeys.get(this.transactionInputConfig.getProcessId()).getPublic() )
+//            ){
+//
+//                this.node.logger.log("CST: Signature Verification Failed for Transaction: " + this.tnx.getTransactionNum());
+//                return;
+//            }
 
         Transaction transaction = this.transactionInputConfig.getTransaction();
         logger.log("CST=="+Utils.toDataStoreString(transaction) + " "+ "Processing Cross Shard Transaction");
@@ -102,7 +119,7 @@ public class CrossShardTnxProcessingThread extends Thread {
                                 .setSequenceNumber(currentSeqNum)
                                 .setView(this.node.database.currentViewNum.get())
                                 .setProcessId(this.node.serverName)
-                                .setDigest(this.tnx.getTransactionHash())
+                                .setDigest(PBFTSignUtils.signMessage( this.tnx.getTransactionHash() , GlobalConfigs.serversToSignKeys.get(this.node.serverName).getPrivate() ) )
                                 .build();
 
                         // this.logger.log(prePrepareRequest.toString());
@@ -147,7 +164,8 @@ public class CrossShardTnxProcessingThread extends Thread {
                                     .setSequenceNumber(currentSeqNum)
                                     .setView(this.node.database.currentViewNum.get())
                                     .setProcessId(this.node.serverName)
-                                    .setDigest(this.tnx.getTransactionHash())
+                                    .setDigest(PBFTSignUtils.signMessage( prePrepareRequest.toString() ,
+                                            GlobalConfigs.serversToSignKeys.get(this.node.serverName).getPrivate() ) )
                                     .build();
 
                             this.node.logger.log("CST=="+"Initiating Prepare for SeqNum: " + currentSeqNum + " View: " +
@@ -198,7 +216,8 @@ public class CrossShardTnxProcessingThread extends Thread {
                                         .setView(this.node.database.currentViewNum.get())
                                         .setProcessId(this.node.serverName)
                                         .setTransaction(this.tnx)
-                                        .setDigest(this.tnx.getTransactionHash())
+                                        .setDigest(PBFTSignUtils.signMessage( prePrepareRequest.toString() ,
+                                                GlobalConfigs.serversToSignKeys.get(this.node.serverName).getPrivate() ) )
                                         .build();
 
                                 //Send Commit to all servers
@@ -264,7 +283,21 @@ public class CrossShardTnxProcessingThread extends Thread {
 
                                     int receiverPrimary = GlobalConfigs.primaryServers.get(receiverCluster);
 
-                                    this.node.serversToPaxosStub.get(receiverPrimary).request(this.transactionInputConfig);
+                                    TransactionInputConfig crossShardPrepareRequest = TransactionInputConfig.newBuilder()
+                                            .setTransaction(transaction)
+                                            .setProcessId(this.node.serverName)
+                                            .setDigest(PBFTSignUtils.signMessage( transaction.toString() ,
+                                                    GlobalConfigs.serversToSignKeys.get(this.node.serverName).getPrivate() ) )
+                                            .setSetNumber(transactionInputConfig.getSetNumber())
+                                            .setView(this.node.database.currentViewNum.get())
+                                            .addAllServerNames(transactionInputConfig.getServerNamesList())
+                                            .addAllPrimaryServers(transactionInputConfig.getPrimaryServersList())
+                                            .build();
+
+
+                                    logger.log("CST=="+Utils.toDataStoreString(transaction) + " "+ "Sending Cross Shard Prepare \n" + crossShardPrepareRequest.toString());
+
+                                    this.node.serversToPaxosStub.get(receiverPrimary).request(crossShardPrepareRequest);
 
 
 

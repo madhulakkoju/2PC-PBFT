@@ -12,7 +12,7 @@ public class GlobalConfigs {
     public static final Integer basePort = 8000;
 
     public static final Integer ViewServerPort = 8000;
-    public static final String ViewServerName = "vs";
+    public static final String ViewServerName = "VS";
 
     public static Integer TotalServers;
 
@@ -31,6 +31,7 @@ public class GlobalConfigs {
 
 
     public static HashMap<String, KeyPair> serversToSignKeys = new HashMap<String, KeyPair>(){{
+        put(ViewServerName,  PBFTSignUtils.generateKeyPairFromText2(ViewServerName) );
         put("S1",  PBFTSignUtils.generateKeyPairFromText2("S1") );
         put("S2",  PBFTSignUtils.generateKeyPairFromText2("S2"));
         put("S3",  PBFTSignUtils.generateKeyPairFromText2("S3"));

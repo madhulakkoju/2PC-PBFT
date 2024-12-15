@@ -1,5 +1,7 @@
 package org.cse535.configs;
 
+import org.cse535.proto.Transaction;
+
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
@@ -110,24 +112,25 @@ public class PBFTSignUtils {
 
 
     public static void main(String[] args){
-        KeyPair pair = generateKeyPairFromText2("S1");
+        KeyPair pair = generateKeyPairFromText2("VS");
 
         System.out.println(pair.getPrivate().toString());
         System.out.println(pair.getPublic().toString());
 
+        Transaction t = Transaction.newBuilder()
+                .setSender(100)
+                .setReceiver(200)
+                .setAmount(10)
+                .setIsCrossShard(false)
+                .build();
 
-        System.out.println(signMessage("fasak", pair.getPrivate()));
+        System.out.println(signMessage(t.toString(), pair.getPrivate()));
 
 
-        System.out.println(signMessage("fasak", pair.getPrivate()));
 
+        String a = signMessage(t.toString(), pair.getPrivate());
 
-        System.out.println(signMessage("fasak", pair.getPrivate()));
-
-
-        String a = signMessage("fasak", pair.getPrivate());
-
-        System.out.println(verifySignature("fasak", a, pair.getPublic() ));
+        System.out.println(verifySignature(t.toString(), a, pair.getPublic() ));
 
 
     }

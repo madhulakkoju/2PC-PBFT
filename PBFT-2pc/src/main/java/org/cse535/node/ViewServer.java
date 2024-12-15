@@ -3,6 +3,7 @@ package org.cse535.node;
 import com.google.protobuf.Empty;
 import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
+import org.cse535.configs.PBFTSignUtils;
 import org.cse535.configs.Utils;
 
 import org.cse535.loggers.LogUtils;
@@ -138,14 +139,21 @@ public class ViewServer extends NodeServer {
                 .setAmount(amount)
                 .setTransactionNum(tnxCount)
                 .setIsCrossShard( Utils.IsTransactionCrossCluster(Integer.parseInt(sender), Integer.parseInt(receiver)) )
+                .setTransactionHash( ""+tnxCount )
                 .build();
 
-        return new TnxLine(TransactionInputConfig.newBuilder()
-                .setSetNumber(testCaseCount)
-                .setTransaction(transaction)
-                .addAllServerNames(activeServersList)
-                .addAllPrimaryServers(contactServersList)
-                .build(), contactServersList,
+        return new TnxLine(
+                TransactionInputConfig.newBuilder()
+                    .setProcessId(GlobalConfigs.ViewServerName)
+                    .setDigest(PBFTSignUtils.signMessage(transaction.getTransactionHash(),
+                            GlobalConfigs.serversToSignKeys.get(GlobalConfigs.ViewServerName).getPrivate()))
+                    .setSetNumber(testCaseCount)
+                    .setTransaction(transaction)
+                    .addAllServerNames(activeServersList)
+                    .addAllPrimaryServers(contactServersList)
+                    .build(),
+
+                contactServersList,
                 maliciousServersList);
     }
 
@@ -262,6 +270,7 @@ public class ViewServer extends NodeServer {
 
 
     public void sendTransactionToServer(TransactionInputConfig transactionInputConfig, String server){
+
 
 
         if(!transactionStatuses.containsKey(transactionInputConfig.getTransaction().getTransactionNum())){
@@ -468,7 +477,11 @@ public class ViewServer extends NodeServer {
                 viewServer.transactionsCount++;
 
                 int cluster = Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getSender());
-                Thread.sleep(2*GlobalConfigs.TransactionTimeout);
+                Thread.sleep(GlobalConfigs.TransactionTimeout);
+
+                viewServer.logger.log("Sending Transaction: " + Utils.toString(transactionInputConfig.getTransaction()) +
+                        "\n" + tnxLine.transactionInputConfig.toString() );
+
                 viewServer.sendTransactionToServer(transactionInputConfig, tnxLine.clusterContactServermapping.get(cluster));
 
 

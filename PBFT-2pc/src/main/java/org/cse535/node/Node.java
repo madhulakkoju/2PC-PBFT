@@ -1,6 +1,7 @@
 package org.cse535.node;
 
 import org.cse535.configs.GlobalConfigs;
+import org.cse535.configs.PBFTSignUtils;
 import org.cse535.configs.Utils;
 import org.cse535.database.DatabaseService;
 import org.cse535.proto.*;
@@ -469,6 +470,7 @@ public class Node extends NodeServer {
 
         this.database.setMaxAddedSeqNum(request.getSequenceNumber());
 
+        this.database.prePrepareRequestMap.put(request.getSequenceNumber(), request);
 
         return prePrepareResponse.build();
     }
@@ -483,7 +485,12 @@ public class Node extends NodeServer {
 
         if( this.database.transactionMap.containsKey(request.getSequenceNumber()) &&
                 this.database.transactionStatusMap.containsKey(request.getSequenceNumber()) &&
-                // this.database.transactionMap.get(request.getSequenceNumber()).getTransactionHash().equals(request.getDigest()) &&
+
+                this.database.prePrepareRequestMap.get(request.getSequenceNumber()) != null &&
+
+                PBFTSignUtils.verifySignature(this.database.prePrepareRequestMap.get(request.getSequenceNumber()).toString(), request.getDigest(),
+                        GlobalConfigs.serversToSignKeys.get(request.getProcessId()).getPublic() ) &&
+
                 (this.database.transactionStatusMap.get(request.getSequenceNumber()) == TransactionStatus.PrePREPARED ||
                         this.database.transactionStatusMap.get(request.getSequenceNumber()) == TransactionStatus.PREPARED)){
 
@@ -495,6 +502,8 @@ public class Node extends NodeServer {
 
         this.database.setMaxAddedSeqNum(request.getSequenceNumber());
 
+        this.database.prepareRequestMap.put(request.getSequenceNumber(), request);
+
         return prepareResponse.build();
     }
 
@@ -503,23 +512,43 @@ public class Node extends NodeServer {
         CommitResponse.Builder commitResponse = CommitResponse.newBuilder();
         commitResponse.setProcessId(this.serverName);
         commitResponse.setSequenceNumber(request.getSequenceNumber());
-        commitResponse.setSuccess(true);
+        commitResponse.setSuccess(false);
 
         this.database.transactionStatusMap.put(request.getSequenceNumber(), TransactionStatus.COMMITTED);
 
         this.database.initiateExecutions();
 
 
-        if(!request.hasTransaction()){
-            request = request.toBuilder().setTransaction(this.database.transactionMap.get(request.getSequenceNumber())).build();
+        if(
+                request.getSequenceNumber() <= this.database.maxAddedSeqNum.get() &&
+
+                ( this.database.transactionStatusMap.get(request.getSequenceNumber()) == TransactionStatus.PREPARED ||
+                        this.database.transactionStatusMap.get(request.getSequenceNumber()) == TransactionStatus.COMMITTED
+                        ) &&
+
+                this.database.prepareRequestMap.get(request.getSequenceNumber()) != null &&
+
+                        PBFTSignUtils.verifySignature(this.database.prepareRequestMap.get(request.getSequenceNumber()).toString(), request.getDigest(),
+                                GlobalConfigs.serversToSignKeys.get(request.getProcessId()).getPublic() )
+
+        )
+        {
+            if(!request.hasTransaction()){
+                request = request.toBuilder().setTransaction(this.database.transactionMap.get(request.getSequenceNumber())).build();
+            }
+
+            if(request.getTransaction().getIsCrossShard()){
+                this.database.addCrossShardPrepareToDataStore(request);
+            }
+            else{
+                this.database.addToDataStore(request);
+            }
+
+            commitResponse.setSuccess(true);
+
         }
 
-        if(request.getTransaction().getIsCrossShard()){
-            this.database.addCrossShardPrepareToDataStore(request);
-        }
-        else{
-            this.database.addToDataStore(request);
-        }
+
 
 
         return commitResponse.build();

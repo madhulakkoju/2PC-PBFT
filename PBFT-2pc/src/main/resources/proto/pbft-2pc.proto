@@ -57,6 +57,9 @@ message TransactionInputConfig{
   repeated string serverNames = 5;
   repeated string primaryServers = 6;
 
+  string processId = 4;
+  string digest = 7;
+
 }
 
 message Transaction {

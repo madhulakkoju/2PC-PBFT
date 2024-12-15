@@ -1,6 +1,7 @@
 package org.cse535.threadimpls;
 
 import org.cse535.configs.GlobalConfigs;
+import org.cse535.configs.PBFTSignUtils;
 import org.cse535.configs.Utils;
 import org.cse535.database.DatabaseService;
 import org.cse535.node.Node;
@@ -28,8 +29,20 @@ public class IntraShardTnxProcessingThread extends Thread {
 
 
     public void run() {
+        if(tnx == null){
+            this.node.logger.log("IST: Transaction is null");
+            return;
+        }
         try {
+            this.node.logger.log("Processing transaction " + this.tnx.getTransactionNum());
+            //this.node.logger.log("Tnx INPUT for verify:\n" + this.tnxInput.toString());
 
+//            if(PBFTSignUtils.verifySignature( this.tnx.getTransactionHash() , this.tnxInput.getDigest(),
+//                    GlobalConfigs.serversToSignKeys.get(this.tnxInput.getProcessId()).getPublic() )){
+//
+//                this.node.logger.log("IST: Signature Verification Failed for Transaction: " + this.tnx.getTransactionNum());
+//                return;
+//            }
 
             int checkSeqNum = -1;
 
@@ -123,7 +136,7 @@ public class IntraShardTnxProcessingThread extends Thread {
                             .setSequenceNumber(currentSeqNum)
                             .setView(this.node.database.currentViewNum.get())
                             .setProcessId(this.node.serverName)
-                            .setDigest(this.tnx.getTransactionHash())
+                            .setDigest(PBFTSignUtils.signMessage( this.tnx.getTransactionHash() , GlobalConfigs.serversToSignKeys.get(this.node.serverName).getPrivate() ) )
                             .build();
 
                     // this.logger.log(prePrepareRequest.toString());
@@ -168,7 +181,7 @@ public class IntraShardTnxProcessingThread extends Thread {
                                     .setSequenceNumber(currentSeqNum)
                                     .setView(this.node.database.currentViewNum.get())
                                     .setProcessId(this.node.serverName)
-                                    .setDigest(this.tnx.getTransactionHash())
+                                    .setDigest(  PBFTSignUtils.signMessage( prePrepareRequest.toString(), GlobalConfigs.serversToSignKeys.get(this.node.serverName).getPrivate() ) )
                                     .build();
 
                             this.node.logger.log("Initiating Prepare for SeqNum: " + currentSeqNum + " View: " +
@@ -219,7 +232,7 @@ public class IntraShardTnxProcessingThread extends Thread {
                                         .setSequenceNumber(currentSeqNum)
                                         .setView(this.node.database.currentViewNum.get())
                                         .setProcessId(this.node.serverName)
-                                        .setDigest(this.tnx.getTransactionHash())
+                                        .setDigest( PBFTSignUtils.signMessage( prepareRequest.toString(), GlobalConfigs.serversToSignKeys.get(this.node.serverName).getPrivate() ) )
                                         .build();
 
                                 //Send Commit to all servers

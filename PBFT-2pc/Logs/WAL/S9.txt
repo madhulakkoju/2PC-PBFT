@@ -4,26 +4,3 @@
 3 - LOCK : 2150 : 3
 3 - WRITE TO WAL: 2150 :  new :: 1 : old :: 10
 3 - UNLOCK : 2150 : 3
-3 - UNLOCK : 2150 : 3
-3 - LOCK : 2150 : 3
-6 - LOCK : 2593 : 6
-6 - LOCK : 2297 : 6
-6 - BEGIN TNX : (2593, 2297,  3) 
-6 - READ : 2593
-6 - READ : 2297
-6 - BEFORE TNX : (2593, 2297,  3) 
-6 - WRITE : 2593 : 7
-6 - WRITE : 2297 : 13
-6 - COMMIT : (2593, 2297,  3) 
-6 - UNLOCK : 2593 : 6
-6 - UNLOCK : 2297 : 6
-9 - LOCK : 2855 : 9
-9 - WRITE TO WAL : 2855 : 15
-10 - LOCK : 2333 : 10
-10 - WRITE TO WAL : 2333 : 13
-15 - LOCK : 2476 : 15
-15 - WRITE TO WAL : 2476 : 16
-16 - LOCK : 2850 : 16
-16 - WRITE TO WAL: 2850 :  new :: 1 : old :: 10
-16 - UNLOCK : 2850 : 16
-16 - UNLOCK : 2850 : 16
