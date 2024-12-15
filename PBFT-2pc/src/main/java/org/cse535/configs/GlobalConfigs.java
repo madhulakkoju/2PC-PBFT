@@ -1,5 +1,6 @@
 package org.cse535.configs;
 
+import java.security.KeyPair;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,33 @@ public class GlobalConfigs {
 
     public static int f = 1;
     public static int ShardConsesusThreshold = 2*f + 1;
+
+
+
+
+    public static HashMap<String, KeyPair> serversToSignKeys = new HashMap<String, KeyPair>(){{
+        put("S1",  PBFTSignUtils.generateKeyPairFromText2("S1") );
+        put("S2",  PBFTSignUtils.generateKeyPairFromText2("S2"));
+        put("S3",  PBFTSignUtils.generateKeyPairFromText2("S3"));
+        put("S4",  PBFTSignUtils.generateKeyPairFromText2("S4"));
+        put("S5",  PBFTSignUtils.generateKeyPairFromText2("S5"));
+        put("S6",  PBFTSignUtils.generateKeyPairFromText2("S6"));
+        put("S7",  PBFTSignUtils.generateKeyPairFromText2("S7"));
+        put("S8",  PBFTSignUtils.generateKeyPairFromText2("S8"));
+        put("S9",  PBFTSignUtils.generateKeyPairFromText2("S9"));
+        put("S10",  PBFTSignUtils.generateKeyPairFromText2("S10"));
+        put("S11",  PBFTSignUtils.generateKeyPairFromText2("S11"));
+        put("S12",  PBFTSignUtils.generateKeyPairFromText2("S12"));
+    }};
+
+
+
+
+
+
+
+
+
 
 
     // Cluster Number: Max Data Item Number
