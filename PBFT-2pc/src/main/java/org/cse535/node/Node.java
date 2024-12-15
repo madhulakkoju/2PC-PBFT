@@ -505,84 +505,23 @@ public class Node extends NodeServer {
         commitResponse.setSequenceNumber(request.getSequenceNumber());
         commitResponse.setSuccess(true);
 
-
-//        if(request.getTransaction().getIsCrossShard()){
-//            //Cross Shard Type
-//
-//            if(request.getAbort()){
-//
-//                this.logger.log("Abort Request Received from " + request.getProcessId() );
-//                this.database.addTransactionStatus(request.getBallotNumber(), TransactionStatus.ABORTED);
-//
-//                this.database.rollbackWAL(request.getTransaction().getTransactionNum());
-//
-//                this.database.unlockDataItem(request.getTransaction().getSender(), request.getTransaction().getTransactionNum());
-//                this.database.unlockDataItem(request.getTransaction().getReceiver(), request.getTransaction().getTransactionNum());
-//
-//                commitResponse.setSuccess(true);
-//            }
-//            else {
-//
-//                this.logger.log("Commit Request Received from " + request.getProcessId());
-//
-//                    this.database.lastCommittedBallotNumber = request.getBallotNumber();
-//                    this.database.lastCommittedTransaction = request.getTransaction();
-////                    this.database.lastAcceptedUncommittedBallotNumber = -1;
-////                    this.database.lastAcceptedUncommittedTransaction = null;
-//                    commitResponse.setSuccess(true);
-//                    this.database.addTransactionStatus(request.getBallotNumber(), TransactionStatus.COMMITTED);
-//                    this.logger.log("Commit Request Accepted from " + request.getProcessId());
-//
-////                    this.database.executeTransaction(request.getTransaction());
-//                    this.database.commitbackWAL(request.getTransaction().getTransactionNum());
-//            }
-//
-//        }
-//        else{
-//
-//            if(request.getAbort()){
-//
-//                this.logger.log("Abort Request Received from " + request.getProcessId() );
-//                this.database.addTransactionStatus(request.getBallotNumber(), TransactionStatus.ABORTED);
-//
-//                this.database.unlockDataItem(request.getTransaction().getSender(), request.getTransaction().getTransactionNum());
-//                this.database.unlockDataItem(request.getTransaction().getReceiver(), request.getTransaction().getTransactionNum());
-//
-//                commitResponse.setSuccess(true);
-//            }
-//            else {
-//
-//                this.logger.log("Commit Request Received from " + request.getProcessId());
-//
-//                if (request.getBallotNumber() == this.database.lastAcceptedUncommittedBallotNumber) {
-//                    this.database.lastCommittedBallotNumber = request.getBallotNumber();
-//                    this.database.lastCommittedTransaction = request.getTransaction();
-//                    this.database.lastAcceptedUncommittedBallotNumber = -1;
-//                    this.database.lastAcceptedUncommittedTransaction = null;
-//                    commitResponse.setSuccess(true);
-//                    this.database.addTransactionStatus(request.getBallotNumber(), TransactionStatus.COMMITTED);
-//                    this.logger.log("Commit Request Accepted from " + request.getProcessId());
-//
-//                    this.database.executeTransaction(request.getTransaction());
-//                }
-//
-//            }
-//
-//
-//        }
-
         this.database.transactionStatusMap.put(request.getSequenceNumber(), TransactionStatus.COMMITTED);
 
         this.database.initiateExecutions();
 
-        this.database.addToDataStore(request);
 
-        //Finally remove locks
+        if(!request.hasTransaction()){
+            request = request.toBuilder().setTransaction(this.database.transactionMap.get(request.getSequenceNumber())).build();
+        }
 
-//        if(!request.getTransaction().getIsCrossShard()) {
-//            this.database.unlockDataItem(request.getTransaction().getSender(), request.getTransaction().getTransactionNum());
-//            this.database.unlockDataItem(request.getTransaction().getReceiver(), request.getTransaction().getTransactionNum());
-//        }
+        if(request.getTransaction().getIsCrossShard()){
+            this.database.addCrossShardPrepareToDataStore(request);
+        }
+        else{
+            this.database.addToDataStore(request);
+        }
+
+
         return commitResponse.build();
     }
 
@@ -609,6 +548,8 @@ public class Node extends NodeServer {
             this.logger.log("Commit Request Accepted from " + request.getProcessId());
             this.database.commitWAL(request.getTransaction().getTransactionNum());
         }
+
+        this.database.addCrossShardCommitToDataStore(request);
 
         this.database.unlockDataItem(request.getTransaction().getSender(), request.getTransaction().getTransactionNum());
         this.database.unlockDataItem(request.getTransaction().getReceiver(), request.getTransaction().getTransactionNum());

@@ -197,6 +197,7 @@ public class CrossShardTnxProcessingThread extends Thread {
                                         .setSequenceNumber(currentSeqNum)
                                         .setView(this.node.database.currentViewNum.get())
                                         .setProcessId(this.node.serverName)
+                                        .setTransaction(this.tnx)
                                         .setDigest(this.tnx.getTransactionHash())
                                         .build();
 
@@ -214,6 +215,8 @@ public class CrossShardTnxProcessingThread extends Thread {
                                     intraCommitThreads[i].start();
                                     i++;
                                 }
+
+                                this.node.database.addCrossShardPrepareToDataStore(commitRequest);
 
                                 //this.node.handleCommit(commitRequest);
                                 // Execute Transactions

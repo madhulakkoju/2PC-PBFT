@@ -42,6 +42,8 @@ public class DatabaseService {
 
     public AtomicReference<ArrayList<String>> dataStore;
 
+    HashSet<String> dataStoreBackup = new HashSet<>();
+
     public NodeServer node;
 
 
@@ -356,11 +358,54 @@ public class DatabaseService {
 
 
     public synchronized void addToDataStore(PrepareRequest entry){
-        this.dataStore.get().add(Utils.toDataStoreString(entry));
+        String str = Utils.toDataStoreString(entry);
+        if(this.dataStoreBackup.contains(str)){
+            return;
+        }
+        this.dataStore.get().add(str);
+        this.dataStoreBackup.add(str);
     }
 
     public synchronized void addToDataStore(CommitRequest entry){
+        if(entry == null) return;
+        if(!entry.hasTransaction()){
+            entry = entry.toBuilder().setTransaction( transactionMap.get(entry.getSequenceNumber()) ).build();
+        }
+        if(entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0){
+            return;
+        }
         this.dataStore.get().add(Utils.toDataStoreString(entry));
+        this.dataStoreBackup.add(Utils.toDataStoreString(entry));
+    }
+
+
+    public synchronized void addCrossShardCommitToDataStore(CommitRequest entry){
+        String str = Utils.toDataStoreStringCrossShardCommit(entry);
+        if(this.dataStoreBackup.contains(str)){
+            return;
+        }
+
+        if(entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0){
+            return;
+        }
+
+        if(entry.getAbort()) return;
+
+        this.dataStore.get().add(str);
+        this.dataStoreBackup.add(str);
+    }
+
+    public synchronized void addCrossShardPrepareToDataStore(CommitRequest entry){
+        String str = Utils.toDataStoreStringCrossShardPrepare(entry);
+        if(this.dataStoreBackup.contains(str)){
+            return;
+        }
+
+        if(entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0){
+            return;
+        }
+        this.dataStore.get().add(str);
+        this.dataStoreBackup.add(str);
     }
 
 

@@ -10,9 +10,9 @@ Prepare response from 6 : true
 Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 1 View: 0 Transaction ID: 1
 Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare response from 7 : true
 Prepare response from 6 : true
 Prepare response from 8 : true
-Prepare response from 7 : true
 Prepare Success for SeqNum: 1 View: 0 Transaction ID: 1
 Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
 Initiating executions : 0 : 1
@@ -22,9 +22,9 @@ Executing transaction: 1
 WAL: Cross Shard Transaction: ( 299, 1999,  3) 
 Initiating execution for seqNum: 2
 Status : Not Found
-Commit response from 6 : true
-Commit response from 8 : true
 Commit response from 7 : true
+Commit response from 8 : true
+Commit response from 6 : true
 IST: Sending Cross Shard Prepare for SeqNum: 1 View: 0 Transaction ID: 1
 IST: Sending Cross Shard Prepare for SeqNum: 1 :: sequenceNumber: 1
 processId: "S5"
@@ -44,14 +44,14 @@ Processing Transaction: 2
 Cross Thread Started
 CST==(1001, 2999,  6)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
-Prepare response from 8 : true
-Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 7 : true
+Prepare response from 8 : true
 Pre Prepare Success for SeqNum: 2 View: 0 Transaction ID: 2
 CST==Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
-Prepare response from 8 : true
 Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 8 : true
 CST==Prepare Success for SeqNum: 2 View: 0 Transaction ID: 2
 CST==Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
 Initiating executions : 1 : 2
@@ -73,6 +73,8 @@ CST==(1001, 2999,  6)  Sending Cross Shard Prepare to 3
 Processing Transaction: 1 ( 299, 1999,  3)  => true
 Processing Transaction: 1
 Intra Thread Started
+CST==(1001, 2999,  6)  Cross Shard Prepare Success
+CST==(1001, 2999,  6)  Cross Shard - Receiver end Prepare Success
 Sent Execution Reply to Client: 1 : processId: "S5"
 transactionId: 1
 success: true
@@ -80,11 +82,9 @@ clusterId: 2
 status: "COMMITED"
 
 Initiating executions : 2 : 2
+CST==(1001, 2999,  6)  Cross Shard Commit Sending to sender cluster 
 Initiating execution for seqNum: 3
 Status : Not Found
-CST==(1001, 2999,  6)  Cross Shard Prepare Success
-CST==(1001, 2999,  6)  Cross Shard - Receiver end Prepare Success
-CST==(1001, 2999,  6)  Cross Shard Commit Sending to sender cluster 
 Received Cross Shard Commit request from S5 with Seq number 2
 Commit Request Received from S5
 Commit Request Accepted from S5
@@ -124,8 +124,6 @@ transaction {
   isCrossShard: true
 }
 }
-Processing Transaction: 3 (2150, 1111,  9)  => true
-Processing Transaction: 3
 CST== Receiver Cluster response:: sequenceNumber: 1
 processId: "S9"
 clusterId: 3
@@ -137,14 +135,15 @@ transaction {
   isCrossShard: true
 }
 
-Intra Thread Started
-IST:(2150, 1111,  9) Still Locked
+Processing Transaction: 3 (2150, 1111,  9)  => true
+Processing Transaction: 3
 CST==(1001, 2999,  6)  Cross Shard Commit Sending to receiver cluster
+Intra Thread Started
 Received Cross Shard Commit request from S5 with Seq number 1
 Commit Request Received from S5
-Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
 Commit Request Accepted from S5
 Sending Cross Shard Commit response to S5 with Seq number 1
+IST:(2150, 1111,  9) Still Locked
 Response: sequenceNumber: 1
 processId: "S5"
 success: true
@@ -158,14 +157,15 @@ clusterId: 2
 status: "COMMITTED"
 
 Sent Execution Reply to Client: 2
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
 Prepare response from 8 : true
 Prepare response from 6 : true
 Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 3 View: 0 Transaction ID: 3
 Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
 Prepare response from 8 : true
-Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 7 : true
 Prepare Success for SeqNum: 3 View: 0 Transaction ID: 3
 Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
 Initiating executions : 2 : 3
@@ -219,13 +219,13 @@ Processing Transaction: 4
 Intra Thread Started
 IST:( 296, 1997,  1) Still Locked
 Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
-Prepare response from 6 : true
 Prepare response from 8 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 4 View: 0 Transaction ID: 4
 Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
-Prepare response from 6 : true
 Prepare response from 8 : true
+Prepare response from 6 : true
 Prepare response from 7 : true
 Prepare Success for SeqNum: 4 View: 0 Transaction ID: 4
 Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
@@ -237,8 +237,8 @@ WAL: Cross Shard Transaction: ( 296, 1997,  1)
 Initiating execution for seqNum: 5
 Status : Not Found
 Commit response from 8 : true
-Commit response from 7 : true
 Commit response from 6 : true
+Commit response from 7 : true
 IST: Sending Cross Shard Prepare for SeqNum: 4 View: 0 Transaction ID: 4
 IST: Sending Cross Shard Prepare for SeqNum: 4 :: sequenceNumber: 4
 processId: "S5"
@@ -323,19 +323,24 @@ status: "COMMITED"
 Initiating executions : 4 : 4
 Initiating execution for seqNum: 5
 Status : Not Found
+Processing Transaction: 5 ( 296, 1997,  8)  => true
+Processing Transaction: 5
+Intra Thread Started
+IST:( 296, 1997,  8) Items are Locked-> waiting
+IST:( 296, 1997,  8) Still Locked
 Processing Transaction: 7 ( 793, 1993,  7)  => true
 Processing Transaction: 7
 Intra Thread Started
 IST:( 793, 1993,  7) Still Locked
 Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 7
+Prepare response from 8 : true
 Prepare response from 6 : true
 Prepare response from 7 : true
-Prepare response from 8 : true
 Pre Prepare Success for SeqNum: 5 View: 0 Transaction ID: 7
 Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 7
-Prepare response from 6 : true
 Prepare response from 8 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Prepare Success for SeqNum: 5 View: 0 Transaction ID: 7
 Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 7
 Initiating executions : 4 : 5
@@ -345,8 +350,8 @@ Executing transaction: 5
 WAL: Cross Shard Transaction: ( 793, 1993,  7) 
 Initiating execution for seqNum: 6
 Status : Not Found
-Commit response from 8 : true
 Commit response from 6 : true
+Commit response from 8 : true
 Commit response from 7 : true
 IST: Sending Cross Shard Prepare for SeqNum: 5 View: 0 Transaction ID: 7
 IST: Sending Cross Shard Prepare for SeqNum: 5 :: sequenceNumber: 5
@@ -362,11 +367,11 @@ transaction {
 
 IST: Coordinator Server Number: 1
 IST: Sent Cross Shard Prepare for SeqNum: 5
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 4 ( 296, 1997,  1)  => true
+Processing Transaction: 4
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 4 : processId: "S5"
+transactionId: 4
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -374,11 +379,11 @@ status: "COMMITED"
 Initiating executions : 5 : 5
 Initiating execution for seqNum: 6
 Status : Not Found
-Processing Transaction: 4 ( 296, 1997,  1)  => true
-Processing Transaction: 4
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
 Intra Thread Started
-Sent Execution Reply to Client: 4 : processId: "S5"
-transactionId: 4
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -396,30 +401,11 @@ clusterId: 2
 failureReason: "Insufficient Balance"
 status: "ABORTED"
 
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
+Processing Transaction: 5 ( 296, 1997,  8)  => true
+Processing Transaction: 5
 Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
-Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
+IST:( 296, 1997,  8) Items are Locked-> waiting
+IST:( 296, 1997,  8) Still Locked
 Processing Transaction: 7 ( 793, 1993,  7)  => true
 Processing Transaction: 7
 Intra Thread Started
@@ -456,47 +442,16 @@ status: "COMMITED"
 Initiating executions : 5 : 5
 Initiating execution for seqNum: 6
 Status : Not Found
+Processing Transaction: 5 ( 296, 1997,  8)  => true
+Processing Transaction: 5
+Intra Thread Started
+IST:( 296, 1997,  8) Items are Locked-> waiting
+IST:( 296, 1997,  8) Still Locked
 Processing Transaction: 7 ( 793, 1993,  7)  => true
 Processing Transaction: 7
 Intra Thread Started
 Sent Execution Reply to Client: 7 : processId: "S5"
 transactionId: 7
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
-Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
-Processing Transaction: 4 ( 296, 1997,  1)  => true
-Processing Transaction: 4
-Intra Thread Started
-Sent Execution Reply to Client: 4 : processId: "S5"
-transactionId: 4
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
-Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -510,36 +465,36 @@ Cross Thread Started
 CST==(1877, 2855,  5)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 9
 Prepare response from 8 : false
-Prepare response from 6 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
+Prepare response from 6 : true
 Prepare response from 7 : true
 Prepare response from 8 : false
-Prepare response from 6 : true
 CST==Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
 Initiating executions : 5 : 6
 Initiating execution for seqNum: 6
 Status : COMMITTED
 Executing transaction: 6
-WAL: Cross Shard Transaction: (1877, 2855,  5) 
 Commit response from 8 : false
+WAL: Cross Shard Transaction: (1877, 2855,  5) 
 Initiating execution for seqNum: 7
 Status : Not Found
-Commit response from 7 : true
 Commit response from 6 : true
+Commit response from 7 : true
 CST==(1877, 2855,  5)  Coordinator for Cross Shard Transaction
 CST==(1877, 2855,  5)  Starting Intra Shard Transaction Processing
 CST==(1877, 2855,  5)  Intra Shard Transaction Processing Completed
 CST==(1877, 2855,  5)  Current Cluster Seq Num: 6 Prep Success? true
 CST==(1877, 2855,  5)  Cross Shard - current Shard Prepare Success
 CST==(1877, 2855,  5)  Sending Cross Shard Prepare to 3
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 4 ( 296, 1997,  1)  => true
+Processing Transaction: 4
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 4 : processId: "S5"
+transactionId: 4
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -547,11 +502,11 @@ status: "COMMITED"
 Initiating executions : 6 : 6
 Initiating execution for seqNum: 7
 Status : Not Found
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -579,49 +534,10 @@ clusterId: 2
 status: "COMMITTED"
 
 Sent Execution Reply to Client: 9
-Processing Transaction: 4 ( 296, 1997,  1)  => true
-Processing Transaction: 4
+Processing Transaction: 5 ( 296, 1997,  8)  => true
+Processing Transaction: 5
 Intra Thread Started
-Sent Execution Reply to Client: 4 : processId: "S5"
-transactionId: 4
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 6 : 6
-Initiating execution for seqNum: 7
-Status : Not Found
-Processing Transaction: 10 (1333, 2333,  3)  => true
-Processing Transaction: 10
-Cross Thread Started
-CST==(1333, 2333,  3)  Processing Cross Shard Transaction
-CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 8 : false
-Prepare response from 7 : true
-Prepare response from 6 : true
-Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
-CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 8 : false
-Prepare response from 7 : true
-Prepare response from 6 : true
-CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
-CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
-Initiating executions : 6 : 7
-Initiating execution for seqNum: 7
-Status : COMMITTED
-Executing transaction: 7
-WAL: Cross Shard Transaction: (1333, 2333,  3) 
-Commit response from 8 : false
-Initiating execution for seqNum: 8
-Status : Not Found
-Commit response from 6 : true
-Commit response from 7 : true
-CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
-CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
-CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
-CST==(1333, 2333,  3)  Current Cluster Seq Num: 7 Prep Success? true
-CST==(1333, 2333,  3)  Cross Shard - current Shard Prepare Success
-CST==(1333, 2333,  3)  Sending Cross Shard Prepare to 3
+IST:( 296, 1997,  8) Items are Locked-> waiting
 CST==(1877, 2855,  5)  Cross Shard Prepare Responses: {2={3=sequenceNumber: 1
 processId: "S9"
 clusterId: 3
@@ -642,7 +558,7 @@ transaction {
   transactionNum: 9
   isCrossShard: true
 }
-}, 10={}}
+}}
 CST==(1877, 2855,  5)  Cross Shard Prepare Responses: {3=sequenceNumber: 4
 processId: "S9"
 clusterId: 3
@@ -683,11 +599,43 @@ clusterId: 2
 status: "COMMITTED"
 
 Sent Execution Reply to Client: 9
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
+IST:( 296, 1997,  8) Still Locked
+Processing Transaction: 10 (1333, 2333,  3)  => true
+Processing Transaction: 10
+Cross Thread Started
+CST==(1333, 2333,  3)  Processing Cross Shard Transaction
+CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
+Prepare response from 8 : false
+Prepare response from 7 : true
+Prepare response from 6 : true
+Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
+CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
+Prepare response from 8 : false
+Prepare response from 7 : true
+Prepare response from 6 : true
+CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
+CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
+Initiating executions : 6 : 7
+Initiating execution for seqNum: 7
+Status : COMMITTED
+Executing transaction: 7
+WAL: Cross Shard Transaction: (1333, 2333,  3) 
+Commit response from 8 : false
+Initiating execution for seqNum: 8
+Status : Not Found
+Commit response from 7 : true
+Commit response from 6 : true
+CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
+CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
+CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
+CST==(1333, 2333,  3)  Current Cluster Seq Num: 7 Prep Success? true
+CST==(1333, 2333,  3)  Cross Shard - current Shard Prepare Success
+CST==(1333, 2333,  3)  Sending Cross Shard Prepare to 3
+Processing Transaction: 7 ( 793, 1993,  7)  => true
+Processing Transaction: 7
 Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
+Sent Execution Reply to Client: 7 : processId: "S5"
+transactionId: 7
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -701,12 +649,12 @@ Cross Thread Started
 CST==(1877, 2855,  5)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 9
 Prepare response from 8 : false
-Prepare response from 6 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
-Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 7 : true
 Prepare response from 8 : false
 CST==Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
@@ -714,8 +662,8 @@ Initiating executions : 7 : 7
 Initiating execution for seqNum: 8
 Status : Not Found
 Commit response from 8 : false
-Commit response from 7 : true
 Commit response from 6 : true
+Commit response from 7 : true
 CST==(1877, 2855,  5)  Coordinator for Cross Shard Transaction
 CST==(1877, 2855,  5)  Starting Intra Shard Transaction Processing
 CST==(1877, 2855,  5)  Intra Shard Transaction Processing Completed
@@ -742,11 +690,11 @@ clusterId: 2
 status: "COMMITTED"
 
 Sent Execution Reply to Client: 10
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 4 ( 296, 1997,  1)  => true
+Processing Transaction: 4
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 4 : processId: "S5"
+transactionId: 4
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -754,11 +702,18 @@ status: "COMMITED"
 Initiating executions : 7 : 7
 Initiating execution for seqNum: 8
 Status : Not Found
-Processing Transaction: 5 ( 296, 1997,  8)  => true
-Processing Transaction: 5
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
 Intra Thread Started
-IST:( 296, 1997,  8) Items are Locked-> waiting
-IST:( 296, 1997,  8) Still Locked
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
+success: true
+clusterId: 2
+status: "COMMITED"
+
+Initiating executions : 7 : 7
+Initiating execution for seqNum: 8
+Status : Not Found
 CST==(1877, 2855,  5)  Cross Shard Prepare Success
 CST==(1877, 2855,  5)  Cross Shard Prepare Failed
 Received Cross Shard Commit request from S5 with Seq number 6
@@ -844,13 +799,13 @@ Cross Thread Started
 CST==(1333, 2333,  3)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
 Prepare response from 8 : false
-Prepare response from 6 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
+Prepare response from 7 : true
 Prepare response from 8 : false
 Prepare response from 6 : true
-Prepare response from 7 : true
 CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
 Initiating executions : 7 : 7
@@ -872,31 +827,30 @@ CST==(1333, 2333,  3)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
 Prepare response from 8 : false
 Prepare response from 7 : true
-Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 7 : true
 Prepare response from 8 : false
 Prepare response from 6 : true
+Prepare response from 7 : true
 CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
 Initiating executions : 7 : 7
 Initiating execution for seqNum: 8
 Status : Not Found
 Commit response from 8 : false
-Commit response from 7 : true
 Commit response from 6 : true
+Commit response from 7 : true
 CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
 CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
 CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
 CST==(1333, 2333,  3)  Current Cluster Seq Num: 7 Prep Success? true
 CST==(1333, 2333,  3)  Cross Shard - current Shard Prepare Success
 CST==(1333, 2333,  3)  Sending Cross Shard Prepare to 3
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
+Processing Transaction: 7 ( 793, 1993,  7)  => true
+Processing Transaction: 7
 Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
+Sent Execution Reply to Client: 7 : processId: "S5"
+transactionId: 7
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -910,8 +864,8 @@ Cross Thread Started
 CST==(1877, 2855,  5)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 9
 Prepare response from 8 : false
-Prepare response from 6 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
 Prepare response from 8 : false
@@ -922,9 +876,9 @@ CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
 Initiating executions : 7 : 7
 Initiating execution for seqNum: 8
 Status : Not Found
+Commit response from 8 : false
 Commit response from 6 : true
 Commit response from 7 : true
-Commit response from 8 : false
 CST==(1877, 2855,  5)  Coordinator for Cross Shard Transaction
 CST==(1877, 2855,  5)  Starting Intra Shard Transaction Processing
 CST==(1877, 2855,  5)  Intra Shard Transaction Processing Completed
@@ -967,11 +921,11 @@ failureReason: "Transaction Failed"
 status: "ABORTED"
 
 Sent Execution Reply to Client: 10
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 4 ( 296, 1997,  1)  => true
+Processing Transaction: 4
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 4 : processId: "S5"
+transactionId: 4
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -979,11 +933,11 @@ status: "COMMITED"
 Initiating executions : 7 : 7
 Initiating execution for seqNum: 8
 Status : Not Found
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1019,8 +973,8 @@ Prepare response from 7 : true
 Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 8 View: 0 Transaction ID: 12
 Initiating Prepare for SeqNum: 8 View: 0 Transaction ID: 12
-Prepare response from 7 : true
 Prepare response from 8 : false
+Prepare response from 7 : true
 Prepare response from 6 : true
 Prepare Success for SeqNum: 8 View: 0 Transaction ID: 12
 Initiating Commit for SeqNum: 8 View: 0 Transaction ID: 12
@@ -1032,8 +986,8 @@ WAL: Cross Shard Transaction: (  45, 1355,  5)
 Commit response from 8 : false
 Initiating execution for seqNum: 9
 Status : Not Found
-Commit response from 7 : true
 Commit response from 6 : true
+Commit response from 7 : true
 IST: Sending Cross Shard Prepare for SeqNum: 8 View: 0 Transaction ID: 12
 IST: Sending Cross Shard Prepare for SeqNum: 8 :: sequenceNumber: 8
 processId: "S5"
@@ -1048,102 +1002,38 @@ transaction {
 
 IST: Coordinator Server Number: 1
 IST: Sent Cross Shard Prepare for SeqNum: 8
-Processing Transaction: 4 ( 296, 1997,  1)  => true
-Processing Transaction: 4
+Processing Transaction: 5 ( 296, 1997,  8)  => true
+Processing Transaction: 5
 Intra Thread Started
-Sent Execution Reply to Client: 4 : processId: "S5"
-transactionId: 4
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 8 : 8
-Initiating execution for seqNum: 9
-Status : Not Found
+IST:( 296, 1997,  8) Items are Locked-> waiting
+IST:( 296, 1997,  8) Still Locked
 Processing Transaction: 10 (1333, 2333,  3)  => true
 Processing Transaction: 10
 Cross Thread Started
 CST==(1333, 2333,  3)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
 Prepare response from 8 : false
-Prepare response from 6 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 7 : true
 Prepare response from 8 : false
+Prepare response from 7 : true
 Prepare response from 6 : true
 CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
 Initiating executions : 8 : 8
 Initiating execution for seqNum: 9
 Status : Not Found
-Commit response from 6 : true
-Commit response from 7 : true
 Commit response from 8 : false
+Commit response from 7 : true
+Commit response from 6 : true
 CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
 CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
 CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
 CST==(1333, 2333,  3)  Current Cluster Seq Num: 7 Prep Success? true
 CST==(1333, 2333,  3)  Cross Shard - current Shard Prepare Success
 CST==(1333, 2333,  3)  Sending Cross Shard Prepare to 3
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
-Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 8 : 8
-Initiating execution for seqNum: 9
-Status : Not Found
-Processing Transaction: 9 (1877, 2855,  5)  => true
-Processing Transaction: 9
-Cross Thread Started
-CST==(1877, 2855,  5)  Processing Cross Shard Transaction
-CST==Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 9
-Prepare response from 8 : false
-Prepare response from 6 : true
-Prepare response from 7 : true
-Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
-CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
-Prepare response from 7 : true
-Prepare response from 6 : true
-Prepare response from 8 : false
-CST==Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
-CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
-Initiating executions : 8 : 8
-Initiating execution for seqNum: 9
-Status : Not Found
-Commit response from 8 : false
-Commit response from 6 : true
-Commit response from 7 : true
-CST==(1877, 2855,  5)  Coordinator for Cross Shard Transaction
-CST==(1877, 2855,  5)  Starting Intra Shard Transaction Processing
-CST==(1877, 2855,  5)  Intra Shard Transaction Processing Completed
-CST==(1877, 2855,  5)  Current Cluster Seq Num: 6 Prep Success? true
-CST==(1877, 2855,  5)  Cross Shard - current Shard Prepare Success
-CST==(1877, 2855,  5)  Sending Cross Shard Prepare to 3
-CST==(1333, 2333,  3)  Cross Shard Prepare Success
-CST==(1333, 2333,  3)  Cross Shard Prepare Failed
-Received Cross Shard Commit request from S5 with Seq number 7
-Abort Request Received from S5
-Sending Cross Shard Commit response to S5 with Seq number 7
-Response: sequenceNumber: 7
-processId: "S5"
-success: true
-
-Resending Reply to Client  
-Sending Execution Reply to Client: ABORTED10
-Sent Execution Reply to Client: 10 : processId: "S5"
-transactionId: 10
-clusterId: 2
-failureReason: "Transaction Failed"
-status: "ABORTED"
-
-Sent Execution Reply to Client: 10
 Processing Transaction: 7 ( 793, 1993,  7)  => true
 Processing Transaction: 7
 Intra Thread Started
@@ -1156,105 +1046,19 @@ status: "COMMITED"
 Initiating executions : 8 : 8
 Initiating execution for seqNum: 9
 Status : Not Found
-Processing Transaction: 5 ( 296, 1997,  8)  => true
-Processing Transaction: 5
-Intra Thread Started
-IST:( 296, 1997,  8) Items are Locked-> waiting
-IST:( 296, 1997,  8) Still Locked
-CST==(1877, 2855,  5)  Cross Shard Prepare Success
-CST==(1877, 2855,  5)  Cross Shard Prepare Failed
-Received Cross Shard Commit request from S5 with Seq number 6
-Abort Request Received from S5
-Sending Cross Shard Commit response to S5 with Seq number 6
-Response: sequenceNumber: 6
-processId: "S5"
-success: true
-
-Resending Reply to Client  
-Sending Execution Reply to Client: ABORTED9
-Sent Execution Reply to Client: 9 : processId: "S5"
-transactionId: 9
-clusterId: 2
-failureReason: "Transaction Failed"
-status: "ABORTED"
-
-Sent Execution Reply to Client: 9
-Processing Transaction: 12 (  45, 1355,  5)  => true
-Processing Transaction: 12
-Intra Thread Started
-Sent Execution Reply to Client: 12 : processId: "S5"
-transactionId: 12
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 8 : 8
-Initiating execution for seqNum: 9
-Status : Not Found
-Processing Transaction: 4 ( 296, 1997,  1)  => true
-Processing Transaction: 4
-Intra Thread Started
-Sent Execution Reply to Client: 4 : processId: "S5"
-transactionId: 4
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 8 : 8
-Initiating execution for seqNum: 9
-Status : Not Found
-Processing Transaction: 10 (1333, 2333,  3)  => true
-Processing Transaction: 10
-Cross Thread Started
-CST==(1333, 2333,  3)  Processing Cross Shard Transaction
-CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 8 : false
-Prepare response from 7 : true
-Prepare response from 6 : true
-Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
-CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 8 : false
-Prepare response from 6 : true
-Prepare response from 7 : true
-CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
-CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
-Initiating executions : 8 : 8
-Initiating execution for seqNum: 9
-Status : Not Found
-Commit response from 8 : false
-Commit response from 6 : true
-Commit response from 7 : true
-CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
-CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
-CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
-CST==(1333, 2333,  3)  Current Cluster Seq Num: 7 Prep Success? true
-CST==(1333, 2333,  3)  Cross Shard - current Shard Prepare Success
-CST==(1333, 2333,  3)  Sending Cross Shard Prepare to 3
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
-Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 8 : 8
-Initiating execution for seqNum: 9
-Status : Not Found
 Processing Transaction: 9 (1877, 2855,  5)  => true
 Processing Transaction: 9
 Cross Thread Started
 CST==(1877, 2855,  5)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 9
 Prepare response from 8 : false
-Prepare response from 6 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
-Prepare response from 8 : false
 Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 8 : false
 CST==Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
 Initiating executions : 8 : 8
@@ -1287,11 +1091,11 @@ failureReason: "Transaction Failed"
 status: "ABORTED"
 
 Sent Execution Reply to Client: 10
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 4 ( 296, 1997,  1)  => true
+Processing Transaction: 4
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 4 : processId: "S5"
+transactionId: 4
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1299,11 +1103,18 @@ status: "COMMITED"
 Initiating executions : 8 : 8
 Initiating execution for seqNum: 9
 Status : Not Found
-Processing Transaction: 5 ( 296, 1997,  8)  => true
-Processing Transaction: 5
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
 Intra Thread Started
-IST:( 296, 1997,  8) Items are Locked-> waiting
-IST:( 296, 1997,  8) Still Locked
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
+success: true
+clusterId: 2
+status: "COMMITED"
+
+Initiating executions : 8 : 8
+Initiating execution for seqNum: 9
+Status : Not Found
 CST==(1877, 2855,  5)  Cross Shard Prepare Success
 CST==(1877, 2855,  5)  Cross Shard Prepare Failed
 Received Cross Shard Commit request from S5 with Seq number 6
@@ -1334,6 +1145,45 @@ status: "COMMITED"
 Initiating executions : 8 : 8
 Initiating execution for seqNum: 9
 Status : Not Found
+Processing Transaction: 10 (1333, 2333,  3)  => true
+Processing Transaction: 10
+Cross Thread Started
+CST==(1333, 2333,  3)  Processing Cross Shard Transaction
+CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
+Prepare response from 8 : false
+Prepare response from 6 : true
+Prepare response from 7 : true
+Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
+CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
+Prepare response from 8 : false
+Prepare response from 7 : true
+Prepare response from 6 : true
+CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
+CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
+Initiating executions : 8 : 8
+Initiating execution for seqNum: 9
+Status : Not Found
+Commit response from 8 : false
+Commit response from 6 : true
+Commit response from 7 : true
+CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
+CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
+CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
+CST==(1333, 2333,  3)  Current Cluster Seq Num: 7 Prep Success? true
+CST==(1333, 2333,  3)  Cross Shard - current Shard Prepare Success
+CST==(1333, 2333,  3)  Sending Cross Shard Prepare to 3
+Processing Transaction: 7 ( 793, 1993,  7)  => true
+Processing Transaction: 7
+Intra Thread Started
+Sent Execution Reply to Client: 7 : processId: "S5"
+transactionId: 7
+success: true
+clusterId: 2
+status: "COMMITED"
+
+Initiating executions : 8 : 8
+Initiating execution for seqNum: 9
+Status : Not Found
 Processing Transaction: 4 ( 296, 1997,  1)  => true
 Processing Transaction: 4
 Intra Thread Started
@@ -1346,19 +1196,106 @@ status: "COMMITED"
 Initiating executions : 8 : 8
 Initiating execution for seqNum: 9
 Status : Not Found
+Processing Transaction: 9 (1877, 2855,  5)  => true
+Processing Transaction: 9
+Cross Thread Started
+CST==(1877, 2855,  5)  Processing Cross Shard Transaction
+CST==Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 9
+Prepare response from 8 : false
+Prepare response from 7 : true
+Prepare response from 6 : true
+Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
+CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
+Prepare response from 8 : false
+Prepare response from 7 : true
+Prepare response from 6 : true
+CST==Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
+CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
+Initiating executions : 8 : 8
+Initiating execution for seqNum: 9
+Status : Not Found
+Commit response from 8 : false
+Commit response from 7 : true
+Commit response from 6 : true
+CST==(1877, 2855,  5)  Coordinator for Cross Shard Transaction
+CST==(1877, 2855,  5)  Starting Intra Shard Transaction Processing
+CST==(1877, 2855,  5)  Intra Shard Transaction Processing Completed
+CST==(1877, 2855,  5)  Current Cluster Seq Num: 6 Prep Success? true
+CST==(1877, 2855,  5)  Cross Shard - current Shard Prepare Success
+CST==(1877, 2855,  5)  Sending Cross Shard Prepare to 3
+CST==(1333, 2333,  3)  Cross Shard Prepare Success
+CST==(1333, 2333,  3)  Cross Shard Prepare Failed
+Received Cross Shard Commit request from S5 with Seq number 7
+Abort Request Received from S5
+Sending Cross Shard Commit response to S5 with Seq number 7
+Response: sequenceNumber: 7
+processId: "S5"
+success: true
+
+Resending Reply to Client  
+Sending Execution Reply to Client: ABORTED10
+Sent Execution Reply to Client: 10 : processId: "S5"
+transactionId: 10
+clusterId: 2
+failureReason: "Transaction Failed"
+status: "ABORTED"
+
+Sent Execution Reply to Client: 10
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
+Intra Thread Started
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
+success: true
+clusterId: 2
+status: "COMMITED"
+
+Initiating executions : 8 : 8
+Initiating execution for seqNum: 9
+Status : Not Found
+CST==(1877, 2855,  5)  Cross Shard Prepare Success
+CST==(1877, 2855,  5)  Cross Shard Prepare Failed
+Received Cross Shard Commit request from S5 with Seq number 6
+Abort Request Received from S5
+Sending Cross Shard Commit response to S5 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S5"
+success: true
+
+Resending Reply to Client  
+Sending Execution Reply to Client: ABORTED9
+Sent Execution Reply to Client: 9 : processId: "S5"
+transactionId: 9
+clusterId: 2
+failureReason: "Transaction Failed"
+status: "ABORTED"
+
+Sent Execution Reply to Client: 9
+Processing Transaction: 12 (  45, 1355,  5)  => true
+Processing Transaction: 12
+Intra Thread Started
+Sent Execution Reply to Client: 12 : processId: "S5"
+transactionId: 12
+success: true
+clusterId: 2
+status: "COMMITED"
+
+Initiating executions : 8 : 8
+Initiating execution for seqNum: 9
+Status : Not Found
 Processing Transaction: 10 (1333, 2333,  3)  => true
 Processing Transaction: 10
 Cross Thread Started
 CST==(1333, 2333,  3)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 6 : true
 Prepare response from 7 : true
 Prepare response from 8 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
+Prepare response from 7 : true
 Prepare response from 6 : true
 Prepare response from 8 : true
-Prepare response from 7 : true
 CST==Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
 Initiating executions : 8 : 8
@@ -1378,14 +1315,14 @@ Processing Transaction: 14
 Intra Thread Started
 IST:( 298, 1789,  3) Still Locked
 Initiating Pre Prepare for SeqNum: 9 View: 0 Transaction ID: 14
+Prepare response from 6 : true
 Prepare response from 8 : true
 Prepare response from 7 : true
-Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 9 View: 0 Transaction ID: 14
 Initiating Prepare for SeqNum: 9 View: 0 Transaction ID: 14
-Prepare response from 6 : true
 Prepare response from 8 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Prepare Success for SeqNum: 9 View: 0 Transaction ID: 14
 Initiating Commit for SeqNum: 9 View: 0 Transaction ID: 14
 Initiating executions : 8 : 9
@@ -1412,11 +1349,11 @@ transaction {
 
 IST: Coordinator Server Number: 1
 IST: Sent Cross Shard Prepare for SeqNum: 9
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
+Processing Transaction: 7 ( 793, 1993,  7)  => true
+Processing Transaction: 7
 Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
+Sent Execution Reply to Client: 7 : processId: "S5"
+transactionId: 7
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1435,8 +1372,8 @@ Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
 Prepare response from 8 : true
-Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 7 : true
 CST==Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
 Initiating executions : 9 : 9
@@ -1469,11 +1406,11 @@ failureReason: "Transaction Failed"
 status: "ABORTED"
 
 Sent Execution Reply to Client: 10
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1481,11 +1418,6 @@ status: "COMMITED"
 Initiating executions : 9 : 9
 Initiating execution for seqNum: 10
 Status : Not Found
-Processing Transaction: 5 ( 296, 1997,  8)  => true
-Processing Transaction: 5
-Intra Thread Started
-IST:( 296, 1997,  8) Items are Locked-> waiting
-IST:( 296, 1997,  8) Still Locked
 CST==(1877, 2855,  5)  Cross Shard Prepare Success
 CST==(1877, 2855,  5)  Cross Shard Prepare Failed
 Received Cross Shard Commit request from S5 with Seq number 6
@@ -1504,31 +1436,19 @@ failureReason: "Transaction Failed"
 status: "ABORTED"
 
 Sent Execution Reply to Client: 9
-Processing Transaction: 12 (  45, 1355,  5)  => true
-Processing Transaction: 12
-Intra Thread Started
-Sent Execution Reply to Client: 12 : processId: "S5"
-transactionId: 12
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 9 : 9
-Initiating execution for seqNum: 10
-Status : Not Found
 Processing Transaction: 15 (1061, 2476,  6)  => true
 Processing Transaction: 15
 Cross Thread Started
 CST==(1061, 2476,  6)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 10 View: 0 Transaction ID: 15
-Prepare response from 7 : true
 Prepare response from 8 : true
 Prepare response from 6 : true
+Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 10 View: 0 Transaction ID: 15
 CST==Initiating Prepare for SeqNum: 10 View: 0 Transaction ID: 15
 Prepare response from 6 : true
-Prepare response from 8 : true
 Prepare response from 7 : true
+Prepare response from 8 : true
 CST==Prepare Success for SeqNum: 10 View: 0 Transaction ID: 15
 CST==Initiating Commit for SeqNum: 10 View: 0 Transaction ID: 15
 Initiating executions : 9 : 10
@@ -1547,11 +1467,11 @@ CST==(1061, 2476,  6)  Intra Shard Transaction Processing Completed
 CST==(1061, 2476,  6)  Current Cluster Seq Num: 10 Prep Success? true
 CST==(1061, 2476,  6)  Cross Shard - current Shard Prepare Success
 CST==(1061, 2476,  6)  Sending Cross Shard Prepare to 3
-Processing Transaction: 4 ( 296, 1997,  1)  => true
-Processing Transaction: 4
+Processing Transaction: 12 (  45, 1355,  5)  => true
+Processing Transaction: 12
 Intra Thread Started
-Sent Execution Reply to Client: 4 : processId: "S5"
-transactionId: 4
+Sent Execution Reply to Client: 12 : processId: "S5"
+transactionId: 12
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1564,8 +1484,8 @@ Processing Transaction: 10
 Cross Thread Started
 CST==(1333, 2333,  3)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
-Prepare response from 8 : true
 Prepare response from 6 : true
+Prepare response from 8 : true
 Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
@@ -1577,9 +1497,9 @@ CST==Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 10
 Initiating executions : 10 : 10
 Initiating execution for seqNum: 11
 Status : Not Found
-Commit response from 8 : true
-Commit response from 6 : true
 Commit response from 7 : true
+Commit response from 6 : true
+Commit response from 8 : true
 CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
 CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
 CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
@@ -1618,11 +1538,23 @@ clusterId: 2
 status: "COMMITTED"
 
 Sent Execution Reply to Client: 15
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
+Processing Transaction: 7 ( 793, 1993,  7)  => true
+Processing Transaction: 7
 Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
+Sent Execution Reply to Client: 7 : processId: "S5"
+transactionId: 7
+success: true
+clusterId: 2
+status: "COMMITED"
+
+Initiating executions : 10 : 10
+Initiating execution for seqNum: 11
+Status : Not Found
+Processing Transaction: 4 ( 296, 1997,  1)  => true
+Processing Transaction: 4
+Intra Thread Started
+Sent Execution Reply to Client: 4 : processId: "S5"
+transactionId: 4
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1640,17 +1572,17 @@ Prepare response from 8 : true
 Prepare response from 7 : true
 Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
-Prepare response from 8 : true
 Prepare response from 7 : true
 Prepare response from 6 : true
+Prepare response from 8 : true
 CST==Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
 Initiating executions : 10 : 10
 Initiating execution for seqNum: 11
 Status : Not Found
 Commit response from 6 : true
-Commit response from 7 : true
 Commit response from 8 : true
+Commit response from 7 : true
 CST==(1877, 2855,  5)  Coordinator for Cross Shard Transaction
 CST==(1877, 2855,  5)  Starting Intra Shard Transaction Processing
 CST==(1877, 2855,  5)  Intra Shard Transaction Processing Completed
@@ -1675,11 +1607,6 @@ failureReason: "Transaction Failed"
 status: "ABORTED"
 
 Sent Execution Reply to Client: 10
-Processing Transaction: 16 (2850, 1234,  9)  => true
-Processing Transaction: 16
-Intra Thread Started
-IST:(2850, 1234,  9) Still Locked
-Initiating Pre Prepare for SeqNum: 11 View: 0 Transaction ID: 16
 CST==(1061, 2476,  6)  Cross Shard Prepare Responses: {2={3=sequenceNumber: 1
 processId: "S9"
 clusterId: 3
@@ -1724,11 +1651,6 @@ transaction {
 }
 
 CST==(1061, 2476,  6)  Cross Shard Commit Sending to receiver cluster
-Prepare response from 7 : true
-Prepare response from 8 : true
-Prepare response from 6 : true
-Pre Prepare Success for SeqNum: 11 View: 0 Transaction ID: 16
-Initiating Prepare for SeqNum: 11 View: 0 Transaction ID: 16
 Received Cross Shard Commit request from S5 with Seq number 6
 Commit Request Received from S5
 Commit Request Accepted from S5
@@ -1739,8 +1661,6 @@ success: true
 
 Resending Reply to Client  
 Sending Execution Reply to Client: COMMITTED15
-Prepare response from 7 : true
-Prepare response from 8 : true
 Sent Execution Reply to Client: 15 : processId: "S5"
 transactionId: 15
 success: true
@@ -1748,7 +1668,19 @@ clusterId: 2
 status: "COMMITTED"
 
 Sent Execution Reply to Client: 15
+Processing Transaction: 16 (2850, 1234,  9)  => true
+Processing Transaction: 16
+Intra Thread Started
+IST:(2850, 1234,  9) Still Locked
+Initiating Pre Prepare for SeqNum: 11 View: 0 Transaction ID: 16
 Prepare response from 6 : true
+Prepare response from 8 : true
+Prepare response from 7 : true
+Pre Prepare Success for SeqNum: 11 View: 0 Transaction ID: 16
+Initiating Prepare for SeqNum: 11 View: 0 Transaction ID: 16
+Prepare response from 6 : true
+Prepare response from 7 : true
+Prepare response from 8 : true
 Prepare Success for SeqNum: 11 View: 0 Transaction ID: 16
 Initiating Commit for SeqNum: 11 View: 0 Transaction ID: 16
 Initiating executions : 10 : 11
@@ -1775,11 +1707,11 @@ transaction {
 
 IST: Coordinator Server Number: 9
 IST: Sent Cross Shard Prepare for SeqNum: 11
-Processing Transaction: 7 ( 793, 1993,  7)  => true
-Processing Transaction: 7
+Processing Transaction: 1 ( 299, 1999,  3)  => true
+Processing Transaction: 1
 Intra Thread Started
-Sent Execution Reply to Client: 7 : processId: "S5"
-transactionId: 7
+Sent Execution Reply to Client: 1 : processId: "S5"
+transactionId: 1
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1787,11 +1719,6 @@ status: "COMMITED"
 Initiating executions : 11 : 11
 Initiating execution for seqNum: 12
 Status : Not Found
-Processing Transaction: 5 ( 296, 1997,  8)  => true
-Processing Transaction: 5
-Intra Thread Started
-IST:( 296, 1997,  8) Items are Locked-> waiting
-IST:( 296, 1997,  8) Still Locked
 CST==(1877, 2855,  5)  Cross Shard Prepare Success
 CST==(1877, 2855,  5)  Cross Shard Prepare Failed
 Received Cross Shard Commit request from S5 with Seq number 6
@@ -1810,18 +1737,6 @@ failureReason: "Transaction Failed"
 status: "ABORTED"
 
 Sent Execution Reply to Client: 9
-Processing Transaction: 12 (  45, 1355,  5)  => true
-Processing Transaction: 12
-Intra Thread Started
-Sent Execution Reply to Client: 12 : processId: "S5"
-transactionId: 12
-success: true
-clusterId: 2
-status: "COMMITED"
-
-Initiating executions : 11 : 11
-Initiating execution for seqNum: 12
-Status : Not Found
 Processing Transaction: 15 (1061, 2476,  6)  => true
 Processing Transaction: 15
 Cross Thread Started
@@ -1832,11 +1747,11 @@ clusterId: 2
 failureReason: "Insufficient Balance"
 status: "ABORTED"
 
-Processing Transaction: 4 ( 296, 1997,  1)  => true
-Processing Transaction: 4
+Processing Transaction: 12 (  45, 1355,  5)  => true
+Processing Transaction: 12
 Intra Thread Started
-Sent Execution Reply to Client: 4 : processId: "S5"
-transactionId: 4
+Sent Execution Reply to Client: 12 : processId: "S5"
+transactionId: 12
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1850,8 +1765,8 @@ Cross Thread Started
 CST==(1333, 2333,  3)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 10
 Prepare response from 7 : true
-Prepare response from 6 : true
 Prepare response from 8 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 7 View: 0 Transaction ID: 10
 CST==Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 10
 Prepare response from 6 : true
@@ -1863,8 +1778,8 @@ Initiating executions : 11 : 11
 Initiating execution for seqNum: 12
 Status : Not Found
 Commit response from 6 : true
-Commit response from 7 : true
 Commit response from 8 : true
+Commit response from 7 : true
 CST==(1333, 2333,  3)  Coordinator for Cross Shard Transaction
 CST==(1333, 2333,  3)  Starting Intra Shard Transaction Processing
 CST==(1333, 2333,  3)  Intra Shard Transaction Processing Completed
@@ -1883,11 +1798,11 @@ status: "COMMITED"
 Initiating executions : 11 : 11
 Initiating execution for seqNum: 12
 Status : Not Found
-Processing Transaction: 1 ( 299, 1999,  3)  => true
-Processing Transaction: 1
+Processing Transaction: 7 ( 793, 1993,  7)  => true
+Processing Transaction: 7
 Intra Thread Started
-Sent Execution Reply to Client: 1 : processId: "S5"
-transactionId: 1
+Sent Execution Reply to Client: 7 : processId: "S5"
+transactionId: 7
 success: true
 clusterId: 2
 status: "COMMITED"
@@ -1900,9 +1815,9 @@ Processing Transaction: 9
 Cross Thread Started
 CST==(1877, 2855,  5)  Processing Cross Shard Transaction
 CST==Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 9
-Prepare response from 6 : true
 Prepare response from 8 : true
 Prepare response from 7 : true
+Prepare response from 6 : true
 Pre Prepare Success for SeqNum: 6 View: 0 Transaction ID: 9
 CST==Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 9
 Prepare response from 7 : true
@@ -1913,9 +1828,9 @@ CST==Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 9
 Initiating executions : 11 : 11
 Initiating execution for seqNum: 12
 Status : Not Found
-Commit response from 6 : true
-Commit response from 8 : true
 Commit response from 7 : true
+Commit response from 8 : true
+Commit response from 6 : true
 CST==(1877, 2855,  5)  Coordinator for Cross Shard Transaction
 CST==(1877, 2855,  5)  Starting Intra Shard Transaction Processing
 CST==(1877, 2855,  5)  Intra Shard Transaction Processing Completed

@@ -111,6 +111,15 @@ processId: "S7"
 success: true
 
 Resending Reply to Client  
+Received Cross Shard Commit request from S5 with Seq number 4
+Commit Request Received from S5
+Commit Request Accepted from S5
+Sending Cross Shard Commit response to S5 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S7"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S5 with ballot number 7
 PrePrepare Request received from S5
 PrePrepare request received: 7 Transaction ID: 10 Digest: 
@@ -125,15 +134,6 @@ Executing transaction: 7
 WAL: Cross Shard Transaction: (1333, 2333,  3) 
 Initiating execution for seqNum: 8
 Status : Not Found
-Received Cross Shard Commit request from S5 with Seq number 4
-Commit Request Received from S5
-Commit Request Accepted from S5
-Sending Cross Shard Commit response to S5 with Seq number 4
-Response: sequenceNumber: 4
-processId: "S7"
-success: true
-
-Resending Reply to Client  
 Received pre-prepare request from S5 with ballot number 6
 PrePrepare Request received from S5
 PrePrepare request received: 6 Transaction ID: 9 Digest: 
@@ -423,21 +423,21 @@ processId: "S7"
 success: true
 
 Resending Reply to Client  
-Received pre-prepare request from S5 with ballot number 11
-PrePrepare Request received from S5
-PrePrepare request received: 11 Transaction ID: 16 Digest: 
-Accepted ---- PrePrepare request accepted: 11 Transaction ID: 16 Digest: 
 Received Cross Shard Commit request from S5 with Seq number 6
 Commit Request Received from S5
 Commit Request Accepted from S5
-Received prepare request from S5 with Sequence number 11
-Accepted ---- Prepare request accepted: 11 Digest: 
 Sending Cross Shard Commit response to S5 with Seq number 6
 Response: sequenceNumber: 6
 processId: "S7"
 success: true
 
 Resending Reply to Client  
+Received pre-prepare request from S5 with ballot number 11
+PrePrepare Request received from S5
+PrePrepare request received: 11 Transaction ID: 16 Digest: 
+Accepted ---- PrePrepare request accepted: 11 Transaction ID: 16 Digest: 
+Received prepare request from S5 with Sequence number 11
+Accepted ---- Prepare request accepted: 11 Digest: 
 Received Commit request from S5 with Seq number 11
 Initiating executions : 10 : 11
 Initiating execution for seqNum: 11

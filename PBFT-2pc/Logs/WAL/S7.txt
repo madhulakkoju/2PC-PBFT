@@ -8,8 +8,8 @@
 7 - WRITE TO WAL : 1993 : 17
 9 - WRITE TO WAL: 1877 :  new :: 5 : old :: 10
 9 - UNLOCK : 1877 : 9
-10 - WRITE TO WAL: 1333 :  new :: 7 : old :: 10
 9 - UNLOCK : 1877 : 9
+10 - WRITE TO WAL: 1333 :  new :: 7 : old :: 10
 10 - UNLOCK : 1333 : 10
 9 - UNLOCK : 1877 : 9
 10 - UNLOCK : 1333 : 10
