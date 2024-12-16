@@ -6,6 +6,7 @@ import org.cse535.configs.Utils;
 import org.cse535.database.DatabaseService;
 import org.cse535.proto.*;
 import org.cse535.threadimpls.CrossShardTnxProcessingThread;
+import org.cse535.threadimpls.CrossShardTnxProcessingThreadExtraReceiver;
 import org.cse535.threadimpls.IntraPrepareThread;
 import org.cse535.threadimpls.IntraShardTnxProcessingThread;
 
@@ -113,15 +114,31 @@ public class Node extends NodeServer {
             try {
 
                 if(transactionInput.getTransaction().getIsCrossShard() &&
-                        Utils.FindClusterOfDataItem(transactionInput.getTransaction().getSender()) == this.clusterNumber ){
+                        Utils.FindClusterOfDataItem(transactionInput.getTransaction().getSender()) == this.clusterNumber ) {
+
+                    this.logger.log(("Cross Shard Started"));
+
+                    if(transactionInput.getTransaction().getReceiver2() != 0){
+                        CrossShardTnxProcessingThreadExtraReceiver crossShardTnxProcessingThread = new CrossShardTnxProcessingThreadExtraReceiver(this, transactionInput);
+                        crossShardTnxProcessingThread.start();
+                        Thread.sleep(100);
+                    }
+                    else{
+                        CrossShardTnxProcessingThread crossShardTnxProcessingThread = new CrossShardTnxProcessingThread(this, transactionInput);
+                        crossShardTnxProcessingThread.start();
+                        Thread.sleep(100);
+                    }
 
 
-                    this.logger.log(("Cross Thread Started"));
-                    CrossShardTnxProcessingThread crossShardTnxProcessingThread = new CrossShardTnxProcessingThread(this, transactionInput);
-                    crossShardTnxProcessingThread.start();
-                    Thread.sleep(100);
-                    //crossShardTnxProcessingThread.join();
                 }
+//                else if(transactionInput.getTransaction().getIsCrossShard() &&
+//                        Utils.FindClusterOfDataItem(transactionInput.getTransaction().getSender()) == this.clusterNumber ){
+//                    this.logger.log(("Cross Thread Started"));
+//                    CrossShardTnxProcessingThread crossShardTnxProcessingThread = new CrossShardTnxProcessingThread(this, transactionInput);
+//                    crossShardTnxProcessingThread.start();
+//                    Thread.sleep(100);
+//                    //crossShardTnxProcessingThread.join();
+//                }
                 else{
                     this.logger.log(("Intra Thread Started"));
                     IntraShardTnxProcessingThread intraShardTnxProcessingThread = new IntraShardTnxProcessingThread(this,
@@ -547,9 +564,6 @@ public class Node extends NodeServer {
             commitResponse.setSuccess(true);
 
         }
-
-
-
 
         return commitResponse.build();
     }

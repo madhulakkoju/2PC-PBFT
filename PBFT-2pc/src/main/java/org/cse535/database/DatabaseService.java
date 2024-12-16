@@ -233,9 +233,11 @@ public class DatabaseService {
         if(Utils.FindClusterOfDataItem(sender) == this.node.clusterNumber){
             int senderBalance = getBalance(sender);
 
-            if(senderBalance < amount){
-                return false;
+            if(transaction.getReceiver2() != 0){
+                return senderBalance >= (amount + transaction.getAmount2());
             }
+
+            return senderBalance >= amount;
         }
         return true;
     }
@@ -471,6 +473,9 @@ public class DatabaseService {
         public int senderOldBalance;
         public int receiverOldBalance;
 
+        public int receiver2;
+        public int receiver2OldBalance;
+
         public WALEntry(int transactionNum, int sender, int receiver, int senderOldBalance, int receiverOldBalance){
             this.transactionNum = transactionNum;
             this.sender = sender;
@@ -478,6 +483,16 @@ public class DatabaseService {
             this.senderOldBalance = senderOldBalance;
             this.receiverOldBalance = receiverOldBalance;
 
+        }
+
+        public WALEntry(int transactionNum, int sender, int receiver, int senderOldBalance, int receiverOldBalance, int receiver2, int receiver2OldBalance){
+            this.transactionNum = transactionNum;
+            this.sender = sender;
+            this.receiver = receiver;
+            this.senderOldBalance = senderOldBalance;
+            this.receiverOldBalance = receiverOldBalance;
+            this.receiver2 = receiver2;
+            this.receiver2OldBalance = receiver2OldBalance;
         }
 
     }
@@ -493,6 +508,9 @@ public class DatabaseService {
         int senderBalance = getBalance(sender);
         int receiverBalance = getBalance(receiver);
 
+
+
+
         if(Utils.FindClusterOfDataItem(sender) == this.node.clusterNumber ) {
             updateBalance(sender, senderBalance - amount);
             this.node.walLogger.log(transaction.getTransactionNum() + " - WRITE TO WAL: " + sender + " :  new :: " + (senderBalance - amount) + " : old :: " + senderBalance);
@@ -502,6 +520,20 @@ public class DatabaseService {
         if(Utils.FindClusterOfDataItem(receiver) == this.node.clusterNumber ){
             updateBalance(receiver, receiverBalance + amount);
             this.node.walLogger.log( transaction.getTransactionNum() + " - WRITE TO WAL : " + receiver + " : " + (receiverBalance + amount));
+        }
+
+
+        if(transaction.getReceiver2() != 0){
+            int receiver2 = transaction.getReceiver2();
+            int amount2 = transaction.getAmount2();
+            int receiver2Balance = getBalance(receiver2);
+
+            if(Utils.FindClusterOfDataItem(receiver2) == this.node.clusterNumber ){
+                updateBalance(receiver2, receiver2Balance + amount2);
+                this.node.walLogger.log( transaction.getTransactionNum() + " - WRITE TO WAL : " + receiver2 + " : " + (receiver2Balance + amount2));
+                writeAheadLog.put(transaction.getTransactionNum(), new WALEntry(transaction.getTransactionNum(), sender, receiver, senderBalance, receiverBalance, receiver2, receiver2Balance));
+                return;
+            }
         }
 
 
@@ -530,6 +562,14 @@ public class DatabaseService {
         if(receiver != -1){
             updateBalance(receiver, receiverOldBalance);
             this.node.walLogger.log(transactionNum + " - ROLLBACK : " + receiver + " : " + receiverOldBalance);
+        }
+
+        int receiver2 = entry.receiver2;
+        int receiver2OldBalance = entry.receiver2OldBalance;
+
+        if(receiver2 > 0){
+            updateBalance(receiver2, receiver2OldBalance);
+            this.node.walLogger.log(transactionNum + " - ROLLBACK : " + receiver2 + " : " + receiver2OldBalance);
         }
     }
 

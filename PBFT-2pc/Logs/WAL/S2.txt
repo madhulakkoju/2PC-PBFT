@@ -2,3 +2,64 @@
 1 - WRITE TO WAL: 299 :  new :: 7 : old :: 10
 1 - UNLOCK : 299 : 1
 1 - UNLOCK : 299 : 1
+1 - UNLOCK : 299 : 1
+4 - WRITE TO WAL: 296 :  new :: 9 : old :: 10
+4 - UNLOCK : 296 : 4
+5 - WRITE TO WAL: 296 :  new :: 1 : old :: 9
+4 - UNLOCK : 296 : 4
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+1 - UNLOCK : 299 : 1
+4 - UNLOCK : 296 : 4
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+1 - UNLOCK : 299 : 1
+4 - UNLOCK : 296 : 4
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+1 - UNLOCK : 299 : 1
+7 - UNLOCK : 793 : 7
+4 - UNLOCK : 296 : 4
+7 - UNLOCK : 793 : 7
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+1 - UNLOCK : 299 : 1
+7 - UNLOCK : 793 : 7
+4 - UNLOCK : 296 : 4
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+1 - UNLOCK : 299 : 1
+7 - UNLOCK : 793 : 7
+4 - UNLOCK : 296 : 4
+12 - WRITE TO WAL: 45 :  new :: 5 : old :: 10
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+12 - UNLOCK : 45 : 12
+1 - UNLOCK : 299 : 1
+7 - UNLOCK : 793 : 7
+12 - UNLOCK : 45 : 12
+4 - UNLOCK : 296 : 4
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+12 - UNLOCK : 45 : 12
+1 - UNLOCK : 299 : 1
+14 - WRITE TO WAL: 298 :  new :: 7 : old :: 10
+7 - UNLOCK : 793 : 7
+14 - UNLOCK : 298 : 14
+14 - UNLOCK : 298 : 14
+14 - UNLOCK : 298 : 14
+5 - ROLLBACK : 296 : 9
+5 - ROLLBACK : 1997 : 0
+5 - UNLOCK : 296 : 5
+14 - UNLOCK : 298 : 14
+12 - UNLOCK : 45 : 12
+1 - UNLOCK : 299 : 1
+7 - UNLOCK : 793 : 7
+4 - UNLOCK : 296 : 4

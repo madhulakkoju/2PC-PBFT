@@ -151,11 +151,13 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
             return;
         }
 
-        if(!Main.node.database.crossShardPrepareResponses.containsKey(request.getTransaction().getTransactionNum())) {
-            Main.node.database.crossShardPrepareResponses.put(request.getTransaction().getTransactionNum(), new HashMap<>());
-        }
+        if(request.getSequenceNumber() != -1){
+            if(!Main.node.database.crossShardPrepareResponses.containsKey(request.getTransaction().getTransactionNum())) {
+                Main.node.database.crossShardPrepareResponses.put(request.getTransaction().getTransactionNum(), new HashMap<>());
+            }
 
-        Main.node.database.crossShardPrepareResponses.get(request.getTransaction().getTransactionNum()).put(request.getClusterId(), request);
+            Main.node.database.crossShardPrepareResponses.get(request.getTransaction().getTransactionNum()).put(request.getClusterId(), request);
+        }
 
         responseObserver.onNext(Empty.newBuilder().build());
         responseObserver.onCompleted();
@@ -166,7 +168,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
         Main.node.logger.log("Received Cross Shard Commit request from " + request.getProcessId() + " with Seq number " + request.getSequenceNumber());
 
-        if( ! Main.node.isServerActive.get() ){
+        if( ! Main.node.isServerActive.get() || request.getSequenceNumber() == -1){
             //Inactive server
             CommitResponse response = CommitResponse.newBuilder()
                     .setSuccess(false)
@@ -190,6 +192,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
         Main.node.logger.log("Resending Reply to Client  " );
         Main.node.reSendExecutionReplyToClient(request.getTransaction());
+
     }
 
     @Override

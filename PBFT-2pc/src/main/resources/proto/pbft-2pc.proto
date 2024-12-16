@@ -69,6 +69,7 @@ message Transaction {
   int32 amount = 3;
 
   int32 receiver2 = 8;
+  int32 amount2 = 9;
 
   google.protobuf.Timestamp timestamp = 4;
 
