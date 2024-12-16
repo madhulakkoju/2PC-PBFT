@@ -14,6 +14,8 @@ Executing transaction: 1
 WAL: Cross Shard Transaction: (1001, 2999,  6) 
 Initiating execution for seqNum: 2
 Status : Not Found
+Commit Request Accepted from S9
+Commit Request Received from -> Adding to DataStore
 Received pre-prepare request from S9 with ballot number 2
 PrePrepare Request received from S9
 PrePrepare request received: 2 Transaction ID: 3 Digest: lxhCLFly0YEKVF2nGOZlY2XgexuAziHR6bmNapjKYtlSd03wJENpe+qYlqa4F8n+NgdNgddG8cbrjMBbzs59coouzcwkbMj3LizJzH/R6SyCLoImuntk07FmPPo4BHQvOr9YKg2Q3lNwiCQ5EiWK/W/BoOH8kTg/EXs3ltF/N1CQIjvDeMMokVc29blChSclZTJbFEq7D0iKu75DeMNvpnI7mdyDqBQCDhUU4X8dwOHmYpp6TgBqxDwL6o4p8c2d/efxdgjZWapVdoNfT7uPsi0l+kbF7r3JhPJxFJE8Q33/crHc4EvP4Tehsuw4bc/Qsb3qh9jtubjPR7eqRtc8eQ==
@@ -28,6 +30,7 @@ Executing transaction: 2
 WAL: Cross Shard Transaction: (2150, 1111,  9) 
 Initiating execution for seqNum: 3
 Status : Not Found
+Commit Request Received from -> Adding to DataStore
 Received Cross Shard Commit request from S9 with Seq number 2
 Commit Request Received from S9
 Commit Request Accepted from S9
@@ -66,6 +69,8 @@ status: "EXECUTED"
 Sent Reply to Client executed: 3
 Initiating execution for seqNum: 4
 Status : Not Found
+Commit Request Received from -> Adding to DataStore
+Commit Request Received from -> Adding to DataStore INTRASHARD
 Received pre-prepare request from S9 with ballot number 4
 PrePrepare Request received from S9
 PrePrepare request received: 4 Transaction ID: 9 Digest: SpRwPPNhrFZHiHnpISd9OF+Nh14+mH/h/V0Fu82DJPnEvHooL5RU2cTfLRrWKZxxWN9dqd2ETce86FMFpf4p8G70U7FN9CiSJhvvSxp+Eq/87qQPmoMlhJTUEa0cm+bEuR+zFZZzYql8Fpvn9O+bhccivsbF/VjVQN9owvnrsqqF+J5OhPw83YXu56/m8oxI+GyDObmhyjj7l8OX40aCi01qyC+lFSAl9OHclMgYEY9T0k2ts3WS8NO5lLk1DqFqqqTxm+v+D6+0QLCnJkF5zGjrEX5L+uyHWj1vLLDr1+0DHPCFPjsD8rIoiCAUFmHNu3X6KFpbzwlb+rNPR9Y8TQ==
@@ -80,6 +85,8 @@ Executing transaction: 4
 WAL: Cross Shard Transaction: (1877, 2855,  5) 
 Initiating execution for seqNum: 5
 Status : Not Found
+Commit Request Accepted from S9
+Commit Request Received from -> Adding to DataStore
 Received pre-prepare request from S9 with ballot number 5
 PrePrepare Request received from S9
 PrePrepare request received: 5 Transaction ID: 10 Digest: MzemsNiRZb1iy/8VTfqXp0ByZ0DKmcW9I8hnnLpepFwvr9phsqXCWANfQIo7d0dpAf2KPUGAPWx+B3FOLB9GnD8NcZ/Lpz3tYKJhNLIFshSlIP6JGg+sfiC+kGSqlw+V972f6ko6F5RCgtbm4obVE/a0O3B/DRD8Fp13GF12dwud8b9L8SQXDw8IJAmjPHgoYaIYckWqU5QxtFFEZHTD/5UD9OjIG8kFd5kSCJbmevjnHiFOV3ejZARxnAJUyR0BhkG73GjtMkOU4bumwhbsr732/IvpC/GanIj9YbbsQwYoUcsIu4XOO2yIP4Y+wlZkmwBQI3iyrPpsPUoa+eDhTg==
@@ -94,6 +101,8 @@ Executing transaction: 5
 WAL: Cross Shard Transaction: (1333, 2333,  3) 
 Initiating execution for seqNum: 6
 Status : Not Found
+Commit Request Accepted from S9
+Commit Request Received from -> Adding to DataStore
 Received pre-prepare request from S9 with ballot number 6
 PrePrepare Request received from S9
 PrePrepare request received: 6 Transaction ID: 15 Digest: R5vEzJBxfzudseei5LozQc/6WiYz1xDWbnuJZEh1Dumcesae5wV/ztpV6Pati5A1NOKQP8FM63dks5uOcr/BK5XzJOnm4Mg4x/Woe2Z4Gyu8uaP7ZV67rXLE06fI1yd9nBavZ2aPVa75Lferx1O/kssZiHhj/dfvL4mF4ZGC3GHOvXAa5iGehE9ICp+po9JWwQg13CJZwMqipA8QNNQj2fSBBKoO3zJLG3KwJkfi1QDHkbiioMoFDFNmK8qLAqLTSfJzQUC3sO/xBF05A/VmK+bzkydjvI2eha6WwDnijF9CtVvqEbQehz08f8fZNdLeZc9MofSi3V2wZMIBqNWxpA==
@@ -108,6 +117,8 @@ Executing transaction: 6
 WAL: Cross Shard Transaction: (1061, 2476,  6) 
 Initiating execution for seqNum: 7
 Status : Not Found
+Commit Request Accepted from S9
+Commit Request Received from -> Adding to DataStore
 Received pre-prepare request from S9 with ballot number 7
 PrePrepare Request received from S9
 PrePrepare request received: 7 Transaction ID: 16 Digest: s387Mkdu10TcQBV+0p0xomRqxejTtjouuQQRM0hj00BmJiMbbhLBN+Dh0u0huaOQY+p7sWZtFEsckAI8eL5Wrqt5Vi2iU1Ub40OftTk3YT1Kv/9Y4hkpkjQNNBcz7xSl6BneJKb/1AKqJDQTXQIGgyz3ZabiCeVa6dC8H5mtRzvY1xMEVSqd/wlkBj4sfJYyEiunqhIzi7A8llBHzcUQG5IfRb8nfPeTYgEZyW+trxnwO0NOps1RkOdCaJYy8qkUG3ELJxALeRMTTflXWTVondxOkmkGZ7dUTCuPwNvL75f4oQjNV4y0yLIHGuxD7tsMFcCQQgMnVhVeDGEFS7jKhg==
@@ -122,6 +133,7 @@ Executing transaction: 7
 WAL: Cross Shard Transaction: (2850, 1234,  9) 
 Initiating execution for seqNum: 8
 Status : Not Found
+Commit Request Received from -> Adding to DataStore
 Received Cross Shard Commit request from S9 with Seq number 7
 Commit Request Received from S9
 Commit Request Accepted from S9

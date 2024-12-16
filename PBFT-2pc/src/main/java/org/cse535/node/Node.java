@@ -550,20 +550,24 @@ public class Node extends NodeServer {
 
         )
         {
-            if(!request.hasTransaction()){
-                request = request.toBuilder().setTransaction(this.database.transactionMap.get(request.getSequenceNumber())).build();
-            }
-
-            if(request.getTransaction().getIsCrossShard()){
-                this.database.addCrossShardPrepareToDataStore(request);
-            }
-            else{
-                this.database.addToDataStore(request);
-            }
-
+            this.logger.log("Commit Request Accepted from " + request.getProcessId());
             commitResponse.setSuccess(true);
 
         }
+
+        if(!request.hasTransaction()){
+            request = request.toBuilder().setTransaction(this.database.transactionMap.get(request.getSequenceNumber())).build();
+        }
+        this.logger.log("Commit Request Received from -> Adding to DataStore");
+        if(request.getTransaction().getIsCrossShard()){
+            this.database.addCrossShardPrepareToDataStore(request);
+        }
+        else{
+            this.logger.log("Commit Request Received from -> Adding to DataStore INTRASHARD");
+            this.database.addToDataStore(request);
+        }
+
+        commitResponse.setSuccess(true);
 
         return commitResponse.build();
     }

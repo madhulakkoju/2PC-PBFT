@@ -477,7 +477,7 @@ public class ViewServer extends NodeServer {
                 viewServer.transactionsCount++;
 
                 int cluster = Utils.FindClusterOfDataItem(transactionInputConfig.getTransaction().getSender());
-                Thread.sleep(GlobalConfigs.TransactionTimeout);
+                Thread.sleep(1000);
 
                 viewServer.logger.log("Sending Transaction: " + Utils.toString(transactionInputConfig.getTransaction()) +
                         "\n" + tnxLine.transactionInputConfig.toString() );

@@ -4,50 +4,39 @@
 2 - LOCK : 1001 : 2
 2 - WRITE TO WAL: 1001 :  new :: 4 : old :: 10
 3 - LOCK : 1111 : 3
-2 - UNLOCK : 1001 : 2
 3 - WRITE TO WAL : 1111 : 19
 2 - UNLOCK : 1001 : 2
-2 - LOCK : 1001 : 2
+2 - UNLOCK : 1001 : 2
 4 - LOCK : 1997 : 4
 4 - WRITE TO WAL : 1997 : 11
+2 - LOCK : 1001 : 2
 7 - LOCK : 1993 : 7
 7 - WRITE TO WAL : 1993 : 17
 8 - LOCK : 1998 : 8
-8 - LOCK : 1998 : 8
 9 - LOCK : 1877 : 9
-9 - WRITE TO WAL: 1877 :  new :: 5 : old :: 10
 10 - LOCK : 1333 : 10
+9 - WRITE TO WAL: 1877 :  new :: 5 : old :: 10
 10 - WRITE TO WAL: 1333 :  new :: 7 : old :: 10
 9 - UNLOCK : 1877 : 9
-9 - UNLOCK : 1877 : 9
-10 - UNLOCK : 1333 : 10
-9 - LOCK : 1877 : 9
 10 - UNLOCK : 1333 : 10
 12 - LOCK : 1355 : 12
 12 - WRITE TO WAL : 1355 : 15
-10 - LOCK : 1333 : 10
 9 - UNLOCK : 1877 : 9
-9 - LOCK : 1877 : 9
-9 - LOCK : 1877 : 9
 10 - UNLOCK : 1333 : 10
-10 - LOCK : 1333 : 10
+9 - LOCK : 1877 : 9
 10 - LOCK : 1333 : 10
 14 - LOCK : 1789 : 14
 14 - WRITE TO WAL : 1789 : 13
-9 - UNLOCK : 1877 : 9
-9 - UNLOCK : 1877 : 9
 15 - LOCK : 1061 : 15
+9 - UNLOCK : 1877 : 9
 15 - WRITE TO WAL: 1061 :  new :: 4 : old :: 10
-9 - LOCK : 1877 : 9
-10 - UNLOCK : 1333 : 10
-10 - UNLOCK : 1333 : 10
-15 - UNLOCK : 1061 : 15
 16 - LOCK : 1234 : 16
+10 - UNLOCK : 1333 : 10
 16 - WRITE TO WAL : 1234 : 19
+9 - LOCK : 1877 : 9
+15 - UNLOCK : 1061 : 15
 10 - LOCK : 1333 : 10
 15 - UNLOCK : 1061 : 15
-9 - UNLOCK : 1877 : 9
 15 - LOCK : 1061 : 15
-9 - LOCK : 1877 : 9
+9 - UNLOCK : 1877 : 9
 10 - UNLOCK : 1333 : 10
-10 - LOCK : 1333 : 10

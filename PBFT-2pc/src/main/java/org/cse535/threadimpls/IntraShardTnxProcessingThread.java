@@ -259,6 +259,8 @@ public class IntraShardTnxProcessingThread extends Thread {
 
                                 this.node.database.transactionStatusMap.put(currentSeqNum, TransactionStatus.COMMITTED);
                                 this.node.database.initiateExecutions();
+                                if(!tnx.getIsCrossShard())
+                                    this.node.database.addToDataStore(commitRequest);
 
                                 //Wait for all servers to respond
                                 for (int j = 0; j < i; j++) {

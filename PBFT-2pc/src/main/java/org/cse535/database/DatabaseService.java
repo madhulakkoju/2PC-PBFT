@@ -879,8 +879,20 @@ public class DatabaseService {
         try {
             String insertSQL = "INSERT INTO locks (dataitem, transactionNum) VALUES (" + dataItem + ", " + transactionNum + ");";
             statement.executeUpdate(insertSQL);
+            return;
         }
-        catch(Exception e) {e.printStackTrace();}
+        catch(Exception e) {
+
+            try {
+                String updateSQL = "UPDATE locks SET transactionNum = " + transactionNum + " WHERE dataitem = " + dataItem + ";";
+                statement.executeUpdate(updateSQL);
+                return;
+            }
+            catch(Exception e1) {
+
+            }
+
+        }
     }
 
 

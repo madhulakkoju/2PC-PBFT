@@ -5,7 +5,6 @@
 3 - WRITE TO WAL: 2150 :  new :: 1 : old :: 10
 3 - UNLOCK : 2150 : 3
 3 - UNLOCK : 2150 : 3
-3 - LOCK : 2150 : 3
 6 - LOCK : 2593 : 6
 6 - LOCK : 2297 : 6
 6 - BEGIN TNX : (2593, 2297,  3) 
@@ -17,6 +16,7 @@
 6 - COMMIT : (2593, 2297,  3) 
 6 - UNLOCK : 2593 : 6
 6 - UNLOCK : 2297 : 6
+3 - LOCK : 2150 : 3
 9 - LOCK : 2855 : 9
 9 - WRITE TO WAL : 2855 : 15
 10 - LOCK : 2333 : 10
