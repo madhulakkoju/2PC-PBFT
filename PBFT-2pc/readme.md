@@ -42,6 +42,9 @@ Like an Input Controller Client. This represents a Client that sends transaction
 After every Test Set, code automatically sends PrintDataStore, PrintStatus, PrintBalance and PrintPerformance commands to the servers.
 The Outputs will be logged to "Logs/8000-Commands.txt" file
 
+Client Retries until it receives Executed Response from f+1 Servers.
+In Async mode with 3-6 seconds delay between each retry.
+
 PrintBalance will be sent for all participating DataItems and will be logged.
 
 ## Bonus 1 - Multiple Receivers Across Shards from a Single Sender
