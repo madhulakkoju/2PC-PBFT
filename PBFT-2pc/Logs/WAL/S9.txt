@@ -27,3 +27,4 @@
 16 - WRITE TO WAL: 2850 :  new :: 1 : old :: 10
 16 - UNLOCK : 2850 : 16
 16 - UNLOCK : 2850 : 16
+16 - LOCK : 2850 : 16

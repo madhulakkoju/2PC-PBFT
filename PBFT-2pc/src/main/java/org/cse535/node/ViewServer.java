@@ -68,7 +68,7 @@ public class ViewServer extends NodeServer {
 
     public TreeSet<Integer> participatingDataItems = new TreeSet<>();
 
-    public Timer timer = new Timer();
+
 
 
     public ViewServer(String serverName, int port) {

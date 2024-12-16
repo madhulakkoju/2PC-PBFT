@@ -51,6 +51,17 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 1
+PrePrepare Request received from S1
+PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Received prepare request from S1 with Sequence number 1
+Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
+Received Commit request from S1 with Seq number 1
+Initiating executions : 1 : 1
+Initiating execution for seqNum: 2
+Status : Not Found
 Received pre-prepare request from S1 with ballot number 2
 PrePrepare Request received from S1
 PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
@@ -65,6 +76,14 @@ Executing transaction: 2
 WAL: Cross Shard Transaction: ( 296, 1997,  1) 
 Initiating execution for seqNum: 3
 Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 1
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 1
+Response: sequenceNumber: 1
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received Cross Shard Commit request from S1 with Seq number 2
 Commit Request Received from S1
 Commit Request Accepted from S1
@@ -108,22 +127,6 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 3
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 3
-Response: sequenceNumber: 3
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 1
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 1
-Response: sequenceNumber: 1
-processId: "S4"
-success: true
-
-Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 2
 PrePrepare Request received from S1
 PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
@@ -136,32 +139,6 @@ Initiating executions : 3 : 3
 Initiating execution for seqNum: 4
 Status : COMMITTED
 Executing transaction: 4
-Received Cross Shard Commit request from S1 with Seq number 2
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 2
-Response: sequenceNumber: 2
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 3
-PrePrepare Request received from S1
-PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Received prepare request from S1 with Sequence number 3
-Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
-Received Commit request from S1 with Seq number 3
-Initiating executions : 4 : 3
-Received pre-prepare request from S1 with ballot number 1
-PrePrepare Request received from S1
-PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Received prepare request from S1 with Sequence number 1
-Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
-Received Commit request from S1 with Seq number 1
-Initiating executions : 4 : 3
 Received Cross Shard Commit request from S1 with Seq number 3
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 3
@@ -174,23 +151,6 @@ Received Cross Shard Commit request from S1 with Seq number 1
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 1
 Response: sequenceNumber: 1
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 2
-PrePrepare Request received from S1
-PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Received prepare request from S1 with Sequence number 2
-Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
-Received Commit request from S1 with Seq number 2
-Initiating executions : 4 : 3
-Received Cross Shard Commit request from S1 with Seq number 2
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 2
-Response: sequenceNumber: 2
 processId: "S4"
 success: true
 
@@ -223,6 +183,108 @@ Received Commit request from S1 with Seq number 4
 Initiating executions : 4 : 4
 Initiating execution for seqNum: 5
 Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 2
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 2
+PrePrepare Request received from S1
+PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Received prepare request from S1 with Sequence number 2
+Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
+Received Commit request from S1 with Seq number 2
+Initiating executions : 4 : 4
+Initiating execution for seqNum: 5
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 3
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Commit Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Commit Request Accepted from S1
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 1
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 1
+Response: sequenceNumber: 1
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
+Received Commit request from S1 with Seq number 3
+Initiating executions : 4 : 4
+Initiating execution for seqNum: 5
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 5
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 5
+Response: sequenceNumber: 5
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 1
+PrePrepare Request received from S1
+PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Received prepare request from S1 with Sequence number 1
+Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
+Received Commit request from S1 with Seq number 1
+Initiating executions : 4 : 4
+Initiating execution for seqNum: 5
+Status : COMMITTED
+Executing transaction: 5
+Received pre-prepare request from S1 with ballot number 4
+PrePrepare Request received from S1
+PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash: 7 Request Hash: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Received prepare request from S1 with Sequence number 4
+Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
+Received Commit request from S1 with Seq number 4
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 2
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 2
+PrePrepare Request received from S1
+PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Received prepare request from S1 with Sequence number 2
+Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
+Received Commit request from S1 with Seq number 2
+Initiating executions : 5 : 4
 Received Cross Shard Commit request from S1 with Seq number 3
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 3
@@ -239,43 +301,6 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 2
-PrePrepare Request received from S1
-PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Received prepare request from S1 with Sequence number 2
-Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
-Received Commit request from S1 with Seq number 2
-Initiating executions : 4 : 4
-Initiating execution for seqNum: 5
-Status : Not Found
-Received Cross Shard Commit request from S1 with Seq number 4
-Commit Request Received from S1
-Commit Request Accepted from S1
-Sending Cross Shard Commit response to S1 with Seq number 4
-Response: sequenceNumber: 4
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 2
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 2
-Response: sequenceNumber: 2
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 5
-Commit Request Received from S1
-Commit Request Accepted from S1
-Sending Cross Shard Commit response to S1 with Seq number 5
-Response: sequenceNumber: 5
-processId: "S4"
-success: true
-
-Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 3
 PrePrepare Request received from S1
 PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
@@ -284,10 +309,15 @@ Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID fr
 Received prepare request from S1 with Sequence number 3
 Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
 Received Commit request from S1 with Seq number 3
-Initiating executions : 4 : 4
-Initiating execution for seqNum: 5
-Status : COMMITTED
-Executing transaction: 5
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 1
 PrePrepare Request received from S1
 PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
@@ -306,6 +336,23 @@ Received prepare request from S1 with Sequence number 4
 Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
 Received Commit request from S1 with Seq number 4
 Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 2
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 2
+PrePrepare Request received from S1
+PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Received prepare request from S1 with Sequence number 2
+Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
+Received Commit request from S1 with Seq number 2
+Initiating executions : 5 : 4
 Received Cross Shard Commit request from S1 with Seq number 3
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 3
@@ -322,14 +369,14 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 2
+Received pre-prepare request from S1 with ballot number 3
 PrePrepare Request received from S1
-PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Received prepare request from S1 with Sequence number 2
-Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
-Received Commit request from S1 with Seq number 2
+PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
+Received Commit request from S1 with Seq number 3
 Initiating executions : 5 : 4
 Received Cross Shard Commit request from S1 with Seq number 4
 Abort Request Received from S1
@@ -339,10 +386,53 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 1
+PrePrepare Request received from S1
+PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Received prepare request from S1 with Sequence number 1
+Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
+Received Commit request from S1 with Seq number 1
+Initiating executions : 5 : 4
+Received pre-prepare request from S1 with ballot number 4
+PrePrepare Request received from S1
+PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash: 7 Request Hash: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
 Received Cross Shard Commit request from S1 with Seq number 2
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 2
 Response: sequenceNumber: 2
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received prepare request from S1 with Sequence number 4
+Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
+Received Commit request from S1 with Seq number 4
+Initiating executions : 5 : 4
+Received pre-prepare request from S1 with ballot number 2
+PrePrepare Request received from S1
+PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Received prepare request from S1 with Sequence number 2
+Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
+Received Commit request from S1 with Seq number 2
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 1
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 1
+Response: sequenceNumber: 1
 processId: "S4"
 success: true
 
@@ -356,6 +446,40 @@ Received prepare request from S1 with Sequence number 3
 Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
 Received Commit request from S1 with Seq number 3
 Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 1
+PrePrepare Request received from S1
+PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Received prepare request from S1 with Sequence number 1
+Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
+Received Commit request from S1 with Seq number 1
+Initiating executions : 5 : 4
+Received pre-prepare request from S1 with ballot number 4
+PrePrepare Request received from S1
+PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash: 7 Request Hash: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Received prepare request from S1 with Sequence number 4
+Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
+Received Commit request from S1 with Seq number 4
+Initiating executions : 5 : 4
+Received Cross Shard Commit request from S1 with Seq number 2
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 5
 PrePrepare Request received from S1
 PrePrepare request received: 5 Transaction ID: 11 Digest: L+68wMib0WWAKjM1zkI6LV7zWEl8g3UroDcfXEvtO9C2bGGC7bn73afyah2tpVcXucjynjgArwHg35zyqK1NN8o/HrtFaZhr1oUBJyZIdQ6XlqCv4MTVytcPi9h7G7z2bViWNZB7JnZPql1V+EEX2kt+ZQGuL+Mvan/CGeNhUSkFY0D3GGdfiobbw7nincT1CGLVRvYBFfS2rMugW+VPk6T5GKtgXk35Jij/nc8LoiRY774cAu7+/oiW7o24QKSx6XxXiH3vG/gtO72FnMBBVMvyIet7bRHC4PM9ZD6tma/qD3q/RNhQ5G622bgEL8qhud2GBFZekB31RcDPHvsGTg==
@@ -366,25 +490,14 @@ Received Commit request from S1 with Seq number 5
 Initiating executions : 5 : 5
 Initiating execution for seqNum: 6
 Status : Not Found
-Received pre-prepare request from S1 with ballot number 1
+Received pre-prepare request from S1 with ballot number 2
 PrePrepare Request received from S1
-PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Received prepare request from S1 with Sequence number 1
-Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
-Received Commit request from S1 with Seq number 1
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
-Received pre-prepare request from S1 with ballot number 4
-PrePrepare Request received from S1
-PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
-Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
-Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash: 7 Request Hash: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
-Received prepare request from S1 with Sequence number 4
-Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
-Received Commit request from S1 with Seq number 4
+PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Received prepare request from S1 with Sequence number 2
+Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
+Received Commit request from S1 with Seq number 2
 Initiating executions : 5 : 5
 Initiating execution for seqNum: 6
 Status : Not Found
@@ -404,44 +517,6 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 2
-PrePrepare Request received from S1
-PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
-Received prepare request from S1 with Sequence number 2
-Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
-Received Commit request from S1 with Seq number 2
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
-Received Cross Shard Commit request from S1 with Seq number 4
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 4
-Response: sequenceNumber: 4
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 2
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 2
-Response: sequenceNumber: 2
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 3
-PrePrepare Request received from S1
-PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Received prepare request from S1 with Sequence number 3
-Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
-Received Commit request from S1 with Seq number 3
-Initiating executions : 5 : 5
-Initiating execution for seqNum: 6
-Status : Not Found
 Received pre-prepare request from S1 with ballot number 6
 PrePrepare Request received from S1
 PrePrepare request received: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
@@ -456,6 +531,25 @@ Executing transaction: 6
 WAL: Cross Shard Transaction: (  45, 1355,  5) 
 Initiating execution for seqNum: 7
 Status : Not Found
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
+Received Commit request from S1 with Seq number 3
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 1
 PrePrepare Request received from S1
 PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
@@ -467,6 +561,15 @@ Received Commit request from S1 with Seq number 1
 Initiating executions : 6 : 6
 Initiating execution for seqNum: 7
 Status : Not Found
+Received Cross Shard Commit request from S1 with Seq number 6
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received pre-prepare request from S1 with ballot number 4
 PrePrepare Request received from S1
 PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
@@ -478,27 +581,19 @@ Received Commit request from S1 with Seq number 4
 Initiating executions : 6 : 6
 Initiating execution for seqNum: 7
 Status : Not Found
-Received Cross Shard Commit request from S1 with Seq number 3
+Received Cross Shard Commit request from S1 with Seq number 2
 Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 3
-Response: sequenceNumber: 3
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
 processId: "S4"
 success: true
 
 Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 6
+Received Cross Shard Commit request from S1 with Seq number 8
 Commit Request Received from S1
 Commit Request Accepted from S1
-Sending Cross Shard Commit response to S1 with Seq number 6
-Response: sequenceNumber: 6
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 1
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 1
-Response: sequenceNumber: 1
+Sending Cross Shard Commit response to S1 with Seq number 8
+Response: sequenceNumber: 8
 processId: "S4"
 success: true
 
@@ -514,87 +609,10 @@ Received Commit request from S1 with Seq number 2
 Initiating executions : 6 : 6
 Initiating execution for seqNum: 7
 Status : Not Found
-Received Cross Shard Commit request from S1 with Seq number 4
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 4
-Response: sequenceNumber: 4
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 8
-Commit Request Received from S1
-Commit Request Accepted from S1
-Sending Cross Shard Commit response to S1 with Seq number 8
-Response: sequenceNumber: 8
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 2
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 2
-Response: sequenceNumber: 2
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 3
-PrePrepare Request received from S1
-PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Received prepare request from S1 with Sequence number 3
-Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
-Received Commit request from S1 with Seq number 3
-Initiating executions : 6 : 6
-Initiating execution for seqNum: 7
-Status : Not Found
-Received pre-prepare request from S1 with ballot number 6
-PrePrepare Request received from S1
-PrePrepare request received: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
-Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
-Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash: 12 Request Hash: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
-Received prepare request from S1 with Sequence number 6
-Accepted ---- Prepare request accepted: 6 Digest: uh8WOAi81i9CtLhNgWAoqLMpUPVZeaUP5/ExGlk3xRHyyY9w/YZ5Kz8qWK+FIApDUKCkZR5aNh9Wlrd+8AD5VRXbOzV8SDcH+C86MswxLYkpnonjQOoGrneMJi5mxqICz29AB/zHD1mrHqz+AYKFNqAIZn+anF0SGnSPeA46RQfZJe44nnDUXOFT/f2JuPCPK3129m19Sy1jYwl8a741L1EPm+JXy/ujwBKGAX2Otx5mIdAChUE0XHd7uRZYNiY0yLkHmjq1y0M5gkgOMdoy2442FPiTC/+0jiNFv3F8i51Qq3VIQB0xzXZesCgDmdiQ6fIkBIdyY1syc8tUSiWLLw==
-Received Commit request from S1 with Seq number 6
-Initiating executions : 6 : 6
-Initiating execution for seqNum: 7
-Status : Not Found
-Received pre-prepare request from S1 with ballot number 1
-PrePrepare Request received from S1
-PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
-Received prepare request from S1 with Sequence number 1
-Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
-Received Commit request from S1 with Seq number 1
-Initiating executions : 6 : 6
-Initiating execution for seqNum: 7
-Status : Not Found
-Received pre-prepare request from S1 with ballot number 4
-PrePrepare Request received from S1
-PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
-Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
-Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash: 7 Request Hash: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
-Received prepare request from S1 with Sequence number 4
-Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
-Received Commit request from S1 with Seq number 4
-Initiating executions : 6 : 6
-Initiating execution for seqNum: 7
-Status : Not Found
 Received Cross Shard Commit request from S1 with Seq number 3
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 3
 Response: sequenceNumber: 3
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 6
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 6
-Response: sequenceNumber: 6
 processId: "S4"
 success: true
 
@@ -607,6 +625,36 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash: 12 Request Hash: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: uh8WOAi81i9CtLhNgWAoqLMpUPVZeaUP5/ExGlk3xRHyyY9w/YZ5Kz8qWK+FIApDUKCkZR5aNh9Wlrd+8AD5VRXbOzV8SDcH+C86MswxLYkpnonjQOoGrneMJi5mxqICz29AB/zHD1mrHqz+AYKFNqAIZn+anF0SGnSPeA46RQfZJe44nnDUXOFT/f2JuPCPK3129m19Sy1jYwl8a741L1EPm+JXy/ujwBKGAX2Otx5mIdAChUE0XHd7uRZYNiY0yLkHmjq1y0M5gkgOMdoy2442FPiTC/+0jiNFv3F8i51Qq3VIQB0xzXZesCgDmdiQ6fIkBIdyY1syc8tUSiWLLw==
+Received Commit request from S1 with Seq number 6
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Commit request from S1 with Seq number 3
+Initiating executions : 6 : 6
+Initiating execution for seqNum: 7
+Status : Not Found
 Received pre-prepare request from S1 with ballot number 7
 PrePrepare Request received from S1
 PrePrepare request received: 7 Transaction ID: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
@@ -622,59 +670,6 @@ WAL: Cross Shard Transaction: ( 298, 1789,  3)
 Initiating execution for seqNum: 8
 Status : COMMITTED
 Executing transaction: 8
-Received pre-prepare request from S1 with ballot number 7
-PrePrepare Request received from S1
-PrePrepare request received: 7 Transaction ID: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
-Accepted ---- PrePrepare request accepted: 7 Transaction ID: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
-Rejected ---- PrePrepare request rejected: 7 Transaction ID: 14 Transaction ID from db map : 14 Tnx Hash matching : trueTransaction Hash: 14 Request Hash: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
-Received prepare request from S1 with Sequence number 7
-Accepted ---- Prepare request accepted: 7 Digest: uPDk6B0hSpyEYkhCergkRA5qEbwEuegxZBS1myq997upDpc78lLhOryU4A6/W6A+vCseorMPvX+hFpCfo9PYnSsSbKVTMMCUgH0UQTgare7bgk9UOSYK15KXIID+Pnd0+/wuCLO+cz5M2jexjTPjdj+mf5Pd0curFMaIYPgS6RbCIVHJ5AK9uWwWIHUqzKhNuxkowhkKCbUzAIzs/4Xe5IvbYGnzLcFZMmdLHkJo8HB8HvJiyO0ivV3vzIgAMQYBq4rZ4sBN2Fr1qWFnpK7QTKJrgV5Dvw2IvUsc+4DHyarmNJE/wrtO9LlxqSSXQUYCeyzUEJ49H82UqM7/R0ph+g==
-Received Commit request from S1 with Seq number 7
-Initiating executions : 8 : 7
-Received Cross Shard Commit request from S1 with Seq number 4
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 4
-Response: sequenceNumber: 4
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 3
-PrePrepare Request received from S1
-PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
-Received prepare request from S1 with Sequence number 3
-Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
-Received Commit request from S1 with Seq number 3
-Initiating executions : 8 : 7
-Received Cross Shard Commit request from S1 with Seq number 7
-Commit Request Received from S1
-Commit Request Accepted from S1
-Sending Cross Shard Commit response to S1 with Seq number 7
-Response: sequenceNumber: 7
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 7
-Commit Request Received from S1
-Commit Request Accepted from S1
-Sending Cross Shard Commit response to S1 with Seq number 7
-Response: sequenceNumber: 7
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received pre-prepare request from S1 with ballot number 6
-PrePrepare Request received from S1
-PrePrepare request received: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
-Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
-Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash: 12 Request Hash: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
-Received prepare request from S1 with Sequence number 6
-Accepted ---- Prepare request accepted: 6 Digest: uh8WOAi81i9CtLhNgWAoqLMpUPVZeaUP5/ExGlk3xRHyyY9w/YZ5Kz8qWK+FIApDUKCkZR5aNh9Wlrd+8AD5VRXbOzV8SDcH+C86MswxLYkpnonjQOoGrneMJi5mxqICz29AB/zHD1mrHqz+AYKFNqAIZn+anF0SGnSPeA46RQfZJe44nnDUXOFT/f2JuPCPK3129m19Sy1jYwl8a741L1EPm+JXy/ujwBKGAX2Otx5mIdAChUE0XHd7uRZYNiY0yLkHmjq1y0M5gkgOMdoy2442FPiTC/+0jiNFv3F8i51Qq3VIQB0xzXZesCgDmdiQ6fIkBIdyY1syc8tUSiWLLw==
-Received Commit request from S1 with Seq number 6
-Initiating executions : 8 : 7
 Received pre-prepare request from S1 with ballot number 1
 PrePrepare Request received from S1
 PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
@@ -684,15 +679,49 @@ Received prepare request from S1 with Sequence number 1
 Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
 Received Commit request from S1 with Seq number 1
 Initiating executions : 8 : 7
-Received Cross Shard Commit request from S1 with Seq number 9
-Commit Request Received from S1
-Commit Request Accepted from S1
-Sending Cross Shard Commit response to S1 with Seq number 9
-Response: sequenceNumber: 9
+Received pre-prepare request from S1 with ballot number 4
+PrePrepare Request received from S1
+PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash: 7 Request Hash: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Received prepare request from S1 with Sequence number 4
+Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
+Received Commit request from S1 with Seq number 4
+Initiating executions : 8 : 7
+Received Cross Shard Commit request from S1 with Seq number 2
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
 processId: "S4"
 success: true
 
 Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 7
+Commit Request Received from S1
+Commit Request Accepted from S1
+Sending Cross Shard Commit response to S1 with Seq number 7
+Response: sequenceNumber: 7
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 6
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 2
+PrePrepare Request received from S1
+PrePrepare request received: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Rejected ---- PrePrepare request rejected: 2 Transaction ID: 4 Transaction ID from db map : 4 Tnx Hash matching : trueTransaction Hash: 4 Request Hash: 4 Digest: h/10SXzH998iCdF5DxXmo00yEZCRFfvLy3Oe5GeF67GayJpH2Drxagc2E1+H3Ltf/hsfziWL0Gc5vFuX7aBZEV12x3xtbZOg9E3+uIdOHXBgvcwIzrVqo9NreyojTmOPBTiecGWIT3x6EQ2AR/5ewjELHkoLd6g7IFHwUGrMjmpi11Pkjjl0v/DYRDLh7YuxrpzLL8/+wbtvCqyaZHtiQDF/cD9ig+e88LzkF9dHYX2SWdexFqzjVKMcedp/eC5o+zbXlC4brnQYDQx78nXgiXDYZFIFd7AgyEZdxbEbYN7qPYIc6LO1aoXd7zm9TjYJACi135jDAzK9G+LYVJpOjg==
+Received prepare request from S1 with Sequence number 2
+Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
+Received Commit request from S1 with Seq number 2
+Initiating executions : 8 : 7
 Received Cross Shard Commit request from S1 with Seq number 3
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 3
@@ -710,11 +739,71 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 1
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 1
+Response: sequenceNumber: 1
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash: 12 Request Hash: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: uh8WOAi81i9CtLhNgWAoqLMpUPVZeaUP5/ExGlk3xRHyyY9w/YZ5Kz8qWK+FIApDUKCkZR5aNh9Wlrd+8AD5VRXbOzV8SDcH+C86MswxLYkpnonjQOoGrneMJi5mxqICz29AB/zHD1mrHqz+AYKFNqAIZn+anF0SGnSPeA46RQfZJe44nnDUXOFT/f2JuPCPK3129m19Sy1jYwl8a741L1EPm+JXy/ujwBKGAX2Otx5mIdAChUE0XHd7uRZYNiY0yLkHmjq1y0M5gkgOMdoy2442FPiTC/+0jiNFv3F8i51Qq3VIQB0xzXZesCgDmdiQ6fIkBIdyY1syc8tUSiWLLw==
+Received Commit request from S1 with Seq number 6
+Initiating executions : 8 : 7
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
+Received Commit request from S1 with Seq number 3
+Initiating executions : 8 : 7
+Received Cross Shard Commit request from S1 with Seq number 4
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 4
+Response: sequenceNumber: 4
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 7
+PrePrepare Request received from S1
+PrePrepare request received: 7 Transaction ID: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
+Accepted ---- PrePrepare request accepted: 7 Transaction ID: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
+Rejected ---- PrePrepare request rejected: 7 Transaction ID: 14 Transaction ID from db map : 14 Tnx Hash matching : trueTransaction Hash: 14 Request Hash: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
+Received prepare request from S1 with Sequence number 7
+Accepted ---- Prepare request accepted: 7 Digest: uPDk6B0hSpyEYkhCergkRA5qEbwEuegxZBS1myq997upDpc78lLhOryU4A6/W6A+vCseorMPvX+hFpCfo9PYnSsSbKVTMMCUgH0UQTgare7bgk9UOSYK15KXIID+Pnd0+/wuCLO+cz5M2jexjTPjdj+mf5Pd0curFMaIYPgS6RbCIVHJ5AK9uWwWIHUqzKhNuxkowhkKCbUzAIzs/4Xe5IvbYGnzLcFZMmdLHkJo8HB8HvJiyO0ivV3vzIgAMQYBq4rZ4sBN2Fr1qWFnpK7QTKJrgV5Dvw2IvUsc+4DHyarmNJE/wrtO9LlxqSSXQUYCeyzUEJ49H82UqM7/R0ph+g==
+Received Commit request from S1 with Seq number 7
+Initiating executions : 8 : 7
+Received pre-prepare request from S1 with ballot number 1
+PrePrepare Request received from S1
+PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Received prepare request from S1 with Sequence number 1
+Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
+Received Commit request from S1 with Seq number 1
+Initiating executions : 8 : 7
 Received pre-prepare request from S1 with ballot number 4
 PrePrepare Request received from S1
 PrePrepare request received: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
 Accepted ---- PrePrepare request accepted: 4 Transaction ID: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
 Rejected ---- PrePrepare request rejected: 4 Transaction ID: 7 Transaction ID from db map : 7 Tnx Hash matching : trueTransaction Hash: 7 Request Hash: 7 Digest: nzbgQeEvAaUfy+Fq13GueD/18OvporAjCZ+ajguaosAfxYlezN92tOljt1n8P29AIbwVgSAEyejUN4h/xsc2wizWpLoTVJH+t/APpezS6qdLAOjEHSRbGJ16Tbq5uXWwuoMnaiuzUNXiFTluBq6mr027cBMp9koGT+BISMQ1b4zkP3C8I6DLF8V7H56T+/fBK8jG47lu46RveGP9DOIz0wBTOHuFfti8bP1FAUobxp4qeFCVU9HFFm8CRfNTxp9+KKCWwNRR5ZoEUttDSlxgYMYa7iq8P+TXYmiC6CtkMMJHJVYjYe0vfQp4ne8TsO9GQGehBAD/t9J9Pt54TzFjng==
+Received Cross Shard Commit request from S1 with Seq number 2
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 2
+Response: sequenceNumber: 2
+processId: "S4"
+success: true
+
+Resending Reply to Client  
 Received prepare request from S1 with Sequence number 4
 Accepted ---- Prepare request accepted: 4 Digest: rDfYo6VwfB1sfcJjlk3CQjHzSfzdLOAXFpUCft/tSgw93uacoKbazqe16A7NYLR4qehQoh5GrlkUdNRaC51UzyHo4jPHc8i7HVNflflxyy81H4zfxQfl1UA/Xk57S65a3XtMYIflHQJVi6TR4dkyB4MeENgMRvA+cZxol9P/B/RSXZK5Zunl1HqZDs+dG2hUhxq1i4a74r/KW8FEkalyetvRLGrBAruROuIHhY3ijRy8dfIQX0kVcd6n3qaMaT4t8hpr46jZVZN1cdavvEaX5TXysxLZF21t/qwY/K/+2UpcwNW6GGFLDGzlYC8gOa64ekmNzZbAilsxsdUsjxFZFg==
 Received Commit request from S1 with Seq number 4
@@ -723,14 +812,6 @@ Received Cross Shard Commit request from S1 with Seq number 6
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 6
 Response: sequenceNumber: 6
-processId: "S4"
-success: true
-
-Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 1
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 1
-Response: sequenceNumber: 1
 processId: "S4"
 success: true
 
@@ -744,6 +825,48 @@ Received prepare request from S1 with Sequence number 2
 Accepted ---- Prepare request accepted: 2 Digest: Bv+WRlrvLemyEsk3dXpeIjbHDO+pic2PLLglDxBS1YkuhIWUo/Yb9dtfAFsLxsBsukmcEljwnG+77+xOBygzQrxbCJ07uIaCtgH5azB2NpAsMlYVViUKLMURWCm4NrP7CjNzkBSOZMmrRUNED4CilA+I58nemgtrQVotFqkhOvavOrLexBGFPtL4Udimdr9fM489oeQxB/QAl5cmqWey2RkUXIE97lQpGCqSLfvcRWin0WAaBJ0FqHSj8Iq2yHKEV5g5AKE3xqCL+kstQRsGXbYp+xA+IskJlEMmLCZQb9TXP+Hy+fa1lIh8Eup6xA7aZWP06txxaW+1sOuL9OC+vg==
 Received Commit request from S1 with Seq number 2
 Initiating executions : 8 : 7
+Received Cross Shard Commit request from S1 with Seq number 3
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 3
+Response: sequenceNumber: 3
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 7
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 7
+Response: sequenceNumber: 7
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S1 with Seq number 1
+Abort Request Received from S1
+Sending Cross Shard Commit response to S1 with Seq number 1
+Response: sequenceNumber: 1
+processId: "S4"
+success: true
+
+Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 6
+PrePrepare Request received from S1
+PrePrepare request received: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Rejected ---- PrePrepare request rejected: 6 Transaction ID: 12 Transaction ID from db map : 12 Tnx Hash matching : trueTransaction Hash: 12 Request Hash: 12 Digest: VnKT9mQpIoVIKe7qvVlY6dQru69creMz+ecBIyiVF5HZZFPcQIdA0/LLnHGqR6uvLOebOkVvTvOMmyGvRssOpU3oXC7z41d04iH7ij/WU4EL7hdF7DtLPA2oIf5q48mtY2LyuBOg3CfOucp/zOW0AfLcmsQwG91tRaUzfbBEP5GjiiLoEbN9GcUMQfl6XuZAFfekTTDdadtW+BzfJWO+xAN7TglY3yLc9jRF6z4EB86bWTO2jHorD/Pn/9w2BzqPsJgR9cPAY/egXPMx8T/qJEgftT5bMISmFDLrqQvcJu8UkVF3qtqrz6blocQRXJKTQRsJQS5ExLWX26GHYSKKOA==
+Received prepare request from S1 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: uh8WOAi81i9CtLhNgWAoqLMpUPVZeaUP5/ExGlk3xRHyyY9w/YZ5Kz8qWK+FIApDUKCkZR5aNh9Wlrd+8AD5VRXbOzV8SDcH+C86MswxLYkpnonjQOoGrneMJi5mxqICz29AB/zHD1mrHqz+AYKFNqAIZn+anF0SGnSPeA46RQfZJe44nnDUXOFT/f2JuPCPK3129m19Sy1jYwl8a741L1EPm+JXy/ujwBKGAX2Otx5mIdAChUE0XHd7uRZYNiY0yLkHmjq1y0M5gkgOMdoy2442FPiTC/+0jiNFv3F8i51Qq3VIQB0xzXZesCgDmdiQ6fIkBIdyY1syc8tUSiWLLw==
+Received Commit request from S1 with Seq number 6
+Initiating executions : 8 : 7
+Received pre-prepare request from S1 with ballot number 3
+PrePrepare Request received from S1
+PrePrepare request received: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Rejected ---- PrePrepare request rejected: 3 Transaction ID: 5 Transaction ID from db map : 5 Tnx Hash matching : trueTransaction Hash: 5 Request Hash: 5 Digest: Whr8LJrLWaxXdAVRgYRenyaA1zszwmOk3SYXXMfGfXCfICrrSwL/ADY/4I2/F+HOcduRofxm3pP9x9Y4OzJI0qsqf4r4wCnTagvIF8tQQF9A/car65WYJiTqpTFr6TNKd5kwKprCOikElQIbFD5RsRNIGI1drI5aEQpZpEJ2VuHGOxvoH7ZPNwxqQ3wvf5KtMjjZXY54lY5cdvKXhxWCuLZicXmPYKSNvRJwjrFyWOhagFiIq4mth8aQXb9cn/EVcIMeKUVR81tWedk+XKlLu4Tnh3gJctCn3DAYdhfWadQaLDEEkG/H4JD2pbKTl7Qg5NAfFNqYTZlNfGaBc7umlQ==
+Received prepare request from S1 with Sequence number 3
+Accepted ---- Prepare request accepted: 3 Digest: Sico/uL6PO8wjeHuNqBlGQP8g5qtiL0o10sFiOVOb3goGFl9NgLQ4vxUWsLleiytItG6Ol1BwDwpmu0PZa5CewNbeE+B+Xd2SlGyyP/VYn7jr6ZmaEHZOttLdK6Rx2QEOkWx9LTeTx4xDLmX+8fs+fxbTzYvhCzjJCFWu1QyZO0UWuVU3MZQqBB/vy8LbN9f/xfkaFa7FsJmFARpe0UuyO2hpL5hPoWdz59gMGtActsclGmqV8bQKX5Gw6ZOCDBdD4o9wWcAMgvPxxfaM0rKZTbOEYIS08UuKyY/6CxwQvQJcPgacEpot7iRIipY5cs9M3w92xEmXDVoYwmu9Dx54Q==
+Received Commit request from S1 with Seq number 3
+Initiating executions : 8 : 7
 Received Cross Shard Commit request from S1 with Seq number 4
 Abort Request Received from S1
 Sending Cross Shard Commit response to S1 with Seq number 4
@@ -752,11 +875,21 @@ processId: "S4"
 success: true
 
 Resending Reply to Client  
-Received Cross Shard Commit request from S1 with Seq number 2
-Abort Request Received from S1
-Sending Cross Shard Commit response to S1 with Seq number 2
-Response: sequenceNumber: 2
-processId: "S4"
-success: true
-
-Resending Reply to Client  
+Received pre-prepare request from S1 with ballot number 7
+PrePrepare Request received from S1
+PrePrepare request received: 7 Transaction ID: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
+Accepted ---- PrePrepare request accepted: 7 Transaction ID: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
+Rejected ---- PrePrepare request rejected: 7 Transaction ID: 14 Transaction ID from db map : 14 Tnx Hash matching : trueTransaction Hash: 14 Request Hash: 14 Digest: jAOCyfZtTXP1e8FW47i1QWS5MIjp1W1JDUsCP+3mJd8DoZAmwd+c2D8bkujUohdr4LmwBJm5ft1jmPc0884zJYJ5r7WbdqMPCr/d2bhpKXYu4h26H8D+RlcuFvuLZT8U3kD9MYwVazIb3LRUWwcCVn9OONVKt24IGZWVG1VoCI9b9B0pMwgLHsv3dCvNzuYLVq8i3ookTi+y2lCmfH3zu/QX9iG4ECuQErRLfPmPNnfTkOsual0iSqwcDRIZoOqJEiVarQuZGQcmFO+Cp8HJMnV1u6dycAEsWz8gyKxfSn1utgBz15RdjVJtCTXQ7QVqZNVG5B4IWvPLtRFzd2BsVg==
+Received prepare request from S1 with Sequence number 7
+Accepted ---- Prepare request accepted: 7 Digest: uPDk6B0hSpyEYkhCergkRA5qEbwEuegxZBS1myq997upDpc78lLhOryU4A6/W6A+vCseorMPvX+hFpCfo9PYnSsSbKVTMMCUgH0UQTgare7bgk9UOSYK15KXIID+Pnd0+/wuCLO+cz5M2jexjTPjdj+mf5Pd0curFMaIYPgS6RbCIVHJ5AK9uWwWIHUqzKhNuxkowhkKCbUzAIzs/4Xe5IvbYGnzLcFZMmdLHkJo8HB8HvJiyO0ivV3vzIgAMQYBq4rZ4sBN2Fr1qWFnpK7QTKJrgV5Dvw2IvUsc+4DHyarmNJE/wrtO9LlxqSSXQUYCeyzUEJ49H82UqM7/R0ph+g==
+Received Commit request from S1 with Seq number 7
+Initiating executions : 8 : 7
+Received pre-prepare request from S1 with ballot number 1
+PrePrepare Request received from S1
+PrePrepare request received: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Rejected ---- PrePrepare request rejected: 1 Transaction ID: 1 Transaction ID from db map : 1 Tnx Hash matching : trueTransaction Hash: 1 Request Hash: 1 Digest: EAfnVRaepwys9vHYQC/mPzLqnIKEE1uoZSf9Istr0qh4LkuPtqP7z8OJtGN0t7YYYkwt5UKNSvTEFuIYaXMVnlKLwLgs+pNPv7zX5x9lLsnVcV8W09yqpXrGhxMXBybnCBfG++HjHduzdY/8upVIKVxY1Op65i0bl6ZboO32aQKfbcKhqlm1mXr4XKceJsjxAbyDPWtFEAf2IhLo02Xx+Xvve3uLvxm3hBb75nf2zm1mFMW20z0ei9oyGqSn/cMD7UBU6mmIekX7CS3ob6k7+TBokHuAl/0NQ89XgVHot94Arhf2L1HN2gZWLKvsWwgj3Gx7bKnkazAjEpi4xB6OzQ==
+Received prepare request from S1 with Sequence number 1
+Accepted ---- Prepare request accepted: 1 Digest: jyf3q0sFmTeYKIIoNhrIPJbhHrrhF0716GzomKUQblStWxR32Ul/aP7ZUx4aKzMPtKl+7NwmZdV3l8X3Ktb3tTdAx/l3uZ6gHcBeRDl0+SIAzC6R4dqvmgQ9j1vNCyGT/p5bv7SkJ3Ng+sdWYguGGWRrPJIJaBSlwx7UuIQ2GFFA3x5RSl4dGCU8ifzVK1alxsNHZi5UMu5PWZCc0DblRkImAekO9RrtlU1NKDP7yZTyk6QkLSTmLcHw/V4VsVVAC5Gw4dq41AsdZea8A4Sa0LFMB37wAhp1CcuaNg5PvImQmvYK3W0up8zOU9IrfC5N1ZhxPkpFTLvq14dFwWTmjg==
+Received Commit request from S1 with Seq number 1
+Initiating executions : 8 : 7

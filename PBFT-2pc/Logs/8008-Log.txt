@@ -95,41 +95,46 @@ Received pre-prepare request from S5 with ballot number 7
 Received prepare request from S5 with Sequence number 7
 Received Commit request from S5 with Seq number 7
 Received Cross Shard Commit request from S5 with Seq number 6
-Received Cross Shard Commit request from S5 with Seq number 7
 Received Cross Shard Commit request from S5 with Seq number 4
-Received Cross Shard Commit request from S5 with Seq number 5
+Received Cross Shard Commit request from S5 with Seq number 7
 Received pre-prepare request from S5 with ballot number 6
 Received prepare request from S5 with Sequence number 6
 Received Commit request from S5 with Seq number 6
-Received pre-prepare request from S5 with ballot number 7
-Received prepare request from S5 with Sequence number 7
-Received Commit request from S5 with Seq number 7
-Received Cross Shard Commit request from S5 with Seq number 6
+Received Cross Shard Commit request from S5 with Seq number 5
 Received pre-prepare request from S5 with ballot number 8
 Received prepare request from S5 with Sequence number 8
 Received Commit request from S5 with Seq number 8
-Received Cross Shard Commit request from S5 with Seq number 7
-Received pre-prepare request from S5 with ballot number 6
-Received prepare request from S5 with Sequence number 6
-Received Commit request from S5 with Seq number 6
 Received pre-prepare request from S5 with ballot number 7
 Received prepare request from S5 with Sequence number 7
 Received Commit request from S5 with Seq number 7
 Received Cross Shard Commit request from S5 with Seq number 6
-Received Cross Shard Commit request from S5 with Seq number 7
 Received pre-prepare request from S5 with ballot number 6
-PrePrepare Request received from S5
-PrePrepare request received: 6 Transaction ID: 9 Digest: ksI5lJa5FtJGEavXJpT/DCVwsa5Vlg0blzpK3YpPSgi0Zc486CuaZNfN/BeunvHyku1JTsMMmvjlkPQUv01aYOu1w9QdoKe+MMRUKj0eDfDGn88aQWPRXM7OgFPrW/nLaIe4Qhdiy19viFYWEGxwy7W3R6pjXmifBmMSMUYAinHeY0viVEe4q8r0rpqe7KgoO5+Zev7TidvQm0kkVbodBetpEDr9cGfNWo00Tz33gCCRcLECBrzHhqyIuBm3XGDygC/zwVaohdfqNu2ECb2zyAXYqq2T2Aei2HSXAGTAZJ0L1EzGK5lo32SqGAx7VvhPqvbs01OR26vf3f0CekDPGA==
-Accepted ---- PrePrepare request accepted: 6 Transaction ID: 9 Digest: ksI5lJa5FtJGEavXJpT/DCVwsa5Vlg0blzpK3YpPSgi0Zc486CuaZNfN/BeunvHyku1JTsMMmvjlkPQUv01aYOu1w9QdoKe+MMRUKj0eDfDGn88aQWPRXM7OgFPrW/nLaIe4Qhdiy19viFYWEGxwy7W3R6pjXmifBmMSMUYAinHeY0viVEe4q8r0rpqe7KgoO5+Zev7TidvQm0kkVbodBetpEDr9cGfNWo00Tz33gCCRcLECBrzHhqyIuBm3XGDygC/zwVaohdfqNu2ECb2zyAXYqq2T2Aei2HSXAGTAZJ0L1EzGK5lo32SqGAx7VvhPqvbs01OR26vf3f0CekDPGA==
 Received prepare request from S5 with Sequence number 6
-Accepted ---- Prepare request accepted: 6 Digest: qWJCBTaD1+woRZme3fnA0cAjRzzs3GlnsyB0AIUaUbWlRFRlQkKvlljrazi5A5wZpxtZgWBaC1fMerHQDJfG+1v1sRw72bRnG+4iqOk0obY95VGU0VILn/AhIFRMk0wUDusntXW+DPREB4p8tvjUi8nLOVGJqy8RjwtJNefQSHL/AAThuDSS4w/3n+Ro6bttotGiVr2ny25LITS2SRal0KMXqUwfclfcutb9LSjD9iWWrz4sPi6Oc9qdfmC589aFVCK2NQxXRrqOpPrlagxqXBajg+kT//42VdU11ezrZyaZ33o5qsbCShqkeCFboGM9UQhQ0OVyWUhihr2XdsiKuQ==
 Received Commit request from S5 with Seq number 6
-Initiating executions : 5 : 6
+Received pre-prepare request from S5 with ballot number 6
+Received prepare request from S5 with Sequence number 6
+Received Cross Shard Commit request from S5 with Seq number 7
+Received Commit request from S5 with Seq number 6
+Received pre-prepare request from S5 with ballot number 7
+PrePrepare Request received from S5
+PrePrepare request received: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Accepted ---- PrePrepare request accepted: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Received prepare request from S5 with Sequence number 7
+Accepted ---- Prepare request accepted: 7 Digest: aZE6TCBctOkll5CktU5Pn85d1QxLb+qWg+Xw5dUjmKYLjZksZbU8EmqGaDwimITTN+r64qsUkuw92wlMSR4OEjPkyPT4Z0Q0YUjI4Qt5zzpPudQ+Ij8PdGZ78NLjJ7TsPGWfb4sGaJWk6iapvNf0p+Lf8WcBg194qCLGPF8yVRg+1JOgRlcCtUd2/cRHK4WCQO0Y4k6UNuor2CLfCvfbbMDhqtiXs9E/j6M/Cw1GVDBucWPeQZQz52Lff5EL6dTlH72SkNyBsPF6pPe7RlQ++ajUwd3lCof2uqoYpc0cCLJ8ljjVwmmRVkQjzOZIlCL2D0PpAG5fSaKvbhT4VVENfg==
+Received Commit request from S5 with Seq number 7
+Initiating executions : 5 : 7
 Initiating execution for seqNum: 6
-Status : COMMITTED
-Executing transaction: 6
-WAL: Cross Shard Transaction: (1877, 2855,  5) 
-Initiating execution for seqNum: 7
+Status : Not Found
+Received pre-prepare request from S5 with ballot number 7
+PrePrepare Request received from S5
+PrePrepare request received: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Accepted ---- PrePrepare request accepted: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Rejected ---- PrePrepare request rejected: 7 Transaction ID: 10 Transaction ID from db map : 10 Tnx Hash matching : trueTransaction Hash: 10 Request Hash: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Received prepare request from S5 with Sequence number 7
+Accepted ---- Prepare request accepted: 7 Digest: aZE6TCBctOkll5CktU5Pn85d1QxLb+qWg+Xw5dUjmKYLjZksZbU8EmqGaDwimITTN+r64qsUkuw92wlMSR4OEjPkyPT4Z0Q0YUjI4Qt5zzpPudQ+Ij8PdGZ78NLjJ7TsPGWfb4sGaJWk6iapvNf0p+Lf8WcBg194qCLGPF8yVRg+1JOgRlcCtUd2/cRHK4WCQO0Y4k6UNuor2CLfCvfbbMDhqtiXs9E/j6M/Cw1GVDBucWPeQZQz52Lff5EL6dTlH72SkNyBsPF6pPe7RlQ++ajUwd3lCof2uqoYpc0cCLJ8ljjVwmmRVkQjzOZIlCL2D0PpAG5fSaKvbhT4VVENfg==
+Received Commit request from S5 with Seq number 7
+Initiating executions : 5 : 7
+Initiating execution for seqNum: 6
 Status : Not Found
 Received pre-prepare request from S5 with ballot number 9
 PrePrepare Request received from S5
@@ -138,23 +143,17 @@ Accepted ---- PrePrepare request accepted: 9 Transaction ID: 14 Digest: p0JgflTi
 Received prepare request from S5 with Sequence number 9
 Accepted ---- Prepare request accepted: 9 Digest: qhxDmQUPrbv4MQzEEyb9JiLas5FlNvDYO1Ry/j41odi2qkHmT9Sto+W3AwhEH3792y27EETAJFn5kfOxP1jJrW1xp9NIG3uRWAEDXdR/XH20fjtzeynLYRWFFvvzr6GU9+xj1yO+7PpNsj5/S5clOatuQSapS1so7xLi+dPMSgS3wUKEloza7S+ZMSVn2zmBPxC70gvc0B8GA6pQTSfpCQL2mSgL+2b/yP/tVU2gLSwjc3/cHa/QbXede0iuTmuelGSw7KXhns3Rb9TJZaz8zy4WABgoL9/DFhwbh9H/l1t3+eaBNqzNFa5nPYeKrp7XH9qKmkaGmv2/GuIEWIAlRA==
 Received Commit request from S5 with Seq number 9
-Initiating executions : 6 : 9
-Initiating execution for seqNum: 7
+Initiating executions : 5 : 9
+Initiating execution for seqNum: 6
 Status : Not Found
-Received pre-prepare request from S5 with ballot number 7
-PrePrepare Request received from S5
-PrePrepare request received: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
-Accepted ---- PrePrepare request accepted: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
-Received prepare request from S5 with Sequence number 7
-Accepted ---- Prepare request accepted: 7 Digest: aZE6TCBctOkll5CktU5Pn85d1QxLb+qWg+Xw5dUjmKYLjZksZbU8EmqGaDwimITTN+r64qsUkuw92wlMSR4OEjPkyPT4Z0Q0YUjI4Qt5zzpPudQ+Ij8PdGZ78NLjJ7TsPGWfb4sGaJWk6iapvNf0p+Lf8WcBg194qCLGPF8yVRg+1JOgRlcCtUd2/cRHK4WCQO0Y4k6UNuor2CLfCvfbbMDhqtiXs9E/j6M/Cw1GVDBucWPeQZQz52Lff5EL6dTlH72SkNyBsPF6pPe7RlQ++ajUwd3lCof2uqoYpc0cCLJ8ljjVwmmRVkQjzOZIlCL2D0PpAG5fSaKvbhT4VVENfg==
-Received Commit request from S5 with Seq number 7
-Initiating executions : 6 : 9
-Initiating execution for seqNum: 7
-Status : COMMITTED
-Executing transaction: 7
-WAL: Cross Shard Transaction: (1333, 2333,  3) 
-Initiating execution for seqNum: 8
-Status : Not Found
+Received Cross Shard Commit request from S5 with Seq number 6
+Abort Request Received from S5
+Sending Cross Shard Commit response to S5 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S8"
+success: true
+
+Resending Reply to Client  
 Received Cross Shard Commit request from S5 with Seq number 6
 Abort Request Received from S5
 Sending Cross Shard Commit response to S5 with Seq number 6
@@ -170,13 +169,48 @@ Accepted ---- PrePrepare request accepted: 10 Transaction ID: 15 Digest: YGPx8ps
 Received prepare request from S5 with Sequence number 10
 Accepted ---- Prepare request accepted: 10 Digest: csshZH/36HIUNUKnWmYrpz9LkgHfhNLEzGKOErPHLIxW9q3KRcvtlmJnd2MN+sleIYsU4HadRFX7cruWWsyqOqEX9KpSUT8RUbfcUDZF0WhDdCHoFbQg66pef2lTtB2qNK33f0VmU2P75ryNxBBx627c36e7ENKz1Qb/lBUAC8bRBKHmpO/dkqkm0Q1Wffzk/StsuDkT2lsS2iIryb024/ax5zh05Ldou3o858alnegxGsDIcAdXC6hylmgFkuTNQYk7rV1W28sBEcUSxp76blVKLMOoZU0csok7Ai05R7/0I6hE7Uo45L8J4h0RciAGzBZXNmvbz60fvrd6MjT4qA==
 Received Commit request from S5 with Seq number 10
-Initiating executions : 7 : 10
+Initiating executions : 5 : 10
+Initiating execution for seqNum: 6
+Status : ABORTED
+Received pre-prepare request from S5 with ballot number 6
+PrePrepare Request received from S5
+PrePrepare request received: 6 Transaction ID: 9 Digest: ksI5lJa5FtJGEavXJpT/DCVwsa5Vlg0blzpK3YpPSgi0Zc486CuaZNfN/BeunvHyku1JTsMMmvjlkPQUv01aYOu1w9QdoKe+MMRUKj0eDfDGn88aQWPRXM7OgFPrW/nLaIe4Qhdiy19viFYWEGxwy7W3R6pjXmifBmMSMUYAinHeY0viVEe4q8r0rpqe7KgoO5+Zev7TidvQm0kkVbodBetpEDr9cGfNWo00Tz33gCCRcLECBrzHhqyIuBm3XGDygC/zwVaohdfqNu2ECb2zyAXYqq2T2Aei2HSXAGTAZJ0L1EzGK5lo32SqGAx7VvhPqvbs01OR26vf3f0CekDPGA==
+Accepted ---- PrePrepare request accepted: 6 Transaction ID: 9 Digest: ksI5lJa5FtJGEavXJpT/DCVwsa5Vlg0blzpK3YpPSgi0Zc486CuaZNfN/BeunvHyku1JTsMMmvjlkPQUv01aYOu1w9QdoKe+MMRUKj0eDfDGn88aQWPRXM7OgFPrW/nLaIe4Qhdiy19viFYWEGxwy7W3R6pjXmifBmMSMUYAinHeY0viVEe4q8r0rpqe7KgoO5+Zev7TidvQm0kkVbodBetpEDr9cGfNWo00Tz33gCCRcLECBrzHhqyIuBm3XGDygC/zwVaohdfqNu2ECb2zyAXYqq2T2Aei2HSXAGTAZJ0L1EzGK5lo32SqGAx7VvhPqvbs01OR26vf3f0CekDPGA==
+Received prepare request from S5 with Sequence number 6
+Accepted ---- Prepare request accepted: 6 Digest: qWJCBTaD1+woRZme3fnA0cAjRzzs3GlnsyB0AIUaUbWlRFRlQkKvlljrazi5A5wZpxtZgWBaC1fMerHQDJfG+1v1sRw72bRnG+4iqOk0obY95VGU0VILn/AhIFRMk0wUDusntXW+DPREB4p8tvjUi8nLOVGJqy8RjwtJNefQSHL/AAThuDSS4w/3n+Ro6bttotGiVr2ny25LITS2SRal0KMXqUwfclfcutb9LSjD9iWWrz4sPi6Oc9qdfmC589aFVCK2NQxXRrqOpPrlagxqXBajg+kT//42VdU11ezrZyaZ33o5qsbCShqkeCFboGM9UQhQ0OVyWUhihr2XdsiKuQ==
+Received Commit request from S5 with Seq number 6
+Initiating executions : 5 : 10
+Initiating execution for seqNum: 6
+Status : COMMITTED
+Executing transaction: 6
+WAL: Cross Shard Transaction: (1877, 2855,  5) 
+Initiating execution for seqNum: 7
+Status : COMMITTED
+Executing transaction: 7
+WAL: Cross Shard Transaction: (1333, 2333,  3) 
 Initiating execution for seqNum: 8
 Status : Not Found
 Received Cross Shard Commit request from S5 with Seq number 7
 Abort Request Received from S5
 Sending Cross Shard Commit response to S5 with Seq number 7
 Response: sequenceNumber: 7
+processId: "S8"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S5 with Seq number 7
+Abort Request Received from S5
+Sending Cross Shard Commit response to S5 with Seq number 7
+Response: sequenceNumber: 7
+processId: "S8"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S5 with Seq number 10
+Commit Request Received from S5
+Commit Request Accepted from S5
+Sending Cross Shard Commit response to S5 with Seq number 10
+Response: sequenceNumber: 10
 processId: "S8"
 success: true
 
@@ -191,11 +225,30 @@ Received Commit request from S5 with Seq number 11
 Initiating executions : 7 : 11
 Initiating execution for seqNum: 8
 Status : Not Found
-Received Cross Shard Commit request from S5 with Seq number 10
+Received pre-prepare request from S5 with ballot number 7
+PrePrepare Request received from S5
+PrePrepare request received: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Accepted ---- PrePrepare request accepted: 7 Transaction ID: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Rejected ---- PrePrepare request rejected: 7 Transaction ID: 10 Transaction ID from db map : 10 Tnx Hash matching : trueTransaction Hash: 10 Request Hash: 10 Digest: gtnmL3oSbQaQXU84iVDXnjZD/S7vBlvIuJpsGTYZLGqkL93dOhNPL6x0BGOqVCx/qtlGUiP/aVnKRwGazh5783HVWs6BBAnS565+vowF2765stZTqqnmoAVeTFlobL8WUyZkhHVt3j/5o8egvOTgcifKJsGv+S8L2SgAQGLS66qtXSxpS89Dpc/l6yVdQ5gSeenqJQvrnc9WgCyRzXWgdU2Dvvx3b/FDwwtzADUCYKGkUM5VuahyHiYtC9mQI/KEGOpdwTu5MuM67wtJqKv8E9oJ3jrRg9/Zi0/1ilSrx7a4+CMcwb2wEYSDxjeM74+pDJfta8dm6ALdKak1g8+hjQ==
+Received prepare request from S5 with Sequence number 7
+Accepted ---- Prepare request accepted: 7 Digest: aZE6TCBctOkll5CktU5Pn85d1QxLb+qWg+Xw5dUjmKYLjZksZbU8EmqGaDwimITTN+r64qsUkuw92wlMSR4OEjPkyPT4Z0Q0YUjI4Qt5zzpPudQ+Ij8PdGZ78NLjJ7TsPGWfb4sGaJWk6iapvNf0p+Lf8WcBg194qCLGPF8yVRg+1JOgRlcCtUd2/cRHK4WCQO0Y4k6UNuor2CLfCvfbbMDhqtiXs9E/j6M/Cw1GVDBucWPeQZQz52Lff5EL6dTlH72SkNyBsPF6pPe7RlQ++ajUwd3lCof2uqoYpc0cCLJ8ljjVwmmRVkQjzOZIlCL2D0PpAG5fSaKvbhT4VVENfg==
+Received Commit request from S5 with Seq number 7
+Initiating executions : 7 : 11
+Initiating execution for seqNum: 8
+Status : Not Found
+Received Cross Shard Commit request from S5 with Seq number 6
 Commit Request Received from S5
 Commit Request Accepted from S5
-Sending Cross Shard Commit response to S5 with Seq number 10
-Response: sequenceNumber: 10
+Sending Cross Shard Commit response to S5 with Seq number 6
+Response: sequenceNumber: 6
+processId: "S8"
+success: true
+
+Resending Reply to Client  
+Received Cross Shard Commit request from S5 with Seq number 6
+Abort Request Received from S5
+Sending Cross Shard Commit response to S5 with Seq number 6
+Response: sequenceNumber: 6
 processId: "S8"
 success: true
 
@@ -211,11 +264,10 @@ Received Commit request from S5 with Seq number 6
 Initiating executions : 7 : 11
 Initiating execution for seqNum: 8
 Status : Not Found
-Received Cross Shard Commit request from S5 with Seq number 6
-Commit Request Received from S5
-Commit Request Accepted from S5
-Sending Cross Shard Commit response to S5 with Seq number 6
-Response: sequenceNumber: 6
+Received Cross Shard Commit request from S5 with Seq number 7
+Abort Request Received from S5
+Sending Cross Shard Commit response to S5 with Seq number 7
+Response: sequenceNumber: 7
 processId: "S8"
 success: true
 
@@ -231,11 +283,3 @@ Received Commit request from S5 with Seq number 7
 Initiating executions : 7 : 11
 Initiating execution for seqNum: 8
 Status : Not Found
-Received Cross Shard Commit request from S5 with Seq number 6
-Abort Request Received from S5
-Sending Cross Shard Commit response to S5 with Seq number 6
-Response: sequenceNumber: 6
-processId: "S8"
-success: true
-
-Resending Reply to Client  

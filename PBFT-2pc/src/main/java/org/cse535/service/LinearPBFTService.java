@@ -182,6 +182,8 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
             return;
         }
 
+        Main.node.database.crossShardCommitsReceived.put(request.getTransaction().getTransactionNum(), !request.getAbort());
+
         CommitResponse resp = Main.node.handleCrossShardCommit(request);
 
         Main.node.logger.log("Sending Cross Shard Commit response to " + request.getProcessId() + " with Seq number " + request.getSequenceNumber());

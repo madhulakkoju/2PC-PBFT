@@ -301,20 +301,29 @@ public class CrossShardTnxProcessingThread extends Thread {
 
 
 
-                                    //Wait for response from other shard
-                                    Thread.sleep(GlobalConfigs.TransactionTimeout);
-
                                     boolean recieverClusterPrepSuccess = false;
 
-                                    if(this.node.database.crossShardPrepareResponses.containsKey(transaction.getTransactionNum())
-                                            && this.node.database.crossShardPrepareResponses.get(transaction.getTransactionNum()).containsKey(receiverCluster) ){
+                                    int retryCount = 2;
 
-                                        if(!this.node.database.crossShardPrepareResponses.get(transaction.getTransactionNum()).get(receiverCluster).getAbort()){
-                                            recieverClusterPrepSuccess = true;
+                                    while(retryCount-- > 0) {
+                                        //Wait for response from other shard
+                                        Thread.sleep(GlobalConfigs.TransactionTimeout);
+                                        if(this.node.database.crossShardPrepareResponses.containsKey(transaction.getTransactionNum())
+                                                && this.node.database.crossShardPrepareResponses.get(transaction.getTransactionNum()).containsKey(receiverCluster) ){
+
+                                            if(!this.node.database.crossShardPrepareResponses.get(transaction.getTransactionNum()).get(receiverCluster).getAbort()){
+                                                recieverClusterPrepSuccess = true;
+                                            }
+                                            break;
                                         }
                                     }
 
-                                    logger.log("CST=="+Utils.toDataStoreString(transaction) + " "+ "Cross Shard Prepare Success");
+
+
+
+
+
+                                    logger.log("CST=="+Utils.toDataStoreString(transaction) + " "+ "Cross Shard Prepare Success check");
 
                                     if(recieverClusterPrepSuccess){
                                         this.node.logger.log("CST=="+Utils.toDataStoreString(transaction) + " "+ "Cross Shard - Receiver end Prepare Success");

@@ -20,7 +20,6 @@ import java.util.concurrent.locks.Lock;
 public class DatabaseService {
 
 
-
     public Integer serverNumber;
 
     public PriorityBlockingQueue<TransactionInputConfig> incomingTransactionsQueue;
@@ -77,6 +76,8 @@ public class DatabaseService {
     public HashMap<Integer, CommitRequest> commitRequestMap = new HashMap<>();
     //SeqNum : CommitResponse
     public HashMap<Integer, List<CommitResponse>> commitResponseMap = new HashMap<>();
+
+    public ConcurrentHashMap<Integer, Boolean> crossShardCommitsReceived = new ConcurrentHashMap<>();
 
     // SeqNum : ExecutionReply
     public HashMap<Integer, ExecutionReply> executionReplyMap = new HashMap<>();
@@ -162,7 +163,7 @@ public class DatabaseService {
             Class.forName("org.sqlite.JDBC");
 
 
-            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\mlakkoju\\2pcbyz-madhulakkoju\\PBFT-2pc\\Databases\\Database-"+this.serverNumber+".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\mlakkoju\\2pcbyz-madhulakkoju\\PBFT-2pc\\Databases\\Database-" + this.serverNumber + ".db");
             statement = connection.createStatement();
 
             //Account Table - to store balances
@@ -178,9 +179,9 @@ public class DatabaseService {
 
             int cluster = Utils.FindMyCluster(this.serverNumber);
 
-            for( Integer i :  Utils.GetAllDataItemsInCluster(cluster)){
+            for (Integer i : Utils.GetAllDataItemsInCluster(cluster)) {
                 String insertSQL = "INSERT INTO accounts (id, amount) VALUES ("
-                        + i + ", "+GlobalConfigs.InitialBalance+");";
+                        + i + ", " + GlobalConfigs.InitialBalance + ");";
                 statement.executeUpdate(insertSQL);
             }
 
@@ -204,7 +205,7 @@ public class DatabaseService {
 
             //Transaction Status Table - to store status of transactions
 
-           statement.executeUpdate("DELETE FROM transactionstatus;");
+            statement.executeUpdate("DELETE FROM transactionstatus;");
 
             createTableSQL = "CREATE TABLE IF NOT EXISTS transactionstatus (" +
                     "ballot INTEGER PRIMARY KEY, " +
@@ -213,7 +214,7 @@ public class DatabaseService {
 
             statement.executeUpdate(createTableSQL);
 
-
+            initWALAndLockTables();
 
 
         } catch (SQLException e) {
@@ -230,10 +231,10 @@ public class DatabaseService {
         int sender = transaction.getSender();
         int amount = transaction.getAmount();
 
-        if(Utils.FindClusterOfDataItem(sender) == this.node.clusterNumber){
+        if (Utils.FindClusterOfDataItem(sender) == this.node.clusterNumber) {
             int senderBalance = getBalance(sender);
 
-            if(transaction.getReceiver2() != 0){
+            if (transaction.getReceiver2() != 0) {
                 return senderBalance >= (amount + transaction.getAmount2());
             }
 
@@ -244,41 +245,41 @@ public class DatabaseService {
 
     public boolean executeTransaction(Transaction transaction) {
 
-        if(transaction == null) return false;
+        if (transaction == null) return false;
 
-        this.node.walLogger.log( transaction.getTransactionNum() + " - BEGIN TNX : " + Utils.toDataStoreString(transaction));
+        this.node.walLogger.log(transaction.getTransactionNum() + " - BEGIN TNX : " + Utils.toDataStoreString(transaction));
 
         int sender = transaction.getSender();
         int receiver = transaction.getReceiver();
         int amount = transaction.getAmount();
 
-        this.node.walLogger.log( transaction.getTransactionNum() + " - READ : " + sender );
+        this.node.walLogger.log(transaction.getTransactionNum() + " - READ : " + sender);
 
         int senderBalance = getBalance(sender);
 
-        if(senderBalance < amount){
-            this.node.walLogger.log( transaction.getTransactionNum() + " - ABORTED : " + Utils.toDataStoreString(transaction));
+        if (senderBalance < amount) {
+            this.node.walLogger.log(transaction.getTransactionNum() + " - ABORTED : " + Utils.toDataStoreString(transaction));
             return false;
         }
 
-        this.node.walLogger.log( transaction.getTransactionNum() + " - READ : " + receiver );
+        this.node.walLogger.log(transaction.getTransactionNum() + " - READ : " + receiver);
 
         int receiverBalance = getBalance(receiver);
 
-        this.node.walLogger.log( transaction.getTransactionNum() + " - BEFORE TNX : " + Utils.toDataStoreString(transaction));
+        this.node.walLogger.log(transaction.getTransactionNum() + " - BEFORE TNX : " + Utils.toDataStoreString(transaction));
 
-        if(Utils.FindClusterOfDataItem(receiver) == this.node.clusterNumber ) {
+        if (Utils.FindClusterOfDataItem(receiver) == this.node.clusterNumber) {
             updateBalance(sender, senderBalance - amount);
             this.node.walLogger.log(transaction.getTransactionNum() + " - WRITE : " + sender + " : " + (senderBalance - amount));
         }
 
 
-        if(Utils.FindClusterOfDataItem(receiver) == this.node.clusterNumber ){
+        if (Utils.FindClusterOfDataItem(receiver) == this.node.clusterNumber) {
             updateBalance(receiver, receiverBalance + amount);
-            this.node.walLogger.log( transaction.getTransactionNum() + " - WRITE : " + receiver + " : " + (receiverBalance + amount));
+            this.node.walLogger.log(transaction.getTransactionNum() + " - WRITE : " + receiver + " : " + (receiverBalance + amount));
         }
 
-        this.node.walLogger.log( transaction.getTransactionNum() + " - COMMIT : " + Utils.toDataStoreString(transaction));
+        this.node.walLogger.log(transaction.getTransactionNum() + " - COMMIT : " + Utils.toDataStoreString(transaction));
 
         return true;
     }
@@ -317,8 +318,7 @@ public class DatabaseService {
 
             }
             return balances;
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -326,7 +326,7 @@ public class DatabaseService {
 
     }
 
-    public synchronized void updateBalances(Map<Integer, Integer> balances){
+    public synchronized void updateBalances(Map<Integer, Integer> balances) {
         try {
             for (Integer account : balances.keySet()) {
                 String updateSQL = "UPDATE accounts SET amount = " + balances.get(account) + " WHERE id = " + account + ";";
@@ -337,7 +337,7 @@ public class DatabaseService {
         }
     }
 
-    public synchronized void deleteAllBalances(){
+    public synchronized void deleteAllBalances() {
         try {
             String deleteSQL = "DELETE FROM accounts;";
             statement.executeUpdate(deleteSQL);
@@ -358,22 +358,21 @@ public class DatabaseService {
     }
 
 
-
-    public synchronized void addToDataStore(PrepareRequest entry){
+    public synchronized void addToDataStore(PrepareRequest entry) {
         String str = Utils.toDataStoreString(entry);
-        if(this.dataStoreBackup.contains(str)){
+        if (this.dataStoreBackup.contains(str)) {
             return;
         }
         this.dataStore.get().add(str);
         this.dataStoreBackup.add(str);
     }
 
-    public synchronized void addToDataStore(CommitRequest entry){
-        if(entry == null) return;
-        if(!entry.hasTransaction()){
-            entry = entry.toBuilder().setTransaction( transactionMap.get(entry.getSequenceNumber()) ).build();
+    public synchronized void addToDataStore(CommitRequest entry) {
+        if (entry == null) return;
+        if (!entry.hasTransaction()) {
+            entry = entry.toBuilder().setTransaction(transactionMap.get(entry.getSequenceNumber())).build();
         }
-        if(entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0){
+        if (entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0) {
             return;
         }
         this.dataStore.get().add(Utils.toDataStoreString(entry));
@@ -381,37 +380,34 @@ public class DatabaseService {
     }
 
 
-    public synchronized void addCrossShardCommitToDataStore(CommitRequest entry){
+    public synchronized void addCrossShardCommitToDataStore(CommitRequest entry) {
         String str = Utils.toDataStoreStringCrossShardCommit(entry);
-        if(this.dataStoreBackup.contains(str)){
+        if (this.dataStoreBackup.contains(str)) {
             return;
         }
 
-        if(entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0){
+        if (entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0) {
             return;
         }
 
-        if(entry.getAbort()) return;
+        if (entry.getAbort()) return;
 
         this.dataStore.get().add(str);
         this.dataStoreBackup.add(str);
     }
 
-    public synchronized void addCrossShardPrepareToDataStore(CommitRequest entry){
+    public synchronized void addCrossShardPrepareToDataStore(CommitRequest entry) {
         String str = Utils.toDataStoreStringCrossShardPrepare(entry);
-        if(this.dataStoreBackup.contains(str)){
+        if (this.dataStoreBackup.contains(str)) {
             return;
         }
 
-        if(entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0){
+        if (entry.getTransaction().getSender() == 0 || entry.getTransaction().getReceiver() == 0) {
             return;
         }
         this.dataStore.get().add(str);
         this.dataStoreBackup.add(str);
     }
-
-
-
 
 
     public ConcurrentHashMap<Integer, Integer> lockedDataItemsWithTransactionNum;
@@ -419,21 +415,22 @@ public class DatabaseService {
 
     public synchronized boolean lockDataItem(int dataItem, int transactionNum) {
 
-        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+        if (Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber) {
             return false;
         }
 
-        this.node.walLogger.log(transactionNum+" - LOCK : " + dataItem + " : " + transactionNum);
+        this.node.walLogger.log(transactionNum + " - LOCK : " + dataItem + " : " + transactionNum);
         lockedDataItemsWithTransactionNum.put(dataItem, transactionNum);
+        lockDataItemEntry(dataItem, transactionNum);
         return true;
     }
 
     public synchronized boolean unlockDataItem(int dataItem, int transactionNum) {
 
-        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+        if (Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber) {
             return false;
         }
-        this.node.walLogger.log(transactionNum+" - UNLOCK : " + dataItem + " : " + transactionNum);
+        this.node.walLogger.log(transactionNum + " - UNLOCK : " + dataItem + " : " + transactionNum);
         lockedDataItemsWithTransactionNum.remove(dataItem);
 //        if(lockedDataItemsWithTransactionNum.containsKey(dataItem) && lockedDataItemsWithTransactionNum.get(dataItem) == transactionNum){
 //            return true;
@@ -442,14 +439,16 @@ public class DatabaseService {
     }
 
     public boolean isDataItemLocked(int dataItem) {
-        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+        if (Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber) {
             return false;
         }
         return lockedDataItemsWithTransactionNum.containsKey(dataItem);
+        //return getDataItemLockedTnx(dataItem) != -1;
+
     }
 
     public synchronized boolean isDataItemLockedWithTnx(int dataItem, int transactionNum) {
-        if(Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber){
+        if (Utils.FindClusterOfDataItem(dataItem) != this.node.clusterNumber) {
             return false;
         }
         return lockedDataItemsWithTransactionNum.containsKey(dataItem) && lockedDataItemsWithTransactionNum.get(dataItem) == transactionNum;
@@ -476,7 +475,7 @@ public class DatabaseService {
         public int receiver2;
         public int receiver2OldBalance;
 
-        public WALEntry(int transactionNum, int sender, int receiver, int senderOldBalance, int receiverOldBalance){
+        public WALEntry(int transactionNum, int sender, int receiver, int senderOldBalance, int receiverOldBalance) {
             this.transactionNum = transactionNum;
             this.sender = sender;
             this.receiver = receiver;
@@ -485,7 +484,7 @@ public class DatabaseService {
 
         }
 
-        public WALEntry(int transactionNum, int sender, int receiver, int senderOldBalance, int receiverOldBalance, int receiver2, int receiver2OldBalance){
+        public WALEntry(int transactionNum, int sender, int receiver, int senderOldBalance, int receiverOldBalance, int receiver2, int receiver2OldBalance) {
             this.transactionNum = transactionNum;
             this.sender = sender;
             this.receiver = receiver;
@@ -517,20 +516,20 @@ public class DatabaseService {
         }
 
 
-        if(Utils.FindClusterOfDataItem(receiver) == this.node.clusterNumber ){
+        if (Utils.FindClusterOfDataItem(receiver) == this.node.clusterNumber) {
             updateBalance(receiver, receiverBalance + amount);
-            this.node.walLogger.log( transaction.getTransactionNum() + " - WRITE TO WAL : " + receiver + " : " + (receiverBalance + amount));
+            this.node.walLogger.log(transaction.getTransactionNum() + " - WRITE TO WAL : " + receiver + " : " + (receiverBalance + amount));
         }
 
 
-        if(transaction.getReceiver2() != 0){
+        if (transaction.getReceiver2() != 0) {
             int receiver2 = transaction.getReceiver2();
             int amount2 = transaction.getAmount2();
             int receiver2Balance = getBalance(receiver2);
 
-            if(Utils.FindClusterOfDataItem(receiver2) == this.node.clusterNumber ){
+            if (Utils.FindClusterOfDataItem(receiver2) == this.node.clusterNumber) {
                 updateBalance(receiver2, receiver2Balance + amount2);
-                this.node.walLogger.log( transaction.getTransactionNum() + " - WRITE TO WAL : " + receiver2 + " : " + (receiver2Balance + amount2));
+                this.node.walLogger.log(transaction.getTransactionNum() + " - WRITE TO WAL : " + receiver2 + " : " + (receiver2Balance + amount2));
                 writeAheadLog.put(transaction.getTransactionNum(), new WALEntry(transaction.getTransactionNum(), sender, receiver, senderBalance, receiverBalance, receiver2, receiver2Balance));
                 return;
             }
@@ -543,9 +542,12 @@ public class DatabaseService {
 
     public synchronized void rollbackWAL(int transactionNum) {
 
-        WALEntry entry = writeAheadLog.get(transactionNum);
+        WALEntry entry = null;
+        entry = getWALEntry(transactionNum);
 
-        if(entry == null){
+        entry = writeAheadLog.get(transactionNum);
+
+        if (entry == null) {
             return;
         }
 
@@ -554,12 +556,12 @@ public class DatabaseService {
         int senderOldBalance = entry.senderOldBalance;
         int receiverOldBalance = entry.receiverOldBalance;
 
-        if(sender != -1){
+        if (sender != -1) {
             updateBalance(sender, senderOldBalance);
             this.node.walLogger.log(transactionNum + " - ROLLBACK : " + sender + " : " + senderOldBalance);
         }
 
-        if(receiver != -1){
+        if (receiver != -1) {
             updateBalance(receiver, receiverOldBalance);
             this.node.walLogger.log(transactionNum + " - ROLLBACK : " + receiver + " : " + receiverOldBalance);
         }
@@ -567,14 +569,16 @@ public class DatabaseService {
         int receiver2 = entry.receiver2;
         int receiver2OldBalance = entry.receiver2OldBalance;
 
-        if(receiver2 > 0){
+        if (receiver2 > 0) {
             updateBalance(receiver2, receiver2OldBalance);
             this.node.walLogger.log(transactionNum + " - ROLLBACK : " + receiver2 + " : " + receiver2OldBalance);
         }
+
     }
 
     public synchronized void commitWAL(int transactionNum) {
         writeAheadLog.remove(transactionNum);
+        DeleteWALEntry(transactionNum);
     }
 
 
@@ -588,11 +592,11 @@ public class DatabaseService {
 
 
 
-    public synchronized void addTransaction( int ballotNumber, Transaction transaction ) {
+    public synchronized void addTransaction(int ballotNumber, Transaction transaction) {
 
         //Transaction tnx = getTransaction(ballotNumber);
 
-        if( !this.transactionMap.containsKey(ballotNumber) ){
+        if (!this.transactionMap.containsKey(ballotNumber)) {
 
             try {
                 String insertSQL = "INSERT INTO transactions (ballot, transactionNum, sender, receiver, amount, isCrossShard ) VALUES ("
@@ -601,13 +605,11 @@ public class DatabaseService {
                         + transaction.getAmount() + ", " + transaction.getIsCrossShard()
                         + ");";
                 statement.executeUpdate(insertSQL);
-            }
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
 
-        }
-        else{
+        } else {
             try {
                 String insertSQL = "UPDATE transactions SET" +
                         " transactionNum = " + transaction.getTransactionNum()
@@ -618,8 +620,7 @@ public class DatabaseService {
                         + " WHERE ballot = " + ballotNumber + ";";
 
                 statement.executeUpdate(insertSQL);
-            }
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
             return;
@@ -656,128 +657,117 @@ public class DatabaseService {
     public synchronized void addTransactionStatus( int ballotNumber, TransactionStatus status ) {
 
         transactionStatusMap.put(ballotNumber, status);
-        return;
+//        return;
 
-//        TransactionStatus transactionStatus = getTransactionStatus(ballotNumber);
-//
-//        if(transactionStatus != TransactionStatus.PENDING){
-//
-//            try {
-//                String insertSQL = "UPDATE transactionstatus SET status =" + status.getNumber() + " WHERE ballot = " + ballotNumber + ";";
-//                statement.executeUpdate(insertSQL);
-//            }
-//            catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//
-//        }
-//        else{
-//            try {
-//                String insertSQL = "INSERT INTO transactionstatus (ballot, status ) VALUES ("
-//                        + ballotNumber + ", " + status.getNumber()
-//                        + ");";
-//                statement.executeUpdate(insertSQL);
-//            }
-//            catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
+        TransactionStatus transactionStatus = getTransactionStatus(ballotNumber);
+
+        if(transactionStatus != TransactionStatus.PENDING){
+
+            try {
+                String insertSQL = "UPDATE transactionstatus SET status =" + status.getNumber() + " WHERE ballot = " + ballotNumber + ";";
+                statement.executeUpdate(insertSQL);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }
+        else{
+            try {
+                String insertSQL = "INSERT INTO transactionstatus (ballot, status ) VALUES ("
+                        + ballotNumber + ", " + status.getNumber()
+                        + ");";
+                statement.executeUpdate(insertSQL);
+            }
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
 
 
     }
 
     public TransactionStatus getTransactionStatus(int ballotNumber) {
 
-        if(transactionStatusMap.containsKey(ballotNumber)){
+        if (transactionStatusMap.containsKey(ballotNumber)) {
             return transactionStatusMap.get(ballotNumber);
         }
-        else{
-            return TransactionStatus.PENDING;
+
+        try {
+            String selectSQL = "SELECT * FROM transactionstatus WHERE ballot = " + ballotNumber + ";";
+
+            ResultSet resultSet = statement.executeQuery(selectSQL);
+
+            return TransactionStatus.forNumber(resultSet.getInt("status"));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-//
-//        try {
-//            String selectSQL = "SELECT * FROM transactionstatus WHERE ballot = " + ballotNumber + ";";
-//
-//            ResultSet resultSet = statement.executeQuery(selectSQL);
-//
-//            return TransactionStatus.forNumber(resultSet.getInt("status"));
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return TransactionStatus.PENDING;
+        return TransactionStatus.PENDING;
     }
 
 
+    public void initiateExecutions() {
 
+        Main.node.logger.log("Initiating executions : " + lastExecutedSeqNum.get() + " : " + maxAddedSeqNum.get());
 
-    public void initiateExecutions(){
-
-        Main.node.logger.log("Initiating executions : "+ lastExecutedSeqNum.get() + " : " + maxAddedSeqNum.get());
-
-        while( lastExecutedSeqNum.get() <= maxAddedSeqNum.get() ){
+        while (lastExecutedSeqNum.get() <= maxAddedSeqNum.get()) {
 
             int seqNum = lastExecutedSeqNum.get() + 1;
 
             Main.node.logger.log("Initiating execution for seqNum: " + seqNum);
             Main.node.logger.log("Status : " + (transactionStatusMap.containsKey(seqNum) ? transactionStatusMap.get(seqNum) : "Not Found"));
 
-            if( transactionStatusMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.COMMITTED ){
+            if (transactionStatusMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.COMMITTED) {
                 // Execute the transaction
                 executeTransaction(seqNum);
                 lastExecutedSeqNum.set(seqNum);
-            } else if (transactionMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED){
+            } else if (transactionMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED) {
                 lastExecutedSeqNum.set(seqNum);
-            } else{
+            } else {
                 break;
             }
         }
     }
 
-    public void executeTransaction( int seqNum ){
+    public void executeTransaction(int seqNum) {
 
-        if(this.transactionStatusMap.containsKey(seqNum) && this.transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED){
+        if (this.transactionStatusMap.containsKey(seqNum) && this.transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED) {
             return;
         }
 
         Main.node.logger.log("Executing transaction: " + seqNum);
         Transaction transaction = transactionMap.get(seqNum);
 
-        if(transaction == null) return;
+        if (transaction == null) return;
 
-        if(! transaction.getIsCrossShard()) {
+        if (!transaction.getIsCrossShard()) {
             boolean success = executeTransaction(transaction);
             String failureReason = "";
 
-            if(!success){
+            if (!success) {
                 Main.node.logger.log("Transaction failed: " + seqNum);
                 this.transactionStatusMap.put(seqNum, TransactionStatus.ABORTED);
                 failureReason = "Execute Failed";
-            }
-            else{
+            } else {
                 this.transactionStatusMap.put(seqNum, TransactionStatus.EXECUTED);
             }
 
             this.node.database.unlockDataItem(transaction.getSender(), transaction.getTransactionNum());
             this.node.database.unlockDataItem(transaction.getReceiver(), transaction.getTransactionNum());
 
-            if(!transaction.getIsCrossShard()){
-                Main.node.sendExecutionReplyToClient(transaction, success, failureReason , success ? "EXECUTED" : "COMMITTED");
+            if (!transaction.getIsCrossShard()) {
+                Main.node.sendExecutionReplyToClient(transaction, success, failureReason, success ? "EXECUTED" : "COMMITTED");
                 Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
             }
 
-        }
-        else{
+        } else {
             this.node.logger.log("WAL: Cross Shard Transaction: " + Utils.toDataStoreString(transaction));
             this.writeToWAL(transaction);
         }
 
     }
-
-
-
-
 
 
     public ReShardingInitData getReshardingInitData() {
@@ -799,13 +789,103 @@ public class DatabaseService {
     }
 
 
-    public void setLastExecutedSeqNum(int seqNum){
+    public void setLastExecutedSeqNum(int seqNum) {
         lastExecutedSeqNum.set(seqNum);
     }
 
-    public void setMaxAddedSeqNum(int seqNum){
-        maxAddedSeqNum.set( Math.max( seqNum , maxAddedSeqNum.get() ) );
+    public void setMaxAddedSeqNum(int seqNum) {
+        maxAddedSeqNum.set(Math.max(seqNum, maxAddedSeqNum.get()));
     }
+
+
+    void initWALAndLockTables() throws SQLException {
+
+        statement.executeUpdate("DELETE FROM locks;");
+
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS locks (" +
+                "dataitem INTEGER PRIMARY KEY, " +
+                "transactionNum INTEGER NOT NULL " +
+                ");";
+
+        statement.executeUpdate(createTableSQL);
+
+
+        statement.executeUpdate("DELETE FROM wal;");
+
+        createTableSQL = "CREATE TABLE IF NOT EXISTS wal (" +
+                "transactionNum INTEGER PRIMARY KEY, " +
+                "sender INTEGER NOT NULL, " +
+                "receiver INTEGER NOT NULL, " +
+                "senderOldBalance INTEGER NOT NULL, " +
+                "receiverOldBalance INTEGER NOT NULL, " +
+                "receiver2 INTEGER NOT NULL, " +
+                "receiver2OldBalance INTEGER NOT NULL " +
+                ");";
+
+        statement.executeUpdate(createTableSQL);
+    }
+
+    public WALEntry getWALEntry(int transactionNum) {
+        try {
+
+
+            String selectSQL = "SELECT * FROM wal WHERE transactionNum = " + transactionNum + ";";
+
+            ResultSet resultSet = statement.executeQuery(selectSQL);
+
+            if (!resultSet.next()) {
+                return null;
+            }
+
+            int sender = resultSet.getInt("sender");
+            int receiver = resultSet.getInt("receiver");
+            int senderOldBalance = resultSet.getInt("senderOldBalance");
+            int receiverOldBalance = resultSet.getInt("receiverOldBalance");
+            int receiver2 = resultSet.getInt("receiver2");
+            int receiver2OldBalance = resultSet.getInt("receiver2OldBalance");
+
+            return new WALEntry(transactionNum, sender, receiver, senderOldBalance, receiverOldBalance, receiver2, receiver2OldBalance);
+        } catch (SQLException e) {
+
+        }
+        return null;
+
+    }
+
+    public void DeleteWALEntry(int transactionNum) {
+        try {
+            String deleteSQL = "DELETE FROM wal WHERE transactionNum = " + transactionNum + ";";
+            statement.executeUpdate(deleteSQL);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getDataItemLockedTnx(int dataItem) {
+        try {
+            String selectSQL = "SELECT * FROM locks WHERE dataitem = " + dataItem + ";";
+            ResultSet resultSet = statement.executeQuery(selectSQL);
+            if (!resultSet.next()) {
+                return -1;
+            }
+            return resultSet.getInt("transactionNum");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public void lockDataItemEntry(int dataItem, int transactionNum) {
+        try {
+            String insertSQL = "INSERT INTO locks (dataitem, transactionNum) VALUES (" + dataItem + ", " + transactionNum + ");";
+            statement.executeUpdate(insertSQL);
+        }
+        catch(Exception e) {e.printStackTrace();}
+    }
+
+
+
+
 
 
 

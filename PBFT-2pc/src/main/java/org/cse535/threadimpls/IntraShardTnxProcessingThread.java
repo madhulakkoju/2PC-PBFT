@@ -7,7 +7,9 @@ import org.cse535.database.DatabaseService;
 import org.cse535.node.Node;
 import org.cse535.proto.*;
 
+import java.util.Map;
 import java.util.Objects;
+import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -33,6 +35,8 @@ public class IntraShardTnxProcessingThread extends Thread {
             this.node.logger.log("IST: Transaction is null");
             return;
         }
+
+        int currentSeqNum = -1;
         try {
             this.node.logger.log("Processing transaction " + this.tnx.getTransactionNum());
             //this.node.logger.log("Tnx INPUT for verify:\n" + this.tnxInput.toString());
@@ -113,7 +117,7 @@ public class IntraShardTnxProcessingThread extends Thread {
 
                     boolean prePrepareSuccess = false;
 
-                    int currentSeqNum;
+
 
                     if(this.node.database.transactionNumSeqNumMap.containsKey(this.tnx.getTransactionNum())){
                         currentSeqNum = this.node.database.transactionNumSeqNumMap.get(this.tnx.getTransactionNum());
@@ -332,6 +336,37 @@ public class IntraShardTnxProcessingThread extends Thread {
             if (!tnx.getIsCrossShard() && !success )
                 this.node.sendExecutionReplyToClient(tnx, success, failureReason, "ABORTED");
 
+
+            if(success && tnx.getIsCrossShard()){
+                // Timer to abort this transaction because no COMMIT from coordinator
+
+                TimerTask abortTimer = new TimerTask() {
+                    @Override
+                    public void run() {
+                        node.logger.log("Cross Shard Commit Timeout for SeqNum: " + tnx.getTransactionNum());
+
+                        if(node.database.crossShardCommitsReceived.containsKey(tnx.getTransactionNum())){
+                            return;
+                        }
+
+                        CommitRequest commitRequest = CommitRequest.newBuilder()
+                                .setTransaction(tnx)
+                                .setAbort(true)
+                                .setProcessId(node.serverName)
+                                .setClusterId(node.clusterNumber)
+                                .setSequenceNumber( node.database.transactionNumSeqNumMap.get(tnx.getTransactionNum()) )
+                                .build();
+
+                        // If not received, ABORT and WAL Rollback
+                        sendCommit(commitRequest, node.clusterNumber);
+
+                    }
+                };
+
+                this.node.timer.schedule( abortTimer , GlobalConfigs.TransactionTimeout * 3);
+            }
+
+
         }
         catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -346,5 +381,24 @@ public class IntraShardTnxProcessingThread extends Thread {
         }
 
 
+    }
+
+    public void sendCommit(CommitRequest request, int cluster){
+
+        for(int serverId : GlobalConfigs.clusterToServersMap.get(cluster)){
+//            if(serverId == this.node.serverNumber){
+//                continue;
+//            }
+
+            Thread thread = new Thread(() -> {
+                try {
+                    this.node.serversToPaxosStub.get(serverId).crossShardCommit(request);
+                } catch (Exception e) {
+                    System.err.println("Error occurred while processing receiver response: " + e.getMessage());
+                    this.node.logger.log( "CST=="+Utils.toDataStoreString(this.tnxInput.getTransaction()) + " "+  "Error occurred while processing receiver response: " + e.getMessage());
+                }
+            });
+            thread.start();
+        }
     }
 }

@@ -14,6 +14,7 @@ import org.cse535.service.CommandsService;
 import org.cse535.service.LinearPBFTService;
 
 import java.util.HashMap;
+import java.util.Timer;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
@@ -32,6 +33,9 @@ public class NodeServer {
     public Integer clusterNumber;
 
     public DatabaseService database;
+
+
+    public Timer timer = new Timer();
 
     // GRPC Server Items
     public Server server;
